@@ -6,3 +6,14 @@ body {
 a {
   color: #00B7FF;
 }
+
+.sidebar {
+	background-color: green;
+	float: right;
+}
+
+.block 		{ box-sizing: border-box; margin: 10px; }
+.block.g1	{ width: 100px; }
+.block.g2	{ width: 200px; }
+.block.g3	{ width: 200px; }
+.block.g4	{ width: 200px; }

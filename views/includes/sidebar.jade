@@ -1,0 +1,17 @@
+div#sidebar.sidebar
+	hgroup
+		h1.kivaLogo: a(href="#") Kiva 2011
+		h2.documentTitle Annual Report
+
+	- var items = ['borrowers', 'lenders', 'web site', 'partners', 'kiva ecosystem', 'stories from the field', 'press & promotions', 'fundraising' ]
+	nav
+		ul
+		each item in items
+			li(class= item) #{item}
+
+
+	div
+		div
+			a.button.share(href="#") Share this button
+		div
+			a.button.donate(href="#") Donate

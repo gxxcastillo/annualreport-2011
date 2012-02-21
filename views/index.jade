@@ -1,2 +1,30 @@
-h1= title
-p Welcome to #{title}
+include includes/sidebar.jade
+
+#main.main
+
+#random
+	p Welcome to #{title}
+
+	div This is the borrower info
+
+	h2 Money Borrowed
+	ul
+	each val, key in borrowers.moneyBorrowed
+		li #{key}: #{val}
+
+	h2 Total Loans
+	ul
+	each val, key in borrowers.totalLoans
+		li #{key}: #{val}
+
+	h2 Gender
+	ul
+	each val, key in borrowers.gender
+		li #{key}: #{val}
+
+
+	h2 Top Countries
+	each country in borrowers.topCountries
+		ul
+		each val, key in country
+			li #{key}: #{val}

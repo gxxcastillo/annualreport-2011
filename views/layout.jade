@@ -1,6 +1,26 @@
-!!!
+!!! 5
 html
-  head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body!= body
+	title= title
+	link(rel='stylesheet', href='/stylesheets/style.css')
+	body!= body
+
+	script(type='text/x-handlebars-template', id='blockTemplate')
+		h3 {{title}}
+		img(src='/images/kiva.png')
+		p {{content}}
+
+	script(type='text/x-handlebars-template', id='blockWindowTemplate')
+		img(src='/images/kiva.png')
+		div
+			h3 {{title}}
+			p {{content}}
+
+	script(src='/javascripts/lib/jquery.js')
+	script(src='/javascripts/lib/handlebars.js')
+	script(src='/javascripts/lib/underscore.js')
+	script(src='/javascripts/lib/backbone.js')
+
+	script(src='/javascripts/lib/jquery.isotope.js')
+
+	script(src='/javascripts/views/block.js')
+	script(src='/javascripts/app.js')
