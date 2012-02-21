@@ -1,4 +1,4 @@
-var modelData = {title: 'blockTpl', content: 'Blah blah blah'};
+var modelData = {title: 'blockTpl'};
 
 // instantiate isotope
 $('#main').isotope({
@@ -24,6 +24,8 @@ var intervalId = window.setInterval(function () {
 	if (++count === 4) {
 		window.clearInterval(intervalId);
 	}
+
+	modelData.content = 'Number ' + count;
 
 	newBlock = new blockView({
 		model: modelData

@@ -13,7 +13,7 @@ a {
 }
 
 .block 		{ box-sizing: border-box; margin: 10px; }
-.block.g1	{ width: 100px; }
-.block.g2	{ width: 200px; }
-.block.g3	{ width: 200px; }
-.block.g4	{ width: 200px; }
+.block.g1	{ width: 100px; height: 200px; }
+.block.g2	{ width: 200px; height: 200px; }
+.block.g3	{ width: 200px; height: 200px; }
+.block.g4	{ width: 200px; height: 200px; }
