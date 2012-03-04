@@ -20,7 +20,7 @@ require([
 	, 'jquery.isotope'
 	, 'blockView'
 ]
-, function (backbone, handlebars, iso, blockView) {
+, function (backbone, Handlebars, undefined, blockView) {
 	'use strict';
 
 	var newBlock

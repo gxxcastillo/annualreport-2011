@@ -1,4 +1,4 @@
-define(['backbone'], function () {
+define(['backbone', 'handlebars'], function (backbone, Handlebars) {
 	return Backbone.View.extend({
 
 		tagName: 'div'
