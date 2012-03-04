@@ -2,6 +2,7 @@
 html
 	title= title
 	link(rel='stylesheet', href='/stylesheets/style.css')
+	script(src='/javascripts/lib/require.js', data-main='/javascripts/app.js')
 	body!= body
 
 	script(type='text/x-handlebars-template', id='blockTemplate')
@@ -14,13 +15,3 @@ html
 		div
 			h3 {{title}}
 			p {{content}}
-
-	script(src='/javascripts/lib/jquery.js')
-	script(src='/javascripts/lib/handlebars.js')
-	script(src='/javascripts/lib/underscore.js')
-	script(src='/javascripts/lib/backbone.js')
-
-	script(src='/javascripts/lib/jquery.isotope.js')
-
-	script(src='/javascripts/views/block.js')
-	script(src='/javascripts/app.js')

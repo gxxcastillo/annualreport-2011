@@ -1,39 +1,63 @@
-var modelData = {title: 'blockTpl'};
-
-// instantiate isotope
-$('#main').isotope({
-     itemSelector: '.block'
+require.config({
+    baseUrl: '/javascripts'
+	, paths: {
+		'order': 'lib/order'
+		, 'jquery': 'lib/jquery'
+		, 'underscore': 'lib/underscore'
+		, 'backbone': 'lib/backbone'
+		, 'handlebars': 'lib/handlebars'
+		, 'app': 'lib/app'
+		, 'jquery.isotope': 'lib/jquery.isotope'
+		, 'jquery.infinitescroll': 'lib/jquery.infinitescroll'
+		, 'blockView': 'views/blockView'
+	}
 });
 
-var count;
-var newBlock;
 
-for (count = 0; count < 2; count++) {
-	newBlock = new blockView({
-		model: modelData
-		, className: 'block g2'
+require([
+	'backbone'
+	, '/javascripts/lib/handlebars.js'
+	, 'jquery.isotope'
+	, 'blockView'
+]
+, function (backbone, handlebars, iso, blockView) {
+	'use strict';
+
+	var newBlock
+	, modelData = {title: 'blockTpl'}
+	, count;
+
+	// instantiate isotope
+	$('#main').isotope({
+		animationEngine: 'best-available'
+		, itemSelector: '.block'
 	});
 
-	$('#main').isotope( 'insert', newBlock.$el );
-}
+	for (count = 0; count < 2; count++) {
+		newBlock = new blockView({
+			model: modelData
+			, className: 'block g2'
+		});
 
-// Start appending
-count = 0;
-var intervalId = window.setInterval(function () {
-
-	if (++count === 4) {
-		window.clearInterval(intervalId);
+		$('#main').isotope( 'insert', newBlock.$el );
 	}
 
-	modelData.content = 'Number ' + count;
+	// Start appending
+	count = 0;
+	var intervalId = window.setInterval(function () {
 
-	newBlock = new blockView({
-		model: modelData
-		, className: 'block g2'
-	});
+		if (++count === 4) {
+			window.clearInterval(intervalId);
+		}
 
-	console.log(newBlock.$el);
+		modelData.content = 'Number ' + count;
 
-	$('#main').isotope( 'insert', newBlock.$el ).isotope('appended', newBlock.$el );
+		newBlock = new blockView({
+			model: modelData
+			, className: 'block g2'
+		});
 
-}, 2000);
+		$('#main').isotope( 'insert', newBlock.$el ).isotope('appended', newBlock.$el );
+
+	}, 2000);
+});

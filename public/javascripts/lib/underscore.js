@@ -48,10 +48,11 @@
   // Create a safe reference to the Underscore object for use below.
   var _ = function(obj) { return new wrapper(obj); };
 
-  // Export the Underscore object for **Node.js**, with
-  // backwards-compatibility for the old `require()` API. If we're in
-  // the browser, add `_` as a global object via a string identifier,
-  // for Closure Compiler "advanced" mode.
+  // Export the Underscore object for **Node.js** and **"CommonJS"**, with
+  // backwards-compatibility for the old `require()` API. If we're not in
+  // CommonJS, add `_` to the global object via a string identifier for
+  // the Closure Compiler "advanced" mode. Registration as an AMD module
+  // via define() happens at the end of this file.
   if (typeof exports !== 'undefined') {
     if (typeof module !== 'undefined' && module.exports) {
       exports = module.exports = _;
@@ -180,7 +181,7 @@
     each(obj, function(value, index, list) {
       if (!(result = result && iterator.call(context, value, index, list))) return breaker;
     });
-    return !!result;
+    return result;
   };
 
   // Determine if at least one element in the object matches a truth test.
@@ -224,7 +225,7 @@
 
   // Return the maximum element or (element-based computation).
   _.max = function(obj, iterator, context) {
-    if (!iterator && _.isArray(obj) && obj[0] === +obj[0]) return Math.max.apply(Math, obj);
+    if (!iterator && _.isArray(obj)) return Math.max.apply(Math, obj);
     if (!iterator && _.isEmpty(obj)) return -Infinity;
     var result = {computed : -Infinity};
     each(obj, function(value, index, list) {
@@ -236,7 +237,7 @@
 
   // Return the minimum element (or element-based computation).
   _.min = function(obj, iterator, context) {
-    if (!iterator && _.isArray(obj) && obj[0] === +obj[0]) return Math.min.apply(Math, obj);
+    if (!iterator && _.isArray(obj)) return Math.min.apply(Math, obj);
     if (!iterator && _.isEmpty(obj)) return Infinity;
     var result = {computed : Infinity};
     each(obj, function(value, index, list) {
@@ -403,7 +404,7 @@
   // Take the difference between one array and a number of other arrays.
   // Only the elements present in just the first array will remain.
   _.difference = function(array) {
-    var rest = _.flatten(slice.call(arguments, 1), true);
+    var rest = _.flatten(slice.call(arguments, 1));
     return _.filter(array, function(value){ return !_.include(rest, value); });
   };
 
@@ -548,17 +549,15 @@
 
   // Returns a function, that, as long as it continues to be invoked, will not
   // be triggered. The function will be called after it stops being called for
-  // N milliseconds. If `immediate` is passed, trigger the function on the
-  // leading edge, instead of the trailing.
-  _.debounce = function(func, wait, immediate) {
+  // N milliseconds.
+  _.debounce = function(func, wait) {
     var timeout;
     return function() {
       var context = this, args = arguments;
       var later = function() {
         timeout = null;
-        if (!immediate) func.apply(context, args);
+        func.apply(context, args);
       };
-      if (immediate && !timeout) func.apply(context, args);
       clearTimeout(timeout);
       timeout = setTimeout(later, wait);
     };
@@ -763,7 +762,6 @@
   // Is a given array, string, or object empty?
   // An "empty" object has no enumerable own-properties.
   _.isEmpty = function(obj) {
-    if (obj == null) return true;
     if (_.isArray(obj) || _.isString(obj)) return obj.length === 0;
     for (var key in obj) if (_.has(obj, key)) return false;
     return true;
@@ -998,5 +996,13 @@
   wrapper.prototype.value = function() {
     return this._wrapped;
   };
+
+  // AMD define happens at the end for compatibility with AMD loaders
+  // that don't enforce next-turn semantics on modules.
+  if (typeof define === 'function' && define.amd) {
+    define('underscore', function() {
+      return _;
+    });
+  }
 
 }).call(this);

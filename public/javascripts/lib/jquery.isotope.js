@@ -1,3 +1,5 @@
+define(['jquery'], function () {
+
 /**
  * Isotope v1.5.11
  * An exquisite jQuery plugin for magical layouts
@@ -1389,3 +1391,5 @@
   };
 
 })( window, jQuery );
+
+});
