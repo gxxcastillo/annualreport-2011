@@ -1,3 +1,5 @@
+define('Handlebars', [], function () {
+
 // lib/handlebars/base.js
 var Handlebars = {};
 
@@ -1548,3 +1550,5 @@ Handlebars.VM = {
 
 Handlebars.template = Handlebars.VM.template;
 ;
+
+});

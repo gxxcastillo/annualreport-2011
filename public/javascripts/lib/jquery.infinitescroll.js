@@ -1,3 +1,5 @@
+define(['jquery'], function () {
+
 /*
 	--------------------------------
 	Infinite Scroll
@@ -701,3 +703,5 @@
 
 
 })(window, jQuery);
+
+});

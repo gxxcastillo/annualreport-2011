@@ -16,7 +16,7 @@ require.config({
 
 require([
 	'backbone'
-	, '/javascripts/lib/handlebars.js'
+	, 'handlebars'
 	, 'jquery.isotope'
 	, 'blockView'
 ]

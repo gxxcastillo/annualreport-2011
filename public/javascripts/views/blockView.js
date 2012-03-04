@@ -8,15 +8,15 @@ define(['backbone'], function () {
 
 		, template: Handlebars.compile($('#blockTemplate').html())
 
-		, initialize: function () {
-			this.render();
-		}
-
 		, render: function() {
 			var tplSource = Handlebars.compile($('#blockTemplate').html());
 
 			$(this.el).html(this.template(this.model));
 			return this;
+		}
+
+		, initialize: function () {
+			this.render();
 		}
 	});
 });
