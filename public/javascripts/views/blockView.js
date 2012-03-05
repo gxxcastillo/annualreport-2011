@@ -8,15 +8,12 @@ define(['backbone', 'handlebars'], function (backbone, Handlebars) {
 
 		, template: Handlebars.compile($('#blockTemplate').html())
 
-		, render: function() {
-			var tplSource = Handlebars.compile($('#blockTemplate').html());
-
-			$(this.el).html(this.template(this.model));
-			return this;
+		, render: function(viewData) {
+			this.$el.html(this.template(viewData));
 		}
 
-		, initialize: function () {
-			this.render();
+		, initialize: function (viewData) {
+			this.render(viewData);
 		}
 	});
 });
