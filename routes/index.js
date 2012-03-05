@@ -95,7 +95,15 @@ exports.section = function(req, res){
 	// return json object representation of this view, broken up into "blocks".
 	// Rendering will then iterate over each block.  (no frame)
 
+	var viewData = sections[req.params.section];
+
+	if (viewData) {
+		viewData.success = true;
+	} else {
+		viewData = {};
+		viewData.success = false;
+	}
 
 	// does this need to be converted to JSON?
-	res.send(sections[req.params.section]);
+	res.send(viewData);
 };

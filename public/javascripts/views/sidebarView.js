@@ -19,22 +19,20 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'dv']
 		, navClickHandler: function (event) {
 			event.preventDefault();
 
-			var $target = $(event.target)
- 		    , section = $target.data('dv-section')
-
-			$.getJSON(section, function (results) {
-				// Update the url
-				history.pushState(results, section, section);
-
-				// Announce that we've got new content
-				dv.publish('success.get.section.dv', results);
-			});
-
- 		    this.$el.find('li.active').removeClass('active');
- 		    $target.parent().addClass('active');
+			// Update the url
+			dv.router.navigate(event.target.getAttribute('href').substr(1), {trigger: true});
 		}
 
 		, initialize: function () {
+			var viewObj = this;
+
+			// Update the UI when routed to a new section
+			$(function () {
+				dv.router.on('router:showSection', function (section) {
+					viewObj.$el.find('li.active').removeClass('active');
+					$('.' + section, viewObj).parent().addClass('active');
+				});
+			});
 		}
 	});
 });
