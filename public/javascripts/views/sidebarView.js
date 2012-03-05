@@ -1,5 +1,6 @@
 define(['jquery', 'underscore', 'backbone', 'handlebars', 'dv']
 , function ($, _ ,Backbone, Handlebars, dv ,undefined) {
+	'use strict';
 
 	return Backbone.View.extend({
 
@@ -22,6 +23,10 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'dv']
  		    , section = $target.data('dv-section')
 
 			$.getJSON(section, function (results) {
+				// Update the url
+				history.pushState(results, section, section);
+
+				// Announce that we've got new content
 				dv.publish('success.get.section.dv', results);
 			});
 
@@ -32,4 +37,4 @@ define(['jquery', 'underscore', 'backbone', 'handlebars', 'dv']
 		, initialize: function () {
 		}
 	});
-})
+});

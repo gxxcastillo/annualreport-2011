@@ -15,10 +15,14 @@ require.config({
 	}
 });
 
-require(['dv', 'sidebarView', 'mainView', 'sectionView'], function (dv, sidebarView, mainView, sectionView) {
+require(['dv', 'mainView', 'sidebarView', 'router','jquery', 'underscore', 'backbone', 'handlebars']
+, function (dv, mainView, sidebarView, Router) {
 	// Instantiate #sidebar
 	new sidebarView();
 
 	// Instantiate #main
 	new mainView();
+
+	// Instantiate the router
+	Router.initialize();
 });
