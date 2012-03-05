@@ -87,11 +87,15 @@ var sections = {
 	}
 }
 
-exports.index = function(req, res){
-  res.render('index', {title: 'dataviz'});
+exports.index = function (req, res) {
+	res.render('index', {title: 'dataviz'});
 };
 
-exports.section = function(req, res){
+exports.section = function (req, res) {
+	res.render('index', {title: 'dataviz'});
+};
+
+exports.rawSection = function (req, res) {
 	// return json object representation of this view, broken up into "blocks".
 	// Rendering will then iterate over each block.  (no frame)
 
@@ -106,4 +110,4 @@ exports.section = function(req, res){
 
 	// does this need to be converted to JSON?
 	res.send(viewData);
-};
+}

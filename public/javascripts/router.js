@@ -12,13 +12,9 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 
 
 		, showSection: function (section) {
-			$.getJSON(section, function (results) {
-				if (results.success) {
-					// Announce that we've got new content
-					dv.publish('success.get.section.dv', results);
-				} else {
-					// @todo There was an error on the server
-				}
+			$.getJSON('r/' + section, function (results) {
+				// Announce that we've got new content
+				dv.publish('get.section.dv', results);
 			});
 		}
 

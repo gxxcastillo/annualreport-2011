@@ -9,13 +9,18 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 		, render: function (event, viewData) {
 			// Create a new section
 			var newSection = new sectionView(viewData);
-			this.$el.append(newSection.$el);
+
+			if (!viewData || viewData.success) {
+				this.$el.append(newSection.$el);
+			} else {
+				this.$el.html('error: unable to retrieve data');
+			}
 		}
 
 
 		, initialize: function () {
 			this.render();
-			dv.subscribe('success.get.section.dv', $.proxy(this.render, this));
+			dv.subscribe('get.section.dv', $.proxy(this.render, this));
 		}
 	});
 })
