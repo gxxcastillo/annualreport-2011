@@ -1,9 +1,13 @@
 !!! 5
 html
 	title= title
+	link(rel='stylesheet', href='/stylesheets/base.css')
 	link(rel='stylesheet', href='/stylesheets/style.css')
+	link(rel='stylesheet', href='/stylesheets/isotope.css')
 	script(src='/javascripts/lib/require.js', data-main='/javascripts/app.js')
 	body!= body
+
+
 
 	script(type='text/x-handlebars-template', id='blockTemplate')
 		h3 {{title}}

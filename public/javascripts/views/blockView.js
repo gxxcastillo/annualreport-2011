@@ -1,7 +1,7 @@
 define(['backbone', 'handlebars'], function (backbone, Handlebars) {
 	return Backbone.View.extend({
 
-		tagName: 'div'
+		tagName: 'a'
 
 		// Default classname for each block, it will get overriden by instantiation
 		, className: 'block'

@@ -25,7 +25,7 @@ require([
 
 	var newBlock
 	, modelData = {title: 'blockTpl'}
-	, count;
+	, count =0;
 
 	// instantiate isotope
 	$('#main').isotope({
@@ -33,24 +33,12 @@ require([
 		, itemSelector: '.block'
 	});
 
-	for (count = 0; count < 2; count++) {
-		newBlock = new blockView({
-			model: modelData
-			, className: 'block g2'
-		});
 
-		$('#main').isotope( 'insert', newBlock.$el );
-	}
-
-	// Start appending
-	count = 0;
-	var intervalId = window.setInterval(function () {
-
-		if (++count === 4) {
-			window.clearInterval(intervalId);
-		}
-
-		modelData.content = 'Number ' + count;
+	/**
+	 * Append block
+	 */
+	function appendBlock() {
+		modelData.content = 'Number ' + count++;
 
 		newBlock = new blockView({
 			model: modelData
@@ -58,6 +46,31 @@ require([
 		});
 
 		$('#main').isotope( 'insert', newBlock.$el ).isotope('appended', newBlock.$el );
+	};
 
-	}, 2000);
+	var $primaryNav = $('nav.primaryNav');
+
+	// Navigation
+	$primaryNav.on('click', 'li', function (e) {
+		e.preventDefault();
+
+		var $el = $(e.target)
+		, page = $el.data('dv-page');
+
+		$primaryNav.find('li.active').removeClass('active');
+		$el.parent().addClass('active');
+
+		var stateObj = {
+			page: page
+		}
+
+		appendBlock();
+
+		history.pushState(stateObj, page, page);
+	});
+
+	// Fires when you go to a page
+	window.onpopstate = function () {
+		console.log('log');
+	}
 });
