@@ -18,7 +18,6 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 			});
 		}
 
-
 		, defaultAction: function () {
 			console.log('no route:');
 			this.navigate('borrowers');

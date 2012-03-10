@@ -1,5 +1,6 @@
 define(['jquery', 'underscore'], function ($, _) {
 	'use strict';
+
 	var $obj = $({})
 
 	, dv = {

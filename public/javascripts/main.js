@@ -1,7 +1,10 @@
+// @todo, should this go in a script block instead?
+
 require.config({
     baseUrl: '/javascripts'
 	, paths: {
 		'order': 'lib/order'
+		, 'text': 'lib/text'
 		, 'jquery': 'lib/jquery'
 		, 'underscore': 'lib/underscore'
 		, 'backbone': 'lib/backbone'

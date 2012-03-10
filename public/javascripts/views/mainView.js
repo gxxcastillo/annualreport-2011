@@ -23,4 +23,4 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 			dv.subscribe('get.section.dv', $.proxy(this.render, this));
 		}
 	});
-})
+});
