@@ -1,12 +1,18 @@
-define(['jquery', 'underscore', 'backbone', 'handlebars', 'dv', 'jquery.isotope', 'blockView']
-, function ($, _ ,Backbone, Handlebars, dv ,undefined, blockView) {
+define(['jquery', 'underscore', 'backbone', 'hogan', 'dv', 'jquery.isotope', 'blockView']
+, function ($, _ ,Backbone, hogan, dv ,undefined, blockView) {
 
 	return Backbone.View.extend({
 
 		tagName: 'section'
 
 
-		, template: Handlebars.compile($('#sectionTemplate').html())
+		, template: function (data) {
+			if (! this.tpl) {
+				this.tpl = hogan.compile($('#sectionTemplate').html())
+			}
+
+			return this.tpl.render(data);
+		}
 
 
 		/**

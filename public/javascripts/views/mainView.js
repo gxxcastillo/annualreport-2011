@@ -10,6 +10,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 			// Create a new section
 			var newSection = new sectionView(viewData);
 
+			// Add the new section
 			if (!viewData || viewData.success) {
 				this.$el.append(newSection.$el);
 			} else {

@@ -1,5 +1,5 @@
-define(['jquery', 'underscore', 'backbone', 'handlebars', 'dv']
-, function ($, _ ,Backbone, Handlebars, dv ,undefined) {
+define(['jquery', 'underscore', 'backbone', 'dv']
+, function ($, _ ,Backbone, dv ,undefined) {
 	'use strict';
 
 	return Backbone.View.extend({

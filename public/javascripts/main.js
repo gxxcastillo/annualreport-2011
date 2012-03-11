@@ -8,7 +8,9 @@ require.config({
 		, 'jquery': 'lib/jquery'
 		, 'underscore': 'lib/underscore'
 		, 'backbone': 'lib/backbone'
-		, 'handlebars': 'lib/handlebars'
+		, 'hogan.template': 'lib/hogan/template'
+		, 'hogan.compiler': 'lib/hogan/compiler'
+		, 'hogan': 'lib/hogan'
 		, 'jquery.isotope': 'lib/jquery.isotope'
 		, 'jquery.infinitescroll': 'lib/jquery.infinitescroll'
 		, 'sidebarView': 'views/sidebarView'
@@ -18,7 +20,7 @@ require.config({
 	}
 });
 
-require(['dv', 'mainView', 'sidebarView', 'router','jquery', 'underscore', 'backbone', 'handlebars']
+require(['dv', 'mainView', 'sidebarView', 'router','jquery', 'underscore', 'backbone', 'hogan']
 , function (dv, mainView, sidebarView, Router) {
 
 	// Instantiate #sidebar
