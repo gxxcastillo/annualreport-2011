@@ -9,21 +9,16 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
+	border: 0;
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	vertical-align: baseline;
 }
 
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
 
 body, html { height: 100%; }
-
 body {
 	background-color: #1f1e1d;
 	color: #fff;
@@ -37,29 +32,16 @@ h1, h2, h3, p, ul, ol, pre, dl {
   margin-bottom: 1em;
 }
 
-h1, h2 {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-}
+h1, h2      { font-family: 'Helvetica Neue', Arial, sans-serif; }
+h1, h2, h3  { display: inline-block; font-weight: bold; }
+h1          { font-size: 32px; line-height: 1.1em; }
+h2          { font-size: 24px; line-height: 1.1em; }
 
-h1, h2, h3 { display: inline-block; font-weight: bold; }
-
-h1 {
-  font-size: 32px;
-  line-height: 1.1em;
-}
-
-h2 {
-  font-size: 24px;
-  line-height: 1.1em;
-}
-
-a   { color: #00b7ff; text-decoration: none; }
-ul, ol { list-style: none; }
-
-a img { border: none; }
-
-em { font-style: italic; }
-strong { font-weight: bold; }
+a       { color: #00b7ff; text-decoration: none; }
+ul, ol  { list-style: none; }
+em      { font-style: italic; }
+strong  { font-weight: bold; }
+table   { border-collapse:collapse; border-spacing:0; }
 
 blockquote {
   padding-left: 1.0em;
