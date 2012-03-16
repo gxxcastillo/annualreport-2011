@@ -61,14 +61,3 @@
 
 /* Custom blocks */
 .worldmapBlock { background: url(/img/frame.jpg) 0 0 no-repeat; background-size: 100%; }
-
-a.block         { color: #333; cursor: pointer; display: block; }
-a.block a       { color: #00b7ff; }
-a.block .bgImg  { width: 100%; position: absolute; top: 0; left: 0; z-index: -1; }
-
-.veil           { background-color: rgba(255, 255, 255, .7); position: absolute; width: 100%; bottom: 0; left: 0; }
-.veil > h3      { text-transform: uppercase; }
-.veil.data      { font-size: 2em; }
-
-/* util */
-.center     { margin: 0 auto; }
