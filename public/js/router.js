@@ -12,7 +12,7 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 
 
 		, showSection: function (section) {
-			$.getJSON('r/' + section, function (results) {
+			$.getJSON('/' + section + '?raw=1', function (results) {
 				// Announce that we've got new content
 				dv.publish('get.section.dv', results);
 			});
