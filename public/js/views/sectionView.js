@@ -24,11 +24,13 @@ define(['jquery', 'underscore', 'backbone', 'hogan', 'dv', 'jquery.isotope', 'bl
 			var $section = this.$el;
 
 			// Build the section element
-			$section.html(new blockView({
-				name: 'sectionTitle'
-				, title: viewData.title
-				, cssClass: 'g2 h1'
-			}).$el);
+			$section
+				.attr('id', viewData.name)
+				.html(new blockView({
+					name: 'sectionTitle'
+					, title: viewData.title
+					, cssClass: 'g2 h1'
+				}).$el);
 
 			// Append each block
 			$.each(viewData.blocks, function (i, block) {

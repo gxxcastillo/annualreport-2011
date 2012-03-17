@@ -13,6 +13,9 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 
 		, showSection: function (section) {
 			$.getJSON('/' + section + '?raw=1', function (results) {
+				// @todo not sure if this is the best way to pass the section name to view
+				results.name = section;
+
 				// Announce that we've got new content
 				dv.publish('get.section.dv', results);
 			});
