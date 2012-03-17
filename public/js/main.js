@@ -12,6 +12,7 @@ require.config({
 		, 'hogan.compiler': 'lib/hogan/compiler'
 		, 'hogan': 'lib/hogan'
 		, 'jquery.isotope': 'lib/jquery.isotope'
+		, 'jquery.masonry': 'lib/jquery.masonry'
 		, 'jquery.infinitescroll': 'lib/jquery.infinitescroll'
 		, 'sidebarView': 'views/sidebarView'
 		, 'mainView': 'views/mainView'

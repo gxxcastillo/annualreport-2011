@@ -4,46 +4,28 @@ var sections = {
 		title: 'Borrowers'
 		, blocks: [
 			{
-				title: 'block title'
-				, style: 'styleName'
-				, bgImage: '/images/990541.jpg'
-				, link: '#'
+				name: 'dataMetric'
+				, cssClass: 'g1 h3'
+				, value: '5.5'
+				, unit: 'Mins'
+				, label: 'avg. time on site'
+				, context: 'vs. 2010 5.1 mins'
 			}
 			, {
-				title: 'block title'
-				, style: 'styleName'
-				, bgImage: '/images/990541.jpg'
-				, link: '#'
+				name: 'dataMetric'
+				, cssClass: 'g1 h1'
+				, value: '5.5'
+				, unit: 'Mins'
+				, label: 'avg. time on site'
+				, context: 'vs. 2010 5.1 mins'
 			}
-			, {
-				title: 'block title'
-				, style: 'styleName'
-				, bgImage: '/images/990541.jpg'
-				, link: '#'
-			}
-			, {
-				title: 'block title'
-				, style: 'styleName'
-				, bgImage: '/images/990541.jpg'
-				, link: '#'
-			}
-			, {
-				title: 'block title'
-				, style: 'styleName'
-				, bgImage: '/images/990541.jpg'
-				, link: '#'
-			}
-		]
-	}
-
-	, lenders: {
-		title: 'Lenders'
-		, blocks: [
-			{
-				title: 'block title'
-				, style: 'styleName'
-				, bgImage: '/images/990541.jpg'
-				, link: '#'
+ 			, {
+				name: 'dataMetric'
+				, cssClass: 'g2 h2'
+				, value: '5.5'
+				, unit: 'Mins'
+				, label: 'avg. time on site'
+				, context: 'vs. 2010 5.1 mins'
 			}
 		]
 	}
