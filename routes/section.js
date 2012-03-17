@@ -130,7 +130,7 @@ var sections = {
 			}
  			, {
 				name: 'dataMetric'
-				, cssClass: 'g2 h2'
+				, cssClass: 'g3 h5'
 				, value: '5.5'
 				, unit: 'Mins'
 				, label: 'avg. time on site'
@@ -151,7 +151,7 @@ var sections = {
 		, blocks: [
 			{
 				name: 'dataMetric'
-				, cssClass: 'g1 h3'
+				, cssClass: 'g1 h1'
 				, value: '5.5'
 				, unit: 'Mins'
 				, label: 'avg. time on site'
@@ -159,7 +159,7 @@ var sections = {
 			}
 			, {
 				name: 'dataMetric'
-				, cssClass: 'g1 h1'
+				, cssClass: 'g1 h2'
 				, value: '5.5'
 				, unit: 'Mins'
 				, label: 'avg. time on site'
@@ -167,7 +167,7 @@ var sections = {
 			}
  			, {
 				name: 'dataMetric'
-				, cssClass: 'g2 h2'
+				, cssClass: 'g2 h3'
 				, value: '5.5'
 				, unit: 'Mins'
 				, label: 'avg. time on site'
@@ -175,7 +175,15 @@ var sections = {
 			}
 			, {
 				name: 'dataMetric'
-				, cssClass: 'g1 h1'
+				, cssClass: 'g1 h4'
+				, value: '5.5'
+				, unit: 'Mins'
+				, label: 'avg. time on site'
+				, context: 'vs. 2010 5.1 mins'
+			}
+			, {
+				name: 'dataMetric'
+				, cssClass: 'g1 h5'
 				, value: '5.5'
 				, unit: 'Mins'
 				, label: 'avg. time on site'

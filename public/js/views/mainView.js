@@ -1,6 +1,8 @@
 define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 , function ($, _ ,Backbone, dv, sectionView, undefined) {
 
+	var counter = 0;
+
 	return Backbone.View.extend({
 
 		el: '#main'
@@ -12,15 +14,24 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 
 			// Add the new section
 			if (!viewData || viewData.success) {
-				this.$el.append(newSection.$el);
+				if (counter % 2 == 0) {
+					this.$el.prepend(newSection.$el);
+				} else {
+					this.$el.append(newSection.$el);
+				}
+
 			} else {
 				this.$el.html('error: unable to retrieve data');
 			}
+
+			counter++;
 		}
 
 
 		, initialize: function () {
-			this.render();
+			// @todo - we currently only render content that we request from the server
+			// this.render();
+
 			dv.subscribe('get.section.dv', $.proxy(this.render, this));
 		}
 	});
