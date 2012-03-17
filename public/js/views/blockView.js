@@ -1,4 +1,4 @@
-define(['backbone', 'dv', 'hogan', 'text!views/dataMetric.blockView.tpl', 'text!views/sectionTitle.blockView.tpl'], function (backbone, dv, hogan, dataMetricTpl, sectionTitleTpl) {
+define(['backbone', 'dv', 'hogan', 'text!views/blockView.dataMetric.tpl', 'text!views/blockView.sectionTitle.tpl', 'text!views/blockView.text.tpl'], function (backbone, dv, hogan, dataMetricTpl, sectionTitleTpl, textTpl) {
 	var tpl;
 
 	return Backbone.View.extend({
@@ -30,6 +30,9 @@ define(['backbone', 'dv', 'hogan', 'text!views/dataMetric.blockView.tpl', 'text!
 					break;
 				case 'dataMetric':
 					tpl = dataMetricTpl;
+					break;
+				case 'text':
+					tpl = textTpl;
 					break;
 				default:
 					tpl = '';
