@@ -22,13 +22,14 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 		}
 
 		, defaultAction: function () {
-			console.log('no route:');
+			console.log('no route');
 			this.navigate('borrowers');
 		}
 
 
 		, initialize: function () {
-			//Wait for domReady, IE history fallback relies on an iframe.
+			// Wait for domReady, IE history fallback relies on an iframe.
+			// @todo use Modernizr to detct history support, if has native history support, no need to wait for domready
 			$(Backbone.history.start({pushState: true /*, silent: true */}));
 		}
 	});
