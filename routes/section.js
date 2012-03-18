@@ -183,7 +183,7 @@ var sections = {
 			}
 			, {
 				name: 'dataMetric'
-				, cssClass: 'g1 h5'
+				, cssClass: 'g1 h'
 				, value: '5.5'
 				, unit: 'Mins'
 				, label: 'avg. time on site'
@@ -305,9 +305,8 @@ var sections = {
 };
 
 
-// This is the newer version, as apposed to using /r/:section, we now do /:section?raw=1
 module.exports = function (req, res) {
-	if (req.query['raw']) {
+	if (req.query['raw'] == 1) {
 		// return json object representation of this view, broken up into "blocks".
 		// Rendering will then iterate over each block.  (no frame)
 
@@ -316,12 +315,13 @@ module.exports = function (req, res) {
 		if (viewData) {
 			viewData.success = true;
 		} else {
-			viewData = {};
-			viewData.success = false;
+			viewData = {
+				success: false
+			};
 		}
 
 		res.send(viewData);
 	} else {
-		res.render('index', {title: 'dataviz'});
+		res.redirect('/');
 	}
 };
