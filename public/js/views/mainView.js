@@ -1,6 +1,7 @@
 define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 , function ($, _ ,Backbone, dv, sectionView, undefined) {
 
+	// @todo counter is just temporary for figuring out how to add to top vs bottom
 	var counter = 0;
 
 	return Backbone.View.extend({
