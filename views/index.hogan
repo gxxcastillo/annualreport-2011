@@ -1,0 +1,2 @@
+{{> sidebar}}
+<div id="main" class="main container"></div>
