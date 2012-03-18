@@ -1,7 +1,6 @@
 
 // Use express
 var express = require('express')
-, hogan = require('hogan.js')
 
 // Instantiate our app/server
 , app = module.exports = express.createServer();
@@ -22,19 +21,7 @@ app.configure(function(){
 	app.use(express.static(__dirname + '/public'));
 
 
-	app.register('hogan', {
-		compile: function (source) {
-		    return function (options) {
-			    var partials = options.partials || {};
-
-			    if (options.body) {
-				    partials.body = options.body;
-			    }
-
-		        return hogan.compile(source, options).render(options, partials);
-		    };
-		}
-	});
+	app.register('hogan', require('./lib/hoganAdapter.js'));
 });
 
 app.configure('development', function(){

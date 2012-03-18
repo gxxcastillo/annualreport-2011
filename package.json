@@ -1,9 +1,10 @@
 {
-    "name": "dataViz"
-  , "version": "0.0.1"
-  , "private": true
-  , "dependencies": {
-      "express": "2.5.8"
-    , "jade": ">= 0.0.1"
-  }
+	"name": "dataViz"
+	, "version": "0.0.1"
+	, "private": true
+	, "dependencies": {
+		"express": "2.5.8"
+        , "hogan.js": ">= 0.0.1"
+		, "cosolidate": ">= 0.0.1"
+    }
 }
