@@ -1,5 +1,4 @@
-var fs = require('fs')
-, viewData = {
+var viewData = {
 	title: 'dataviz'
 	, navItems: [
 		{
@@ -35,9 +34,6 @@ var fs = require('fs')
 			, text: 'fundraising'
 		}
 	]
-	, partials: {
-		sidebar: fs.readFileSync('/localhost/dataviz/views/includes/sidebar.hogan', 'utf8')
-	}
 }
 
 
