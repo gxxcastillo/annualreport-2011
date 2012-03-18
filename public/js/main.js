@@ -1,5 +1,3 @@
-// @todo, should this go in a script block instead?
-
 require.config({
     baseUrl: '/js'
 	, paths: {
