@@ -1,6 +1,6 @@
 <div class="label">Most used words within lender profiles</div>
 
-<ul class="datalist">
+<ul class="valuelist">
 	{{#value}}
 		<li>{{.}}</li>
 	{{/value}}
