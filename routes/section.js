@@ -183,7 +183,7 @@ var sections = {
 			}
 			, {
 				name: 'dataMetric'
-				, cssClass: 'g1 h'
+				, cssClass: 'g1 h5'
 				, value: '5.5'
 				, unit: 'Mins'
 				, label: 'avg. time on site'
