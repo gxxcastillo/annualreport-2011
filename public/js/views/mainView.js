@@ -1,9 +1,6 @@
 define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 , function ($, _ ,Backbone, dv, sectionView, undefined) {
 
-	// @todo counter is just temporary for figuring out how to add to top vs bottom
-	var counter = 0;
-
 	return Backbone.View.extend({
 
 		el: '#main'
@@ -15,17 +12,21 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 
 			// Add the new section
 			if (!viewData || viewData.success) {
-				if (counter % 2 == 0) {
-					this.$el.prepend(newSection.$el);
-				} else {
-					this.$el.append(newSection.$el);
-				}
-
+				this.$el.append(newSection.$el);
 			} else {
 				this.$el.html('error: unable to retrieve data');
 			}
+		}
 
-			counter++;
+
+		, scrollToBottom: function () {
+			$('html body').animate({scrollTop: $('#main').height()});
+		}
+
+
+		, handleNewSection: function (event, viewData) {
+			this.scrollToBottom();
+			this.render(event, viewData);
 		}
 
 
@@ -33,7 +34,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 			// @todo - we currently only render content that we request from the server
 			// this.render();
 
-			dv.subscribe('get.section.dv', $.proxy(this.render, this));
+			dv.subscribe('get.section.dv', $.proxy(this.handleNewSection, this));
 		}
 	});
 });
