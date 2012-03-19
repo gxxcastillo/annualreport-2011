@@ -1,3 +1,4 @@
+// @todo this probably needs to go into a model somewhere
 var viewData = {
 	title: 'dataviz'
 	, navItems: [

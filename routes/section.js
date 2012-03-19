@@ -322,6 +322,7 @@ module.exports = function (req, res) {
 
 		res.send(viewData);
 	} else {
+		// @todo, this is temporary until we figure out how to serve the ":section" view from the server
 		res.redirect('/');
 	}
 };
