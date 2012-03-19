@@ -11,6 +11,7 @@ require.config({
 		, 'hogan': 'lib/hogan'
 		, 'jquery.isotope': 'lib/jquery.isotope'
 		, 'jquery.masonry': 'lib/jquery.masonry'
+		, 'jquery.colorbox': 'lib/jquery.colorbox'
 		, 'jquery.infinitescroll': 'lib/jquery.infinitescroll'
 		, 'sidebarView': 'views/sidebarView'
 		, 'mainView': 'views/mainView'

@@ -5,6 +5,7 @@
 		<link rel="stylesheet" href="/css/style.css" />
 		<link rel="stylesheet" href="/css/jquery.isotope.css" />
 		<link rel="stylesheet" href="/css/jquery.masonry.css" />
+		<link rel="stylesheet" href="/css/jquery.colorbox.css" />
 
 		<title>{{title}}</title>
 
