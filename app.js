@@ -9,7 +9,7 @@ var express = require('express')
 require('./routes/router');
 
 // Configure the server
-app.configure(function(){
+app.configure(function() {
 	app.set('views', __dirname + '/views');
 
 	// Set '.hogan' as the default extension
@@ -24,7 +24,7 @@ app.configure(function(){
 });
 
 app.configure('development', function(){
-  app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+  app.use(express.errorHandler({dumpExceptions: true, showStack: true}));
 });
 
 app.configure('production', function(){
