@@ -159,7 +159,7 @@ var sections = {
 			}
 			, {
 				name: 'dataMetric'
-				, cssClass: 'g1 h2'
+					, cssClass: 'g1 h2'
 				, value: '5.5'
 				, unit: 'Mins'
 				, label: 'avg. time on site'
@@ -306,23 +306,24 @@ var sections = {
 
 
 module.exports = function (req, res) {
+	var viewData = sections[req.params.section];
+
+	if (viewData) {
+		viewData.success = true;
+	} else {
+		viewData = {
+			success: false
+		};
+	}
+
 	if (req.query['raw'] == 1) {
 		// return json object representation of this view, broken up into "blocks".
 		// Rendering will then iterate over each block.  (no frame)
 
-		var viewData = sections[req.params.section];
-
-		if (viewData) {
-			viewData.success = true;
-		} else {
-			viewData = {
-				success: false
-			};
-		}
-
 		res.send(viewData);
 	} else {
 		// @todo, this is temporary until we figure out how to serve the ":section" view from the server
-		res.redirect('/');
+		// @todo this works, but with no sidebar, and that is because the data for the sidebar is currently in the index.js route
+		res.render('index', viewData);
 	}
 };
