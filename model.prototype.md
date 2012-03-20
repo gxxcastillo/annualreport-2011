@@ -43,6 +43,7 @@
 	, value: [] // This is our list
 	, context: ''
 }
+```
 
 ## highlight
 ```
