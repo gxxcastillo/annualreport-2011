@@ -20,6 +20,7 @@ app.configure(function () {
 	app.use(app.router);
 	app.use(express.static(__dirname + '/public'));
 
+	// Use the 'hoganAdapter' for rendering '.hogan' files
 	app.register('hogan', require('./lib/hoganAdapter.js'));
 });
 
