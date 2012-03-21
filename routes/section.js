@@ -1,4 +1,26 @@
 // Use this to feed the data in for each block
+
+/**
+ *
+ * comon view properties:
+ *
+ *
+ * // colorbox requires colorbox content to be in the DOM somehwhere
+ *
+ * lightox: {
+ *      els: []
+ *     rel: '.selector' // gets set in the view
+ * }
+ *
+ * or link: url
+ *
+ *
+ *
+ *
+ */
+
+
+
 var sections = {
 	borrowers: {
 		title: 'Borrowers'
@@ -12,20 +34,20 @@ var sections = {
 				, context: 'vs. 2010 5.1 mins'
 			}
 			, {
-				name: 'dataMetric'
+				name: 'profile'
 				, cssClass: 'g1 h1'
-				, value: '2.5'
-				, unit: 'Mins'
+				, img: '/img/blue.jpg'
+				, username: 'Sean'
 				, label: 'avg. time on site'
-				, context: 'vs. 2010 5.1 mins'
 			}
  			, {
-				name: 'dataMetric'
-				, cssClass: 'g2 h2'
-				, value: '1.5'
-				, unit: 'Mins'
-				, label: 'avg. time on site'
-				, context: 'vs. 2010 5.1 mins'
+				name: 'highlight'
+				, cssClass: 'g1 h3'
+				, img: '/img/deer.jpg'
+				, link: ''
+				, c1: 'Most friends recruited to Kiva'
+				, c2: '140'
+				, c3: 'Erin, Vancouer Canada'
 			}
 			, {
 				name: 'dataMetric'
@@ -63,12 +85,13 @@ var sections = {
 				, context: 'vs. 2010 5.1 mins'
 			}
 			, {
-				name: 'dataMetric'
-				, cssClass: 'g1 h1'
-				, value: '5.5'
-				, unit: 'Mins'
-				, label: 'avg. time on site'
-				, context: 'vs. 2010 5.1 mins'
+				name: 'stache'
+				, cssClass: 'g1 h3'
+				, img: '/img/deer.jpg'
+				, context: 'Most friends recruited to Kiva'
+				, datum: '140'
+				, descriptor: 'Erin, Vancouer Canada'
+				, link: '#'
 			}
 		]
 	}
@@ -76,12 +99,27 @@ var sections = {
 		title: 'Web Site'
 		, blocks: [
 			{
-				name: 'dataMetric'
-				, cssClass: 'g1 h3'
-				, value: '5.5'
-				, unit: 'Mins'
-				, label: 'avg. time on site'
-				, context: 'vs. 2010 5.1 mins'
+				name: 'hTable'
+				, cssClass: 'g2 h1'
+				, dataset: [
+					{
+						label: 'Facebook'
+						, datum: '30%'
+					}
+					, {
+						label: 'Twitter'
+						, datum: '10%'
+					}
+					, {
+						label: 'Email'
+						, datum: '40%'
+					}
+					, {
+						label: 'Kiva Cards'
+						, datum: '20%'
+					}
+				]
+				, label: 'Popular ways to invite friends to Kiva (Shares per month)'
 			}
 			, {
 				name: 'dataMetric'
@@ -195,12 +233,26 @@ var sections = {
 		title: 'Stories From the Field'
 		, blocks: [
 			{
-				name: 'dataMetric'
-				, cssClass: 'g1 h3'
-				, value: '5.5'
-				, unit: 'Mins'
-				, label: 'avg. time on site'
-				, context: 'vs. 2010 5.1 mins'
+				name: 'highlight'
+				, cssClass: 'g2 h2'
+				, img: '/img/stache.jpg'
+//	only use when clicking adds a link			, link: 'http://google.com'
+				, lightbox: [
+					{
+						href: '/img/blue.jpg'
+						, title: 'blue.jpg'
+					}
+					, {
+						href: '/img/deer.jpg'
+						, title: 'deer.jpg'
+					}
+					, {
+						href: '/img/fish.jpg'
+						, title: 'fish.jpg'
+					}
+				]
+				, c2: 'Photo highlights'
+				, c3: 'Best Kiva photos from 2011'
 			}
 			, {
 				name: 'dataMetric'

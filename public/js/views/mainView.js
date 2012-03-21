@@ -20,7 +20,8 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 
 
 		, scrollToBottom: function () {
-			$('html body').animate({scrollTop: $('#main').height()});
+			$('html body').animate({scrollTop: this.$el.height()});
+
 		}
 
 

@@ -35,7 +35,7 @@ var viewData = {
 			, text: 'fundraising'
 		}
 	]
-}
+};
 
 
 module.exports =  function (req, res) {
