@@ -21,9 +21,10 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 			});
 		}
 
+
 		, defaultAction: function () {
 			console.log('no route');
-			this.navigate('borrowers');
+			this.navigate('borrowers', {trigger: true});
 		}
 
 

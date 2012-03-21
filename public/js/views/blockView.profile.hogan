@@ -1,0 +1,5 @@
+<img src="{{img}}" class="img" />
+<div class="info">
+	<div class="headline">{{username}}</div>
+	<div class="descriptor">{{label}}</div>
+</div>
