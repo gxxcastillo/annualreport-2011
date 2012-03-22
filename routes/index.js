@@ -3,6 +3,14 @@ var viewData = {
 	title: 'dataviz'
 	, navItems: [
 		{
+			name: 'prev'
+			, text: 'prev'
+		}
+		, {
+			name: 'next'
+			, text: 'next'
+		}
+		, {
 			name: 'borrowers'
 			, text: 'borrowers'
 		}
