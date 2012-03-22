@@ -35,7 +35,26 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 			// @todo - we currently only render content that we request from the server
 			// this.render();
 
+			var $container = this.$el;
+
 			dv.subscribe('get.section.dv', $.proxy(this.handleNewSection, this));
+
+			// Takes care of appending the new blocks each time they are rendered
+			dv.subscribe('render.sectionView.dv', function ($event, $section) {
+				$container.masonry('appended', $($section), true);
+			});
+
+			// Add colorbox clicks
+			$container.on('click.colorbox', '.lightbox', function (e) {
+				$.colorbox({href: '../img/990541.jpg'});
+			});
+
+			// Enable jquery.masonry
+			$container.masonry({
+				itemSelector: '.block:not(.block .block, .hoverBlock)'
+				, columnWidth: 256
+			});
+
 		}
 	});
 });

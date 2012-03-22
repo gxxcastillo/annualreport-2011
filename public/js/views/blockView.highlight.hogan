@@ -7,7 +7,7 @@
 	<div class="c3">{{c3}}</div>
 </div>
 
-{{! This is only for clickable highlightBlocks}}
+{{! This is only for lightbox highlightBlocks}}
 {{#isLightbox}}
 	<div class="lightboxContent" style="display: none;">
 		{{#lightbox}}
