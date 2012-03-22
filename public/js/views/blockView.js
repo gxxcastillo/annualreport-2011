@@ -54,6 +54,8 @@ define(['backbone', 'dv', 'hogan', 'text!views/blockView.dataMetric.hogan', 'tex
 
 			this.$el.addClass(cssClass);
 			this.$el.html(this.template(viewData));
+
+			dv.publish('render.blockView.dv', this.$el);
 		}
 
 		, initialize: function (viewData) {

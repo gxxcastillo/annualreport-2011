@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'jquery.masonry', 'jquery.colorbox'], function ($, _) {
+define(['jquery', 'underscore', 'jquery.isotope', 'jquery.colorbox'], function ($, _) {
 	'use strict';
 
 	var $obj = $({})

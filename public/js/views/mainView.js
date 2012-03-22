@@ -1,9 +1,33 @@
 define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 , function ($, _ ,Backbone, dv, sectionView, undefined) {
 
+	var height = 0;
+
 	return Backbone.View.extend({
 
 		el: '#main'
+
+
+		/**
+		 * Every block element is absolutely postioned.
+		 * Therefore, we need to check & store the height ourselves.
+		 *
+		 * @params $el
+		 * @returns {Number}
+		 */
+		, height: function ($el) {
+			var newHeight;
+
+			if ($el) {
+				newHeight = $el.height() + $el.offset().top;
+
+				if (newHeight > height) {
+					height = newHeight;
+				}
+			}
+
+			return height
+		}
 
 
 		, render: function (event, viewData) {
@@ -16,6 +40,8 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 			} else {
 				this.$el.html('error: unable to retrieve data');
 			}
+
+			this.$el.isotope('appended', newSection.$el);
 		}
 
 
@@ -25,9 +51,15 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 		}
 
 
-		, handleNewSection: function (event, viewData) {
+		, handleNewSectionGet: function (event, viewData) {
 			this.scrollToBottom();
 			this.render(event, viewData);
+		}
+
+
+		, handleNewBlockRender: function ($event, $block) {
+			// @todo, weird not sure why I seem to be getting a non-jQuery DOM element passed in
+			this.height($($block));
 		}
 
 
@@ -35,24 +67,22 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 			// @todo - we currently only render content that we request from the server
 			// this.render();
 
-			var $container = this.$el;
+			var $main = this.$el;
 
-			dv.subscribe('get.section.dv', $.proxy(this.handleNewSection, this));
+			dv.subscribe('get.section.dv', $.proxy(this.handleNewSectionGet, this));
 
-			// Takes care of appending the new blocks each time they are rendered
-			dv.subscribe('render.sectionView.dv', function ($event, $section) {
-				$container.masonry('appended', $($section), true);
-			});
+			dv.subscribe('render.blockView.dv', $.proxy(this.handleNewBlockRender, this));
 
 			// Add colorbox clicks
-			$container.on('click.colorbox', '.lightbox', function (e) {
+			$main.on('click.colorbox', '.lightbox', function (e) {
 				$.colorbox({href: '../img/990541.jpg'});
 			});
 
 			// Enable jquery.masonry
-			$container.masonry({
+			$main.isotope({
 				itemSelector: '.block:not(.block .block, .hoverBlock)'
-				, columnWidth: 256
+				, animationEngine: 'css'
+				, layoutMode: 'fitRows'
 			});
 
 		}
