@@ -23,14 +23,14 @@ require.config({
 require(['dv', 'mainView', 'sidebarView', 'router','jquery', 'underscore', 'backbone', 'hogan']
 , function (dv, mainView, sidebarView, Router) {
 
+	$.extend(dv, {
+		// Instantiate the router and expose it via 'dv'
+		router: new Router()
+	});
+
 	// Instantiate #sidebar
 	new sidebarView();
 
 	// Instantiate #main
 	new mainView();
-
-	$.extend(dv, {
-		// Instantiate the router and expose it via 'dv'
-		router: new Router()
-	});
 });
