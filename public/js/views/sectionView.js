@@ -39,7 +39,7 @@ define(['jquery', 'underscore', 'backbone', 'hogan', 'dv', 'jquery.isotope', 'bl
 				$section.append(newBlock.el);
 			});
 
-			dv.publish('render.blockView.dv', $section);
+			dv.publish('render.sectionView.dv', $section);
 		}
 
 
