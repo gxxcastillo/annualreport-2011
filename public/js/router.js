@@ -11,12 +11,24 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 		}
 
 
+		/**
+		 * The route for navigating to a section.
+		 */
 		, showSection: function (section) {
+			this.getSection(section);
+		}
+
+
+		/**
+		 * @todo this should probably go in some dv ajax module
+		 *
+		 * Does an ajax request for a section.
+		 */
+		, getSection: function (section) {
 			$.getJSON('/' + section + '?raw=1', function (results) {
 				// @todo not sure if this is the best way to pass the section name to view
 				results.name = section;
 
-				// Announce that we've got new content
 				dv.publish('get.section.dv', results);
 			});
 		}

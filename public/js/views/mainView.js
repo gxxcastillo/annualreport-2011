@@ -41,7 +41,10 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 				this.$el.html('error: unable to retrieve data');
 			}
 
-			this.$el.isotope('appended', newSection.$el);
+			this.$el.isotope('appended', newSection.$el, function () {
+				// @todo Now that the page has been appended, check if it filled the screen, if not append another section
+
+			});
 		}
 
 
@@ -51,8 +54,12 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 		}
 
 
-		, handleNewSectionGet: function (event, viewData) {
+		, handleSectionGo: function () {
 			this.scrollToBottom();
+		}
+
+
+		, handleNewSectionGet: function (event, viewData) {
 			this.render(event, viewData);
 		}
 
@@ -69,19 +76,19 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 
 			var $main = this.$el;
 
+			dv.router.on('route:showSection', $.proxy(this.handleSectionGo, this));
+
 			dv.subscribe('get.section.dv', $.proxy(this.handleNewSectionGet, this));
 
 			dv.subscribe('render.blockView.dv', $.proxy(this.handleNewBlockRender, this));
 
-			// Add colorbox clicks
-			$main.on('click.colorbox', '.lightbox', function (e) {
-				$.colorbox({href: '../img/990541.jpg'});
-			});
-
 			// Enable jquery.masonry
 			$main.isotope({
 				itemSelector: '.block:not(.block .block, .hoverBlock)'
+
+				// We only want animations for browsers that support css transforms
 				, animationEngine: 'css'
+
 				, layoutMode: 'fitRows'
 			});
 

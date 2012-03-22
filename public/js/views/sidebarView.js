@@ -28,7 +28,7 @@ define(['jquery', 'underscore', 'backbone', 'dv']
 
 			// Update the UI when routed to a new section
 			$(function () {
-				dv.router.on('router:showSection', function (section) {
+				dv.router.on('route:showSection', function (section) {
 					viewObj.$el.find('li.active').removeClass('active');
 					$('.' + section, viewObj).parent().addClass('active');
 				});
