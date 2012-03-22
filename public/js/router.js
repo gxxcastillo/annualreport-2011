@@ -13,6 +13,8 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 
 		/**
 		 * The route for navigating to a section.
+		 *
+		 * @todo. pass param for scrolling?
 		 */
 		, showSection: function (section) {
 			this.getSection(section);

@@ -19,8 +19,15 @@ define(['jquery', 'underscore', 'backbone', 'dv']
 		, navClickHandler: function (event) {
 			event.preventDefault();
 
-			// Update the url
-			dv.router.navigate(event.target.getAttribute('href').substr(1), {trigger: true});
+			var section = event.target.getAttribute('href').substr(1);
+
+			if (section == 'prev') {
+				section = 'borrowers';
+			} else if (section == 'next') {
+				section = 'fundraising';
+			}
+
+			dv.router.navigate(section, {trigger: true});
 		}
 
 		, initialize: function () {
