@@ -5,16 +5,20 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 	var currentSection = ''
 
 	// @todo, this is also set on the server side, should only be set in one spot
+	// Purpose of this is to set a sequential "order"
 	, sections = [
 		'borrowers'
 		, 'lenders'
-		, 'site'
 		, 'partners'
+		, 'site'
 		, 'ecosystem'
 		, 'stories'
 		, 'press'
-		, 'fundraising'
-	];
+		, 'finances'
+	]
+
+	// @todo, like the sections array, this is a matter of state.  Where should we be saving this state?
+	, renderedSections = [];
 
 
 	/**
@@ -37,6 +41,22 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 			}
 
 			return currentSection;
+		}
+
+
+		, renderedSections: function (section) {
+			if (section) {
+				if (_.indexOf(renderedSections, section) == -1) {
+					renderedSections.push(section);
+				}
+			} else {
+				return renderedSections;
+			}
+		}
+
+
+		, isRendered: function (section) {
+			return _.indexOf(renderedSections, section) > -1;
 		}
 
 
@@ -72,9 +92,13 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 		 *
 		 */
 		, getNextSection: function (callback) {
-			var i = _.indexOf(sections, currentSection);
-			this.getSection(sections[i+1]);
+			var i = _.indexOf(sections, currentSection)
+			, nextSection = sections[i+1];
 
+			this.activeSection(nextSection);
+			this.getSection(nextSection);
+
+			// @todo, what parameters should I be passing into the callback?
 			callback();
 		}
 
