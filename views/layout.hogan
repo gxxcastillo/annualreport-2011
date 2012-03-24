@@ -15,5 +15,8 @@
 	<body>
 		{{>sidebar}}
 		{{>body}}
+		<footer class="siteFooter">
+			<a href="#next" class="nav-next">next</a>
+		</footer>
 	</body>
 </html>
