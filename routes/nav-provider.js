@@ -35,41 +35,49 @@ NavProvider.prototype.save = function(navItems, callback) {
 /* Lets bootstrap with dummy data */
 new NavProvider().save([
     {
-    	title: 'dataviz'
-    	, navItems: [
-    		{
-    			name: 'borrowers'
-    			, text: 'borrowers'
-    		}
-    		, {
-    			name: 'lenders'
-    			, text: 'lenders'
-    		}
-    		, {
-    			name: 'site'
-    			, text: 'web site'
-    		}
-    		, {
-    			name: 'partners'
-    			, text: 'partners'
-    		}
-    		, {
-    			name: 'ecosystem'
-    			, text: 'kiva ecosystem'
-    		}
-    		, {
-    			name: 'stories'
-    			, text: 'stories from the field'
-    		}
-    		, {
-    			name: 'press'
-    			, text: 'press & promotions'
-    		}
-    		, {
-    			name: 'fundraising'
-    			, text: 'fundraising'
-    		}
-    	]
+	title: 'dataviz'
+	, navItems: [
+		{
+			name: 'prev'
+			, text: 'prev'
+		}
+		, {
+			name: 'next'
+			, text: 'next'
+		}
+		, {
+			name: 'borrowers'
+			, text: 'borrowers'
+		}
+		, {
+			name: 'lenders'
+			, text: 'lenders'
+		}
+		, {
+			name: 'site'
+			, text: 'web site'
+		}
+		, {
+			name: 'partners'
+			, text: 'partners'
+		}
+		, {
+			name: 'ecosystem'
+			, text: 'kiva ecosystem'
+		}
+		, {
+			name: 'stories'
+			, text: 'stories from the field'
+		}
+		, {
+			name: 'press'
+			, text: 'press & promotions'
+		}
+		, {
+			name: 'fundraising'
+			, text: 'fundraising'
+		}
+	]
     }
 ], function(error, navItems){});
 

@@ -27,7 +27,6 @@ SectionProvider.prototype.save = function(sectionItems, callback) {
       sItem._id = sectionCounter++;
       this.sectionData[this.sectionData.length] = sItem;
   }
-//  this.sectionData = sectionItems;
   callback(null, sectionItems);
 };
 

@@ -2,46 +2,46 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 , function ($, _ ,Backbone, dv, sectionView, undefined) {
 
 	var height = 0;
+	var count = 0;
+
+	var didScroll = false;
+
 
 	return Backbone.View.extend({
 
 		el: '#main'
 
 
-		/**
-		 * Every block element is absolutely postioned.
-		 * Therefore, we need to check & store the height ourselves.
-		 *
-		 * @params $el
-		 * @returns {Number}
-		 */
-		, height: function ($el) {
-			var newHeight;
-
-			if ($el) {
-				newHeight = $el.height() + $el.offset().top;
-
-				if (newHeight > height) {
-					height = newHeight;
-				}
-			}
-
-			return height
-		}
-
-
 		, render: function (event, viewData) {
 			// Create a new section
 			var newSection = new sectionView(viewData);
 
+var str;
+if (count % 2) {
+	str = 'appended';
+} else {
+	str = 'insert';
+}
+
+
 			// Add the new section
 			if (!viewData || viewData.success) {
-				this.$el.append(newSection.$el);
+				this.$el.prepend( newSection.$el ).isotope('reloadItems');
 			} else {
 				this.$el.html('error: unable to retrieve data');
 			}
 
-			this.$el.isotope('appended', newSection.$el);
+
+			this.$el.isotope(str, newSection.$el, $.proxy(function () {
+				// @todo Now that the page has been appended, check if it filled the screen, if not append another section
+				// careful, however, as the height of #main is never less than the height of the window (weird)
+				if (this.$el.height() <= $(window).height()) {
+					dv.router.getSection('borrowers');
+				}
+
+			}, this));
+
+			count++;
 		}
 
 
@@ -51,15 +51,13 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 		}
 
 
-		, handleNewSectionGet: function (event, viewData) {
+		, handleSectionGo: function () {
 			this.scrollToBottom();
-			this.render(event, viewData);
 		}
 
 
-		, handleNewBlockRender: function ($event, $block) {
-			// @todo, weird not sure why I seem to be getting a non-jQuery DOM element passed in
-			this.height($($block));
+		, handleNewSectionGet: function (event, viewData) {
+			this.render(event, viewData);
 		}
 
 
@@ -69,21 +67,37 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 
 			var $main = this.$el;
 
+//			dv.router.on('route:showSection', $.proxy(this.handleSectionGo, this));
+
 			dv.subscribe('get.section.dv', $.proxy(this.handleNewSectionGet, this));
-
-			dv.subscribe('render.blockView.dv', $.proxy(this.handleNewBlockRender, this));
-
-			// Add colorbox clicks
-			$main.on('click.colorbox', '.lightbox', function (e) {
-				$.colorbox({href: '../img/990541.jpg'});
-			});
 
 			// Enable jquery.masonry
 			$main.isotope({
 				itemSelector: '.block:not(.block .block, .hoverBlock)'
+
+				// We only want animations for browsers that support css transforms
 				, animationEngine: 'css'
-				, layoutMode: 'fitRows'
+
+				, layoutMode: 'masonry'
+				, masonry: {
+				    columnWidth: 256
+				  }
 			});
+
+			$(window).scroll(function() {
+			    didScroll = true;
+			});
+
+			setInterval(function() {
+			    if (!didScroll) {
+			        return;
+			    }
+
+				// Are we 300px from the bottom?
+				if ( ($(document).height() - $(window).height()) - $(window).scrollTop() < 100 ) {
+					dv.router.getSection('site');
+				}
+			}, 200);
 
 		}
 	});

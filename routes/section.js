@@ -25,9 +25,9 @@ var sectionProvider = new SectionProvider();
 module.exports = function (req, res) {
     var sections = [];
     sectionProvider.findAll(function(error, sectionData){
-        sections = sectionData;
+        sections = sectionData[0];
     });
-	var viewData = sections[0][req.params.section];
+	var viewData = sections[req.params.section];
 
 	if (viewData) {
 		viewData.success = true;

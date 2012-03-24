@@ -29,7 +29,7 @@ define(['jquery', 'underscore', 'backbone', 'hogan', 'dv', 'jquery.isotope', 'bl
 				.html(new blockView({
 					name: 'sectionTitle'
 					, title: viewData.title
-					, cssClass: 'g3 h1'
+					, cssClass: 'g2 h1'
 				}).$el);
 
 			// Append each block
