@@ -41,9 +41,10 @@ define(['jquery', 'underscore', 'backbone', 'dv']
 
 			// Update the UI when routed to a new section
 			$(function () {
-				dv.router.on('route:showSection', function (section) {
+				dv.subscribe('render.sectionView.dv', function (event, $section, sectionView) {
 					viewObj.$el.find('li.active').removeClass('active');
-					$('.' + section, viewObj).parent().addClass('active');
+
+					$('.nav-' + sectionView.name, viewObj.$el).parent().addClass('active');
 				});
 			});
 		}

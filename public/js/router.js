@@ -78,6 +78,13 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 		 * Does an ajax request for a section.
 		 */
 		, getSection: function (section) {
+			// Check to see if this section has already been rendered
+			// @todo - better checking if the section is being rendered
+			// @todo - what if the we've requested the section and just haven't rendered it
+			if (_.indexOf(renderedSections, section) > -1) {
+				return;
+			}
+
 			$.getJSON('/' + section + '?raw=1', function (results) {
 				// @todo not sure if this is the best way to pass the section name to view
 				results.name = section;

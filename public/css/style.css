@@ -11,9 +11,10 @@ body        { margin: 0 auto; width: 1004px; }
 .siteFooter a { visibility: hidden; }
 
 .primaryNav { border-top: #fff 2px solid; border-bottom: #fff 2px solid; padding: 10px 0; }
-.primaryNav ul          { margin-left: 4px; }
-.primaryNav li a        { color: #fff; display: block; padding-left: 20px; }
-.primaryNav li a:active { background-color: transparent; }
+.primaryNav ul          { margin-left: 2px; }
+.primaryNav li a        { color: #333; display: block; padding-left: 20px; }
+.primaryNav li a:active { background-color: transparent; color: #fff; }
+.primaryNav li a:hover  { background-color: transparent; color: #fff; }
 .primaryNav li.active a { border-left: #fff 5px solid; color: #fff; padding-left: 15px; }
 .primaryNav ~ *         { padding: 0 20px; }
 
