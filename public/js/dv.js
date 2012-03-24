@@ -1,9 +1,14 @@
-define(['jquery', 'underscore', 'jquery.isotope', 'jquery.colorbox'], function ($, _) {
+// Exposing dv as a Global, mainly to allow for easing testing on the command line
+// @todo revisit exposig dv as a Global
+var dv;
+
+define(['jquery', 'underscore'], function ($, _) {
 	'use strict';
 
-	var $obj = $({})
+	var $obj = $({});
 
-	, dv = {
+	// @todo ewe
+	window.dv = {
 		url: {
 			host: window.location.host
 		}
@@ -24,5 +29,5 @@ define(['jquery', 'underscore', 'jquery.isotope', 'jquery.colorbox'], function (
 		}
 	};
 
-	return dv;
+	return window.dv;
 });
