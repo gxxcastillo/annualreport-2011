@@ -95,6 +95,10 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 			var i = _.indexOf(sections, currentSection)
 			, nextSection = sections[i+1];
 
+			if (!nextSection) {
+				return;
+			}
+
 			this.activeSection(nextSection);
 			this.getSection(nextSection);
 

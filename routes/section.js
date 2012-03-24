@@ -427,14 +427,21 @@ var sections = {
 
 
 module.exports = function (req, res) {
-	var viewData = sections[req.params.section];
+	var  section = req.params.section
+	, viewData = sections[section];
 
-	if (viewData) {
-		viewData.success = true;
-	} else {
+	if (!section) {
 		viewData = {
 			success: false
+			, message: 'A section was not requested'
 		};
+	} else if (!viewData) {
+		viewData = {
+			success: false
+			, message: 'Section "' + req.params.section + '" not recognized'
+		};
+	} else {
+		viewData.success = true;
 	}
 
 	if (req.query['raw'] == 1) {
