@@ -10,6 +10,7 @@ require('./routes/router');
 
 // Configure the server
 app.configure(function () {
+	app.set('basedir', __dirname);
 	app.set('views', __dirname + '/views');
 
 	// Set '.hogan' as the default extension
@@ -31,3 +32,4 @@ app.configure('development', function () {
 app.configure('production', function () {
   app.use(express.errorHandler());
 });
+app.listen(8000);
