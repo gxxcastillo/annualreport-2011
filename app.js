@@ -31,7 +31,7 @@ app.configure('production', function () {
   app.use(express.errorHandler());
 });
 
-require('./boot')(app);
+//require('./boot')(app);
 
-app.listen(8000);
-console.log("dataviz app started on the port 8000");
+//app.listen(8000);
+//console.log("dataviz app started on the port 8000");

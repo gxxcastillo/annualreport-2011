@@ -1,37 +1,43 @@
-var sectionCounter = 1;
 SectionProvider = function(){};
-SectionProvider.prototype.sectionData = [];
+SectionProvider.prototype.sectionData = {};
 
 SectionProvider.prototype.findAll = function(callback) {
   callback( null, this.sectionData )
 };
 
 SectionProvider.prototype.findById = function(id, callback) {
-  var result = null;
-  for(var i =0;i<this.sectionData.length;i++) {
-    if( this.sectionData[i]._id == id ) {
-      result = this.sectionData[i];
-      break;
-    }
-  }
-  callback(null, result);
+	var result = this.sectionData[id];
+
+	if (!result) {
+		result = {
+			success: false
+			, message: 'Id not found: "' + id + '"'
+			, sectionData: this.sectionData
+		};
+	}
+
+	callback(result);
 };
 
 SectionProvider.prototype.save = function(sectionItems, callback) {
-  var sItem = null;
-    if( typeof(sectionItems.length)=="undefined")
-      sectionItems = [sectionItems];
+	var sectionCounter = 1
+    , sItem
+	, key;
 
-  for(var i=0; i<sectionItems.length; i++) {
-      sItem = sectionItems[i];
-      sItem._id = sectionCounter++;
-      this.sectionData[this.sectionData.length] = sItem;
-  }
-  callback(null, sectionItems);
+	for (key in sectionItems) {
+		if (sectionItems.hasOwnProperty(key)) {
+			sItem = sectionItems[key];
+
+			// Do we need an id number?  Currently, each section has a unique name that serves as an id?
+			sItem._id = sectionCounter++;
+			this.sectionData[key] = sItem;
+		}
+	}
+
+	callback(sectionItems);
 };
 
-/* Lets bootstrap with dummy data */
-new SectionProvider().save([
+new SectionProvider().save(
     {
     	borrowers: {
     		title: 'Borrowers'
@@ -397,8 +403,8 @@ new SectionProvider().save([
     			}
     		]
     	}
-    	, fundraising: {
-    		title: 'Fundraising'
+    	, fincances: {
+    		title: 'Financial Health'
     		, blocks: [
     			{
     				name: 'dataMetric'
@@ -435,6 +441,6 @@ new SectionProvider().save([
     		]
     	}
     }
-], function(error, sectionItems){});
+, function(error, sectionItems){});
 
 exports.SectionProvider = SectionProvider;
