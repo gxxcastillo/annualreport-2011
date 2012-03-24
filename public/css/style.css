@@ -7,6 +7,8 @@ body        { margin: 0 auto; width: 1004px; }
 .sidebar    { background-color: green; box-shadow: inset 2px 0 7px #333; height: 100%; margin-left: 768px; position: fixed; top: 0; width: 256px; }
 
 .siteHeader { padding: 0 20px; }
+.siteFooter { background-color: #f7f7f2; height: 5px; }
+.siteFooter a { visibility: hidden; }
 
 .primaryNav { border-top: #fff 2px solid; border-bottom: #fff 2px solid; padding: 10px 0; }
 .primaryNav ul          { margin-left: 4px; }
