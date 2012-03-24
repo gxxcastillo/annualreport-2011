@@ -1,15 +1,14 @@
-
 // Use express
 var express = require('express')
-
-// Instantiate our app/server
-, app = module.exports = express.createServer();
+    // Instantiate our app/server
+    , app = module.exports = express.createServer();
 
 // Now that we have an app, we can call our router
 require('./routes/router');
 
 // Configure the server
 app.configure(function () {
+	app.set('basedir', __dirname);
 	app.set('views', __dirname + '/views');
 
 	// Set '.hogan' as the default extension
@@ -31,3 +30,8 @@ app.configure('development', function () {
 app.configure('production', function () {
   app.use(express.errorHandler());
 });
+
+require('./boot')(app);
+
+app.listen(8000);
+console.log("dataviz app started on the port 8000");
