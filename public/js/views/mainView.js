@@ -1,11 +1,7 @@
 define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 , function ($, _ ,Backbone, dv, sectionView, undefined) {
 
-	var height = 0;
 	var count = 0;
-
-	var didScroll = false;
-
 
 	return Backbone.View.extend({
 
@@ -84,21 +80,10 @@ if (count % 2) {
 				  }
 			});
 
-			$(window).scroll(function() {
-			    didScroll = true;
+			// @todo where should we be storing the state of the view? (Model? Router? StateMachine? Views?)
+			dv.subscribe('render.sectionView.dv', function(event, $section, sectionView) {
+				dv.router.renderedSections(sectionView.name);
 			});
-
-			setInterval(function() {
-			    if (!didScroll) {
-			        return;
-			    }
-
-				// Are we 300px from the bottom?
-				if ( ($(document).height() - $(window).height()) - $(window).scrollTop() < 100 ) {
-					dv.router.getSection('site');
-				}
-			}, 200);
-
 		}
 	});
 });

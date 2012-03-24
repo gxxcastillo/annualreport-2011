@@ -1,3 +1,9 @@
+/*
+@todo sidebar view should have a model associeated with it.
+That model will have the sidebar elements, as well as information as to how to display (I think?)
+
+ */
+
 define(['jquery', 'underscore', 'backbone', 'dv']
 , function ($, _ ,Backbone, dv ,undefined) {
 	'use strict';

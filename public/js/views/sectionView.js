@@ -39,11 +39,13 @@ define(['jquery', 'underscore', 'backbone', 'hogan', 'dv', 'jquery.isotope', 'bl
 				$section.append(newBlock.el);
 			});
 
-			dv.publish('render.sectionView.dv', $section);
+			dv.publish('render.sectionView.dv', [$section, this]);
 		}
 
 
 		, initialize: function (viewData) {
+			this.name = viewData.name;
+
 			if (viewData) {
 				this.render(viewData);
 			}
