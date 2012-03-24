@@ -386,8 +386,8 @@ var sections = {
 			}
 		]
 	}
-	, fundraising: {
-		title: 'Fundraising'
+	, finances: {
+		title: 'Financial Health'
 		, blocks: [
 			{
 				name: 'dataMetric'
