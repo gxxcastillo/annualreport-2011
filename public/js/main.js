@@ -13,6 +13,8 @@ require.config({
 		, 'jquery.masonry': 'lib/jquery.masonry'
 		, 'jquery.colorbox': 'lib/jquery.colorbox'
 		, 'jquery.infinitescroll': 'lib/jquery.infinitescroll'
+		, 'jquery.waypoints': 'lib/jquery.waypoints'
+		, 'layoutView': 'views/layoutView'
 		, 'sidebarView': 'views/sidebarView'
 		, 'mainView': 'views/mainView'
 		, 'sectionView': 'views/sectionView'
@@ -20,17 +22,13 @@ require.config({
 	}
 });
 
-require(['dv', 'mainView', 'sidebarView', 'router','jquery', 'underscore', 'backbone', 'hogan']
-, function (dv, mainView, sidebarView, Router) {
+require(['dv', 'router', 'layoutView', 'jquery', 'underscore', 'backbone', 'hogan', 'jquery.isotope', 'jquery.waypoints', 'jquery.colorbox']
+, function (dv, Router, layoutView) {
 
 	$.extend(dv, {
 		// Instantiate the router and expose it via 'dv'
 		router: new Router()
 	});
 
-	// Instantiate #sidebar
-	new sidebarView();
-
-	// Instantiate #main
-	new mainView();
+	new layoutView();
 });
