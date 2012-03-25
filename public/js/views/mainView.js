@@ -1,5 +1,5 @@
-define(['jquery', 'underscore', 'backbone', 'dv', 'SectionView']
-, function ($, _ ,Backbone, dv, SectionView, undefined) {
+define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'AnnualReport']
+, function ($, _ ,Backbone, dv, Sections, SectionView, AnnualReport, undefined) {
 
 	var count = 0;
 
@@ -46,12 +46,12 @@ if (count % 2) {
 		}
 
 
-		, handleSectionGo: function () {
+		, handleSectionActive: function () {
 			this.scrollToBottom();
 		}
 
 
-		, handleNewSectionGet: function (event, viewData) {
+		, handleSectionAdd: function (event, viewData) {
 			this.render(event, viewData);
 		}
 
@@ -62,9 +62,8 @@ if (count % 2) {
 
 			var $main = this.$el;
 
-//			dv.router.on('route:showSection', $.proxy(this.handleSectionGo, this));
-
-			dv.subscribe('get.section.dv', $.proxy(this.handleNewSectionGet, this));
+			sections.on('add', this.handleSectionAdd);
+			sections.on('change:active', this.handleSectionActive);
 
 			// Enable jquery.masonry
 			$main.isotope({
@@ -77,11 +76,6 @@ if (count % 2) {
 				, masonry: {
 				    columnWidth: 256
 				  }
-			});
-
-			// @todo where should we be storing the state of the view? (Model? Router? StateMachine? Views?)
-			dv.subscribe('render.sectionView.dv', function(event, $section, sectionView) {
-				dv.router.renderedSections(sectionView.name);
 			});
 		}
 	});

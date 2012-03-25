@@ -46,6 +46,8 @@ define(['jquery', 'underscore', 'backbone', 'hogan', 'dv', 'BlockView']
 		, initialize: function (viewData) {
 			this.name = viewData.name;
 
+			this.model.bind('change:active', '@TODO-dosometing', this);
+
 			if (viewData) {
 				this.render(viewData);
 			}

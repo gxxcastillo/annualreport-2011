@@ -4,8 +4,8 @@ That model will have the sidebar elements, as well as information as to how to d
 
  */
 
-define(['jquery', 'underscore', 'backbone', 'dv']
-, function ($, _ ,Backbone, dv ,undefined) {
+define(['jquery', 'underscore', 'backbone', 'dv', 'NavList']
+, function ($, _ ,Backbone, dv , NavList, undefined) {
 	'use strict';
 
 	return Backbone.View.extend({
@@ -37,17 +37,15 @@ define(['jquery', 'underscore', 'backbone', 'dv']
 		}
 
 
+		, handleActiveChange: function () {
+			viewObj.$el.find('li.active').removeClass('active');
+
+			$('.nav-' + sectionView.name, viewObj.$el).parent().addClass('active');
+		}
+
+
 		, initialize: function () {
-			var viewObj = this;
-
-			console.log(dv.router, 'dv.router');
-			// Update the UI when routed to a new section (ie..when the url changes)
-			dv.router.on('route:updateSection', function (event, $section, sectionView) {
-				console.log('updapapdpd');
-				viewObj.$el.find('li.active').removeClass('active');
-
-				$('.nav-' + sectionView.name, viewObj.$el).parent().addClass('active');
-			});
+			this.navList.on('change:isActive', this.handleActiveChange);
 		}
 	});
 });

@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarModel', 'SidebarView', 'MainView', 'jquery.waypoints'], function ($, _, Backbone, dv, SidebarModel, SidebarView, MainView) {
+define(['jquery', 'underscore', 'backbone', 'dv', 'AnnualReport', 'SidebarView', 'MainView', 'jquery.waypoints'], function ($, _, Backbone, dv, AnnualReport, SidebarView, MainView) {
 
 	var $footer = $('footer')
 	, waypointsOpts = {
@@ -11,40 +11,14 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarModel', 'SidebarView',
 	return Backbone.View.extend({
 		el: 'body'
 
-		/**
-		 * Getter & setter for the currentSection
-		 */
-		, activeSection: function (section) {
-			if (section) {
-				return currentSection = section;
-			}
-
-			return currentSection;
-		}
-
-
-		, renderedSections: function (section) {
-			if (section) {
-				if (_.indexOf(renderedSections, section) == -1) {
-					renderedSections.push(section);
-				}
-			} else {
-				return renderedSections;
-			}
-		}
-
-
-		, isRendered: function (section) {
-			return _.indexOf(renderedSections, section) > -1;
-		}
-
-
 		, initialize: function () {
-			// Instantiate #sidebar
-			new SidebarView({model: new SidebarModel});
+			var report2011 = new AnnualReport;
 
-			// Instantiate #main
-			new MainView();
+			// Instantiate our SidebarView
+			new SidebarView({navList: report2011.navList});
+
+			// Instantiate our MainView
+			new MainView({sections: report2011.sections});
 
 			$footer.waypoint(function () {
 				$footer.waypoint('remove');
