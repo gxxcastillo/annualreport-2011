@@ -12,7 +12,6 @@ SectionProvider.prototype.findById = function(id, callback) {
 		result = {
 			success: false
 			, message: 'Id not found: "' + id + '"'
-			, sectionData: this.sectionData
 		};
 	}
 
