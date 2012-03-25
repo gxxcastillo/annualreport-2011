@@ -20,7 +20,7 @@ if (count % 2) {
 }
 
 			// Add the new section
-			if (!viewData || viewData.success) {
+			if (viewData && viewData.success) {
 				this.$el.prepend( newSection.$el ).isotope('reloadItems');
 			} else {
 				this.$el.html('error: unable to retrieve data');

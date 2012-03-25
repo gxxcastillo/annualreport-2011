@@ -13,6 +13,9 @@ SectionProvider.prototype.findById = function(id, callback) {
 			success: false
 			, message: 'Id not found: "' + id + '"'
 		};
+	} else {
+		// @todo, this is pretty lame but enough for now...
+		result.success = true;
 	}
 
 	callback(result);
