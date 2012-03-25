@@ -7,13 +7,15 @@ require(['jquery', 'underscore', 'backbone', 'dv', 'Block'], function ($, _, Bac
 			, isRendered: false
 		}
 
-		, initialize: function (stuff) {
-			var blocks = [];
+		, initialize: function (sectionData) {
+			var blocksArray = sectionData.blocks
+			, blocks = [];
 
-			_.each(stuff, function () {
-				blocks.push(new Block(stuff));
+			_.each(blocksArray, function (blockData, index) {
+				blocks[index] = new Block(blockData);
 			});
 
+			this.name = sectionData.name;
 			this.blocks = blocks;
 		}
 	});

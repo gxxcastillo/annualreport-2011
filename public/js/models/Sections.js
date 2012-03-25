@@ -1,19 +1,18 @@
+/*****
+ *
+ *
+ *
+ * @todo Drop this "Sections" model. Move all this stuff out.
+ *
+ *
+ *
+ */
+
+
+
+
 require(['jquery', 'underscore', 'backbone', 'dv', 'Section'], function ($, _, Backbone, dv, Section) {
 	return Backbone.Model.extend({
-
-
-		attributes: {
-			sections: [
-				'borrowers'
-				, 'lenders'
-				, 'partners'
-				, 'site'
-				, 'ecosystem'
-				, 'stories'
-				, 'press'
-				, 'finances'
-			]
-		}
 
 
 		, defaults: {
