@@ -5,13 +5,12 @@
 	</hgroup>
 
 	<nav class="primaryNav">
-		{{#navItems}}
-			<a href="#{{name}}" class="nav-{{name}}">{{text}}</a>
-		{{/navItems}}
+		<a href="#prev" class="nav-prev">Prev</a>
+		<a href="#next" class="nav-next">Next</a>
 		<ul>
-			{{#navMenuItems}}
+			{{#navItems}}
 				<li><a href="#{{name}}" class="nav-{{name}}">{{text}}</a></li>
-			{{/navMenuItems}}
+			{{/navItems}}
 		</ul>
 	</nav>
 	

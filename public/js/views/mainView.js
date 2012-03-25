@@ -19,7 +19,6 @@ if (count % 2) {
 	str = 'insert';
 }
 
-
 			// Add the new section
 			if (!viewData || viewData.success) {
 				this.$el.prepend( newSection.$el ).isotope('reloadItems');
