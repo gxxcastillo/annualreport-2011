@@ -1,4 +1,4 @@
-define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
+define(['jquery', 'underscore', 'backbone'], function ($, _, Backbone) {
 
 	/**
 	 * Backbone.Router provides methods for routing client-side pages, and connecting them to actions and events.
@@ -8,22 +8,20 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 		routes: {
 			'': 'home'
 			, '/': 'home'
-			, ':section': 'section'
+			, ':section': 'goToSection'
 			, '*action': 'defaultAction'
 		}
 
 
-		, home: function () {
-			console.log('hit the home');
-			this.navigate('borrowers');
+		, goToSection: function (sectionName) {
+			this.navigate(sectionName);
+			// this.sections.fetch(sectionName);
+			// this.sections.setActiveSection(sectionName);
 		}
 
 
-		, section: function (section) {
-			console.log('update Section Called: ' + section);
-			if (_.indexOf(sections, section) > -1) {
-				this.getSection(section);
-			}
+		, home: function () {
+			this.goToSection('borrowers');
 		}
 
 

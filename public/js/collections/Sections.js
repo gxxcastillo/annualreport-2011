@@ -1,5 +1,19 @@
-require(['jquery', 'underscore', 'backbone', 'dv', 'Section'], function ($, _, Backbone, dv, Section) {
+define(['backbone', 'Section'], function (Backbone, Section) {
 	return Backbone.Collection.extend({
+
 		model: Section
+
+
+		, attributes: {
+			active: ''
+			, rendered: []
+		}
+
+
+		, url: '/'
+
+
+		, setActiveSection: function (sectionName) {
+		}
 	});
 });

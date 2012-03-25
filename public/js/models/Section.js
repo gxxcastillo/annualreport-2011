@@ -1,4 +1,4 @@
-require(['jquery', 'underscore', 'backbone', 'dv', 'Block'], function ($, _, Backbone, dv, Block) {
+define(['jquery', 'underscore', 'backbone', 'dv', 'Block'], function ($, _, Backbone, dv, Block) {
 
 	return Backbone.Model.extend({
 

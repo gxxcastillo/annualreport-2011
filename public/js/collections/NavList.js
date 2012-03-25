@@ -1,4 +1,4 @@
-require(['jquery', 'underscore', 'backbone', 'dv', 'NavItem'], function ($, _, Backbone, dv, NavItem) {
+define(['backbone', 'NavItem'], function (Backbone, NavItem) {
 	return Backbone.Collection.extend({
 		model: NavItem
 	});

@@ -28,13 +28,18 @@ require.config({
 	}
 });
 
-require(['dv', 'router', 'LayoutView', 'jquery', 'underscore', 'backbone', 'hogan', 'jquery.isotope', 'jquery.waypoints', 'jquery.colorbox']
-, function (dv, Router, LayoutView) {
+require(['dv', 'Router', 'AnnualReport', 'LayoutView', 'order!jquery', 'order!jquery.isotope', 'order!jquery.waypoints', 'order!jquery.colorbox']
+, function (dv, Router, AnnualReport, LayoutView) {
 
-	$.extend(dv, {
-		// Instantiate the router and expose it via 'dv'
-		router: new Router()
-	});
+	var report2011 = new AnnualReport
+	, router = new Router({sections: report2011.sections})
+	, layoutView = new LayoutView({report2011: report2011});
 
-	new LayoutView();
+
+	// @todo Here for testing
+	window.dvTesting = {
+		report2011: report2011
+		, router: router
+		, layoutView: layoutView
+	};
 });

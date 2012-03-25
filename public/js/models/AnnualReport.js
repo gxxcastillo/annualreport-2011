@@ -1,4 +1,4 @@
-require(['jquery', 'underscore', 'backbone', 'dv', 'NavItem', 'NavList', 'Section', 'Sections'], function ($, _, Backbone, dv, NavItem, NavList, Section, Sections) {
+define(['backbone', 'NavItem', 'NavList', 'Section', 'Sections'], function (Backbone, NavItem, NavList, Section, Sections) {
 
 	var annualReportData = {
 		title: 'dataviz'
@@ -468,7 +468,6 @@ require(['jquery', 'underscore', 'backbone', 'dv', 'NavItem', 'NavList', 'Sectio
 	    	}
 	    ]
 	};
-
 
 	return Backbone.Model.extend({
 

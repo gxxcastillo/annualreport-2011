@@ -62,8 +62,8 @@ if (count % 2) {
 
 			var $main = this.$el;
 
-			sections.on('add', this.handleSectionAdd);
-			sections.on('change:active', this.handleSectionActive);
+			this.sections.on('add', this.handleSectionAdd);
+			this.sections.on('change:active', this.handleSectionActive);
 
 			// Enable jquery.masonry
 			$main.isotope({
