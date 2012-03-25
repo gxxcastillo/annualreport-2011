@@ -1,3 +1,5 @@
+// Hi there
+
 define(['jquery', 'underscore', 'backbone', 'dv', 'AnnualReport', 'SidebarView', 'MainView', 'jquery.waypoints'], function ($, _, Backbone, dv, AnnualReport, SidebarView, MainView) {
 
 	var $footer = $('footer')
@@ -10,6 +12,8 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'AnnualReport', 'SidebarView',
 
 	return Backbone.View.extend({
 		el: 'body'
+
+		, blah: function () {}
 
 		, initialize: function () {
 			var report2011 = new AnnualReport;
