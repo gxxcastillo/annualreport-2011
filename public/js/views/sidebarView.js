@@ -28,24 +28,25 @@ define(['jquery', 'underscore', 'backbone', 'dv']
 			var section = event.target.getAttribute('href').substr(1);
 
 			if (section == 'prev') {
-				section = 'borrowers';
+				section = dv.router.getPrevSectionName();
 			} else if (section == 'next') {
-				section = 'fundraising';
+				section = dv.router.getNextSectionName();
 			}
 
-			dv.router.navigate(section, {trigger: true});
+			dv.router.navigate(section);
 		}
+
 
 		, initialize: function () {
 			var viewObj = this;
 
-			// Update the UI when routed to a new section
-			$(function () {
-				dv.subscribe('render.sectionView.dv', function (event, $section, sectionView) {
-					viewObj.$el.find('li.active').removeClass('active');
+			console.log(dv.router, 'dv.router');
+			// Update the UI when routed to a new section (ie..when the url changes)
+			dv.router.on('route:updateSection', function (event, $section, sectionView) {
+				console.log('updapapdpd');
+				viewObj.$el.find('li.active').removeClass('active');
 
-					$('.nav-' + sectionView.name, viewObj.$el).parent().addClass('active');
-				});
+				$('.nav-' + sectionView.name, viewObj.$el).parent().addClass('active');
 			});
 		}
 	});

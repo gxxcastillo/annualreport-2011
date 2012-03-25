@@ -27,7 +27,9 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 	 */
 	return Backbone.Router.extend({
 		routes: {
-			':section': 'showSection'
+			'': 'home'
+			, '/': 'home'
+			, ':section': 'section'
 			, '*action': 'defaultAction'
 		}
 
@@ -65,9 +67,11 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 		 *
 		 * @todo. pass param for scrolling?
 		 */
-		, showSection: function (section) {
+		, goToSection: function (section) {
 			this.activeSection(section);
-			this.getSection(section);
+
+			// @trigger an event that tells the view to update
+			dv.publish('goTo.section.dv', section);
 		}
 
 
@@ -77,11 +81,17 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 		 *
 		 * Does an ajax request for a section.
 		 */
-		, getSection: function (section) {
+		, getSection: function (section, doGo) {
+			doGo = typeof doGo == 'undefined'
+				? true
+		        : doGo;
+
+			var routerObj = this;
+
 			// Check to see if this section has already been rendered
 			// @todo - better checking if the section is being rendered
 			// @todo - what if the we've requested the section and just haven't rendered it
-			if (_.indexOf(renderedSections, section) > -1) {
+			if (!section || (_.indexOf(renderedSections, section) > -1)) {
 				return;
 			}
 
@@ -90,27 +100,50 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 				results.name = section;
 
 				dv.publish('get.section.dv', results);
+
+				if (doGo) {
+					routerObj.goToSection(section);
+				}
 			});
 		}
 
 
 		/**
-		 * Get the next section
 		 *
 		 */
-		, getNextSection: function (callback) {
-			var i = _.indexOf(sections, currentSection)
-			, nextSection = sections[i+1];
+		, getNextSectionName: function () {
+			var i = _.indexOf(sections, currentSection);
+			return sections[i+1];
+		}
 
-			if (!nextSection) {
-				return;
-			}
 
-			this.activeSection(nextSection);
-			this.getSection(nextSection);
 
-			// @todo, what parameters should I be passing into the callback?
-			callback();
+		/**
+		 * Get the next section
+		 *
+		 * @params {Bool} [doGo]
+		 */
+		, getNextSection: function (doGo) {
+			this.getSection(this.getNextSectionName(), doGo);
+		}
+
+
+		/**
+		 *
+		 */
+		, getPrevSectionName: function () {
+			var i = _.indexOf(sections, currentSection);
+			return sections[i-1];
+		}
+
+
+		/**
+		 * Get the previous section
+		 *
+		 * @params {Bool} [doGo]
+		 */
+		, getPrevSection: function (doGo) {
+			this.getSection(this.getPrevSectionName, doGo);
 		}
 
 
@@ -119,11 +152,12 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 		 *
 		 * @params {String} from
 		 * @params {String} [to]
+		 * @params {String} [goToSection]
 		 *
 		 * @todo request an array of each element I am requesting
 		 *
 		 */
-		, getSectionsUpFrom: function (from, to) {
+		, getSectionsUpFrom: function (from, to, goToSection) {
 			to = to || currentSection;
 
 			var fromIndex = _.indexOf(sections, from)
@@ -152,8 +186,9 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 		 *
 		 * @params {String} to
 		 * @params {String} [from]
+		 * @params {String} [goToSection]
 		 */
-		, getSectionsUpTo: function (to, from) {
+		, getSectionsUpTo: function (to, from, goToSection) {
 			from = from || currentSection;
 
 			var toIndex = _.indexOf(sections, to)
@@ -175,16 +210,34 @@ define(['jquery', 'backbone', 'dv'], function ($, Backbone, dv) {
 		}
 
 
+		, home: function () {
+			console.log('hit the home');
+			this.navigate('borrowers');
+		}
+
+
+		, section: function (section) {
+			console.log('update Section Called: ' + section);
+			if (_.indexOf(sections, section) > -1) {
+				this.getSection(section);
+			}
+		}
+
+
 		, defaultAction: function () {
 			console.log('no route');
-			this.navigate('borrowers', {trigger: true});
+			this.home();
 		}
 
 
 		, initialize: function () {
-			// Wait for domReady, IE history fallback relies on an iframe.
-			// @todo use Modernizr to detect history support, if has native history support, no need to wait for domready
-			$(Backbone.history.start({pushState: true /*, silent: true */}));
+			if (Modernizr.history) {
+				Backbone.history.start({pushState: true /*, silent: true */});
+			} else {
+				// Wait for domReady (Non-history fallback relies on an iframe)
+				$(Backbone.history.start({pushState: true /*, silent: true */}));
+			}
+
 		}
 	});
 });

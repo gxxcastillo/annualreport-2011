@@ -1,5 +1,5 @@
-define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
-, function ($, _ ,Backbone, dv, sectionView, undefined) {
+define(['jquery', 'underscore', 'backbone', 'dv', 'SectionView']
+, function ($, _ ,Backbone, dv, SectionView, undefined) {
 
 	var count = 0;
 
@@ -10,7 +10,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'sectionView']
 
 		, render: function (event, viewData) {
 			// Create a new section
-			var newSection = new sectionView(viewData);
+			var newSection = new SectionView(viewData);
 
 var str;
 if (count % 2) {
@@ -31,7 +31,7 @@ if (count % 2) {
 				// @todo Now that the page has been appended, check if it filled the screen, if not append another section
 				// careful, however, as the height of #main is never less than the height of the window (weird)
 				if (this.$el.height() <= $(window).height()) {
-					dv.router.getSection('borrowers');
+					dv.router.getNextSection();
 				}
 
 			}, this));

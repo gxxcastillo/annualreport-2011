@@ -1,5 +1,5 @@
-define(['jquery', 'underscore', 'backbone', 'hogan', 'dv', 'jquery.isotope', 'blockView']
-, function ($, _ ,Backbone, hogan, dv ,undefined, blockView) {
+define(['jquery', 'underscore', 'backbone', 'hogan', 'dv', 'BlockView']
+, function ($, _ , Backbone, hogan, dv, BlockView) {
 
 	return Backbone.View.extend({
 
@@ -26,7 +26,7 @@ define(['jquery', 'underscore', 'backbone', 'hogan', 'dv', 'jquery.isotope', 'bl
 			// Build the section element
 			$section
 				.attr('id', viewData.name)
-				.html(new blockView({
+				.html(new BlockView({
 					name: 'sectionTitle'
 					, title: viewData.title
 					, cssClass: 'g2 h1'
@@ -34,7 +34,7 @@ define(['jquery', 'underscore', 'backbone', 'hogan', 'dv', 'jquery.isotope', 'bl
 
 			// Append each block
 			$.each(viewData.blocks, function (i, block) {
-				var newBlock = new blockView(block);
+				var newBlock = new BlockView(block);
 
 				$section.append(newBlock.el);
 			});
