@@ -1,6 +1,8 @@
 // ---- The router is also the "Controller" for now ----
 
 define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv) {
+	// @todo %hack% in order to manually fire a "change:isActive" event on page load
+	var initialPageLoad = true;
 
 	/**
 	 * Backbone.Router provides methods for routing client-side pages, and connecting them to actions and events.
@@ -28,12 +30,15 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 		, showSection: function (sectionId) {
 			var section = this.sections.get(sectionId);
 
-			// @todo, For some reason the initial page load does not trigger the "change:isActive" event
-			// So, we have to manually render the sidebar the first go 'round.
-			this.sidebarView.render(sectionId);
-
 			if (section) {
 				this.sections.setActive(sectionId);
+
+				// @todo %hack% WHY WONT THIS TRIGGER??
+				var sec = this.sections;
+				window.setTimeout(function () {
+					sec.trigger('change:isActive', [sec.getActive(), true]);
+				}, 700);
+
 			} else {
 				console.log('showSection: failed getting section, ' + sectionId);
 				this.defaultAction();
@@ -80,8 +85,7 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 			}
 
 			// Set up the various events
-			sections.on('change:isActive', function (model, value, options) {
-
+			sections.on('change:isActive', function (model, value) {
 				// We only care about the element that is being set active
 				if (value == true) {
 					routerObj.navigate(model.id);
