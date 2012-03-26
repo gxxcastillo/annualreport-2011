@@ -57,6 +57,10 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 
 		}
 
+		, scrollTo: function (section) {
+			$('html body').stop().animate({scrollTop: $('#' + section).offset().top});
+		}
+
 
 		, handleSectionActive: function () {
 			this.scrollToBottom();

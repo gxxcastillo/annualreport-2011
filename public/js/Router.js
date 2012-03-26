@@ -1,4 +1,4 @@
-// ---- The router is also the "Controller"  ----
+// ---- The router is also the "Controller" for now ----
 
 define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv) {
 
@@ -88,7 +88,7 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 
 					sidebarView.render(model.id);
 
-					mainView.render(model.id)
+					mainView.scrollTo(model.id);
 				}
 			});
 
@@ -112,25 +112,19 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 				var goTo;
 
 				// Return if not up or down arrow keys
-				if (_.indexOf(e.keyCode, [38, 40]) === -1) {
+				if (_.indexOf([38, 40], e.keyCode) < 0) {
 					return;
 				}
 
 				e.preventDefault();
 
 				// Get the next/prev tab
-				if (e.keyCode == 39) {
-					//goTo =
-				} else if (e.keyCode == 37) {
-					//goTo =
+				if (e.keyCode == 38) {
+					sections.setPrevActive();
+				} else if (e.keyCode == 40) {
+					sections.setNextActive();
 				}
 
-				// Dead-end
-				if (!goTo) {
-					return;
-				}
-
-				go(goTo.id.slice(0, -3));
 			});
 		}
 	});
