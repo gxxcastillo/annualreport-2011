@@ -1,9 +1,3 @@
-/*
-@todo sidebar view should have a model associeated with it.
-That model will have the sidebar elements, as well as information as to how to display (I think?)
-
- */
-
 define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarView.hogan']
 , function ($, _ ,Backbone, dv, hogan, tpl, undefined) {
 	'use strict';
@@ -17,11 +11,6 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarVi
 		}
 
 
-		, elements: {
-			'#primaryNav': '$primaryNav'
-		}
-
-
 		, navClickHandler: function (event) {
 			event.preventDefault();
 
@@ -29,6 +18,13 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarVi
 			this.sections.setActive(section);
 		}
 
+
+		/**
+		 * @todo This is not currently used.  Should we have an update function that only replaces elements instead of
+		 * re-rendering?  It might make sense in the case of the sidebar as its not very complicated
+		 *
+		 * @params {String} activeSection
+		 */
 		, update: function (activeSection) {
 			// Remove the old active class
 			this.$el.find('li.active').removeClass('active');
@@ -39,11 +35,15 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarVi
 
 
 		, template: function (data) {
-			this.tpl = hogan.compile(tpl);
-			return this.tpl.render(data);
+			return hogan.compile(tpl).render(data);
 		}
 
 
+		/**
+		 * Responsible for rendering the entire sidebar
+		 *
+		 * @params {string} [activeSection] Tells the renderer which nav item to show as "active"
+		 */
 		, render: function (activeSection) {
 			activeSection = activeSection || this.sections.getActive();
 
@@ -51,7 +51,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarVi
 			, prevId
 			, nextId;
 
-
+			// Build the view data object
 			_.each(this.navListData, function (navItem, i) {
 				if (navItem.id == activeSection) {
 					navItem.classname = 'active';
@@ -66,6 +66,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarVi
 				}
 			});
 
+			// Insert the new content into our view's DOM
 			this.$el.html(this.template({
 				prevId: prevId
 				, nextId: nextId
@@ -88,8 +89,6 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarVi
 
 			this.navListData = navListData;
 			this.render();
-
-			this.sections = options.sections;
 		}
 	});
 });
