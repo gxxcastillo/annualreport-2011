@@ -1,0 +1,25 @@
+<hgroup class="siteHeader">
+	<h1 class="kivaLogo"><a href="#">Kiva 2011</a></h1>
+	<h2 class="documentTitle">Annual Report</h2>
+</hgroup>
+
+<nav class="primaryNav">
+	<a href="#prev" class="nav-prev">Prev</a>
+	<a href="#next" class="nav-next">Next</a>
+	<ul>
+		{{#navItems}}
+			<li><a href="#{{name}}" class="nav-{{name}}">{{text}}</a></li>
+		{{/navItems}}
+	</ul>
+</nav>
+
+<div>
+	<div>
+		<a href="http://www.facebook.com/dialog/feed?app_id=348783781832034&link=http://developers.facebook.com/docs/reference/dialogs/&picture=http://fbrell.com/f8.jpg&name=Facebook%20Dialogs&caption=Reference%20Documentation&description=Using%20Dialogs%20to%20interact%20with%20users.&redirect_uri=annualreport-vm.kiva.org" class="button fbShare">Share this</a>
+	</div>
+	<p>Kiva is a non-profit organization.  We rely on support from people like you to keep the lights on.</p>
+	<p>Consider a donation</p>
+	<div>
+		<a href="#" class="button donate">Donate</a>
+	</div>
+</div>

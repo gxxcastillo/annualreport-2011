@@ -1,4 +1,5 @@
-define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarView', 'MainView'], function ($, _, Backbone, dv, SidebarView, MainView) {
+define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarView', 'MainView']
+, function ($, _, Backbone, dv, SidebarView, MainView) {
 
 	var $footer = $('footer')
 	, waypointsOpts = {
@@ -11,13 +12,13 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarView', 'MainView'], fu
 	return Backbone.View.extend({
 		el: 'body'
 
-		, initialize: function () {
-/*
+		, initialize: function (options) {
+
 			// Instantiate our SidebarView
-			new SidebarView({navList: this.report2011.navList});
+			new SidebarView({sections: options.report2011.sections});
 
 			// Instantiate our MainView
-			new MainView({sections: this.report2011.sections});
+			new MainView({sections: options.report2011.sections});
 
 			$footer.waypoint(function () {
 				$footer.waypoint('remove');
@@ -27,7 +28,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarView', 'MainView'], fu
 				});
 
 			}, waypointsOpts);
-*/
+
 		}
 	});
 });

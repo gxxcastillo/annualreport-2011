@@ -4,8 +4,8 @@ That model will have the sidebar elements, as well as information as to how to d
 
  */
 
-define(['jquery', 'underscore', 'backbone', 'dv', 'NavList']
-, function ($, _ ,Backbone, dv , NavList, undefined) {
+define(['jquery', 'underscore', 'backbone', 'dv']
+, function ($, _ ,Backbone, dv , undefined) {
 	'use strict';
 
 	return Backbone.View.extend({
@@ -28,24 +28,29 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'NavList']
 			var section = event.target.getAttribute('href').substr(1);
 
 			if (section == 'prev') {
-				section = dv.router.getPrevSectionName();
+				//section = dv.router.getPrevSectionName();
 			} else if (section == 'next') {
-				section = dv.router.getNextSectionName();
+				//section = dv.router.getNextSectionName();
+			} else {
+				this.sections.setActive(section);
 			}
 
-			dv.router.navigate(section);
 		}
 
 
 		, handleActiveChange: function () {
-			viewObj.$el.find('li.active').removeClass('active');
+			console.log(arguments);
 
-			$('.nav-' + sectionView.name, viewObj.$el).parent().addClass('active');
+			//viewObj.$el.find('li.active').removeClass('active');
+
+			//$('.nav-' + sectionView.name, viewObj.$el).parent().addClass('active');
 		}
 
 
-		, initialize: function () {
-			this.navList.on('change:isActive', this.handleActiveChange);
+		, initialize: function (options) {
+			this.sections = options.sections;
+
+			this.sections.on('change:isActive', this.handleActiveChange);
 		}
 	});
 });

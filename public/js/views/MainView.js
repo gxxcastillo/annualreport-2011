@@ -56,14 +56,14 @@ if (count % 2) {
 		}
 
 
-		, initialize: function () {
+		, initialize: function (options) {
 			// @todo - we currently only render content that we request from the server
 			// this.render();
 
 			var $main = this.$el;
 
-			this.sections.on('add', this.handleSectionAdd);
-			this.sections.on('change:active', this.handleSectionActive);
+			options.sections.on('add', this.handleSectionAdd);
+			options.sections.on('change:active', this.handleSectionActive);
 
 			// Enable jquery.masonry
 			$main.isotope({

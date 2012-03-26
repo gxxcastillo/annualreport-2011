@@ -1,5 +1,5 @@
-define(['jquery', 'underscore', 'backbone', 'hogan', 'dv', 'BlockView']
-, function ($, _ , Backbone, hogan, dv, BlockView) {
+define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'BlockView']
+, function ($, _ , Backbone, dv, Hogan, BlockView) {
 
 	return Backbone.View.extend({
 

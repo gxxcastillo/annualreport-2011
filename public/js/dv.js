@@ -2,32 +2,40 @@
 // @todo revisit exposig dv as a Global
 var dv;
 
-define(['jquery', 'underscore'], function ($, _) {
+define(['jquery', 'underscore', 'backbone'], function ($, _, Backbone) {
 	'use strict';
 
-	var $obj = $({});
+	var $obj = $({}) // used for jQuery events
 
-	// @todo ewe
-	window.dv = {
+	, dv = {
 		url: {
 			host: window.location.host
 		}
+	}
+
+	// @todo - For testing (jQuery events vs. Backbone events)
+	, usejQueryEvents = true;
+
+	if (usejQueryEvents) {
+		_.extend(dv, {
+			trigger: function () {
+				$obj.trigger.apply($obj, arguments);
+			}
 
 
-		, publish: function () {
-			$obj.trigger.apply($obj, arguments);
-		}
+			, on: function () {
+				$obj.on.apply($obj, arguments);
+			}
 
 
-		, subscribe: function () {
-			$obj.on.apply($obj, arguments);
-		}
+			, off: function () {
+				$obj.off.apply($obj, arguments);
+			}
+		});
+	} else {
+		_.extend(dv, Backbone.Events)
+	}
 
-
-		, unsubscribe: function () {
-			$obj.off.apply($obj, arguments);
-		}
-	};
-
-	return window.dv;
+	window.dv = dv;
+	return dv;
 });

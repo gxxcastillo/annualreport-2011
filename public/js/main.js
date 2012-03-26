@@ -18,7 +18,6 @@ require.config({
 		, 'Section': 'models/Section'
 		, 'Block': 'models/Block'
 		, 'NavItem': 'models/NavItem'
-		, 'NavList': 'collections/NavList'
 		, 'Sections': 'collections/Sections'
 		, 'LayoutView': 'views/LayoutView'
 		, 'SidebarView': 'views/SidebarView'
@@ -28,13 +27,12 @@ require.config({
 	}
 });
 
-require(['dv', 'Router', 'AnnualReport', 'LayoutView', 'order!jquery', 'order!jquery.isotope', 'order!jquery.waypoints', 'order!jquery.colorbox']
-, function (dv, Router, AnnualReport, LayoutView) {
+require(['underscore', 'backbone', 'dv', 'Router', 'AnnualReport', 'LayoutView', 'order!jquery', 'order!jquery.isotope', 'order!jquery.waypoints', 'order!jquery.colorbox']
+, function (_, Backbone, dv, Router, AnnualReport, LayoutView) {
 
 	var report2011 = new AnnualReport
 	, router = new Router({sections: report2011.sections})
 	, layoutView = new LayoutView({report2011: report2011});
-
 
 	// @todo Here for testing
 	window.dvTesting = {
