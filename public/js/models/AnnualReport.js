@@ -2,8 +2,13 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 
 	var annualReportData = {
 		title: 'dataviz'
+
+		// Render all the sections on page load
 		, renderAll: true
+
+		// Can be "client" or "server".
 		, renderer: 'client'
+
 		, meta: [
 			{
 				name: 'keywords'
