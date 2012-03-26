@@ -1,4 +1,5 @@
-define(['backbone', 'dv', 'hogan', 'text!views/blockView.dataMetric.hogan', 'text!views/blockView.sectionTitle.hogan', 'text!views/blockView.text.hogan', 'text!views/blockView.profile.hogan', 'text!views/blockView.highlight.hogan', 'text!views/blockView.vTable.hogan', 'text!views/blockView.hTable.hogan'], function (backbone, dv, hogan, dataMetricTpl, sectionTitleTpl, textTpl, profileTpl, highlightTpl, vTableTpl, hTableTpl) {
+define(['backbone', 'dv', 'hogan', 'text!views/blockView.dataMetric.hogan', 'text!views/blockView.sectionTitle.hogan', 'text!views/blockView.text.hogan', 'text!views/blockView.profile.hogan', 'text!views/blockView.highlight.hogan', 'text!views/blockView.vTable.hogan', 'text!views/blockView.hTable.hogan']
+, function (backbone, dv, hogan, dataMetricTpl, sectionTitleTpl, textTpl, profileTpl, highlightTpl, vTableTpl, hTableTpl) {
 	var tpl;
 
 	return Backbone.View.extend({
@@ -25,19 +26,15 @@ define(['backbone', 'dv', 'hogan', 'text!views/blockView.dataMetric.hogan', 'tex
 
 
 		, template: function (data) {
-			if (! this.tpl) {
-				this.tpl = hogan.compile(tpl);
-			}
-
-			return this.tpl.render(data);
+			return hogan.compile(tpl).render(data);
 		}
 
 
 		, render: function(viewData) {
-			var cssClass = viewData.name + 'Block ' + viewData.cssClass;
+			var classname = viewData.name + 'Block ' + viewData.cssClass;
 
 			if (viewData.lightbox || viewData.link) {
-				cssClass += ' clickable';
+				classname += ' clickable';
 
 				// "data" will either be set to the url or undefined
 				this.$el.data('link-dv', viewData.link);
@@ -52,10 +49,10 @@ define(['backbone', 'dv', 'hogan', 'text!views/blockView.dataMetric.hogan', 'tex
 				this.handleBlockClick = function () {};
 			}
 
-			this.$el.addClass(cssClass);
+			this.$el.addClass(classname);
 			this.$el.html(this.template(viewData));
 
-			dv.publish('render.blockView.dv', this.$el);
+			dv.trigger('render.blockView.dv', this.$el);
 		}
 
 		, initialize: function (viewData) {
