@@ -22,6 +22,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 			, 'press'
 			, 'finances'
 		]
+		, defaultSection: 'borrowers'
 		, sections: [
 	    	{
 			    id: 'borrowers'
@@ -449,6 +450,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 
 			this.title = annualReportData.title;
 			this.meta = annualReportData.meta;
+			this.defaultSection = annualReportData.defaultSection;
 			this.sections = new Sections(sections);
 		}
 	});

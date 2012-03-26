@@ -4,11 +4,17 @@
 </hgroup>
 
 <nav class="primaryNav">
-	<a href="#prev" class="nav-prev">Prev</a>
-	<a href="#next" class="nav-next">Next</a>
+	{{#prevId}}
+		<a href="#{{prevId}}" class="nav-prev">Prev</a>
+	{{/prevId}}
+
+	{{#nextId}}
+		<a href="#{{nextId}}" class="nav-next">Next</a>
+	{{/nextId}}
+
 	<ul>
 		{{#navItems}}
-			<li><a href="#{{name}}" class="nav-{{name}}">{{text}}</a></li>
+			<li class="{{classname}}"><a href="#{{id}}" class="nav-{{id}}">{{text}}</a></li>
 		{{/navItems}}
 	</ul>
 </nav>

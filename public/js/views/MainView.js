@@ -36,6 +36,7 @@ if (count % 2) {
 
 			}, this));
 
+			this.sectionView = newSection;
 			count++;
 		}
 
@@ -61,9 +62,6 @@ if (count % 2) {
 			// this.render();
 
 			var $main = this.$el;
-
-			options.sections.on('add', this.handleSectionAdd);
-			options.sections.on('change:active', this.handleSectionActive);
 
 			// Enable jquery.masonry
 			$main.isotope({

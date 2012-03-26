@@ -14,11 +14,11 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarView', 'MainView']
 
 		, initialize: function (options) {
 
-			// Instantiate our SidebarView
-			new SidebarView({sections: options.report2011.sections});
+			// Instantiate our SidebarView and save a reference to it
+			this.sidebarView = new SidebarView({sections: options.report2011.sections});
 
-			// Instantiate our MainView
-			new MainView({sections: options.report2011.sections});
+			// Instantiate our MainView and save a reference to it
+			this.mainView = new MainView({sections: options.report2011.sections});
 
 			$footer.waypoint(function () {
 				$footer.waypoint('remove');

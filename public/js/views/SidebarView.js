@@ -4,8 +4,8 @@ That model will have the sidebar elements, as well as information as to how to d
 
  */
 
-define(['jquery', 'underscore', 'backbone', 'dv']
-, function ($, _ ,Backbone, dv , undefined) {
+define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarView.hogan']
+, function ($, _ ,Backbone, dv, hogan, tpl, undefined) {
 	'use strict';
 
 	return Backbone.View.extend({
@@ -26,31 +26,70 @@ define(['jquery', 'underscore', 'backbone', 'dv']
 			event.preventDefault();
 
 			var section = event.target.getAttribute('href').substr(1);
+			this.sections.setActive(section);
+		}
 
-			if (section == 'prev') {
-				//section = dv.router.getPrevSectionName();
-			} else if (section == 'next') {
-				//section = dv.router.getNextSectionName();
-			} else {
-				this.sections.setActive(section);
-			}
+		, update: function (activeSection) {
+			// Remove the old active class
+			this.$el.find('li.active').removeClass('active');
 
+			// Add the new active class
+			$('.nav-' + activeSection, this.$el).parent().addClass('active');
 		}
 
 
-		, handleActiveChange: function () {
-			console.log(arguments);
+		, template: function (data) {
+			this.tpl = hogan.compile(tpl);
+			return this.tpl.render(data);
+		}
 
-			//viewObj.$el.find('li.active').removeClass('active');
 
-			//$('.nav-' + sectionView.name, viewObj.$el).parent().addClass('active');
+		, render: function (activeSection) {
+			activeSection = activeSection || this.sections.getActive();
+
+			var navListData = this.navListData
+			, prevId
+			, nextId;
+
+
+			_.each(this.navListData, function (navItem, i) {
+				if (navItem.id == activeSection) {
+					navItem.classname = 'active';
+					prevId = i == 0
+						? null
+						: navListData[i-1].id;
+					nextId = i == navListData.length - 1
+						? null
+						: navListData[i+1].id;
+				} else {
+					navItem.classname = '';
+				}
+			});
+
+			this.$el.html(this.template({
+				prevId: prevId
+				, nextId: nextId
+				, navItems: this.navListData
+			}));
 		}
 
 
 		, initialize: function (options) {
-			this.sections = options.sections;
+			var sections = this.sections = options.sections
+			, navListData = [];
 
-			this.sections.on('change:isActive', this.handleActiveChange);
+			_.each(sections.models, function (section, i) {
+				navListData[i] = {
+					id: section.attributes.id
+					, text: section.attributes.title
+					, classname: ''
+				};
+			});
+
+			this.navListData = navListData;
+			this.render();
+
+			this.sections = options.sections;
 		}
 	});
 });

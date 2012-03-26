@@ -31,8 +31,8 @@ require(['underscore', 'backbone', 'dv', 'Router', 'AnnualReport', 'LayoutView',
 , function (_, Backbone, dv, Router, AnnualReport, LayoutView) {
 
 	var report2011 = new AnnualReport
-	, router = new Router({sections: report2011.sections})
-	, layoutView = new LayoutView({report2011: report2011});
+	, layoutView = new LayoutView({report2011: report2011})
+	, router = new Router({report2011: report2011, layoutView: layoutView});
 
 	// @todo Here for testing
 	window.dvTesting = {
