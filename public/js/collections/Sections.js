@@ -1,9 +1,13 @@
-define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section) {
+define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, undefined) {
 	return Backbone.Collection.extend({
 
 		model: Section
 
 		, url: '/'
+
+		, getActive: function () {
+			return this.get(this.active);
+		}
 
 
 		, setActive: function (id) {
@@ -18,17 +22,49 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section) {
 		}
 
 
-		, setNextActive: function () {
-			var activeSection = this.getActive;
+		, prev: function(activeModel) {
+			activeModel = activeModel || this.getActive();
 
-			if (activeSection) {
-				activeSection.set('isActive', false);
+			var i = this.indexOf(activeModel)
+
+			if (i === 0) {
+				return;
+			}
+
+	        return this.at(i - 1);
+	    }
+
+
+		, next: function(activeModel) {
+			activeModel = activeModel || this.getActive();
+
+			var i = this.indexOf(activeModel);
+
+			if (i === this.length) {
+				return;
+			}
+
+			return this.at(i + 1);
+        }
+
+
+		, setPrevActive: function () {
+			var activeModel = this.getActive()
+			, prevModel = this.prev(activeModel);
+
+			if (prevModel) {
+				this.setActive(prevModel.id);
 			}
 		}
 
 
-		, getActive: function () {
-			return this.get(this.active);
+		, setNextActive: function () {
+			var activeModel = this.getActive()
+			, nextModel = this.next(activeModel);
+
+			if (nextModel) {
+				this.setActive(nextModel.id);
+			}
 		}
 
 
