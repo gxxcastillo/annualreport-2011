@@ -18,18 +18,19 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section) {
 		}
 
 
+		, setNextActive: function () {
+			var activeSection = this.getActive;
+
+			if (activeSection) {
+				activeSection.set('isActive', false);
+			}
+		}
+
+
 		, getActive: function () {
 			return this.get(this.active);
 		}
 
-
-		, isLoaded: function (id) {
-			return _.indexOf(this.loaded, id) > -1;
-		}
-
-		, isRendered: function () {
-			return _.indexOf(this.rendered, id) > -1;
-		}
 
 		, sync: function (method, model) {
 			console.log(arguments, 'sync');

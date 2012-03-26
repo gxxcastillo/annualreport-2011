@@ -63,14 +63,14 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 			var routerObj = this
 
 			// Store a local reference to the sections collection
-			, sections = this.sections = options.report2011.sections
+			, sections = this.sections = options.annualReport.sections
 
 			// Store a local reference to the views that need updating
 			, mainView  = this.mainView = options.layoutView.mainView
 			, sidebarView = this.sidebarView = options.layoutView.sidebarView;
 
 			// Set the default Section
-			this.defaultSection = options.report2011.defaultSection;
+			this.defaultSection = options.annualReport.defaultSection;
 
 			if (Modernizr.history) {
 				Backbone.history.start({pushState: true /*, silent: true */});
@@ -85,11 +85,53 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 				// We only care about the element that is being set active
 				if (value == true) {
 					routerObj.navigate(model.id);
+
 					sidebarView.render(model.id);
+
+					mainView.render(model.id)
 				}
 			});
 
-			//sections.on('add', this.handleSectionAdd);
+			if (! options.annualReport.renderAll) {
+				// If we are rendering all sections on page load, this will never fire
+
+				dv.on('render.sectionView', function (id) {
+					sections.get(id).isRendered = true;
+				});
+			} else {
+				// @todo - this is lame, we are just assuming the all rendered.
+				// Since at this point the views all rendered, its too late to bind to any event they fire while rendering
+
+				_.each(sections.models, function (section) {
+					sections.get(section.id).isRendered = true;
+				});
+			}
+
+			// Bind the key events to allow for browsing via the keyboard
+			$(document).keydown(function (e) {
+				var goTo;
+
+				// Return if not up or down arrow keys
+				if (_.indexOf(e.keyCode, [38, 40]) === -1) {
+					return;
+				}
+
+				e.preventDefault();
+
+				// Get the next/prev tab
+				if (e.keyCode == 39) {
+					//goTo =
+				} else if (e.keyCode == 37) {
+					//goTo =
+				}
+
+				// Dead-end
+				if (!goTo) {
+					return;
+				}
+
+				go(goTo.id.slice(0, -3));
+			});
 		}
 	});
 });

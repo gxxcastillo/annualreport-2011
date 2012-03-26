@@ -14,11 +14,16 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarView', 'MainView']
 
 		, initialize: function (options) {
 
+			// Set styling specific to dynamicRendering (i.e. using jquery.isotope for rendiner)
+			if (!options.annualReport.renderAll) {
+				this.$el.addClass('dynamicRender');
+			}
+
 			// Instantiate our SidebarView and save a reference to it
-			this.sidebarView = new SidebarView({sections: options.report2011.sections});
+			this.sidebarView = new SidebarView({sections: options.annualReport.sections});
 
 			// Instantiate our MainView and save a reference to it
-			this.mainView = new MainView({sections: options.report2011.sections});
+			this.mainView = new MainView({annualReport: options.annualReport});
 
 			$footer.waypoint(function () {
 				$footer.waypoint('remove');

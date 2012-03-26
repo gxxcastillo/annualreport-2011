@@ -25,7 +25,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'BlockView']
 
 			// Build the section element
 			$section
-				.attr('id', viewData.name)
+				.attr('id', viewData.id)
 				.html(new BlockView({
 					name: 'sectionTitle'
 					, title: viewData.title
@@ -33,20 +33,18 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'BlockView']
 				}).$el);
 
 			// Append each block
-			$.each(viewData.blocks, function (i, block) {
+			_.each(viewData.blocks, function (block) {
 				var newBlock = new BlockView(block);
 
 				$section.append(newBlock.el);
 			});
 
-			dv.publish('render.sectionView.dv', [$section, this]);
+			dv.trigger('render.sectionView', [viewData.id]);
 		}
 
 
 		, initialize: function (viewData) {
 			this.name = viewData.name;
-
-			this.model.bind('change:active', '@TODO-dosometing', this);
 
 			if (viewData) {
 				this.render(viewData);

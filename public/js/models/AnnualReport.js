@@ -2,6 +2,8 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 
 	var annualReportData = {
 		title: 'dataviz'
+		, renderAll: true
+		, renderer: 'client'
 		, meta: [
 			{
 				name: 'keywords'
@@ -29,7 +31,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    		, title: 'Borrowers'
 	    		, blocks: [
 	    			{
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h3'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -37,14 +39,14 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'profile'
+	    				name: 'profile'
 	    				, cssClass: 'g1 h1'
 	    				, img: '/img/blue.jpg'
 	    				, userName: 'Sean'
 	    				, label: 'avg. time on site'
 	    			}
 	     			, {
-	    				id: 'highlight'
+	    				name: 'highlight'
 	    				, cssClass: 'g1 h3'
 	    				, img: '/img/deer.jpg'
 	    				, link: ''
@@ -53,7 +55,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, c3: 'Erin, Vancouer Canada'
 	    			}
 	    			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h3'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -61,14 +63,14 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'text'
+	    				name: 'text'
 	    				, label: 'the label'
 	    				, cssClass: 'g1 h2'
 	    				, value: ['change', 'good', 'support']
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h1'
 	    				, value: '4.5'
 	    				, unit: 'Mins'
@@ -76,7 +78,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'hTable'
+	    				name: 'hTable'
 	    				, cssClass: 'g2 h1'
 	    				, dataset: [
 	    					{
@@ -99,14 +101,14 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, label: 'Popular ways to invite friends to Kiva (Shares per month)'
 	    			}
 	    			, {
-	    				id: 'profile'
+	    				name: 'profile'
 	    				, cssClass: 'g1 h1'
 	    				, img: '/img/blue.jpg'
 	    				, username: 'Sean'
 	    				, label: 'avg. time on site'
 	    			}
 	     			, {
-	    				id: 'highlight'
+	    				name: 'highlight'
 	    				, cssClass: 'g1 h3'
 	    				, img: '/img/deer.jpg'
 	    				, link: ''
@@ -115,7 +117,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, c3: 'Erin, Vancouer Canada'
 	    			}
 	    			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h3'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -123,7 +125,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'text'
+	    				name: 'text'
 	    				, label: 'the label'
 	    				, cssClass: 'g1 h2'
 	    				, value: ['change', 'good', 'support']
@@ -136,7 +138,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    		, title: 'Lenders'
 	    		, blocks: [
 	    			{
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h3'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -144,21 +146,21 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'text'
+	    				name: 'text'
 	    				, label: 'the label'
 	    				, cssClass: 'g1 h2'
 	    				, value: ['change', 'good', 'support']
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'text'
+	    				name: 'text'
 	    				, label: 'the label'
 	    				, cssClass: 'g1 h2'
 	    				, value: ['change', 'good', 'support']
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'highlight'
+	    				name: 'highlight'
 	    				, cssClass: 'g1 h3'
 	    				, img: '/img/deer.jpg'
 	    				, context: 'Most friends recruited to Kiva'
@@ -173,7 +175,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    		, title: 'Web Site'
 	    		, blocks: [
 	    			{
-	    				id: 'hTable'
+	    				name: 'hTable'
 	    				, cssClass: 'g2 h1'
 	    				, dataset: [
 	    					{
@@ -196,7 +198,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, label: 'Popular ways to invite friends to Kiva (Shares per month)'
 	    			}
 	    			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h1'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -204,7 +206,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	     			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g2 h2'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -212,7 +214,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h1'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -226,7 +228,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    		, title: 'Partners'
 	    		, blocks: [
 	    			{
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h3'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -234,7 +236,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h1'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -242,7 +244,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	     			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g3 h5'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -250,7 +252,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h1'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -264,7 +266,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    		, title: 'Kiva Ecosystem'
 	    		, blocks: [
 	    			{
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h1'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -272,7 +274,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    					, cssClass: 'g1 h2'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -280,7 +282,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	     			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g2 h3'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -288,7 +290,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h4'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -296,7 +298,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h5'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -310,7 +312,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    		, title: 'Stories From the Field'
 	    		, blocks: [
 	    			{
-	    				id: 'highlight'
+	    				name: 'highlight'
 	    				, cssClass: 'g2 h2'
 	    				, img: '/img/stache.jpg'
 	    //	only use when clicking adds a link			, link: 'http://google.com'
@@ -332,7 +334,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, c3: 'Best Kiva photos from 2011'
 	    			}
 	    			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h1'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -340,7 +342,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	     			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g2 h2'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -348,7 +350,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h1'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -362,7 +364,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    		, title: 'Press & Promotions'
 	    		, blocks: [
 	    			{
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h3'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -370,7 +372,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h1'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -378,7 +380,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	     			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g2 h2'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -386,7 +388,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h1'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -400,7 +402,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    		, title: 'Financial Health'
 	    		, blocks: [
 	    			{
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h3'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -408,7 +410,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h1'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -416,7 +418,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	     			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g2 h2'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -424,7 +426,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	    				, context: 'vs. 2010 5.1 mins'
 	    			}
 	    			, {
-	    				id: 'dataMetric'
+	    				name: 'dataMetric'
 	    				, cssClass: 'g1 h1'
 	    				, value: '5.5'
 	    				, unit: 'Mins'
@@ -450,6 +452,8 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 
 			this.title = annualReportData.title;
 			this.meta = annualReportData.meta;
+			this.renderAll = annualReportData.renderAll;
+			this.renderer = annualReportData.renderer;
 			this.defaultSection = annualReportData.defaultSection;
 			this.sections = new Sections(sections);
 		}

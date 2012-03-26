@@ -30,13 +30,13 @@ require.config({
 require(['underscore', 'backbone', 'dv', 'Router', 'AnnualReport', 'LayoutView', 'order!jquery', 'order!jquery.isotope', 'order!jquery.waypoints', 'order!jquery.colorbox']
 , function (_, Backbone, dv, Router, AnnualReport, LayoutView) {
 
-	var report2011 = new AnnualReport
-	, layoutView = new LayoutView({report2011: report2011})
-	, router = new Router({report2011: report2011, layoutView: layoutView});
+	var annualReport = new AnnualReport
+	, layoutView = new LayoutView({annualReport: annualReport})
+	, router = new Router({annualReport: annualReport, layoutView: layoutView});
 
 	// @todo Here for testing
 	window.dvTesting = {
-		report2011: report2011
+		annualReport: annualReport
 		, router: router
 		, layoutView: layoutView
 	};

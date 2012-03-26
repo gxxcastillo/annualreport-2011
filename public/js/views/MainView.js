@@ -1,23 +1,15 @@
 define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'AnnualReport']
 , function ($, _ ,Backbone, dv, Sections, SectionView, AnnualReport, undefined) {
 
-	var count = 0;
 
 	return Backbone.View.extend({
 
 		el: '#main'
 
 
-		, render: function (event, viewData) {
+		, _deprecated_render: function (event, viewData) {
 			// Create a new section
 			var newSection = new SectionView(viewData);
-
-var str;
-if (count % 2) {
-	str = 'appended';
-} else {
-	str = 'insert';
-}
 
 			// Add the new section
 			if (viewData && viewData.success) {
@@ -37,7 +29,26 @@ if (count % 2) {
 			}, this));
 
 			this.sectionView = newSection;
-			count++;
+		}
+
+		, render: function (sectionId) {
+			var $el = this.$el
+			, sectionsToRender
+			, newSection;
+
+			sectionId = sectionId || this.sections.getActive();
+
+			if (this.renderAll) {
+				sectionsToRender = this.sections;
+			} else {
+				console.log('Currently, only support "renderAll"');
+				return;
+			}
+
+			_.each(sectionsToRender.models, function (sectionData, i) {
+				newSection = new SectionView(sectionData.attributes);
+				$el.append(newSection.el);
+			});
 		}
 
 
@@ -58,23 +69,27 @@ if (count % 2) {
 
 
 		, initialize: function (options) {
-			// @todo - we currently only render content that we request from the server
-			// this.render();
-
 			var $main = this.$el;
 
+			this.sections = options.annualReport.sections;
+			this.renderAll = options.annualReport.renderAll;
+
 			// Enable jquery.masonry
-			$main.isotope({
-				itemSelector: '.block:not(.block .block, .hoverBlock)'
+			if (!this.renderAll) {
+				$main.isotope({
+					itemSelector: '.block:not(.block .block, .hoverBlock)'
 
-				// We only want animations for browsers that support css transforms
-				, animationEngine: 'css'
+					// We only want animations for browsers that support css transforms
+					, animationEngine: 'css'
 
-				, layoutMode: 'masonry'
-				, masonry: {
-				    columnWidth: 256
-				  }
-			});
+					, layoutMode: 'masonry'
+					, masonry: {
+					    columnWidth: 256
+					  }
+				});
+			}
+
+			this.render();
 		}
 	});
 });
