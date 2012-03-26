@@ -42,7 +42,9 @@ SectionProvider.prototype.save = function(sectionItems, callback) {
 new SectionProvider().save(
     {
     	borrowers: {
-    		title: 'Borrowers'
+		    id: 'borrowers'
+    		, title: 'Borrowers'
+		    , order: 1
     		, blocks: [
     			{
     				name: 'dataMetric'
@@ -148,7 +150,9 @@ new SectionProvider().save(
     		]
     	}
     	, lenders: {
-    		title: 'Lenders'
+	        id: 'lenders'
+    		, title: 'Lenders'
+	        , order: 2
     		, blocks: [
     			{
     				name: 'dataMetric'
@@ -184,7 +188,9 @@ new SectionProvider().save(
     		]
     	}
     	, site: {
-    		title: 'Web Site'
+	        id: 'site'
+    		, title: 'Web Site'
+	        , order: 3
     		, blocks: [
     			{
     				name: 'hTable'
@@ -236,7 +242,9 @@ new SectionProvider().save(
     		]
     	}
     	, partners: {
-    		title: 'Partners'
+	        id: 'partners'
+    		, title: 'Partners'
+	        , order: 4
     		, blocks: [
     			{
     				name: 'dataMetric'
@@ -273,7 +281,9 @@ new SectionProvider().save(
     		]
     	}
     	, ecosystem: {
-    		title: 'Kiva Ecosystem'
+	        id: 'ecosystem'
+    		, title: 'Kiva Ecosystem'
+	        , order: 5
     		, blocks: [
     			{
     				name: 'dataMetric'
@@ -318,7 +328,9 @@ new SectionProvider().save(
     		]
     	}
     	, stories: {
-    		title: 'Stories From the Field'
+	        id: 'stories'
+    		, title: 'Stories From the Field'
+	        , order: 6
     		, blocks: [
     			{
     				name: 'highlight'
@@ -369,7 +381,9 @@ new SectionProvider().save(
     		]
     	}
     	, press: {
-    		title: 'Press & Promotions'
+	        id: 'press'
+    		, title: 'Press & Promotions'
+	        , order: 7
     		, blocks: [
     			{
     				name: 'dataMetric'
@@ -405,8 +419,10 @@ new SectionProvider().save(
     			}
     		]
     	}
-    	, fincances: {
-    		title: 'Financial Health'
+    	, finances: {
+	        id: 'finances'
+    		, title: 'Financial Health'
+	        , order: 8
     		, blocks: [
     			{
     				name: 'dataMetric'
