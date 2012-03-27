@@ -22,19 +22,16 @@ SectionProvider.prototype.findById = function (id, callback) {
 };
 
 SectionProvider.prototype.getList = function () {
-    var result = {
-        success:false
-        ,data: []
-    };
+	var sectionList = []
+	, key;
 
     for(key in this.sectionData) {
         if (this.sectionData.hasOwnProperty(key)) {
-            result.success = true;
-            result.data.push({id: this.sectionData[key].id, title: this.sectionData[key].title, order: this.sectionData[key].order});
+	        sectionList.push({id: this.sectionData[key].id, title: this.sectionData[key].title, order: this.sectionData[key].order});
         }
     }
 
-    return result;
+    return sectionList;
 }
 
 SectionProvider.prototype.save = function (sectionItems, callback) {

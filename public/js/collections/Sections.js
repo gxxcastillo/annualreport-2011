@@ -3,7 +3,7 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
 
 		model: Section
 
-		, url: '/'
+		, url: '/sectionList?raw=1'
 
 		, getActive: function () {
 			return this.get(this.active);
@@ -80,7 +80,7 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
 		}
 
 		, initialize: function () {
-
+			this.trigger('init', [this]);
 
 //			this.active = '';
 //			this.rendered = [];

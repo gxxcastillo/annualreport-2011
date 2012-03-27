@@ -76,7 +76,8 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 		initialize: function () {
 			var sections = [];
 
-			$.get(dv.url.host, {raw: 1}, function (response) {
+			/*
+			$.get('/sectionList', {raw: 1}, function (response) {
 				var sectionData;
 
 				if (response.success) {
@@ -89,25 +90,19 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 
 					// Create the collection
 					this.sections = new Sections(sections);
+					this.sections.on('init', [this.sections]);
 				} else {
+					// @todo better error handling
 					console.log('AnnualReport: Error initializing');
 				}
 			});
+			*/
 
-			this.title = annualReportData.title;
-			this.meta = annualReportData.meta;
-			this.renderAll = annualReportData.renderAll;
-			this.renderer = annualReportData.renderer;
-			this.animate = annualReportData.animate;
-			this.defaultSection = annualReportData.defaultSection;
 
-			/*
-			var navItemsData = annualReportData.navItems
-			, sectionsData = annualReportData.sections
-			, sections = [];
+			var sections = [];
 
 			// Create the section Models
-			_.each(sectionsData, function (sectionData, index) {
+			_.each(window.sectionList, function (sectionData, index) {
 				sections[index] = new Section(sectionData);
 			});
 
@@ -120,7 +115,6 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 
 			// Create the collection
 			this.sections = new Sections(sections);
-			*/
 		}
 	});
 });

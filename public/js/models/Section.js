@@ -14,9 +14,6 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Block'], function ($, _, Back
 			_.each(blocksArray, function (blockData, index) {
 				blocks[index] = new Block(blockData);
 			});
-
-			this.name = sectionData.name;
-			this.blocks = blocks;
 		}
 	});
 });

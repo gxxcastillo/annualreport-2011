@@ -59,9 +59,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 		}
 
 
-		, initialize: function (options) {
-			var $main = this.$el;
-
+		, asyncInit: function (options) {
 			this.sections = options.annualReport.sections;
 			this.renderAll = options.annualReport.renderAll;
 			this.animate = options.annualReport.animate;

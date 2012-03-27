@@ -23,7 +23,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarView', 'MainView']
 			this.sidebarView = new SidebarView({sections: options.annualReport.sections});
 
 			// Instantiate our MainView and save a reference to it
-			this.mainView = new MainView({annualReport: options.annualReport});
+			this.mainView = new MainView();
 
 			$footer.waypoint(function () {
 				$footer.waypoint('remove');

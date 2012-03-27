@@ -30,9 +30,15 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 		 * @params {String} sectionId
 		 */
 		, showSection: function (sectionId) {
-			var section = this.sections.get(sectionId);
+			// On page load, this.sections has yet to be set.
+			if (! this.sections) {
+				return;
+			}
 
-			if (section) {
+			var sectionModel = this.sections.get(sectionId)
+			, hasBlocks = sectionModel.has('blocks');
+
+			if (true) {
 				this.sections.setActive(sectionId);
 
 				// @todo %hack% WHY WONT THIS TRIGGER??
@@ -42,6 +48,13 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 				}, 700);
 
 			} else {
+				$.get(sectionId, {raw: 1}, function (result) {
+					if (result.success) {
+						sectionModel.set({blocks: result.blocks});
+						this.sections.trigger('init:sectionsData', [sections]);
+					}
+				});
+
 				console.log('showSection: failed getting section, ' + sectionId);
 				this.defaultAction();
 			}
@@ -85,6 +98,17 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 				// Wait for domReady (Non-history fallback relies on an iframe)
 				$(Backbone.history.start({pushState: true /*, silent: true */}));
 			}
+
+
+			/* No longer need this as we're loading the initial set of data (sectionsList) inline
+			sections.on('init:sectionsList', function (sectionsCollection) {
+				sidebarView.asyncInit({sections: sectionsCollection});
+			});
+			*/
+
+			sections.on('init:sectionsData', function (annualReportModel) {
+				mainView.asyncInit({annualReport: annualReportModel});
+			});
 
 			// Bind to the section Model's "block" change event
 			sections.on('change:block', function (sectionModel, value) {
