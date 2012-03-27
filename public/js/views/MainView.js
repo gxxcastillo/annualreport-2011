@@ -34,7 +34,6 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 			if (this.renderAll) {
 				sectionsToRender = this.sections;
 			} else {
-				console.log('Currently, only support "renderAll"');
 				return;
 			}
 

@@ -5,7 +5,7 @@ SectionProvider.prototype.findAll = function (callback) {
   callback( null, this.sectionData )
 };
 
-SectionProvider.prototype.findById = function (id, callback) {
+SectionProvider.prototype.findById = function (id) {
 	var result = this.sectionData[id];
 
 	if (!result) {
@@ -18,7 +18,7 @@ SectionProvider.prototype.findById = function (id, callback) {
 		result.success = true;
 	}
 
-	callback(result);
+	return result;
 };
 
 SectionProvider.prototype.getList = function () {
