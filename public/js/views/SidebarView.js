@@ -11,25 +11,39 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarVi
 		}
 
 
-		, elements: {
-			'.primaryNav .nav-prev': ''
-			, '.primaryNav .nev-next': ''
-			, '.primaryNav li a': ''
-		}
-
-
 		, navClickHandler: function (event) {
 			event.preventDefault();
 
 			// @TODO QUICK HACK
 
 
-			var section = event.target.getAttribute('href').substr(1);
+			var sectionId = event.target.getAttribute('href');
 
 			// @todo %HACK% Notifies the controller that this "setActive" is being triggered by a nav click
 			dv.navClickTriggered = true;
 
-			this.sections.setActive(section);
+			this.sections.setActiveById(sectionId);
+		}
+
+
+		/**
+		 * @todo we have to return undefined for now as apposed to an empty string as Hogan treats empty string as truthy
+		 *
+		 */
+		, getPrevUrl: function (activeSectionModal) {
+			var prevModel = this.sections.prev(activeSectionModal);
+			return prevModel ? prevModel.id : undefined
+		}
+
+
+		/**
+		 * @todo we have to return undefined for now as apposed to an empty string as Hogan treats empty string as truthy
+		 * @params {Backbone.Model} activeSectionModel
+		 *
+		 */
+		, getNextUrl: function (activeSectionModel) {
+			var nextModel = this.sections.next(activeSectionModel);
+			return nextModel ? nextModel.id : undefined
 		}
 
 
@@ -39,12 +53,16 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarVi
 		 *
 		 * @params {String} activeSection
 		 */
-		, update: function (activeSection) {
+		, update: function (activeSectionId) {
+			var activeSectionModal = this.sections.getActive(activeSectionId);
+
 			// Remove the old active class
 			this.$el.find('li.active').removeClass('active');
 
 			// Add the new active class
-			$('.nav-' + activeSection, this.$el).parent().addClass('active');
+			$('.nav-' + activeSectionId, this.$el).parent().addClass('active');
+			this.$prev.href = this.getPrevUrl(activeSectionModal);
+			this.$next.href = this.getNextUrl(activeSectionModal);
 		}
 
 
@@ -56,25 +74,17 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarVi
 		/**
 		 * Responsible for rendering the entire sidebar
 		 *
-		 * @params {string} [activeSection] Tells the renderer which nav item to show as "active"
+		 * @params {Backbone.Model} [activeSection] Tells the renderer which nav item to show as "active"
 		 */
 		, render: function (activeSection) {
 			activeSection = activeSection || this.sections.getActive();
 
 			var navListData = this.navListData
-			, prevId
-			, nextId;
 
 			// Build the view data object
-			_.each(this.navListData, function (navItem, i) {
+			_.each(navListData, function (navItem, i) {
 				if (navItem.id == activeSection) {
 					navItem.classname = 'active';
-					prevId = i == 0
-						? null
-						: navListData[i-1].id;
-					nextId = i == navListData.length - 1
-						? null
-						: navListData[i+1].id;
 				} else {
 					navItem.classname = '';
 				}
@@ -82,9 +92,9 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarVi
 
 			// Insert the new content into our view's DOM
 			this.$el.html(this.template({
-				prevId: prevId
-				, nextId: nextId
-				, navItems: this.navListData
+				prevId: this.getPrevUrl(activeSection)
+				, nextId: this.getNextUrl(activeSection)
+				, navItems: navListData
 			}));
 		}
 
@@ -92,6 +102,9 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarVi
 		, initialize: function (options) {
 			var sections = this.sections = options.sections
 			, navListData = [];
+
+			this.$prev = this.$('.primaryNav .nav-prev');
+			this.$next = this.$('.primaryNav .nev-next');
 
 			_.each(sections.models, function (section, i) {
 				navListData[i] = {

@@ -5,21 +5,30 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
 
 		, url: '/sectionList?raw=1'
 
+
+		/**
+		 *
+		 * @returns {Backbone.Model}
+		 */
 		, getActive: function () {
 			return this.get(this.active);
 		}
 
 
-		, setActive: function (sectionId) {
+		/**
+		 * @params {Backbone.Model} sectionModel
+		 * @returns {Backbone.Model}
+		 */
+		, setActive: function (sectionModel) {
 			var activeSection = this.getActive()
-			, collectionObj = this
-			, sectionModel = this.get(sectionId);
+			, collectionObj = this;
 
 			// Has this collection already been already loaded?
 			if (!sectionModel.has('blocks')) {
-				$.get(sectionId, {raw: 1}, function (response) {
-					var sectionModel = collectionObj.get(response.id);
-					sectionModel.set('blocks', response.blocks);
+				$.get(sectionModel.id, {raw: 1}, function (response) {
+					collectionObj
+						.get(response.id)
+						.set('blocks', response.blocks);
 				});
 			}
 
@@ -28,16 +37,30 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
 			}
 
 			sectionModel.set('isActive', true);
-			this.active = sectionId;
+			this.active = sectionModel.id;
+			return sectionModel;
 		}
 
 
+		/**
+		 * @params {String} sectionId
+		 * @returns {Backbone.Model}
+		 */
+		, setActiveById: function (sectionId) {
+			return this.setActive(this.get(sectionId));
+		}
+
+
+		/**
+		 * @params {Backbone.Model} [activeModel]
+		 * @returs {Bakbone.Model|Object}
+		 */
 		, prev: function(activeModel) {
 			activeModel = activeModel || this.getActive();
 
-			var i = this.indexOf(activeModel)
+			var i = this.indexOf(activeModel);
 
-			if (i === 0) {
+			if (i <= 0) {
 				return;
 			}
 
@@ -45,12 +68,16 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
 	    }
 
 
+		/**
+		 * @params {Backbone.Model} activeModel
+		 * @returs {Bakbone.Model|Object}
+		 */
 		, next: function(activeModel) {
 			activeModel = activeModel || this.getActive();
 
 			var i = this.indexOf(activeModel);
 
-			if (i === this.length) {
+			if (i >= this.length) {
 				return;
 			}
 
@@ -58,22 +85,28 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
         }
 
 
+		/**
+		* Using the currently active section as context, sets the previous section as active
+		*/
 		, setPrevActive: function () {
 			var activeModel = this.getActive()
 			, prevModel = this.prev(activeModel);
 
-			if (prevModel) {
-				this.setActive(prevModel.id);
+			if (!_.isEmpty(prevModel)) {
+				this.setActive(prevModel);
 			}
 		}
 
 
+		/**
+		 * Using the currently active section as context, sets the next section as active
+		 */
 		, setNextActive: function () {
 			var activeModel = this.getActive()
 			, nextModel = this.next(activeModel);
 
-			if (nextModel) {
-				this.setActive(nextModel.id);
+			if (!_.isEmpty(nextModel)) {
+				this.setActive(nextModel);
 			}
 		}
 
