@@ -6,16 +6,16 @@
 
 	<nav class="primaryNav">
 		{{#prevId}}
-			<a href="#{{prevId}}" class="nav-prev">Prev</a>
+			<a href="{{prevId}}" class="nav-prev">Prev</a>
 		{{/prevId}}
 
 		{{#nextId}}
-			<a href="#{{nextId}}" class="nav-next">Next</a>
+			<a href="{{nextId}}" class="nav-next">Next</a>
 		{{/nextId}}
 
 		<ul>
 			{{#navItems}}
-				<li class="{{classname}}"><a href="#{{id}}" class="nav-{{id}}">{{text}}</a></li>
+				<li class="{{classname}}"><a href="{{id}}" class="nav-{{id}}">{{text}}</a></li>
 			{{/navItems}}
 		</ul>
 	</nav>
