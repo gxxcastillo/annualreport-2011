@@ -124,22 +124,6 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 			});
 
 
-			if (! options.annualReport.renderAll) {
-				// If we are rendering all sections on page load, this will never fire
-
-				dv.on('render.sectionView', function (sectionId) {
-					sections.get(sectionId).set('isRendered', true);
-				});
-			} else {
-				// @todo - this is lame, we are just assuming they all rendered.
-				// Since at this point the views all rendered, its too late to bind to any event they fire while rendering
-
-				_.each(sections.models, function (section) {
-					sections.get(section.id).set('isRendered', true);
-				});
-			}
-
-
 			setInterval(function() {
 				waypointTriggered = false;
 			}, 250);
