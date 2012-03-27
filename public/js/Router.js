@@ -1,4 +1,5 @@
 // ---- The router is also the "Controller" for now ----
+// @todo break some of this out into a Controller
 
 define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv) {
 	// @todo %hack% in order to manually fire a "change:isActive" event on page load
@@ -30,33 +31,7 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 		 * @params {String} sectionId
 		 */
 		, showSection: function (sectionId) {
-			// On page load, this.sections has yet to be set.
-			if (! this.sections) {
-				return;
-			}
-
-			var sectionModel = this.sections.get(sectionId)
-			, hasBlocks = sectionModel.has('blocks');
-
-			if (true) {
-				this.sections.setActive(sectionId);
-
-				// @todo %hack% WHY WONT THIS TRIGGER??
-				var sec = this.sections;
-				window.setTimeout(function () {
-					sec.trigger('change:isActive', [sec.getActive(), true]);
-				}, 700);
-
-			} else {
-				$.get(sectionId, {raw: 1}, function (result) {
-					if (result.success) {
-						sectionModel.set({blocks: result.blocks});
-					}
-				});
-
-				console.log('showSection: failed getting section, ' + sectionId);
-				this.defaultAction();
-			}
+			this.sections.setActiveById(sectionId);
 		}
 
 
@@ -117,9 +92,15 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 
 				// We only care about the element that is being set active
 				if (value == true) {
+					// Change the url
 					routerObj.navigate(sectionModel.id);
 
-					sidebarView.render(sectionModel.id);
+					// Update the sidebar
+					sidebarView.update(sectionModel.id);
+
+					if (sectionModel.get('isLoaded') && !waypointTriggered) {
+						mainView.scrollTo(sectionModel.id);
+					}
 				}
 			});
 
@@ -131,7 +112,7 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 
 			// Bind the waypoints
 			$('#main > section .sectionTitleBlock').waypoint(function (event, direction) {
-				var id = event.target.parentNode.id;
+				var sectionId = event.target.parentNode.id;
 
 				if (dv.navClickTriggered || dv.keydownTriggered) {
 					return;
@@ -140,9 +121,9 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 				waypointTriggered = true;
 
 				if (direction === 'down') {
-					sections.setActive(id);
+					sections.setActiveById(sectionId);
 				} else {
-					sections.setActive(sections.prev(sections.get(id)));
+					sections.setActiveById(sections.prev(sections.get(sectionId)));
 				}
 
 			}, {offset: '50%'});
@@ -160,6 +141,7 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 
 				// @todo %HACK% Notifies the controller that this "setActive" is being triggered by a nav click
 				dv.keydownTriggered = true;
+				dv.navClickTriggered = true;
 
 				// Get the next/prev tab
 				if (e.keyCode == 38) {
