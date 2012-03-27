@@ -7,24 +7,12 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 		el: '#main'
 
 
-		, _deprecated_render: function (event, viewData) {
-			// Create a new section
-			var newSection = new SectionView(viewData);
-
-			// Add the new section
-			if (viewData && viewData.success) {
-				this.$el.prepend( newSection.$el ).isotope('reloadItems');
-			} else {
-				this.$el.html('error: unable to retrieve data');
-			}
-
-
-			this.sectionView = newSection;
-		}
-
-
-		, appendSection: function (sectionData) {
-			var newSection = new SectionView(sectionData.attributes);
+		/**
+		 *
+		 * @params {Backbone.Model} sectionModel
+		 */
+		, appendSection: function (sectionModel) {
+			var newSection = new SectionView({model: sectionModel});
 
 			this.$el.append(newSection.el);
 
@@ -35,42 +23,56 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 		}
 
 
-		, render: function (sectionId) {
+		/**
+		 *
+		 *
+		 */
+		, render: function () {
 			var viewObj = this
-			, sectionsToRender
+			, sectionsToRender;
 
-			sectionId = sectionId || this.sections.getActive();
-
+			// @todo For now only if we are doing "renderAll"
 			if (this.renderAll) {
-				sectionsToRender = this.sections;
+				// Make sure and only render sections that have been "loaded"
+				sectionsToRender = this.sections.where({isLoaded: true});
 			} else {
 				return;
 			}
 
-			_.each(sectionsToRender.models, function (sectionData, i) {
-				this.appendSection(sectionData);
+			_.each(sectionsToRender.models, function (sectionModel) {
+				viewObj.appendSection(sectionModel);
 			});
 		}
 
 
-		, scrollTo: function (section) {
+		/**
+		 *
+		 * @params {String} sectionId
+		 */
+		, scrollTo: function (sectionId) {
 			// We have to use the top position of the sectionTitle
 			// because section position values are not reliable when using jquery.isotope.
-			$('html body').stop().animate({scrollTop: $('#' + section + ' .sectionTitleBlock').offset().top - 10}, function () {
+			$('html body').stop().animate({scrollTop: $('#' + sectionId + ' .sectionTitleBlock').offset().top - 10}, function () {
 				dv.navClickTriggered = false;
 				dv.keydownTriggered = false;
 			});
 		}
 
 
-		, asyncInit: function (options) {
+		/**
+		 *
+		 * @params {Object} options
+		 */
+		, initialize: function (options) {
 			this.sections = options.annualReport.sections;
 			this.renderAll = options.annualReport.renderAll;
 			this.animate = options.annualReport.animate;
 
-			// Enable jquery.masonry
+			// Enable jquery.masonry?
 			if (this.animate) {
-				$main.isotope({
+				this.$el.isotope({
+
+					// Only animate elements that match this selector
 					itemSelector: '.block:not(.block .block, .hoverBlock)'
 
 					// We only want animations for browsers that support css transforms
