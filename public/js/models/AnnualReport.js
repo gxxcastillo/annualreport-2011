@@ -4,7 +4,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 		title: 'dataviz'
 
 		// Render all the sections on page load
-		, renderAll: true
+		, renderAll: false
 
 		// Can be "client" or "server".
 		, renderer: 'client'
