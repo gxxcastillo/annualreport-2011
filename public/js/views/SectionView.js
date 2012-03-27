@@ -24,9 +24,10 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'BlockView']
 			var $section = this.$el;
 
 			// Build the section element
-			$section
+			var l = $section
 				.attr('id', viewData.id)
-				.html(new BlockView({
+
+			$section.html(new BlockView({
 					name: 'sectionTitle'
 					, title: viewData.title
 					, cssClass: 'g2 h1'

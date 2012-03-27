@@ -11,11 +11,18 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
 
 
 		, setActive: function (id) {
-			var activeSection = this.getActive();
+			var activeSection = this.getActive()
+			, collectionObj = this;
 
 			if (activeSection) {
 				activeSection.set('isActive', false);
 			}
+
+			// Has this collection already been already loaded?
+			$.get(id, {raw: 1}, function (response) {
+				var sectionModel = collectionObj.get(response.id);
+				sectionModel.set('block', response.block);
+			});
 
 			this.get(id).set('isActive', true);
 			this.active = id;
@@ -73,9 +80,11 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
 		}
 
 		, initialize: function () {
-			this.active = '';
-			this.rendered = [];
-			this.loaded = [];
+
+
+//			this.active = '';
+//			this.rendered = [];
+//			this.loaded = [];
 		}
 	});
 });

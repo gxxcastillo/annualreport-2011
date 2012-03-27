@@ -11,10 +11,24 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarVi
 		}
 
 
+		, elements: {
+			'.primaryNav .nav-prev': ''
+			, '.primaryNav .nev-next': ''
+			, '.primaryNav li a': ''
+		}
+
+
 		, navClickHandler: function (event) {
 			event.preventDefault();
 
+			// @TODO QUICK HACK
+
+
 			var section = event.target.getAttribute('href').substr(1);
+
+			// @todo %HACK% Notifies the controller that this "setActive" is being triggered by a nav click
+			dv.navClickTriggered = true;
+
 			this.sections.setActive(section);
 		}
 

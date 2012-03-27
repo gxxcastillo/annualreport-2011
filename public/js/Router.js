@@ -4,6 +4,8 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 	// @todo %hack% in order to manually fire a "change:isActive" event on page load
 	var initialPageLoad = true;
 
+	var waypointTriggered = false;
+
 	/**
 	 * Backbone.Router provides methods for routing client-side pages, and connecting them to actions and events.
 	 * router.navigate does not support the history API's stateObject
@@ -84,16 +86,29 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 				$(Backbone.history.start({pushState: true /*, silent: true */}));
 			}
 
-			// Set up the various events
-			sections.on('change:isActive', function (model, value) {
+			// Bind to the section Model's "block" change event
+			sections.on('change:block', function (sectionModel, value) {
+				mainView.render(sectionModel.id);
+			});
+
+
+			// Bind to the section Model's "isActive" change event
+			sections.on('change:isActive', function (sectionModel, value) {
+
 				// We only care about the element that is being set active
 				if (value == true) {
-					routerObj.navigate(model.id);
+					routerObj.navigate(sectionModel.id);
 
-					sidebarView.render(model.id);
+					sidebarView.render(sectionModel.id);
 
-					mainView.scrollTo(model.id);
+					if (!waypointTriggered) {
+						mainView.scrollTo(sectionModel.id);
+					}
 				}
+			});
+
+			sections.on('add', function (sectionModel, options) {
+				mainView.render(sectionModel.id);
 			});
 
 			if (! options.annualReport.renderAll) {
@@ -103,13 +118,37 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 					sections.get(id).isRendered = true;
 				});
 			} else {
-				// @todo - this is lame, we are just assuming the all rendered.
+				// @todo - this is lame, we are just assuming they all rendered.
 				// Since at this point the views all rendered, its too late to bind to any event they fire while rendering
 
 				_.each(sections.models, function (section) {
 					sections.get(section.id).isRendered = true;
 				});
 			}
+
+			setInterval(function() {
+				waypointTriggered = false;
+			}, 250);
+
+			// Bind the waypoints
+			$('#main > section .sectionTitleBlock').waypoint(function (event, direction) {
+				var id = event.target.parentNode.id;
+
+				if (dv.navClickTriggered || dv.keydownTriggered) {
+					return;
+				}
+
+				waypointTriggered = true;
+
+				if (direction === 'down') {
+					sections.setActive(id);
+				} else {
+					sections.setActive(sections.prev(sections.get(id)));
+				}
+
+			}, {offset: '50%'});
+
+
 
 			// Bind the key events to allow for browsing via the keyboard
 			$(document).keydown(function (e) {
@@ -121,6 +160,9 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 				}
 
 				e.preventDefault();
+
+				// @todo %HACK% Notifies the controller that this "setActive" is being triggered by a nav click
+				dv.keydownTriggered = true;
 
 				// Get the next/prev tab
 				if (e.keyCode == 38) {

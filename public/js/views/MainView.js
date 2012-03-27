@@ -19,20 +19,13 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 			}
 
 
-			this.$el.isotope(str, newSection.$el, $.proxy(function () {
-				// @todo Now that the page has been appended, check if it filled the screen, if not append another section
-				// careful, however, as the height of #main is never less than the height of the window (weird)
-				if (this.$el.height() <= $(window).height()) {
-					dv.router.getNextSection();
-				}
-
-			}, this));
-
 			this.sectionView = newSection;
 		}
 
+
 		, render: function (sectionId) {
-			var $el = this.$el
+			var viewObj = this
+			, $el = this.$el
 			, sectionsToRender
 			, newSection;
 
@@ -48,27 +41,21 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 			_.each(sectionsToRender.models, function (sectionData, i) {
 				newSection = new SectionView(sectionData.attributes);
 				$el.append(newSection.el);
+
+				if (viewObj.animate) {
+					$el.isotope('appended', newSection.$el);
+				}
 			});
 		}
 
 
-		, scrollToBottom: function () {
-			$('html body').animate({scrollTop: this.$el.height()});
-
-		}
-
 		, scrollTo: function (section) {
-			$('html body').stop().animate({scrollTop: $('#' + section).offset().top});
-		}
-
-
-		, handleSectionActive: function () {
-			this.scrollToBottom();
-		}
-
-
-		, handleSectionAdd: function (event, viewData) {
-			this.render(event, viewData);
+			// We have to use the top position of the sectionTitle
+			// because section position values are not reliable when using jquery.isotope.
+			$('html body').stop().animate({scrollTop: $('#' + section + ' .sectionTitleBlock').offset().top - 10}, function () {
+				dv.navClickTriggered = false;
+				dv.keydownTriggered = false;
+			});
 		}
 
 
@@ -77,9 +64,10 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 
 			this.sections = options.annualReport.sections;
 			this.renderAll = options.annualReport.renderAll;
+			this.animate = options.annualReport.animate;
 
 			// Enable jquery.masonry
-			if (!this.renderAll) {
+			if (this.animate) {
 				$main.isotope({
 					itemSelector: '.block:not(.block .block, .hoverBlock)'
 
