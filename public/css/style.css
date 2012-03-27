@@ -18,7 +18,7 @@ body        { margin: 0 auto; width: 1004px; }
 .primaryNav li.active a { border-left: #fff 5px solid; color: #fff; padding-left: 15px; }
 .primaryNav ~ *         { padding: 0 20px; }
 
-.main > section { margin-bottom: 40px; padding-top: 10px; }
+.main > section { margin-bottom: 40px; }
 
 /* Grid */
 .container      { position: relative; width: 768px; }
