@@ -1,7 +1,7 @@
 define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavItem, Section, Sections) {
 
 	var annualReportData = {
-		title: 'dataviz'
+		title: 'Kiva Annual Report 2011'
 
 		// Render all the sections on page load
 		, renderAll: false

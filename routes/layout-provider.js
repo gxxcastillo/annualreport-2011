@@ -41,7 +41,7 @@ LayoutProvider.prototype = {
 
 	// These are the default properties that get set for the "layout"
 	, defaults: {
-		title: 'dataviz'
+		title: 'Kiva Annual Report 2011'
 		, animate: true
 		, renderAll: false
 		, renderer: 'client'
