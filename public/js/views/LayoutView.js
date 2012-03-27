@@ -24,15 +24,18 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarView', 'MainView']
 
 			// Instantiate our MainView and save a reference to it
 			this.mainView = new MainView();
-
+/* @todo
+			// Infinite Scroll
 			$footer.waypoint(function () {
+				// Remove the binding
 				$footer.waypoint('remove');
 
-				dv.router.getNextSection(function () {
-					$footer.waypoint({offset: '90%'});
-				});
+				options.annualReport.sections.setNextActive();
 
+				// Now add it back
+				$footer.waypoint({offset: '90%'});
 			}, waypointsOpts);
+*/
 
 		}
 	});
