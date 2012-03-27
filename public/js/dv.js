@@ -1,24 +1,22 @@
 // Exposing dv as a Global, mainly to allow for easing testing on the command line
 // @todo revisit exposig dv as a Global
-var dv;
+var dv = dv || {};
 
 define(['jquery', 'underscore', 'backbone'], function ($, _, Backbone) {
 	'use strict';
 
 	var $obj = $({}) // used for jQuery events
 
-	, dv = {
-		url: {
-			host: window.location.host
-		}
-	}
-
 	// @todo - For testing (jQuery events vs. Backbone events)
 	, usejQueryEvents = true;
 
 	if (usejQueryEvents) {
 		_.extend(dv, {
-			trigger: function () {
+			url: {
+				host: window.location.host
+			}
+
+			, trigger: function () {
 				$obj.trigger.apply($obj, arguments);
 			}
 

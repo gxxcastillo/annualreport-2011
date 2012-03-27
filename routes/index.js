@@ -1,6 +1,5 @@
 var LayoutProvider = require('./layout-provider.js')
 , SectionProvider = require('./section-provider.js')
-, _ = require('underscore')
 
 // Create an instance of LayoutProvider, use the default data
 , layoutProvider = new LayoutProvider('defaultLayout')

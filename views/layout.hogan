@@ -12,16 +12,18 @@
 		<script src="/js/lib/modernizr.full.js"></script>
 		<script src="/js/lib/require.js" data-main="/js/main.js"></script>
 		<script>
-			var sectionList = [
-				{{#sectionList}}
-					{{^first}},{{/first}}
-					{
-						id: '{{id}}'
-						, title: '{{title}}'
-						, order: '{{order}}'
-					}
-				{{/sectionList}}
-			];
+			var dv = {
+				sectionList: [
+					{{#sectionList}}
+						{{^first}},{{/first}}
+						{
+							id: '{{id}}'
+							, title: '{{{title}}}'
+							, order: '{{order}}'
+						}
+					{{/sectionList}}
+				]
+			};
 		</script>
 	</head>
 	<body>

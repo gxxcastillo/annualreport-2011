@@ -102,7 +102,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 			var sections = [];
 
 			// Create the section Models
-			_.each(window.sectionList, function (sectionData, index) {
+			_.each(dv.sectionList, function (sectionData, index) {
 				sections[index] = new Section(sectionData);
 			});
 

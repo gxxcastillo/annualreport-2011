@@ -96,7 +96,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarVi
 			_.each(sections.models, function (section, i) {
 				navListData[i] = {
 					id: section.attributes.id
-					, text: section.attributes.title
+					, title: section.attributes.title
 					, classname: ''
 				};
 			});

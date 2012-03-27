@@ -14,7 +14,7 @@
 
 	<ul>
 		{{#navItems}}
-			<li class="{{classname}}"><a href="#{{id}}" class="nav-{{id}}">{{text}}</a></li>
+			<li class="{{classname}}"><a href="#{{id}}" class="nav-{{id}}">{{title}}</a></li>
 		{{/navItems}}
 	</ul>
 </nav>
