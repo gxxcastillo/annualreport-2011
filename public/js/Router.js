@@ -51,7 +51,6 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 				$.get(sectionId, {raw: 1}, function (result) {
 					if (result.success) {
 						sectionModel.set({blocks: result.blocks});
-						this.sections.trigger('init:sectionsData', [sections]);
 					}
 				});
 
@@ -89,9 +88,12 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 			, mainView  = this.mainView = options.layoutView.mainView
 			, sidebarView = this.sidebarView = options.layoutView.sidebarView;
 
+
 			// Set the default Section
 			this.defaultSection = options.annualReport.defaultSection;
 
+
+			// Instantiate backbone's history "pollyfill"
 			if (Modernizr.history) {
 				Backbone.history.start({pushState: true /*, silent: true */});
 			} else {
@@ -100,19 +102,13 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 			}
 
 
-			/* No longer need this as we're loading the initial set of data (sectionsList) inline
-			sections.on('init:sectionsList', function (sectionsCollection) {
-				sidebarView.asyncInit({sections: sectionsCollection});
-			});
-			*/
+			// Bind to the sections "isLoaded" event
+			sections.on('change:isLoaded', function (sectionModel) {
+				mainView.appendSection(sectionModel);
 
-			sections.on('init:sectionsData', function (annualReportModel) {
-				mainView.asyncInit({annualReport: annualReportModel});
-			});
-
-			// Bind to the section Model's "block" change event
-			sections.on('change:block', function (sectionModel, value) {
-				mainView.render(sectionModel.id);
+				if (!waypointTriggered) {
+					mainView.scrollTo(sectionModel.id);
+				}
 			});
 
 
@@ -124,35 +120,30 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 					routerObj.navigate(sectionModel.id);
 
 					sidebarView.render(sectionModel.id);
-
-					if (!waypointTriggered) {
-						mainView.scrollTo(sectionModel.id);
-					}
 				}
 			});
 
-			sections.on('add', function (sectionModel, options) {
-				mainView.render(sectionModel.id);
-			});
 
 			if (! options.annualReport.renderAll) {
 				// If we are rendering all sections on page load, this will never fire
 
-				dv.on('render.sectionView', function (id) {
-					sections.get(id).isRendered = true;
+				dv.on('render.sectionView', function (sectionId) {
+					sections.get(sectionId).set('isRendered', true);
 				});
 			} else {
 				// @todo - this is lame, we are just assuming they all rendered.
 				// Since at this point the views all rendered, its too late to bind to any event they fire while rendering
 
 				_.each(sections.models, function (section) {
-					sections.get(section.id).isRendered = true;
+					sections.get(section.id).set('isRendered', true);
 				});
 			}
+
 
 			setInterval(function() {
 				waypointTriggered = false;
 			}, 250);
+
 
 			// Bind the waypoints
 			$('#main > section .sectionTitleBlock').waypoint(function (event, direction) {
@@ -173,10 +164,8 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 			}, {offset: '50%'});
 
 
-
 			// Bind the key events to allow for browsing via the keyboard
 			$(document).keydown(function (e) {
-				var goTo;
 
 				// Return if not up or down arrow keys
 				if (_.indexOf([38, 40], e.keyCode) < 0) {

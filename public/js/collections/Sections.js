@@ -10,22 +10,25 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
 		}
 
 
-		, setActive: function (id) {
+		, setActive: function (sectionId) {
 			var activeSection = this.getActive()
-			, collectionObj = this;
+			, collectionObj = this
+			, sectionModel = this.get(sectionId);
+
+			// Has this collection already been already loaded?
+			if (!sectionModel.has('blocks')) {
+				$.get(sectionId, {raw: 1}, function (response) {
+					var sectionModel = collectionObj.get(response.id);
+					sectionModel.set('blocks', response.blocks);
+				});
+			}
 
 			if (activeSection) {
 				activeSection.set('isActive', false);
 			}
 
-			// Has this collection already been already loaded?
-			$.get(id, {raw: 1}, function (response) {
-				var sectionModel = collectionObj.get(response.id);
-				sectionModel.set('block', response.block);
-			});
-
-			this.get(id).set('isActive', true);
-			this.active = id;
+			sectionModel.set('isActive', true);
+			this.active = sectionId;
 		}
 
 
@@ -77,14 +80,6 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
 
 		, sync: function (method, model) {
 			console.log(arguments, 'sync');
-		}
-
-		, initialize: function () {
-			this.trigger('init', [this]);
-
-//			this.active = '';
-//			this.rendered = [];
-//			this.loaded = [];
 		}
 	});
 });

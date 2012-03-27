@@ -23,9 +23,9 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Block'], function ($, _, Back
 			}
 
 			// Automatically update the "isLoaded" attribute when blocks are set
-			this.on('change:blocks', function (model, newBlocks) {
-				if (!this.get('isLoaded') && blocks.length) {
-					this.set('isLoaded', true);
+			this.on('change:blocks', function (sectionModel, newBlocks) {
+				if (!sectionModel.get('isLoaded') && newBlocks.length) {
+					sectionModel.set('isLoaded', true);
 				}
 			});
 		}
