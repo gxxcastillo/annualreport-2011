@@ -1,11 +1,11 @@
-SectionProvider = function(){};
+SectionProvider = function (){};
 SectionProvider.prototype.sectionData = {};
 
-SectionProvider.prototype.findAll = function(callback) {
+SectionProvider.prototype.findAll = function (callback) {
   callback( null, this.sectionData )
 };
 
-SectionProvider.prototype.findById = function(id, callback) {
+SectionProvider.prototype.findById = function (id, callback) {
 	var result = this.sectionData[id];
 
 	if (!result) {
@@ -21,7 +21,23 @@ SectionProvider.prototype.findById = function(id, callback) {
 	callback(result);
 };
 
-SectionProvider.prototype.save = function(sectionItems, callback) {
+SectionProvider.prototype.getList = function () {
+    var result = {
+        success:false
+        ,data: []
+    };
+
+    for(key in this.sectionData) {
+        if (this.sectionData.hasOwnProperty(key)) {
+            result.success = true;
+            result.data.push({id: this.sectionData[key].id, title: this.sectionData[key].title, order: this.sectionData[key].order});
+        }
+    }
+
+    return result;
+}
+
+SectionProvider.prototype.save = function (sectionItems, callback) {
 	var sectionCounter = 1
     , sItem
 	, key;
@@ -42,7 +58,7 @@ SectionProvider.prototype.save = function(sectionItems, callback) {
 new SectionProvider().save(
     {
     	borrowers: {
-		    id: 'borrowers'
+            id: 'borrowers'
     		, title: 'Borrowers'
 		    , order: 1
     		, blocks: [
@@ -459,6 +475,6 @@ new SectionProvider().save(
     		]
     	}
     }
-, function(error, sectionItems){});
+, function (error, sectionItems){});
 
-exports.SectionProvider = SectionProvider;
+module.exports = SectionProvider;

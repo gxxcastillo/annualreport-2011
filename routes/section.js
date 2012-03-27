@@ -1,4 +1,4 @@
-var SectionProvider = require('./section-provider.js').SectionProvider;
+var SectionProvider = require('./section-provider.js');
 var sectionProvider = new SectionProvider();
 
 module.exports = function (req, res) {
