@@ -23,11 +23,21 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 		}
 
 
+		, appendSection: function (sectionData) {
+			var newSection = new SectionView(sectionData.attributes);
+
+			this.$el.append(newSection.el);
+
+			// If "animate" is enabled, use jquery.isotope
+			if (this.animate) {
+				this.$el.isotope('appended', newSection.$el);
+			}
+		}
+
+
 		, render: function (sectionId) {
 			var viewObj = this
-			, $el = this.$el
 			, sectionsToRender
-			, newSection;
 
 			sectionId = sectionId || this.sections.getActive();
 
@@ -38,12 +48,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 			}
 
 			_.each(sectionsToRender.models, function (sectionData, i) {
-				newSection = new SectionView(sectionData.attributes);
-				$el.append(newSection.el);
-
-				if (viewObj.animate) {
-					$el.isotope('appended', newSection.$el);
-				}
+				this.appendSection(sectionData);
 			});
 		}
 
