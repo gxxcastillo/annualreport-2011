@@ -59,7 +59,11 @@ new SectionProvider().save(
     		, title: 'Borrowers'
 		    , order: 1
     		, blocks: [
-    			{
+			    {
+				    name: 'sectionTitle'
+				    , cssClass: 'g1 h3'
+			    }
+    			, {
     				name: 'dataMetric'
     				, cssClass: 'g1 h3'
     				, value: '5.5'
@@ -167,7 +171,11 @@ new SectionProvider().save(
     		, title: 'Lenders'
 	        , order: 2
     		, blocks: [
-    			{
+			    {
+				    name: 'sectionTitle'
+				    , cssClass: 'g1 h3'
+			    }
+    			, {
     				name: 'dataMetric'
     				, cssClass: 'g1 h3'
     				, value: '5.5'
@@ -205,7 +213,11 @@ new SectionProvider().save(
     		, title: 'Web Site'
 	        , order: 3
     		, blocks: [
-    			{
+			    {
+				    name: 'sectionTitle'
+				    , cssClass: 'g1 h3'
+			    }
+	            , {
     				name: 'hTable'
     				, cssClass: 'g2 h1'
     				, dataset: [
@@ -259,7 +271,11 @@ new SectionProvider().save(
     		, title: 'Partners'
 	        , order: 4
     		, blocks: [
-    			{
+			    {
+				    name: 'sectionTitle'
+				    , cssClass: 'g1 h3'
+			    }
+	            , {
     				name: 'dataMetric'
     				, cssClass: 'g1 h3'
     				, value: '5.5'
@@ -298,7 +314,11 @@ new SectionProvider().save(
     		, title: 'Kiva Ecosystem'
 	        , order: 5
     		, blocks: [
-    			{
+			    {
+				    name: 'sectionTitle'
+				    , cssClass: 'g1 h3'
+			    }
+	            , {
     				name: 'dataMetric'
     				, cssClass: 'g1 h1'
     				, value: '5.5'
@@ -345,7 +365,11 @@ new SectionProvider().save(
     		, title: 'Stories From the Field'
 	        , order: 6
     		, blocks: [
-    			{
+			    {
+				    name: 'sectionTitle'
+				    , cssClass: 'g1 h3'
+			    }
+	            , {
     				name: 'highlight'
     				, cssClass: 'g2 h2'
     				, img: '/img/stache.jpg'
@@ -398,7 +422,11 @@ new SectionProvider().save(
     		, title: 'Press & Promotions'
 	        , order: 7
     		, blocks: [
-    			{
+			    {
+				    name: 'sectionTitle'
+				    , cssClass: 'g1 h3'
+			    }
+	            , {
     				name: 'dataMetric'
     				, cssClass: 'g1 h3'
     				, value: '5.5'
@@ -437,7 +465,11 @@ new SectionProvider().save(
     		, title: 'Financial Health'
 	        , order: 8
     		, blocks: [
-    			{
+			    {
+				    name: 'sectionTitle'
+				    , cssClass: 'g1 h3'
+			    }
+	            , {
     				name: 'dataMetric'
     				, cssClass: 'g1 h3'
     				, value: '5.5'
