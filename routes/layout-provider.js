@@ -42,6 +42,9 @@ LayoutProvider.prototype = {
 	// These are the default properties that get set for the "layout"
 	, defaults: {
 		title: 'dataviz'
+		, animate: true
+		, renderAll: false
+		, renderer: 'client'
 		, meta: {
 
 		}
