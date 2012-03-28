@@ -1,0 +1,13 @@
+{{#bv0}}<div class="bv0">{{bv0}}</div>{{/bv0}}
+
+{{#valuelist}}
+	<ul class="valuelist">
+		{{#bv0}}
+			<li class="fS7">{{.}}</li>
+		{{/bv0}}
+	</ul>
+{{/valuelist}}
+
+{{#bv1}}
+	<div class="bv1 tTU c1">{{bv1}}</div>
+{{/bv1}}

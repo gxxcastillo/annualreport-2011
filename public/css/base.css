@@ -19,17 +19,9 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
 
 body, html { height: 100%; }
-body {
-	background-color: #1f1e1d;
-	color: #333;
-	font: 13px/1.7 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Arial, sans-serif;
-	margin: 0 auto;
-	overflow-y: scroll;
-}
+body { background-color: #f7f7f2; color: #333; font-size: .875em; line-height: 1.1; margin: 0 auto; overflow-y: scroll; }
 
-h1, h2, h3, p, ul, ol, pre, dl {
-  margin-bottom: 1em;
-}
+h1, h2, h3, p, ul, ol, pre, dl { margin-bottom: 1em; }
 
 h1, h2      { font-family: 'Helvetica Neue', Arial, sans-serif; }
 h1, h2, h3  { display: inline-block; font-weight: bold; }

@@ -9,7 +9,7 @@
 
 	<ul>
 		{{#navItems}}
-			<li class="{{classname}}"><a href="{{id}}" class="nav-{{id}}">{{title}}</a></li>
+			<li class="{{classname}}"><a href="{{id}}" class="nav-{{id}} c6 fMS fS6">{{title}}</a></li>
 		{{/navItems}}
 	</ul>
 </nav>

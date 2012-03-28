@@ -52,3 +52,18 @@ LayoutProvider.prototype = {
 };
 
 module.exports = LayoutProvider;
+
+
+// These are the default properties that get set for the "layout"
+var newDefaults = {
+	layout: {
+		title: ''
+		, meta: {
+		}
+	}
+	, conf: {
+		animate: true
+		, renderer: true
+		, renderAll: true
+	}
+}

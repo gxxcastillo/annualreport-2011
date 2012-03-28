@@ -1,10 +1,25 @@
+/*
+Only here for testing ***DELETE***
+
+font-family: 'Proxima Nova Light', 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size-adjust: 0.488; font-weight: 200;
+font-family: 'Proxima Nova Regular', 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size-adjust: 0.488; font-weight: 400;
+font-family: 'Proxima Nova Semibold', 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: 600;
+
+font-family: 'Museo Slab 300', Rockwell, Georgia, serif; font-weight: 300;
+font-family: 'Museo Slab 500', Rockwell, Georgia, serif; font-weight: 500;
+
+*/
+
 /* For testing */
-.block { outline: 1px red solid; }
+
+.block { outline: 1px transparent solid; }
+/* .block { outline: 1px red solid; } */
 
 /* Outer frame */
 body        { margin: 0 auto; width: 1004px; }
-.main       { background-color: #f7f7f2; min-height: 100%; }
-.sidebar    { background-color: green; box-shadow: inset 2px 0 7px #333; height: 100%; margin-left: 768px; position: fixed; top: 0; width: 256px; }
+.main       { font-family: 'Proxima Nova Regular', 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size-adjust: 0.488; font-weight: 400; min-height: 100%; }
+.sidebar    { background-color: #74b446; box-shadow: inset 2px 0 7px #333; height: 100%; margin-left: 768px; min-width: 256px; position: fixed; top: 0; }
+.sidebar li   { margin-bottom: 10px; }
 
 .siteHeader { padding: 0 20px; }
 .siteFooter { background-color: #f7f7f2; height: 5px; }
@@ -20,6 +35,32 @@ body        { margin: 0 auto; width: 1004px; }
 
 .main > section { margin-bottom: 40px; }
 
+/* Colors */
+.c1 { color: #888; }
+.c2 {}
+.c3 {}
+.c6 { color: #25582b; }
+.c7 { color: #4b9123; }
+.c8 { color: #74b446; }
+
+/* Fonts */
+.fS1 { font-size: .7857em; } /* 11px */
+.fS2 { font-size: .8571em; } /* 12px */
+.fS3 { font-size: 1.1428em; } /* 16px */
+.fS4 { font-size: 1.2857em; } /* 18px */
+.fS5 { font-size: 1.5em; } /* 21px */
+.fS6 { font-size: 1.7142em; } /* 24px */
+.fS7 { font-size: 2.5714em; } /* 36px */
+
+.fMS {font-family: 'Museo Slab 300', Rockwell, Georgia, serif; font-weight: 300; }
+.fMS.bold { font-family: 'Museo Slab 500', Rockwell, Georgia, serif; font-weight: 500; }
+
+/* Styles */
+.light  { font-family: 'Proxima Nova Light', 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size-adjust: 0.488; font-weight: 200; }
+.bold   { font-family: 'Proxima Nova Semibold', 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: 600; }
+.tTU    { text-transform: uppercase; }
+.tTC    { text-transform: capitalize; }
+
 /* Grid */
 .container      { position: relative; width: 768px; }
 .g1, .g2, .g3   { display: inline-block; }
@@ -32,21 +73,31 @@ body        { margin: 0 auto; width: 1004px; }
 .h3 { height: 220px; }
 .h4 { height: 300px; }
 .h5 { height: 380px; }
+.h6 { height: 460px; }
+.h7 { height: 520px; }
+.h8 { height: 580px; }
 
 /* Block */
 .block  { display: inline-block; margin: 10px; overflow: hidden; position: relative; vertical-align: top; }
+.block.clickable            { cursor: pointer; }
+.block.clickable:hover      { box-shadow: 1px 1px 5px #888; top: 1px; }
 .block .block               { height: 100%; margin: 0 10px; }
 .block .block:first-child   { margin-left: 0; }
 .block .block:last-child    { margin-right: 0; }
 
 .nightBlock li { background-color: #000; color: #fff; }
 
-.sectionTitleBlock h2   { background-color: green; color: #fff; font-size: 48px; display: inline-block; height: 100%; padding: 0 10px 0 5px; }
+.sectionTitleBlock h2   { background-color: #74b446; color: #fff; font-size: 48px; display: inline-block; height: 100%; padding: 0 10px 0 5px; }
+
+.dataMetricBlock            { border-bottom: #888 1px solid; }
+.dataMetricBlock .dataPoint { color: #4b9123; line-height: 1.1; }
+.dataMetricBlock .dataPoint div { display: inline; }
+.dataMetricBlock .bv4 { position: absolute; text-align: right; top: 5px; right: 2px; width: 50px; }
+
+.textBlock  { border-bottom: #888 1px solid; }
 
 .highlightBlock .img    { width: 100%;   position: absolute; top: 0; left: 0; }
 .highlightBlock .veil   { background-color: rgba(255, 255, 255, .7); border: #ccc 1px solid; border-top-style: none; position: absolute; bottom: 0; left: 0; width: 100%; }
-.highlightBlock.clickable   { cursor: pointer; }
-.highlightBlock.clickable:hover { box-shadow: 1px 1px 5px #888; }
 .highlightBlock.clickable:hover .veil { background-color: rgba(255, 255, 255, .8); }
 
 .profileBlock .img      { float: left; margin-right: 10px; padding: 5px 0; width: 75px; height: auto; }

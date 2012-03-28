@@ -1,0 +1,11 @@
+<div class="dataset">
+	<ul>
+		{{#datapoints}}
+			<li>
+				<div class="bv0">{{bv0}}</div>
+				<div class="bv1">{{bv1}}</div>
+			</li>
+		{{/datapoints}}
+	</ul>
+	{{bv0}}
+</div>

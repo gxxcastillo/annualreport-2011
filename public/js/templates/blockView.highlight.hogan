@@ -1,0 +1,17 @@
+<img class="img bv0" src="{{bv0}}" />
+<div class="veil">
+	{{#bv1}}
+		<div class="bv1 tTU">{{bv1}}</div>
+	{{/bv1}}
+	<div class="bv2 fS7">{{bv2}}</div>
+	<div class="bv3">{{bv3}}</div>
+</div>
+
+{{! This is only for lightbox highlightBlocks}}
+{{#isLightbox}}
+	<div class="lightboxContent" style="display: none;">
+		{{#lightbox}}
+			<a href="{{bv4}}" title="{{bv5}}" rel="{{bv6}}"></a>
+		{{/lightbox}}
+	</div>
+{{/isLightbox}}

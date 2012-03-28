@@ -61,53 +61,85 @@ new SectionProvider().save(
     		, blocks: [
 			    {
 				    name: 'sectionTitle'
-				    , cssClass: 'g1 h3'
+				    , cssClass: 'g2 h1'
 			    }
     			, {
     				name: 'dataMetric'
-    				, cssClass: 'g1 h3'
-    				, value: '5.5'
-    				, unit: 'Mins'
-    				, label: 'avg. time on site'
-    				, context: 'vs. 2010 5.1 mins'
-    			}
-    			, {
-    				name: 'profile'
     				, cssClass: 'g1 h1'
-    				, img: '/img/blue.jpg'
-    				, username: 'Sean'
-    				, label: 'avg. time on site'
-    			}
-     			, {
-    				name: 'highlight'
-    				, cssClass: 'g1 h3'
-    				, img: '/img/deer.jpg'
-    				, link: ''
-    				, c1: 'Most friends recruited to Kiva'
-    				, c2: '140'
-    				, c3: 'Erin, Vancouer Canada'
-    			}
-    			, {
-    				name: 'dataMetric'
-    				, cssClass: 'g1 h3'
     				, value: '5.5'
     				, unit: 'Mins'
     				, label: 'avg. time on site'
     				, context: 'vs. 2010 5.1 mins'
     			}
+			    , {
+	                name: 'highlight'
+	                , cssClass: 'g2 h4'
+	                , imgUrl: '/img/2011/agneta.jpg'
+	                , link: '#kjljl'
+				    , context: 'The butterfly hunter'
+	                , datum: 'Agneta, the butterfly hunter'
+	                , descriptor: 'Erin, Vancouer Canada'
+	            }
+			    , {
+    				name: 'dataMetric'
+    				, cssClass: 'g1 h1'
+    				, value: '5.5'
+    				, unit: 'Mins'
+    				, label: 'avg. time on site'
+    				, context: 'vs. 2010 5.1 mins'
+    			}
+    			, {
+    				name: 'dataGraph'
+    				, cssClass: 'g1 h3'
+    				, context: 'borrower gender'
+    			}
+				, {
+				    name: 'hTable'
+				    , cssClass: 'g3 h2'
+				    , datapoints: [
+					    {
+							bv0: 'blah'
+						    , bv: 'shmah'
+					    }
+						, {
+							bv0: 'blah'
+							, bv: 'shmah'
+						}
+					    , {
+							bv0: 'blah'
+							, bv: 'shmah'
+						}
+				    ]
+			    }
     			, {
     				name: 'text'
-    				, label: 'the label'
-    				, cssClass: 'g1 h2'
-    				, value: ['change', 'good', 'support']
-    				, context: 'vs. 2010 5.1 mins'
+    				, cssClass: 'g1 h5'
+    				, valuelist: ['change', 'good', 'support', 'hiahis', 'haokdsfo', 'akdsf', 'aksdf', 'sahahha']
+    				, label: 'most common words from borrower profiles'
     			}
-    			, {
+			    , {
+	                name: 'highlight'
+	                , cssClass: 'g1 h5'
+	                , imgUrl: '/img/2011/green-loans.jpg'
+	                , link: '#kjljl'
+				    , context: 'March 1, 2011'
+	                , datum: 'First green loan'
+	                , descriptor: 'Mark Omandi, Somewhere in Kenya'
+	            }
+			    , {
+	                name: 'highlight'
+	                , cssClass: 'g1 h5'
+	                , imgUrl: '/img/2011/nshigikira-group.jpg'
+	                , link: '#kjljl'
+				    , context: 'Liveliest borrower photo'
+	                , datum: 'Nshigikira Group'
+	                , descriptor: 'Gitego, Berundi'
+	            }
+			    , {
     				name: 'dataMetric'
     				, cssClass: 'g1 h1'
-    				, value: '4.5'
-    				, unit: 'Mins'
-    				, label: 'avg. time on site'
+    				, value: '$399'
+    				, label: 'avg loan size'
     				, context: 'vs. 2010 5.1 mins'
     			}
     			, {
@@ -133,37 +165,41 @@ new SectionProvider().save(
     				]
     				, label: 'Popular ways to invite friends to Kiva (Shares per month)'
     			}
-    			, {
-    				name: 'profile'
-    				, cssClass: 'g1 h1'
-    				, img: '/img/blue.jpg'
-    				, username: 'Sean'
-    				, label: 'avg. time on site'
-    			}
-     			, {
-    				name: 'highlight'
-    				, cssClass: 'g1 h3'
-    				, img: '/img/deer.jpg'
-    				, link: ''
-    				, c1: 'Most friends recruited to Kiva'
-    				, c2: '140'
-    				, c3: 'Erin, Vancouer Canada'
-    			}
-    			, {
-    				name: 'dataMetric'
-    				, cssClass: 'g1 h3'
-    				, value: '5.5'
-    				, unit: 'Mins'
-    				, label: 'avg. time on site'
-    				, context: 'vs. 2010 5.1 mins'
-    			}
-    			, {
-    				name: 'text'
-    				, label: 'the label'
+			    , {
+    				name: 'dataGraph'
     				, cssClass: 'g1 h2'
-    				, value: ['change', 'good', 'support']
+    				, context: 'borrower gender'
+    			}
+			    , {
+    				name: 'dataMetric'
+    				, cssClass: 'g1 h1'
+    				, value: '$399'
+    				, label: 'avg loan size'
     				, context: 'vs. 2010 5.1 mins'
     			}
+			    , {
+    				name: 'dataMetric'
+    				, cssClass: 'g1 h1'
+    				, value: '$399'
+    				, label: 'avg loan size'
+    				, context: 'vs. 2010 5.1 mins'
+    			}
+			    , {
+    				name: 'dataMetric'
+    				, cssClass: 'g1 h1'
+    				, value: '$399'
+    				, label: 'avg loan size'
+    				, context: 'vs. 2010 5.1 mins'
+    			}
+			    , {
+	                name: 'highlight'
+	                , cssClass: 'g1 h4'
+	                , imgUrl: '/img/2011/araksi-video-profile.jpg'
+	                , link: '#kjljl'
+				    , context: 'Video profile'
+	                , datum: 'Araksi'
+	                , descriptor: 'Talin, Armenia'
+	            }
     		]
     	}
     	, lenders: {
@@ -173,7 +209,7 @@ new SectionProvider().save(
     		, blocks: [
 			    {
 				    name: 'sectionTitle'
-				    , cssClass: 'g1 h3'
+				    , cssClass: 'g2 h1'
 			    }
     			, {
     				name: 'dataMetric'
@@ -215,7 +251,7 @@ new SectionProvider().save(
     		, blocks: [
 			    {
 				    name: 'sectionTitle'
-				    , cssClass: 'g1 h3'
+				    , cssClass: 'g2 h1'
 			    }
 	            , {
     				name: 'hTable'
@@ -273,7 +309,7 @@ new SectionProvider().save(
     		, blocks: [
 			    {
 				    name: 'sectionTitle'
-				    , cssClass: 'g1 h3'
+				    , cssClass: 'g1 h1'
 			    }
 	            , {
     				name: 'dataMetric'
@@ -316,7 +352,7 @@ new SectionProvider().save(
     		, blocks: [
 			    {
 				    name: 'sectionTitle'
-				    , cssClass: 'g1 h3'
+				    , cssClass: 'g1 h1'
 			    }
 	            , {
     				name: 'dataMetric'
@@ -367,7 +403,7 @@ new SectionProvider().save(
     		, blocks: [
 			    {
 				    name: 'sectionTitle'
-				    , cssClass: 'g1 h3'
+				    , cssClass: 'g3 h1'
 			    }
 	            , {
     				name: 'highlight'
@@ -388,8 +424,10 @@ new SectionProvider().save(
     						, title: 'fish.jpg'
     					}
     				]
-    				, c2: 'Photo highlights'
-    				, c3: 'Best Kiva photos from 2011'
+				    , context: 'Most friends recruited to Kiva'
+	                , datum: '140'
+	                , descriptor: 'Erin, Vancouer Canada'
+	                , link: '#'
     			}
     			, {
     				name: 'dataMetric'
@@ -424,7 +462,7 @@ new SectionProvider().save(
     		, blocks: [
 			    {
 				    name: 'sectionTitle'
-				    , cssClass: 'g1 h3'
+				    , cssClass: 'g1 h1'
 			    }
 	            , {
     				name: 'dataMetric'
@@ -467,7 +505,7 @@ new SectionProvider().save(
     		, blocks: [
 			    {
 				    name: 'sectionTitle'
-				    , cssClass: 'g1 h3'
+				    , cssClass: 'g3 h1'
 			    }
 	            , {
     				name: 'dataMetric'

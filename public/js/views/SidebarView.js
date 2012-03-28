@@ -1,4 +1,4 @@
-define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarView.hogan']
+define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!templates/sidebarView.hogan']
 , function ($, _ ,Backbone, dv, hogan, tpl, undefined) {
 	'use strict';
 

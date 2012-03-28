@@ -1,0 +1,6 @@
+<div class="dataPoint bold">
+	<div class="bv1 fS7">{{bv1}}</div>
+	<div class="bv2 fS7">{{bv2}}</div>
+</div>
+<div class="bv3 c1">{{bv3}}</div>
+<div class="bv4 c1 fS1">{{bv4}}</div>
