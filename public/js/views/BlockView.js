@@ -61,9 +61,11 @@ define(['backbone', 'dv', 'hogan', 'text!views/blockView.dataMetric.hogan', 'tex
 
 			switch (viewData.name) {
 				case 'sectionTitle':
+					//data = buildBlockData(origData, 'sectionTitle')
 					tpl = sectionTitleTpl;
 					break;
 				case 'dataMetric':
+					//data = buildBlockData(origData, 'dataMetric')
 					tpl = dataMetricTpl;
 					break;
 				case 'profile':

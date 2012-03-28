@@ -91,13 +91,15 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 			sections.on('change:isActive', function (sectionModel, value) {
 
 				// We only care about the element that is being set active
-				if (value == true) {
+				if (value === true) {
 					// Change the url
 					routerObj.navigate(sectionModel.id);
 
 					// Update the sidebar
-					sidebarView.update(sectionModel.id);
+					sidebarView.update(sectionModel);
 
+					// Scroll to the section (But only the section's already "rendered")
+					// @todo currently fires on "isLoaded" should be "isRendered"
 					if (sectionModel.get('isLoaded') && !waypointTriggered) {
 						mainView.scrollTo(sectionModel.id);
 					}
