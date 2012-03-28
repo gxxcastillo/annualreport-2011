@@ -36,8 +36,9 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
 				activeSection.set('isActive', false);
 			}
 
-			sectionModel.set('isActive', true);
 			this.active = sectionModel.id;
+			sectionModel.set('isActive', true);
+
 			return sectionModel;
 		}
 
@@ -53,7 +54,7 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
 
 		/**
 		 * @params {Backbone.Model} [activeModel]
-		 * @returs {Bakbone.Model|Object}
+		 * @returs {Bakbone.Model|undefined}
 		 */
 		, prev: function(activeModel) {
 			activeModel = activeModel || this.getActive();
@@ -70,7 +71,7 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
 
 		/**
 		 * @params {Backbone.Model} activeModel
-		 * @returs {Bakbone.Model|Object}
+		 * @returs {Bakbone.Model|undefined}
 		 */
 		, next: function(activeModel) {
 			activeModel = activeModel || this.getActive();
