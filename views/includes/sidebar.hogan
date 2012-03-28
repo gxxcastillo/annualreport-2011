@@ -5,13 +5,8 @@
 	</hgroup>
 
 	<nav class="primaryNav">
-		{{#prevId}}
-			<a href="{{prevId}}" class="nav-prev">Prev</a>
-		{{/prevId}}
-
-		{{#nextId}}
-			<a href="{{nextId}}" class="nav-next">Next</a>
-		{{/nextId}}
+		<a href="{{prevId}}" class="nav-prev" {{^prevId}}style="display: none;"{{/prevId}}>Prev</a>
+		<a href="{{nextId}}" class="nav-next" {{^prevId}}style="display: none;"{{/prevId}}>Next</a>
 
 		<ul>
 			{{#navItems}}

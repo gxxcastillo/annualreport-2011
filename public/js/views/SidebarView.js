@@ -28,22 +28,34 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarVi
 
 		/**
 		 * @todo we have to return undefined for now as apposed to an empty string as Hogan treats empty string as truthy
+		 * @params {Backbone.Model} activeSectionModel
 		 *
 		 */
-		, getPrevUrl: function (activeSectionModal) {
-			var prevModel = this.sections.prev(activeSectionModal);
-			return prevModel ? prevModel.id : undefined
+		, builPrevNextLink: function (activeSectionModel) {
+			this.$next.attr({
+				href: prevUrl
+				, display: function () {
+					return nextUrl ? 'block' : 'none';
+				}
+			});
+
+			var nextModel = this.sections.next(activeSectionModel);
+			return nextModel ? nextModel.id : undefined
 		}
 
 
 		/**
-		 * @todo we have to return undefined for now as apposed to an empty string as Hogan treats empty string as truthy
-		 * @params {Backbone.Model} activeSectionModel
 		 *
 		 */
-		, getNextUrl: function (activeSectionModel) {
-			var nextModel = this.sections.next(activeSectionModel);
-			return nextModel ? nextModel.id : undefined
+		, getPrevNextUrls: function () {
+			var activeSection = this.sections.getActive()
+			, prev = this.sections.prev(activeSection)
+			, next = this.sections.next(activeSection);
+
+			return {
+				prev: prev ? prev.id : prev
+				, next: next ? next.id : next
+			};
 		}
 
 
@@ -53,16 +65,22 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarVi
 		 *
 		 * @params {String} activeSection
 		 */
-		, update: function (activeSectionId) {
-			var activeSectionModal = this.sections.getActive(activeSectionId);
+		, update: function (activeSection) {
+			var prevNextUrls = this.getPrevNextUrls();
 
 			// Remove the old active class
 			this.$el.find('li.active').removeClass('active');
 
 			// Add the new active class
-			$('.nav-' + activeSectionId, this.$el).parent().addClass('active');
-			this.$prev.href = this.getPrevUrl(activeSectionModal);
-			this.$next.href = this.getNextUrl(activeSectionModal);
+			$('.nav-' + activeSection.id, this.$el).parent().addClass('active');
+
+			//
+			this.$prev.attr({href: prevNextUrls.prev, style: function () {
+				return prevNextUrls.prev ?  'display: block' : 'display: none';
+			}});
+			this.$next.attr({href: prevNextUrls.prev, style: function () {
+				return prevNextUrls.next ?  'display: block' : 'display: none';
+			}});
 		}
 
 
@@ -74,16 +92,17 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarVi
 		/**
 		 * Responsible for rendering the entire sidebar
 		 *
-		 * @params {Backbone.Model} [activeSection] Tells the renderer which nav item to show as "active"
+		 * @params {Backbone.Model} [activeSectionModel] Tells the renderer which nav item to show as "active"
 		 */
-		, render: function (activeSection) {
-			activeSection = activeSection || this.sections.getActive();
+		, render: function (activeSectionModel) {
+			activeSectionModel = activeSectionModel || this.sections.getActive() || {};
 
 			var navListData = this.navListData
+			, prevNextUrls = this.getPrevNextUrls();
 
 			// Build the view data object
-			_.each(navListData, function (navItem, i) {
-				if (navItem.id == activeSection) {
+			_.each(navListData, function (navItem) {
+				if (navItem.id === activeSectionModel.id) {
 					navItem.classname = 'active';
 				} else {
 					navItem.classname = '';
@@ -92,19 +111,19 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!views/sidebarVi
 
 			// Insert the new content into our view's DOM
 			this.$el.html(this.template({
-				prevId: this.getPrevUrl(activeSection)
-				, nextId: this.getNextUrl(activeSection)
+				prevId: prevNextUrls.prev
+				, nextId: prevNextUrls.next
 				, navItems: navListData
 			}));
+
+			this.$prev = this.$('.primaryNav .nav-prev');
+			this.$next = this.$('.primaryNav .nav-next');
 		}
 
 
 		, initialize: function (options) {
 			var sections = this.sections = options.sections
 			, navListData = [];
-
-			this.$prev = this.$('.primaryNav .nav-prev');
-			this.$next = this.$('.primaryNav .nev-next');
 
 			_.each(sections.models, function (section, i) {
 				navListData[i] = {
