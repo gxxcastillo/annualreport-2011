@@ -22,25 +22,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!templates/sideb
 			// @todo %HACK% Notifies the controller that this "setActive" is being triggered by a nav click
 			dv.navClickTriggered = true;
 
-			this.sections.setActiveById(sectionId);
-		}
-
-
-		/**
-		 * @todo we have to return undefined for now as apposed to an empty string as Hogan treats empty string as truthy
-		 * @params {Backbone.Model} activeSectionModel
-		 *
-		 */
-		, builPrevNextLink: function (activeSectionModel) {
-			this.$next.attr({
-				href: prevUrl
-				, display: function () {
-					return nextUrl ? 'block' : 'none';
-				}
-			});
-
-			var nextModel = this.sections.next(activeSectionModel);
-			return nextModel ? nextModel.id : undefined
+			this.sections.setActiveById(sectionId, 'click');
 		}
 
 
@@ -74,11 +56,12 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!templates/sideb
 			// Add the new active class
 			$('.nav-' + activeSection.id, this.$el).parent().addClass('active');
 
-			//
+			// Update the prev/next links
 			this.$prev.attr({href: prevNextUrls.prev, style: function () {
 				return prevNextUrls.prev ?  'display: block' : 'display: none';
 			}});
-			this.$next.attr({href: prevNextUrls.prev, style: function () {
+
+			this.$next.attr({href: prevNextUrls.next, style: function () {
 				return prevNextUrls.next ?  'display: block' : 'display: none';
 			}});
 		}
