@@ -6,13 +6,40 @@ SectionProvider.prototype.findAll = function (callback) {
 };
 
 SectionProvider.prototype.findById = function (id) {
-	var result = this.sectionData[id];
+
+    if (id.ty)
+    var result = this.sectionData[id];
 
 	if (!result) {
 		result = {
 			success: false
 			, message: 'Id not found: "' + id + '"'
 		};
+	} else {
+		// @todo, this is pretty lame but enough for now...
+		result.success = true;
+	}
+
+	return result;
+};
+
+
+SectionProvider.prototype.findById = function (ids) {
+    var result;
+
+    if (typeof x == 'object') {
+        id.forEach(function(val){
+            result = this.sectionData[val];
+        });
+    } else {
+        result = this.sectionData[ids];
+    }
+
+	if (!result) {
+		result = {
+			success: false
+		};
+        console.log(ids)
 	} else {
 		// @todo, this is pretty lame but enough for now...
 		result.success = true;
