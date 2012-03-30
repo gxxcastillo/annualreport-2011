@@ -23,8 +23,9 @@ body { background-color: #f7f7f2; color: #333; font-size: .875em; line-height: 1
 
 h1, h2, h3, p, ul, ol, pre, dl { margin-bottom: 1em; }
 
-h1, h2      { font-family: 'Helvetica Neue', Arial, sans-serif; }
-h1, h2, h3  { display: inline-block; font-weight: bold; }
+h1, h2, h3  { font-family: 'Proxima Nova Semibold', 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: 600; }
+/* @todo temporary overrides */
+h1, h2, h3  { font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: 600; }
 h1          { font-size: 32px; line-height: 1.1em; }
 h2          { font-size: 24px; line-height: 1.1em; }
 
