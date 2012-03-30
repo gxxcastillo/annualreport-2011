@@ -76,31 +76,6 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 		initialize: function () {
 			var sections = [];
 
-			/*
-			$.get('/sectionList', {raw: 1}, function (response) {
-				var sectionData;
-
-				if (response.success) {
-					sectionData = response.data;
-
-					// Create the section Models
-					_.each(sectionData, function (sectionData, index) {
-						sections[index] = new Section(sectionData);
-					});
-
-					// Create the collection
-					this.sections = new Sections(sections);
-					this.sections.on('init', [this.sections]);
-				} else {
-					// @todo better error handling
-					console.log('AnnualReport: Error initializing');
-				}
-			});
-			*/
-
-
-			var sections = [];
-
 			// Create the section Models
 			_.each(dv.sectionList, function (sectionData, index) {
 				sections[index] = new Section(sectionData);
@@ -114,7 +89,12 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 			this.defaultSection = annualReportData.defaultSection;
 
 			// Create the collection
-			this.sections = new Sections(sections);
+			this.sections = new Sections(sections, {
+				// Make sure the sections are in order
+				comparator: function (section) {
+					return section.get('order');
+				}
+			});
 		}
 	});
 });
