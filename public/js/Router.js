@@ -67,7 +67,7 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 			var router = this
 
 			// Store a local reference to the sections collection
-			, sections = this.sections = options.annualReport.sections
+			, sections = this.sections = options.annualReport.get('sections')
 
 			// Store a local reference to the views that need updating
 			, mainView  = this.mainView = options.layoutView.mainView
@@ -75,7 +75,7 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 
 
 			// Set the default Section
-			this.defaultSection = options.annualReport.defaultSection;
+			this.defaultSection = options.annualReport.get('defaultSection');
 
 
 			// Bind to the sections "isLoaded" event, once loaded we can tell the view to append it.

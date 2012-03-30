@@ -14,7 +14,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 		, appendSection: function (sectionModel) {
 
 			// Create the new section view, pass it the model
-			var newSection = new SectionView({model: sectionModel});
+			var newSection = new SectionView({model: sectionModel})
 
 			// Append the new section
 			this.$el.append(newSection.el);
@@ -28,7 +28,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 			sectionModel.set('isRendered', true);
 
 			// Scroll to the section that was just added
-			// @todo Add check here when a section is appended by inifinite scroll
+			// @todo Add check here when a section is appended by inifi
 			this.scrollTo(sectionModel.id);
 		}
 
@@ -61,10 +61,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 		, scrollTo: function (sectionId) {
 			// We have to use the top position of the sectionTitle
 			// because section position values are not reliable when using jquery.isotope.
-			$('html body').stop().animate({scrollTop: $('#' + sectionId + ' .sectionTitleBlock').offset().top - 10}, function () {
-				dv.navClickTriggered = false;
-				dv.keydownTriggered = false;
-			});
+			$('html body').stop().animate({scrollTop: $('#' + sectionId + ' .sectionTitleBlock').offset().top - 10});
 		}
 
 
@@ -72,10 +69,10 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 		 *
 		 * @params {Object} options
 		 */
-		, initialize: function (options) {
-			this.sections = options.annualReport.sections;
-			this.renderAll = options.annualReport.renderAll;
-			this.animate = options.annualReport.animate;
+		, initialize: function () {
+			this.sections = this.model.get('sections');
+			this.renderAll = this.model.get('renderAll');
+			this.animate = this.model.get('animate');
 
 			// Enable jquery.masonry?
 			if (this.animate) {

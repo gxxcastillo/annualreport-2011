@@ -20,10 +20,14 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarView', 'MainView']
 			}
 
 			// Instantiate our SidebarView and save a reference to it
-			this.sidebarView = new SidebarView({sections: options.annualReport.sections});
+			this.sidebarView = new SidebarView({collection: options.annualReport.get('sections')});
 
 			// Instantiate our MainView and save a reference to it
-			this.mainView = new MainView({annualReport: options.annualReport});
+			this.mainView = new MainView({model: options.annualReport});
+
+
+
+
 /* @todo
 			// Infinite Scroll
 			$footer.waypoint(function () {

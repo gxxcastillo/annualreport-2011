@@ -1,13 +1,29 @@
+/**
+ * Backbone Model
+ * http://documentcloud.github.com/backbone/#Model
+ *
+ * This is the model for each section.
+ * It holds the data to be used in the view and it keeps track of its state
+ */
+
 define(['jquery', 'underscore', 'backbone', 'dv', 'Block'], function ($, _, Backbone, dv, Block) {
 
 	return Backbone.Model.extend({
 
 		defaults: {
-			isActive: false
-			, lastAlteredBy: ''
+			// We have loaded the complete model, including all blocks
+			isLoaded: false
+
+			// The model's view has been rendered and appended to the DOM
 			, isRendered: false
-			, isLoaded: false
+
+			// The model is currently "active"
+			, isActive: false
+
+			// Keeps track of the last event to have altered the state of the model (used to avoid event collisions)
+			, lastAlteredBy: ''
 		}
+
 
 		, initialize: function (sectionData) {
 			var blocksArray = sectionData.blocks

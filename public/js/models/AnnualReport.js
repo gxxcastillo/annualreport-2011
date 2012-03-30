@@ -9,7 +9,6 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 		// Can be "client" or "server".
 		, renderer: 'client'
 
-
 		, animate: true
 
 		, meta: [
@@ -23,77 +22,37 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 			}
 		]
 		, defaultSection: 'borrowers'
-		/*
-		, sections: [
-	    	{
-			    id: 'borrowers'
-	    		, title: 'Borrowers'
-			    , order: 1
-	    	}
-	    	,
-			{
-				id: 'lenders'
-	    		, title: 'Lenders'
-				, order: 2
-			}
-	    	, {
-				id: 'site'
-	    		, title: 'Web Site'
-				, order: 3
-	    	}
-	    	, {
-				id: 'partners'
-	    		, title: 'Partners'
-				, order: 4
-	    	}
-	    	, {
-				id: 'ecosystem'
-	    		, title: 'Kiva Ecosystem'
-				, order: 5
-			}
-	    	, {
-				id: 'stories'
-	    		, title: 'Stories From the Field'
-				, order: 6
-	    	}
-	    	, {
-				id: 'press'
-	    		, title: 'Press & Promotions'
-				, order: 7
-	    	}
-	    	, {
-				id: 'finances'
-	    		, title: 'Financial Health'
-				, order: 8
-	    	}
-
-	    ]
-	    */
 	};
 
+	// Return the AnnualReport model
 	return Backbone.Model.extend({
 
 		initialize: function () {
 			var sections = [];
 
-			// Create the section Models
+			// Create the section Models and append to array
 			_.each(dv.sectionList, function (sectionData, index) {
 				sections[index] = new Section(sectionData);
 			});
 
-			this.title = annualReportData.title;
-			this.meta = annualReportData.meta;
-			this.renderAll = annualReportData.renderAll;
-			this.renderer = annualReportData.renderer;
-			this.animate = annualReportData.animate;
-			this.defaultSection = annualReportData.defaultSection;
+			// Add attributes to the AnnualReport Model
+			this.set({
+				// @todo create a "Document or DOM" object to house some of this stuff
+				title: annualReportData.title
+				, meta: annualReportData.meta
+				, renderAll: annualReportData.renderAll
+				, renderer: annualReportData.renderer
+				, animate: annualReportData.animate
+				, defaultSection: annualReportData.defaultSection
 
-			// Create the collection
-			this.sections = new Sections(sections, {
-				// Make sure the sections are in order
-				comparator: function (section) {
-					return section.get('order');
-				}
+				// Create the collection from the section models
+				, sections: new Sections(sections, {
+						// Make sure the sections are in order
+						comparator: function (section) {
+							return -section.get('order');
+						}
+					}
+				)
 			});
 		}
 	});

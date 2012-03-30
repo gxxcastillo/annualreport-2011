@@ -14,14 +14,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!templates/sideb
 		, navClickHandler: function (event) {
 			event.preventDefault();
 
-			// @TODO QUICK HACK
-
-
 			var sectionId = event.target.getAttribute('href');
-
-			// @todo %HACK% Notifies the controller that this "setActive" is being triggered by a nav click
-			dv.navClickTriggered = true;
-
 			this.sections.setActiveById(sectionId, 'click');
 		}
 
@@ -105,10 +98,10 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!templates/sideb
 
 
 		, initialize: function (options) {
-			var sections = this.sections = options.sections
+			var sections = this.sections = this.collection
 			, navListData = [];
 
-			_.each(sections.models, function (section, i) {
+			sections.forEach(function (section, i) {
 				navListData[i] = {
 					id: section.attributes.id
 					, title: section.attributes.title

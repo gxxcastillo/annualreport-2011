@@ -1,4 +1,10 @@
-define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, undefined) {
+/**
+ * Backbone Collection
+ * http://documentcloud.github.com/backbone/#Collection
+ *
+ */
+define(['underscore', 'backbone', 'Section']
+, function (_, Backbone, Section, undefined) {
 	return Backbone.Collection.extend({
 
 		model: Section
@@ -23,8 +29,11 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
 			var activeSection = this.getActive()
 			, collectionObj = this;
 
-			// Has this collection already been already loaded?
+			// Has this section already been already loaded?
+			// No blocks == Not loaded
 			if (!sectionModel.has('blocks')) {
+				// Check for dependency blocks
+
 				$.get(sectionModel.id, {raw: 1}, function (response) {
 					collectionObj
 						.get(response.id)
