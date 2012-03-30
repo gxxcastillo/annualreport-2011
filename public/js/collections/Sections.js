@@ -19,7 +19,7 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
 		 * @params {Backbone.Model} sectionModel
 		 * @returns {Backbone.Model}
 		 */
-		, setActive: function (sectionModel) {
+		, setActive: function (sectionModel, eventName) {
 			var activeSection = this.getActive()
 			, collectionObj = this;
 
@@ -33,11 +33,11 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
 			}
 
 			if (activeSection) {
-				activeSection.set('isActive', false);
+				activeSection.set({isActive: false, lastAlteredBy: eventName});
 			}
 
 			this.active = sectionModel.id;
-			sectionModel.set('isActive', true);
+			sectionModel.set({isActive: true, lastAlteredBy: eventName});
 
 			return sectionModel;
 		}
@@ -47,8 +47,8 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
 		 * @params {String} sectionId
 		 * @returns {Backbone.Model}
 		 */
-		, setActiveById: function (sectionId) {
-			return this.setActive(this.get(sectionId));
+		, setActiveById: function (sectionId, eventName) {
+			return this.setActive(this.get(sectionId), eventName);
 		}
 
 
@@ -89,12 +89,12 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
 		/**
 		* Using the currently active section as context, sets the previous section as active
 		*/
-		, setPrevActive: function () {
+		, setPrevActive: function (eventName) {
 			var activeModel = this.getActive()
 			, prevModel = this.prev(activeModel);
 
 			if (!_.isEmpty(prevModel)) {
-				this.setActive(prevModel);
+				this.setActive(prevModel, eventName);
 			}
 		}
 
@@ -102,12 +102,12 @@ define(['underscore', 'backbone', 'Section'], function (_, Backbone, Section, un
 		/**
 		 * Using the currently active section as context, sets the next section as active
 		 */
-		, setNextActive: function () {
+		, setNextActive: function (eventName) {
 			var activeModel = this.getActive()
 			, nextModel = this.next(activeModel);
 
 			if (!_.isEmpty(nextModel)) {
-				this.setActive(nextModel);
+				this.setActive(nextModel, eventName);
 			}
 		}
 
