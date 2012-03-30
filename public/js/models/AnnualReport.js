@@ -49,7 +49,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 				, sections: new Sections(sections, {
 						// Make sure the sections are in order
 						comparator: function (section) {
-							return -section.get('order');
+							return section.get('order');
 						}
 					}
 				)
