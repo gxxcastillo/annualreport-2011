@@ -4,6 +4,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Block'], function ($, _, Back
 
 		defaults: {
 			isActive: false
+			, lastAlteredBy: ''
 			, isRendered: false
 			, isLoaded: false
 		}
