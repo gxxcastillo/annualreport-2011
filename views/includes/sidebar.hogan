@@ -9,9 +9,9 @@
 		<a href="{{nextId}}" class="nav-next" {{^prevId}}style="display: none;"{{/prevId}}>Next</a>
 
 		<ul>
-			{{#navItems}}
-				<li class="{{classname}}"><a href="{{id}}" class="nav-{{id}}">{{text}}</a></li>
-			{{/navItems}}
+			{{#sectionList}}
+				<li class="{{classname}}"><a href="{{id}}" class="nav-{{id}} c6 fMS fS6">{{title}}</a></li>
+			{{/sectionList}}
 		</ul>
 	</nav>
 
