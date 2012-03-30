@@ -12,20 +12,32 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 		 * @params {Backbone.Model} sectionModel
 		 */
 		, appendSection: function (sectionModel) {
-			var newSection = new SectionView({model: sectionModel});
 
+			// Create the new section view, pass it the model
+			var newSection = new SectionView({model: sectionModel})
+
+			// Append the new section
 			this.$el.append(newSection.el);
 
 			// If "animate" is enabled, use jquery.isotope
 			if (this.animate) {
 				this.$el.isotope('appended', newSection.$el);
 			}
+
+			// Update the model's "isRendered" state
+			sectionModel.set('isRendered', true);
+
+			// Scroll to the section that was just added
+			// @todo Add check here when a section is appended by inifinite scroll
+			this.scrollTo(sectionModel.id);
 		}
 
 
 		/**
+		 * @todo Not sure that the distinction between render and appendSection is the right one.  They seem like they should be the same call
 		 *
-		 *
+		 * Renders any sections that are already there on page load.
+		 * Any sections that are added afterwards calls appendSection() directly
 		 */
 		, render: function () {
 			var viewObj = this
@@ -35,13 +47,10 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 			if (this.renderAll) {
 				// Make sure and only render sections that have been "loaded"
 				sectionsToRender = this.sections.where({isLoaded: true});
-			} else {
-				return;
+				_.each(sectionsToRender.models, function (sectionModel) {
+					viewObj.appendSection(sectionModel);
+				});
 			}
-
-			_.each(sectionsToRender.models, function (sectionModel) {
-				viewObj.appendSection(sectionModel);
-			});
 		}
 
 

@@ -1,5 +1,5 @@
-define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'BlockView']
-, function ($, _ , Backbone, dv, Hogan, BlockView) {
+define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'BlockView', 'Section']
+, function ($, _ , Backbone, dv, Hogan, BlockView, Section) {
 
 	return Backbone.View.extend({
 
@@ -25,9 +25,6 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'BlockView']
 				var newBlock = new BlockView(block);
 				$section.append(newBlock.el);
 			});
-
-			// Update the model's state
-			this.model.set('isRendered', true);
 		}
 
 
