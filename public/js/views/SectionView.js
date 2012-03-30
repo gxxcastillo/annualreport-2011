@@ -1,3 +1,9 @@
+/**
+ * Backbone View
+ * http://documentcloud.github.com/backbone/#View
+ *
+ * The section view builds the section DOM element.  The job of appending it falls to the "MainView"
+ */
 define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'BlockView']
 , function ($, _ , Backbone, dv, Hogan, BlockView) {
 
@@ -11,7 +17,8 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'BlockView']
 		 */
 		, render: function () {
 			var viewData = this.model.toJSON()
-			, $section = this.$el.attr('id', viewData.id);
+			, $section = this.$el.attr('id', viewData.id)
+			, blocks = [];
 
 			// Each section has multiple "blocks", append each one to the section's DOM
 			_.each(viewData.blocks, function (block) {
@@ -21,10 +28,12 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'BlockView']
 					block.title = viewData.title
 				}
 
-				// Instantiate the new block view and append it to the section's DOM
-				var newBlock = new BlockView(block);
-				$section.append(newBlock.el);
+				// Instantiate the new block view and add it to our array of blocks
+				blocks.push((new BlockView(block)).el);
 			});
+
+			// Append the array of blocks to the section's DOM
+			$section.append(blocks);
 		}
 
 
