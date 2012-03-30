@@ -1,5 +1,13 @@
-// ---- The router is also the "Controller" for now ----
-// @todo break some of this out into a Controller
+/**
+ * Backbone Router
+ * http://documentcloud.github.com/backbone/#Router
+ *
+ * Does the role of Router as well as Controller.
+ * In Backbone, the views are the "controllers".  Here, we are delegating the job of app controller to the router.
+ *
+ * @todo Find a better home for the app controller (Most of the code in the Router's initialize() method)
+ *
+ */
 
 define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv) {
 
@@ -19,10 +27,7 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 
 
 		/**
-		 * @todo add ability to get new sections from the server
-		 *
-		 * Tells the sections collection to update.
-		 * (We use the sections collection for managing state)
+		 * Tells the sections collection to update.  In turn, the controller will set appropriate section as "active"
 		 *
 		 * @params {String} sectionId
 		 */
@@ -31,17 +36,26 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 		}
 
 
+		/**
+		 * @params {String} sectionId
+		 */
 		, redirect: function (sectionId) {
 			this.navigate(sectionId);
 			this.showSection(sectionId);
 		}
 
 
+		/**
+		 * Redirects to the "defaultSection"
+		 */
 		, home: function () {
 			this.redirect(this.defaultSection);
 		}
 
 
+		/**
+		 * Handles unrecognized paths
+		 */
 		, defaultAction: function () {
 			console.log('no route');
 			this.home();
