@@ -9,7 +9,34 @@ define(['underscore', 'backbone', 'Section']
 
 		model: Section
 
-		, url: '/sectionList?raw=1'
+		, url: '/'
+
+		// @todo This can probably be done with a built in Backbone method
+		, getFromServer: function (requestModel, activeSection) {
+			var collection = this
+			, requestIndex = this.indexOf(requestModel)
+			, activeIndex
+			, sectionsToRequest;
+
+			if (!activeSection) {
+				sectionsToRequest = [this.at(requestIndex)];
+			} else {
+				activeIndex = this.indexOf(activeSection);
+				sectionsToRequest = activeIndex < requestIndex
+					? this.toArray().slice(activeIndex + 1, requestIndex + 1)
+			        : this.toArray().slice(requestIndex, activeIndex);
+			}
+
+			// @todo, rather than requesting one at a time, I should request all at once.
+			// Otherwise, it gets tricky making sure sections don't get appended to the DOM out of order (b/c http request is async)
+			_.each(sectionsToRequest, function (sectionModel) {
+				$.get(sectionModel.id, {raw: 1}, function (response) {
+					collection
+						.get(response.id)
+						.set('blocks', response.blocks);
+				});
+			});
+		}
 
 
 		/**
@@ -27,18 +54,11 @@ define(['underscore', 'backbone', 'Section']
 		 */
 		, setActive: function (sectionModel, eventName) {
 			var activeSection = this.getActive()
-			, collectionObj = this;
 
 			// Has this section already been already loaded?
 			// No blocks == Not loaded
 			if (!sectionModel.has('blocks')) {
-				// Check for dependency blocks
-
-				$.get(sectionModel.id, {raw: 1}, function (response) {
-					collectionObj
-						.get(response.id)
-						.set('blocks', response.blocks);
-				});
+				this.getFromServer(sectionModel, activeSection);
 			}
 
 			if (activeSection) {
@@ -62,6 +82,8 @@ define(['underscore', 'backbone', 'Section']
 
 
 		/**
+		 * Get the previous model in the collection
+		 *
 		 * @params {Backbone.Model} [activeModel]
 		 * @returs {Bakbone.Model|undefined}
 		 */
@@ -79,7 +101,9 @@ define(['underscore', 'backbone', 'Section']
 
 
 		/**
-		 * @params {Backbone.Model} activeModel
+		 * Get the next model in the collection
+		 *
+		 * @params {Backbone.Model} [activeModel]
 		 * @returs {Bakbone.Model|undefined}
 		 */
 		, next: function(activeModel) {
