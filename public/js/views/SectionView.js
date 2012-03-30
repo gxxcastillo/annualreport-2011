@@ -23,10 +23,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'BlockView']
 			// Each section has multiple "blocks", append each one to the section's DOM
 			_.each(viewData.blocks, function (block) {
 
-				// Pass the section title down to the block
-				if (block.name == 'sectionTitle') {
-					block.title = viewData.title
-				}
+
 
 				// Instantiate the new block view and add it to our array of blocks
 				blocks.push((new BlockView(block)).el);

@@ -179,7 +179,6 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 		}
 
 		, initialize: function (viewData) {
-
 			switch (viewData.name) {
 				case 'sectionTitle':
 					this.viewData = getSectionTitleData(viewData);

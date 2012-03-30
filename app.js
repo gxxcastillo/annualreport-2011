@@ -5,6 +5,7 @@ var express = require('express')
 
 // Now that we have an app, we can call our router
 require('./routes/router');
+//require('./boot')(app);
 
 // Configure the server
 app.configure(function () {
@@ -31,7 +32,5 @@ app.configure('production', function () {
   app.use(express.errorHandler());
 });
 
-//require('./boot')(app);
-
 //app.listen(8000);
-//console.log("dataviz app started on the port 8000");
+console.log("dataviz app started");
