@@ -1,5 +1,5 @@
-define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'AnnualReport']
-, function ($, _ ,Backbone, dv, Sections, SectionView, AnnualReport, undefined) {
+define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView']
+, function ($, _ ,Backbone, dv, Sections, SectionView, undefined) {
 
 
 	return Backbone.View.extend({
@@ -28,7 +28,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 			sectionModel.set('isRendered', true);
 
 			// Scroll to the section that was just added
-			// @todo Add check here when a section is appended by inifi
+			// @todo Add check here when a section is appended by inifite scroll
 			this.scrollTo(sectionModel.id);
 		}
 
@@ -44,7 +44,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 			, sectionsToRender;
 
 			// @todo For now only if we are doing "renderAll"
-			if (this.renderAll) {
+			if (this.model.get('renderAll')) {
 				// Make sure and only render sections that have been "loaded"
 				sectionsToRender = this.sections.where({isLoaded: true});
 				_.each(sectionsToRender.models, function (sectionModel) {

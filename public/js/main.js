@@ -14,7 +14,7 @@ require.config({
 		, 'jquery.colorbox': 'lib/jquery.colorbox'  // Lightboxes. http://www.jacklmoore.com/colorbox
 		, 'jquery.waypoints': 'lib/jquery.waypoints'// Trigger scrolling events. http://imakewebthings.com/jquery-waypoints/
 
-		// The annual report app
+		// The Annual Report App
 
 		// Models
 		, 'AnnualReport': 'models/AnnualReport'
@@ -42,7 +42,7 @@ require(['underscore', 'backbone', 'dv', 'Router', 'AnnualReport', 'LayoutView',
 	annualReport = new AnnualReport
 
 	// View
-	, layoutView = new LayoutView({annualReport: annualReport})
+	, layoutView = new LayoutView({model: annualReport})
 
 	// Controller
 	, router = new Router({annualReport: annualReport, layoutView: layoutView});

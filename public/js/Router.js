@@ -71,7 +71,9 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 
 			// Store a local reference to the views that need updating
 			, mainView  = this.mainView = options.layoutView.mainView
-			, sidebarView = this.sidebarView = options.layoutView.sidebarView;
+			, sidebarView = this.sidebarView = options.layoutView.sidebarView
+
+			, enableWaypoints = true;
 
 
 			// Set the default Section
@@ -79,7 +81,7 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 
 
 			// Bind to the sections "isLoaded" event, once loaded we can tell the view to append it.
-			sections.on('change:isLoaded', function (sectionModel, value) {
+			sections.on('change:isLoaded', function (sectionModel) {
 				mainView.appendSection(sectionModel);
 			});
 
@@ -88,10 +90,12 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 				var $sectionTitleBlocks = $('#main > section .sectionTitleBlock');
 
 				// Remove any existing waypoints that are attached to the sectionTitles
-				//$sectionTitleBlocks.waypoint('remove');
-/*
+//				$sectionTitleBlocks.waypoint('remove');
+
 				// Bind new waypoints
 				$sectionTitleBlocks.waypoint(function (event, direction) {
+					return;
+
 					var sectionId = event.target.parentNode.id;
 
 					if (direction === 'down') {
@@ -105,13 +109,13 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 					}
 
 				}, {offset: '50%'});
-*/
+
 			});
 
 
 			// Bind to the section Model's "isActive" change event
 			sections.on('change:isActive', function (sectionModel, value) {
-				var lastAlteredBy = sectionModel.get('lastAlteredBy')
+				var lastAlteredBy = sectionModel.get('lastAlteredBy');
 
 				// We only care about the element that is being set active
 				if (value === true) {
@@ -121,9 +125,9 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 					// Update the sidebar
 					sidebarView.update(sectionModel);
 
-					// Scroll to the section (But only the section's already "rendered")
+					// Scroll to the section (But only the section's already "rendered", otherwise we want to wait for the section to be rendered)
 					// We don't want to scroll if the change was triggered by waypoints (the user is already scrolling)
-					if (sectionModel.get('isRendered') && lastAlteredBy !== 'waypoints') {
+					if (sectionModel.get('isRendered') && lastAlteredBy !== 'waypoint') {
 						mainView.scrollTo(sectionModel.id);
 					}
 				}

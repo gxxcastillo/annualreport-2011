@@ -20,7 +20,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!templates/sideb
 
 
 		/**
-		 *
+		 * Gets the url for the next & previous sections
 		 */
 		, getPrevNextUrls: function () {
 			var activeSection = this.sections.getActive()
@@ -97,7 +97,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!templates/sideb
 		}
 
 
-		, initialize: function (options) {
+		, initialize: function () {
 			var sections = this.sections = this.collection
 			, navListData = [];
 
