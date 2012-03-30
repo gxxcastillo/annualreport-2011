@@ -3,44 +3,42 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarView', 'MainView']
 
 	var $footer = $('footer')
 	, waypointsOpts = {
-		offset: '90%'
+		offset: '80%'
 	};
 
-	// Initialize Facebook
+	// @todo Initialize Facebook
 	//FB.init({appId: "YOUR_APP_ID", status: true, cookie: true});
 
 	return Backbone.View.extend({
 		el: 'body'
 
 		, initialize: function (options) {
+			var annualReport = this.model;
 
-			// Set styling specific to dynamicRendering (i.e. using jquery.isotope for rendiner)
-			if (!options.annualReport.renderAll) {
+			// Set styling specific to dynamicRendering (i.e. using jquery.isotope for rendering)
+			if (!annualReport.get('renderAll')) {
 				this.$el.addClass('dynamicRender');
 			}
 
 			// Instantiate our SidebarView and save a reference to it
-			this.sidebarView = new SidebarView({collection: options.annualReport.get('sections')});
+			this.sidebarView = new SidebarView({collection: annualReport.get('sections')});
 
 			// Instantiate our MainView and save a reference to it
-			this.mainView = new MainView({model: options.annualReport});
+			this.mainView = new MainView({model: annualReport});
 
-
-
-
-/* @todo
 			// Infinite Scroll
 			$footer.waypoint(function () {
+				// @todo disable for now
+				return;
+
 				// Remove the binding
 				$footer.waypoint('remove');
 
-				options.annualReport.sections.setNextActive();
+				annualReport.get('sections').setNextActive('waypoint');
 
 				// Now add it back
-				$footer.waypoint({offset: '90%'});
+				$footer.waypoint(waypointsOpts);
 			}, waypointsOpts);
-*/
-
 		}
 	});
 });
