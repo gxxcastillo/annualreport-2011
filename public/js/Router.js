@@ -78,15 +78,6 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 			this.defaultSection = options.annualReport.defaultSection;
 
 
-			// Instantiate backbone's history "pollyfill"
-			if (Modernizr.history) {
-				Backbone.history.start({pushState: true /*, silent: true */});
-			} else {
-				// Wait for domReady (Non-history fallback relies on an iframe)
-				$(Backbone.history.start({pushState: true /*, silent: true */}));
-			}
-
-
 			// Bind to the sections "isLoaded" event, once loaded we can tell the view to append it.
 			sections.on('change:isLoaded', function (sectionModel, value) {
 				mainView.appendSection(sectionModel);
@@ -157,6 +148,16 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 				}
 
 			});
+
+			// Instantiate backbone's routes + the history "pollyfill"
+			// Since it sets the routes, it should be called last, after all the initialization has taken place
+			// (Keep this in mind if ever moving this stuff into a separate Controller)
+			if (Modernizr.history) {
+				Backbone.history.start({pushState: true /*, silent: true */});
+			} else {
+				// Wait for domReady (Non-history fallback relies on an iframe)
+				$(Backbone.history.start({pushState: true /*, silent: true */}));
+			}
 		}
 	});
 });
