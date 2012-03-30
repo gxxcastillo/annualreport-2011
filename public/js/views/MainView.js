@@ -14,7 +14,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView', 'An
 		, appendSection: function (sectionModel) {
 
 			// Create the new section view, pass it the model
-			var newSection = new SectionView({model: sectionModel})
+			var newSection = new SectionView({model: sectionModel});
 
 			// Append the new section
 			this.$el.append(newSection.el);
