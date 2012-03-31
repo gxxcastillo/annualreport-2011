@@ -54,7 +54,7 @@ SectionProvider.prototype.getList = function () {
 
     for(key in this.sectionData) {
         if (this.sectionData.hasOwnProperty(key)) {
-	        sectionList.push({id: this.sectionData[key].id, title: this.sectionData[key].title, order: this.sectionData[key].order});
+	        sectionList.push({id: this.sectionData[key].id, title: this.sectionData[key].blocks[0].title, order: this.sectionData[key].order});
         }
     }
 
@@ -94,7 +94,7 @@ new SectionProvider().save(
 			    }
     			, {
     				name: 'dataMetric'
-    				, cssClass: 'g1 h1'
+    				, cssClass: 'g2 h1'
                     , label: 'Money Borrowed'
                     , caption: ':up: vs 2010 $71,096,550'
     				, value: '$89,481,825'
@@ -137,34 +137,50 @@ new SectionProvider().save(
                     , caption: 'least'
                 }
                 , {
-                    name: 'mapBlock'
+                    name: 'map'
+				    , cssClass: 'g3 h8'
                     , label: 'Number of borrowers by countries (Top 5)'
-                    , subblocks: [
-                        [
-                            {label:{img:'',text:'Philippines'},text:''}
-                            , {label:'20,820 borrowers',text:''}
-                            , {label:'avg loan amount',text:'314.39'}
-                        ]
-                        ,  [
-                            {label:{img:'',text:'Peru'},text:''}
-                            , {label:'18,865 borrowers',text:''}
-                            , {label:'avg loan amount',text:'446.47'}
-                        ]
-                        , [
-                            {label:{img:'',text:'Kenya'},text:''}
-                            , {label:'18,841 borrowers',text:'300.33'}
-                            , {label:'avg loan amount',text:'text'}
-                        ]
-                        , [
-                            {label:{img:'',text:'Paraguay'},text:'text'}
-                            , {label:'14,589 borrowers',text:''}
-                            , {label:'avg loan amount',text:'204.71'}
-                        ]
-                        , [
-                            {label:{img:'',text:'Uganda'},text:'text'}
-                            , {label:'14,345 borrowers',text:''}
-                            , {label:'avg loan amount',text:'271.71'}
-                        ]
+                    , segments: [
+                        {
+	                        position: {top: 'X', left: 'X'}
+			                , dataset: [
+		                        {img:'', label:'Philippines'}
+	                            , {label:'20,820 borrowers', value:''}
+	                            , {label:'avg loan amount', value:'314.39'}
+			                ]
+                        }
+                        , {
+	                        position: {top: 'X', left: 'X'}
+			                , dataset: [
+				                {img:'', label:'Peru'}
+			                     , {label:'18,865 borrowers', value:''}
+			                     , {label:'avg loan amount', value:'446.47'}
+			                ]
+                        }
+                        , {
+	                        position: {top: 'X', left: 'X'}
+			                , dataset: [
+				                {img:'', label: ''}
+			                     , {label:'18,841 borrowers', value:'300.33'}
+			                     , {label:'avg loan amount', value:'text'}
+			                ]
+                        }
+						, {
+							position: {top: 'X', left: 'X'}
+							, dataset: [
+								{img:'', label:'Paraguay'}
+						         , {label:'14,589 borrowers', value:''}
+						         , {label:'avg loan amount', value:'204.71'}
+							]
+						}
+						, {
+							position: {top: 'X', left: 'X'}
+							, dataset: [
+		                        {img:'', label:'Uganda'}
+	                            , {label:'14,345 borrowers', value:''}
+	                            , {label:'avg loan amount', value:'271.71'}
+							]
+						}
                     ]
                     , caption: ['WORLDWIDE','per capita income: $x,xxx', 'Literacy rate: 84%', '*data from The World Bank']
                 }
@@ -176,20 +192,20 @@ new SectionProvider().save(
     			}
                 , {
                     name: 'highlight'
-                    , cssClass: 'g2 h4'
+                    , cssClass: 'g1 h4'
                     , label: 'Borrower stories'
-                    , link: ''
-                    , imgUrl: ''
+                    , link: '#'
+                    , imgUrl: ['/img/2011/green-loans.jpg']
                     , caption:'March 1, 2011'
                     , subject:'First Green Loan'
                     , description: 'Mark Omondi Siaya, Kenya'
                 }
                 , {
                     name: 'highlight'
-                    , cssClass: 'g2 h4'
+                    , cssClass: 'g1 h4'
                     , label: 'Borrower stories'
                     , link: 'http://www.kiva.org/lend/324240'
-                    , imgUrl: ''
+                    , imgUrl: ['img/2011/nshigikira-group.jpg']
                     , caption:'Liveliest photo'
                     , subject:'Nshigikira Group'
                     , description: 'Gitega, Burundi'
@@ -199,34 +215,34 @@ new SectionProvider().save(
     				, cssClass: 'g1 h1'
     				, value: '$399'
     				, label: 'avg loan size'
-    				, context: ':up: vs. 2010 $350'
+    				, caption: ':up: vs. 2010 $350'
     			}
 			    , {
     				name: 'dataMetric'
     				, cssClass: 'g1 h1'
     				, value: '26'
     				, label: 'Expired loans'
-    				, context: ':down: vs. 2010 99'
+    				, caption: ':down: vs. 2010 99'
     			}
 			    , {
     				name: 'dataMetric'
     				, cssClass: 'g1 h1'
     				, value: '1.09%'
     				, label: 'Avg default rate'
-    				, context: ':up: vs. 2010 1.08%'
+    				, caption: ':up: vs. 2010 1.08%'
     			}
 			    , {
     				name: 'dataMetric'
     				, cssClass: 'g1 h1'
     				, value: '1638'
     				, label: 'Total defaults'
-    				, context: ':down: vs. 2010 3342'
+    				, caption: ':down: vs. 2010 3342'
     			}
                 , {
                    name: 'dataGraph'
                    , cssClass: 'g1 h1'
                    , label: 'expired loans by activity'
-                   , dataset: [{label: 'Retail', value:'36'},{label:'Housing', value:'25'}, {label:'Services', value:'12'}]
+                   , dataset: [{label: 'Retail', value:'36'}, {label:'Housing', value:'25'}, {label:'Services', value:'12'}]
 
                }
                 , {
@@ -236,11 +252,14 @@ new SectionProvider().save(
                    , dataset: [{label: 'farming', value:'0'},{label:'transportation', value:'0'}, {label:'mexxxx', value:'0'}, {label:'texxxx', value:'0'}]
                }
                 , {
-                    name: 'highlight'
-                    , cssClass: 'g2 h4'
+				    id: 'blah_01'
+                    , name: 'highlight'
+                    , cssClass: 'g1 h4'
                     , label: 'Borrower stories'
-                    , lightbox: 'http://www.kiva.org/lend/317318'
-                    , imgUrl: ''
+
+				    // @todo replace with video
+                    , lightbox: ['/img/2011/green-loans.jpg', '/img/2011/going-green-nairobi.jpg']
+                    , imgUrl: '/img/2011/araksi-video-profile.jpg'
                     , caption:'Video Profile'
                     , subject:'Araksi'
                     , description: 'Talin, Armenia'
@@ -282,26 +301,26 @@ new SectionProvider().save(
                     name: 'dataMetric'
                     , cssClass: 'g1 h2'
                     , label: 'Percent of partners who provided loans to underserved populations'
-                    , caption: {text: 'Who are underserved populations?',tooltip: "Underserved populations can be refugees, ethnic minorities, or other vulnerable and excluded peoples that have limited access to financial services. Kiva incentivizes partners to go the extra mile and provide these populations with access to much needed loans and non-financial services."}
+                    , caption: {text: 'Who are underserved populations?', lightbox: "Underserved populations can be refugees, ethnic minorities, or other vulnerable and excluded peoples that have limited access to financial services. Kiva incentivizes partners to go the extra mile and provide these populations with access to much needed loans and non-financial services."}
                     , value: '31%'
                 }
                 , {
                     name: 'dataMetric'
                     , cssClass: 'g1 h2'
                     , label: 'Percent of partners who provided loans to underserved regions'
-                    , caption: {text: 'What are underserved regions?',tooltip: "Underserved regions are areas that otherwise lack access to adequate financial services. These can be rural, isolated, or simply underdeveloped. Kiva incentivizes partners to go the extra mile and offer financial services to these underserved regions."}
+                    , caption: {text: 'What are underserved regions?', lightbox: "Underserved regions are areas that otherwise lack access to adequate financial services. These can be rural, isolated, or simply underdeveloped. Kiva incentivizes partners to go the extra mile and offer financial services to these underserved regions."}
                     , value: '54%'
                 }
                 , {
-                    name: 'text'
+                    name: 'custom'
                     , label: 'social performance'
-                    , cssClass: 'g1 h5 social_performance'
+                    , cssClass: 'g1 h5'
                     , value: "<p>Social performance  Different organizations have different social performance strengths. in 2011 Kiva introduced seven Social Performance Badges to recognize partners with a demonstrated commitment to one or more of these areas.</p>"
                 }
                 , {
-                    name: 'text'
+                    name: 'custom'
                     , label: 'partnerships in new countries'
-                    , cssClass: 'g1 h5 list_countries_new_partners'
+                    , cssClass: 'g1 h5'
                     , value: "<p>THIS IS partnerships in new countries HTML BLOCK FTW!</p>"
                 }
                 , {
@@ -325,33 +344,40 @@ new SectionProvider().save(
                     , description: 'Gitega, Burundi'
                 }
                 , {
-                    name: 'mapBlock'
+                    name: 'map'
                     , label: 'Partners who achieved 6 of 7 badges'
-                    , subblocks: [
-                        [
-                            {label:{img:'xxx'},text:''}
-                            , {label:{img:'',text:'Fundacion Paraguay'},text:''}
-                            , {label:'Kiva loans 2011',text:'$2,986,450'}
-                            , {label:'avg loan size',text:'$205'}
-                            , {label:{img:'xxx',text:'Community Empowerment xx'},text:"Fundacion Paraguay offers a wide array of specialized products and services to meet social needs in the community. For this, they have earned Kiva's Family and Community Empowerment badge."}
-                        ]
-                        , [
-                            {label:{img:'xxx'},text:''}
-                            , {label:{img:'',text:'Asasah'},text:''}
-                            , {label:'Kiva loans 2011',text:'$1,435,550'}
-                            , {label:'avg loan size',text:'$218'}
-                            , {label:{img:'xxx',text:'Vulnerable Group Focus'},text:"Working with vulnerable groups in Pakistan is one of Asasah's many strengths. Their efforts to reach and serve the needs of ultra and extremely poor populations have earned Asasah Kiva's Vulnerable Group Focus badge."}
-                        ]
-                        , [
-                            {label:{img:'xxx'},text:''}
-                            , {label:{img:'',text:'Paglaum'},text:''}
-                            , {label:'Kiva loans 2011',text:'735,100'}
-                            , {label:'avg loan size',text:'$316'}
-                            , {label:{img:'xxx',text:'Client Voice'},text:"Listening to clients is so important in microfinance. Paglaum has gone above and beyond creating mechanisms for client voices to be heard, and for this they have earned Kiva's Client Voice badge."}
-                        ]
-
+                    , segments: [
+				        {
+					        position: {top: 'x', left: 'x'}
+						    , dataset: [
+								{img: 'xxx'}
+								, {sprite: {}, label: 'Paraguay'}
+						        , {label: 'Kiva loans 2011', value: '$2,986,450'}
+						        , {label: 'avg loan size', value: '$205'}
+						        , {sprite: {}, label: 'Community Empowerment xx', description: "Fundacion Paraguay offers a wide array of specialized products and services to meet social needs in the community. For this, they have earned Kiva's Family and Community Empowerment badge."}
+							]
+				        }
+				        , {
+					        position: {top: 'x', left: 'x'}
+						    , dataset: [
+                                {img: 'xxx'}
+                                , {sprite: {}, label:'Asasah'}
+                                , {label: 'Kiva loans 2011', value: '$1,435,550'}
+                                , {label: 'avg loan size', value: '$218'}
+                                , {sprite: {}, label: 'Vulnerable Group Focus', description: "Working with vulnerable groups in Pakistan is one of Asasah's many strengths. Their efforts to reach and serve the needs of ultra and extremely poor populations have earned Asasah Kiva's Vulnerable Group Focus badge."}
+							]
+				        }
+                        , {
+					        position: {top: 'x', left: 'y'}
+				            , dataset: [
+								{img: '', label: ''}
+					            , {sprite: '', label: ''}
+					            , {label: 'Kiva loans 2011', text:'735,100'}
+					            , {label: 'avg loan size', text:'$316'}
+					            , {sprite: {}, label: 'Client Voice', description: "Listening to clients is so important in microfinance. Paglaum has gone above and beyond creating mechanisms for client voices to be heard, and for this they have earned Kiva's Client Voice badge."}
+					        ]
+				        }
                     ]
-                    , caption: ['Partners who achieved 6 of 7 badges']
                 }
                 , {
                     name: 'dataMetric'
@@ -371,7 +397,7 @@ new SectionProvider().save(
                     name: 'dataMetric'
                     , cssClass: 'g1 h2'
                     , label: 'Number of disolved partnerships'
-                    , caption: {text:"Why do partnerships end?", tooltip:"xxxxxxxx"}
+                    , caption: {text: 'Why do partnerships end?', lightbox: 'xxxxxxxx'}
                     , value: '5'
                 }
                 , {
@@ -405,11 +431,11 @@ new SectionProvider().save(
     	}
     	, site: {
 	        id: 'site'
-    		, title: 'Web Site'
 	        , order: 3
     		, blocks: [
 			    {
-				    name: 'sectionTitle'
+					title: 'Web Site'
+				    , name: 'sectionTitle'
 				    , cssClass: 'g3 h1'
 			    }
 	            , {
@@ -441,7 +467,7 @@ new SectionProvider().save(
     				, value: '5.5'
     				, unit: 'Mins'
     				, label: 'avg. time on site'
-    				, context: 'vs. 2010 5.1 mins'
+    				, caption: 'vs. 2010 5.1 mins'
     			}
      			, {
     				name: 'dataMetric'
@@ -449,7 +475,7 @@ new SectionProvider().save(
     				, value: '5.5'
     				, unit: 'Mins'
     				, label: 'avg. time on site'
-    				, context: 'vs. 2010 5.1 mins'
+    				, caption: 'vs. 2010 5.1 mins'
     			}
     			, {
     				name: 'dataMetric'
@@ -457,18 +483,18 @@ new SectionProvider().save(
     				, value: '5.5'
     				, unit: 'Mins'
     				, label: 'avg. time on site'
-    				, context: 'vs. 2010 5.1 mins'
+    				, caption: 'vs. 2010 5.1 mins'
     			}
     		]
     	}
     	, lenders: {
 	        id: 'lenders'
-    		, title: 'Lenders'
 	        , order: 2
     		, blocks: [
 			    {
 				    name: 'sectionTitle'
 				    , cssClass: 'g3 h1'
+				    , title: 'Lenders'
 			    }
 	            , {
     				name: 'dataMetric'
@@ -476,7 +502,7 @@ new SectionProvider().save(
     				, value: '5.5'
     				, unit: 'Mins'
     				, label: 'avg. time on site'
-    				, context: 'vs. 2010 5.1 mins'
+    				, caption: 'vs. 2010 5.1 mins'
     			}
     			, {
     				name: 'dataMetric'
@@ -484,7 +510,7 @@ new SectionProvider().save(
     				, value: '5.5'
     				, unit: 'Mins'
     				, label: 'avg. time on site'
-    				, context: 'vs. 2010 5.1 mins'
+    				, caption: 'vs. 2010 5.1 mins'
     			}
      			, {
     				name: 'dataMetric'
@@ -492,7 +518,7 @@ new SectionProvider().save(
     				, value: '5.5'
     				, unit: 'Mins'
     				, label: 'avg. time on site'
-    				, context: 'vs. 2010 5.1 mins'
+    				, caption: 'vs. 2010 5.1 mins'
     			}
     			, {
     				name: 'dataMetric'
@@ -500,18 +526,18 @@ new SectionProvider().save(
     				, value: '5.5'
     				, unit: 'Mins'
     				, label: 'avg. time on site'
-    				, context: 'vs. 2010 5.1 mins'
+    				, caption: 'vs. 2010 5.1 mins'
     			}
     		]
     	}
     	, ecosystem: {
 	        id: 'ecosystem'
-    		, title: 'Kiva Ecosystem'
 	        , order: 5
     		, blocks: [
 			    {
 				    name: 'sectionTitle'
 				    , cssClass: 'g3 h1'
+				    , title: 'Kiva Ecosystem'
 			    }
 	            , {
     				name: 'dataMetric'
@@ -519,7 +545,7 @@ new SectionProvider().save(
     				, value: '5.5'
     				, unit: 'Mins'
     				, label: 'avg. time on site'
-    				, context: 'vs. 2010 5.1 mins'
+    				, caption: 'vs. 2010 5.1 mins'
     			}
     			, {
     				name: 'dataMetric'
@@ -527,7 +553,7 @@ new SectionProvider().save(
     				, value: '5.5'
     				, unit: 'Mins'
     				, label: 'avg. time on site'
-    				, context: 'vs. 2010 5.1 mins'
+    				, caption: 'vs. 2010 5.1 mins'
     			}
      			, {
     				name: 'dataMetric'
@@ -535,7 +561,7 @@ new SectionProvider().save(
     				, value: '5.5'
     				, unit: 'Mins'
     				, label: 'avg. time on site'
-    				, context: 'vs. 2010 5.1 mins'
+    				, caption: 'vs. 2010 5.1 mins'
     			}
     			, {
     				name: 'dataMetric'
@@ -543,7 +569,7 @@ new SectionProvider().save(
     				, value: '5.5'
     				, unit: 'Mins'
     				, label: 'avg. time on site'
-    				, context: 'vs. 2010 5.1 mins'
+    				, caption: 'vs. 2010 5.1 mins'
     			}
     			, {
     				name: 'dataMetric'
@@ -551,18 +577,18 @@ new SectionProvider().save(
     				, value: '5.5'
     				, unit: 'Mins'
     				, label: 'avg. time on site'
-    				, context: 'vs. 2010 5.1 mins'
+    				, caption: 'vs. 2010 5.1 mins'
     			}
     		]
     	}
     	, stories: {
 	        id: 'stories'
-    		, title: 'Stories From the Field'
 	        , order: 6
     		, blocks: [
 			    {
 				    name: 'sectionTitle'
 				    , cssClass: 'g3 h1'
+				    , title: 'Stories From the Field'
 			    }
 	            , {
     				name: 'highlight'
@@ -616,12 +642,12 @@ new SectionProvider().save(
     	}
     	, press: {
 	        id: 'press'
-    		, title: 'Press & Promotions'
 	        , order: 7
     		, blocks: [
 			    {
 				    name: 'sectionTitle'
 				    , cssClass: 'g3 h1'
+				    , title: 'Press & Promotions'
 			    }
 	            , {
     				name: 'dataMetric'
@@ -659,12 +685,12 @@ new SectionProvider().save(
     	}
     	, finances: {
 	        id: 'finances'
-    		, title: 'Financial Health'
 	        , order: 8
     		, blocks: [
 			    {
 				    name: 'sectionTitle'
 				    , cssClass: 'g3 h1'
+				    , title: 'Financial Health'
 			    }
 	            , {
     				name: 'dataMetric'
