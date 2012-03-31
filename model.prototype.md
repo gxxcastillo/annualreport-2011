@@ -14,9 +14,9 @@
 {
 	name: 'dataMetric'
 	, cssClass: 'g1 h1'
-	, value: '4.5'
-	, label: 'avg. time on site'
-	, caption: 'vs. 2010 5.1 mins'
+	, value: ''
+	, label: ''
+	, caption: ''
 }
 ```
 
@@ -26,11 +26,11 @@
 	name: 'text'
 	, cssClass: 'g1 h1'
 	, label: 'Most popular tweet'
-	, value: ''                                         // Can be a string OR...
-	, value: ['', '', '']                               // An array of strings
-	, context: 'Nov 9, 2,201 retweets & 500 favorites'  // [optional]
-	, description:  ''  // [optional]
-	, c2a:  {           // [optional]
+	, value: ''                 // Can be a string OR...
+	, value: ['', '', '']       // An array of strings
+	, context: ''               // [optional]
+	, description:  ''          // [optional]
+	, c2a:  {                   // [optional]
 		text: ''
 		, link: ''
 	}
@@ -41,7 +41,7 @@
 ```
 {
 	name: 'highlight'
-	, label: 'most prolific lender'
+	, label: ''
 	, imgUrl: ''                // Url to the image that appears in the background
 	, link: ''                  // Destination url when someone clicks on this block
 	, lightbox: ['', '', '']    // One or more url's to images that should appear on click
