@@ -1,7 +1,7 @@
-define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 'text!templates/blockView.sectionTitle.hogan', 'text!templates/blockView.text.hogan', 'text!templates/blockView.profile.hogan', 'text!templates/blockView.highlight.hogan', 'text!templates/blockView.dataGraph.hogan', 'text!templates/blockView.hover.hogan', 'text!templates/blockView.vTable.hogan', 'text!templates/blockView.hTable.hogan']
-, function (Backbone, dv, hogan, dataMetricTpl, sectionTitleTpl, textTpl, profileTpl, highlightTpl, dataGraphTpl, hoverTpl, vTableTpl, hTableTpl) {
+define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 'text!templates/blockView.sectionTitle.hogan', 'text!templates/blockView.text.hogan', 'text!templates/blockView.profile.hogan', 'text!templates/blockView.highlight.hogan', 'text!templates/blockView.dataGraph.hogan', 'text!templates/blockView.hover.hogan', 'text!templates/blockView.vTable.hogan', 'text!templates/blockView.hTable.hogan', 'text!templates/blockView.map.hogan']
+, function (Backbone, dv, hogan, dataMetricTpl, sectionTitleTpl, textTpl, profileTpl, highlightTpl, dataGraphTpl, hoverTpl, vTableTpl, hTableTpl, mapTpl) {
 
-	function getSectionTitleData (viewData) {
+	function getSectionTitleData(viewData) {
 		return {
 			name: viewData.name
 			, cssClass: viewData.cssClass
@@ -10,19 +10,27 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 	}
 
 
-	function getDataMetricData (viewData) {
+	function getDataMetricData(viewData) {
 		return {
 			name: viewData.name
 			, cssClass: viewData.cssClass
 			, bv1: viewData.value
 			, bv2: viewData.unit
 			, bv3: viewData.label
-			, bv4: viewData.context
+			, bv4: viewData.caption
 		}
 	}
 
 
-	function getProfileData (viewData) {
+	function getMapData(viewData) {
+		return {
+			name: viewData.name
+			, cssClass: viewData.cssClass
+		}
+	}
+
+
+	function getProfileData(viewData) {
 		return {
 			name: viewData.name
 			, cssClass: viewData.cssClass
@@ -34,21 +42,32 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 	}
 
 
-	function getHighlightData (viewData) {
-		return {
+	function getHighlightData(viewData) {
+		var newData = {
 			name: viewData.name
 			, cssClass: viewData.cssClass
 			, link: viewData.link
 			, bv0: viewData.imgUrl
-			, bv1: viewData.context
-			, bv2: viewData.datum
-			, bv3: viewData.descriptor
-			, bv4: viewData.descriptor
+			, bv1: viewData.caption
+			, bv2: viewData.subject
+			, bv3: viewData.description
+
+		};
+
+		// Is this a lightbox?
+		if (viewData.lightbox) {
+			newData.isLightbox = true;
+			newData.lightbox = [];
+			_.each(viewData.lightbox, function (url) {
+				newData.lightbox.push({bv4: url, bv2: viewData.label, bv6: viewData.id});
+			});
 		}
+
+		return newData;
 	}
 
 
-	function getDataGraphData (viewData) {
+	function getDataGraphData(viewData) {
 		return {
 			name: viewData.name
 			, cssClass: viewData.cssClass
@@ -104,24 +123,19 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 
 
 	function getTextData (viewData) {
-		/*
-		switch (viewData.variant) {
-			case: '':
-				break;
-			case: '':
-				break
-		}
-		*/
-		return {
+		var newData = {
 			name: viewData.name
 			, cssClass: viewData.cssClass
-			, valuelist: {
-				bv0: viewData.valuelist
-			}
-			, bv0: viewData.value
 			, bv1: viewData.label
-			, bv2: viewData.context
+		};
+
+		if (_.isArray(viewData.value)) {
+			newData.valuelist = true;
 		}
+
+		newData.bv0 = viewData.value;
+
+		return newData;
 	}
 
 
@@ -142,7 +156,7 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 			if (url) {
 				window.open(url, '_blank');
 			} else {
-				$('a[rel="' + this.viewData.lightboxGroup + '"]').colorbox({open: true, current: ''});
+				$('a[rel="' + this.viewData.lightbox[0].bv6 + '"]').colorbox({open: true, iframe: true, current: '', width: 853, height: 480});
 			}
 		}
 
@@ -156,6 +170,7 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 			var viewData = this.viewData
 			, className = viewData.name + 'Block ' + viewData.cssClass;
 
+			// Is this block "clickable"?
 			if (viewData.lightbox || viewData.link) {
 				className += ' clickable';
 
@@ -174,11 +189,10 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 
 			this.$el.addClass(className);
 			this.$el.html(this.template(viewData));
-
-			dv.trigger('render.blockView.dv', this.$el);
 		}
 
 		, initialize: function (viewData) {
+
 			switch (viewData.name) {
 				case 'sectionTitle':
 					this.viewData = getSectionTitleData(viewData);
@@ -188,10 +202,6 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 					this.viewData = getDataMetricData(viewData);
 					this.tpl = dataMetricTpl;
 					break;
-				case 'profile':
-					this.viewData = getProfileData(viewData);
-					this.tpl = profileTpl;
-					break;
 				case 'highlight':
 					this.viewData = getHighlightData(viewData);
 					this.tpl = highlightTpl;
@@ -199,6 +209,19 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 				case 'dataGraph':
 					this.viewData = getDataGraphData(viewData);
 					this.tpl = dataGraphTpl;
+					break;
+				case 'map':
+					this.viewData = getMapData(viewData);
+					this.tpl = mapTpl;
+					break;
+				case 'text':
+					this.viewData = getTextData(viewData);
+					this.tpl = textTpl;
+					break;
+				/*
+				case 'profile':
+					this.viewData = getProfileData(viewData);
+					this.tpl = profileTpl;
 					break;
 				case 'hover':
 					this.viewData = getHoverData(viewData);
@@ -212,14 +235,14 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 					this.viewData = getVTableData(viewData);
 					this.tpl = vTableTpl;
 					break;
-				case 'text':
-					this.viewData = getTextData(viewData);
-					this.tpl = textTpl;
-					break;
+*/
 				default:
 					this.tpl = '';
 			}
 
+			if (!this.tpl) {
+				return
+			}
 			this.render();
 		}
 	});

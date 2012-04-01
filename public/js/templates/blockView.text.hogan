@@ -1,5 +1,6 @@
-{{#bv0}}<div class="bv0">{{bv0}}</div>{{/bv0}}
-
+{{^valuelist}}
+	<div class="bv0">{{bv0}}</div>
+{{/valuelist}}
 {{#valuelist}}
 	<ul class="valuelist">
 		{{#bv0}}
