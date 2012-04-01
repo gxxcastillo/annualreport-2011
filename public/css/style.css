@@ -11,9 +11,10 @@ font-family: 'Museo Slab 500', Rockwell, Georgia, serif; font-weight: 500;
 */
 
 /* For testing */
-
-.block { outline: 1px transparent solid; }
 /* .block { outline: 1px red solid; } */
+
+/* %Hack% For some strange reason this fixes css transitions on block elements */
+.block { outline: 1px transparent solid; }
 
 /* Outer frame */
 body        { margin: 0 auto; width: 1004px; }
