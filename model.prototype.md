@@ -74,8 +74,10 @@
             position: {top: X, left: X}
             , dataset: [
                 {img: '', label: ''}                        // There are times when you have an image
-                , {sprite: {name: '', id: ''}, label: ''}   // There are times when you want a sprite
+                , {sprite: {name: '', id: ''}, label: ''}   // If using sprites, name is the name of the sprite, and id identifies the image in the sprite
                 , {label:'', value:''}                      // Sometimes you only need a label/value pair
+                , {sprite: {}, description: ''}             // Using description instead of value
+                , {sprite: {}, label, description: ''}      // Sprite + label + description
             ]
         }
         , {
