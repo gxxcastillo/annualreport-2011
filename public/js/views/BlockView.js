@@ -11,13 +11,36 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 
 
 	function getDataMetricData(viewData) {
+		var trending;
+
+		if (viewData.caption) {
+			// @todo
+			if (viewData.caption.text) {
+				viewData.hasClickableCaption = true;
+				viewData.captionHref = viewData.caption.href;
+				viewData.caption = viewData.caption.text;
+			}
+
+			if (viewData.caption.indexOf(':down:') > -1) {
+				trending = 'trendingDown'
+			} else if (viewData.caption.indexOf(':up:') > -1) {
+				trending = 'trendingUp'
+			}
+
+			// @todo need regex
+			viewData.caption = viewData.caption.replace(':down:', '');
+			viewData.caption = viewData.caption.replace(':up:', '');
+		}
+
 		return {
 			name: viewData.name
 			, cssClass: viewData.cssClass
+			, hasClickableCaption: viewData.hasClickableCaption
 			, bv1: viewData.value
 			, bv2: viewData.unit
 			, bv3: viewData.label
 			, bv4: viewData.caption
+			, trending: trending
 		}
 	}
 
