@@ -20,11 +20,8 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'BlockView']
 			, $section = this.$el.attr('id', viewData.id)
 			, blocks = [];
 
-			// Each section has multiple "blocks", append each one to the section's DOM
+			// Each section has multiple "blocks"
 			_.each(viewData.blocks, function (block) {
-
-
-
 				// Instantiate the new block view and add it to our array of blocks
 				blocks.push((new BlockView(block)).el);
 			});
