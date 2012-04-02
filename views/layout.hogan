@@ -30,7 +30,7 @@
 	<body>
 		{{>sidebar}}
 		{{>body}}
-		<footer class="siteFooter g3">
+		<footer class="siteFooter g9">
 				<a href="#next" class="nav-next">next</a>
 		</footer>
 	</body>

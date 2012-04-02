@@ -82,10 +82,16 @@ body        { margin: 0 auto; width: 1004px; }
 
 /* Grid */
 .container      { position: relative; width: 768px; }
-.g1, .g2, .g3   { display: inline-block; }
-.g1	{ width: 236px; }
-.g2	{ width: 492px; }
-.g3	{ width: 748px; }
+.g1, .g2, .g3, .g4, .g5, .g6, .g7, .g8, .g9   { display: inline-block; }
+.g1   { width: 64px; }
+.g2   { width: 148px; }
+.g3   { width: 232px; }
+.g4   { width: 316px; }
+.g5   { width: 400px; }
+.g6   { width: 484px; }
+.g7   { width: 568px; }
+.g8   { width: 652px; }
+.g9   { width: 736px; }
 
 .h1 { height: 60px; }
 .h2 { height: 140px; }
