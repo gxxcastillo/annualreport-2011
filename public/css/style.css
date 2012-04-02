@@ -70,6 +70,9 @@ body        { margin: 0 auto; width: 1004px; }
 .light  { font-family: 'Proxima Nova Light', 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size-adjust: 0.488; font-weight: 200; }
 .bold   { font-family: 'Proxima Nova Semibold', 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: 600; }
 
+.singIt:before  { content: '\266B'; float: left; padding-right: 5px; }
+.singIt:after   { content: '\266A'; padding-left: 10px; }
+
 /* @todo temporary overrides */
 .light  { font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size-adjust: 0.488; font-weight: 200; }
 .bold   { font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: 600; }
@@ -99,8 +102,8 @@ body        { margin: 0 auto; width: 1004px; }
 .block.clickable            { cursor: pointer; }
 .block.clickable:hover      { box-shadow: 1px 1px 5px #888, -1px 0 5px #888; top: 1px; }
 .block .block               { height: 100%; margin: 0 10px; }
-.block .block:first-child   { margin-left: 0; }
-.block .block:last-child    { margin-right: 0; }
+.block .subBlocks .block:first-child   { margin-left: 0; }
+.block .subBlocks .block:last-child    { margin-right: 0; }
 
 .nightBlock li { background-color: #000; color: #fff; }
 
@@ -112,6 +115,7 @@ body        { margin: 0 auto; width: 1004px; }
 .dataMetricBlock .bv4 { position: absolute; text-align: right; top: 5px; right: 2px; width: 50px; }
 
 .textBlock  { border-bottom: #888 1px solid; }
+.block .textBlock .bv1 { font-size: .8571em; }
 
 .highlightBlock .img    { width: 100%;   position: absolute; top: 0; left: 0; }
 .highlightBlock .veil   { background-color: rgba(255, 255, 255, .7); border: #ccc 1px solid; border-top-style: none; position: absolute; bottom: 0; left: 0; width: 100%; padding: 3px; }
