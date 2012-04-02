@@ -27,8 +27,7 @@ body        { margin: 0 auto; width: 1004px; }
 .sidebar li   { margin-bottom: 10px; }
 
 .siteHeader { padding: 0 20px; }
-.siteFooter { background-color: #f7f7f2; height: 5px; }
-.siteFooter a { visibility: hidden; }
+.siteFooter { background-color: #f7f7f2; height: 20px; text-align: center; }
 
 .primaryNav { border-top: #fff 2px solid; border-bottom: #fff 2px solid; padding: 10px 0; position: relative; }
 .primaryNav .nav-prev
@@ -112,7 +111,9 @@ body        { margin: 0 auto; width: 1004px; }
 .dataMetricBlock            { border-bottom: #888 1px solid; }
 .dataMetricBlock .dataPoint { color: #4b9123; line-height: 1.1; }
 .dataMetricBlock .dataPoint div { display: inline; }
-.dataMetricBlock .bv4 { position: absolute; text-align: right; top: 5px; right: 2px; width: 50px; }
+.dataMetricBlock .bv4 { position: absolute; text-align: right; top: 5px; right: 2px; width: 60px; }
+.dataMetricBlock .bv4.trendingUp:before { content: '\25B2'}
+.dataMetricBlock .bv4.trendingDown:before { content: '\25BC'}
 
 .textBlock  { border-bottom: #888 1px solid; }
 .block .textBlock .bv1 { font-size: .8571em; }
@@ -143,6 +144,8 @@ body        { margin: 0 auto; width: 1004px; }
 
 /* Media Queries */
 @media only screen and (max-width: 936px) {
+	.g3	{ width: 492px; }
+
 	.sidebar { margin-left: 512px; }
 	.container { width: 512px; }
 }
