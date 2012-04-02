@@ -11,7 +11,7 @@
 {{#isLightbox}}
 	<div class="lightboxContent" style="display: none;">
 		{{#lightbox}}
-			<a href="{{bv4}}" title="{{bv5}}" rel="{{lightboxGroup}}"></a>
+			<a href="{{href}}" title="{{title}}" rel="{{lightboxGroup}}"></a>
 		{{/lightbox}}
 	</div>
 {{/isLightbox}}

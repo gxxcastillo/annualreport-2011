@@ -52,14 +52,35 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 			, bv2: viewData.subject
 			, bv3: viewData.description
 
-		};
+		}
 
-		// Is this a lightbox?
-		if (viewData.lightbox) {
-			newData.isLightbox = true;
+		, isLightbox
+		, isVideo
+		, isSlideshow;
+
+		// Is this block clickable?
+		if (viewData.lightbox || viewData.link) {
+			newData.isClickable = true;
+
+			if (viewData.lightbox) {
+				isVideo = viewData.lightbox[0].indexOf('youtube') > -1;
+				isSlideshow = viewData.lightbox.length > 1;
+				isLightbox = true;
+			}
+
+			if (isSlideshow) {
+				newData.lightboxGroup = 'lbGroup_' + this.cid;
+			}
+
+			if (isVideo) {
+				newData.isIframe = true;
+				newData.isPlayable = true;
+			}
+
+			newData.isLightbox = isLightbox;
 			newData.lightbox = [];
 			_.each(viewData.lightbox, function (url) {
-				newData.lightbox.push({bv4: url, bv2: viewData.label, bv6: viewData.id});
+				newData.lightbox.push({href: url, title: viewData.label});
 			});
 		}
 
@@ -149,14 +170,14 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 			'click': 'handleBlockClick'
 		}
 
-		, handleBlockClick: function (e) {
-			var targetEl = e.currentTarget
-			, url = $.data(targetEl, 'link-dv');
+		, handleBlockClick: function () {
+			var viewData = this.viewData
 
-			if (url) {
-				window.open(url, '_blank');
-			} else {
-				$('a[rel="' + this.viewData.lightbox[0].bv6 + '"]').colorbox({open: true, iframe: true, current: '', width: 853, height: 480});
+			if (viewData.link) {
+				window.open(viewData.link, '_blank');
+			} else if (viewData.isLightbox) {
+				// @todo make this more robust
+				this.$('.lightboxContent a').colorbox({open: true, iframe: viewData.isIframe, current: '', width: 853, height: 480});
 			}
 		}
 
@@ -171,19 +192,17 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 			, className = viewData.name + 'Block ' + viewData.cssClass;
 
 			// Is this block "clickable"?
-			if (viewData.lightbox || viewData.link) {
+			if (viewData.isClickable) {
 				className += ' clickable';
+			}
 
-				// "data" will either be set to the url or undefined
-				this.$el.data('link-dv', viewData.link);
+			if (viewData.isPlayable) {
+				className += ' playable';
+			}
 
-				viewData.isLightbox = true;
-				viewData.lightboxGroup = 'lbGroup_' + this.cid;
-
-
-			} else {
-				// @todo, is it better to have it here, or to check for "clickable" class and return from the handler?
-				// Disable the "handleBlockClick()"
+			// @todo, is it better to have it here, or to check for "clickable" class and return from the handler?
+			// Disable the "handleBlockClick()"
+			if (!(viewData.isPlayable || viewData.isClickable)) {
 				this.handleBlockClick = function () {};
 			}
 
