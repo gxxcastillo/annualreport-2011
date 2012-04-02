@@ -1,5 +1,5 @@
-define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 'text!templates/blockView.sectionTitle.hogan', 'text!templates/blockView.text.hogan', 'text!templates/blockView.profile.hogan', 'text!templates/blockView.highlight.hogan', 'text!templates/blockView.dataGraph.hogan', 'text!templates/blockView.hover.hogan', 'text!templates/blockView.vTable.hogan', 'text!templates/blockView.hTable.hogan', 'text!templates/blockView.map.hogan']
-, function (Backbone, dv, hogan, dataMetricTpl, sectionTitleTpl, textTpl, profileTpl, highlightTpl, dataGraphTpl, hoverTpl, vTableTpl, hTableTpl, mapTpl) {
+define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 'text!templates/blockView.sectionTitle.hogan', 'text!templates/blockView.text.hogan', 'text!templates/blockView.profile.hogan', 'text!templates/blockView.highlight.hogan', 'text!templates/blockView.dataGraph.hogan', 'text!templates/blockView.hover.hogan', 'text!templates/blockView.vTable.hogan', 'text!templates/blockView.hTable.hogan', 'text!templates/blockView.map.hogan', 'text!templates/blockView.wrapper.hogan']
+, function (Backbone, dv, hogan, dataMetricTpl, sectionTitleTpl, textTpl, profileTpl, highlightTpl, dataGraphTpl, hoverTpl, vTableTpl, hTableTpl, mapTpl, wrapperTpl) {
 
 	function getSectionTitleData(viewData) {
 		return {
@@ -47,11 +47,11 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 			name: viewData.name
 			, cssClass: viewData.cssClass
 			, link: viewData.link
+			, singIt: viewData.singIt
 			, bv0: viewData.imgUrl
 			, bv1: viewData.caption
 			, bv2: viewData.subject
 			, bv3: viewData.description
-
 		}
 
 		, isLightbox
@@ -128,21 +128,6 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 	}
 
 
-	function getHTableData (viewData) {
-		return {
-			name: viewData.name
-			, cssClass: viewData.cssClass
-			, c0: viewData.label
-			, datapoints: viewData.datapoints
-		}
-	}
-
-
-	function getVTableData (viewData) {
-
-	}
-
-
 	function getTextData (viewData) {
 		var newData = {
 			name: viewData.name
@@ -160,7 +145,12 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 	}
 
 
-	return Backbone.View.extend({
+	function getWrapperData (viewInstance, viewData) {
+		return viewData;
+	}
+
+
+	var BlockView = Backbone.View.extend({
 
 		// Default classname for each block, it will get overriden by instantiation
 		className: 'block'
@@ -177,7 +167,7 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 				window.open(viewData.link, '_blank');
 			} else if (viewData.isLightbox) {
 				// @todo make this more robust
-				this.$('.lightboxContent a').colorbox({open: true, iframe: viewData.isIframe, current: '', width: 853, height: 480});
+				this.$('.lightboxContent a').colorbox({open: true, iframe: viewData.isIframe, width: 853, height: 480});
 			}
 		}
 
@@ -208,6 +198,15 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 
 			this.$el.addClass(className);
 			this.$el.html(this.template(viewData));
+
+			if (viewData.blocks) {
+				var blocks = [];
+
+				_.each(viewData.blocks, function (block) {
+					blocks.push((new BlockView(block)).el);
+				});
+				this.$el.find('.subBlocks').append(blocks);
+			}
 		}
 
 		, initialize: function (viewData) {
@@ -237,6 +236,10 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 					this.viewData = getTextData(viewData);
 					this.tpl = textTpl;
 					break;
+				case 'wrapper':
+					this.viewData = getWrapperData(this, viewData);
+					this.tpl = wrapperTpl;
+					break;
 				/*
 				case 'profile':
 					this.viewData = getProfileData(viewData);
@@ -265,4 +268,6 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 			this.render();
 		}
 	});
+
+	return BlockView;
 });
