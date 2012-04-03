@@ -5,8 +5,9 @@
 		<link rel="stylesheet" href="/css/foncyVM.css" />
 		<link rel="stylesheet" href="/css/style.css" />
 		<link rel="stylesheet" href="/css/jquery.isotope.css" />
-		<link rel="stylesheet" href="/css/jquery.masonry.css" />
 		<link rel="stylesheet" href="/css/jquery.colorbox.css" />
+		<link rel="stylesheet" href="/css/flags16.css" />
+		<link rel="stylesheet" href="/css/flags32.css" />
 
 		<title>{{title}}</title>
 

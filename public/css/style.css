@@ -28,6 +28,7 @@ body        { margin: 0 auto; width: 1004px; }
 
 .siteHeader { padding: 0 20px; }
 .siteFooter { background-color: #f7f7f2; height: 20px; text-align: center; }
+.siteFooter a       { display: block; width: 100%; height: 100%; }
 
 .primaryNav { border-top: #fff 2px solid; border-bottom: #fff 2px solid; padding: 10px 0; position: relative; }
 .primaryNav .nav-prev
@@ -99,8 +100,8 @@ body        { margin: 0 auto; width: 1004px; }
 .h4 { height: 300px; }
 .h5 { height: 380px; }
 .h6 { height: 460px; }
-.h7 { height: 520px; }
-.h8 { height: 580px; }
+.h7 { height: 540px; }
+.h8 { height: 620px; }
 
 /* Block */
 .block  { display: inline-block; margin: 10px; overflow: hidden; position: relative; vertical-align: top; }
@@ -115,11 +116,19 @@ body        { margin: 0 auto; width: 1004px; }
 .sectionTitleBlock h2   { background-color: #74b446; color: #fff; font-size: 48px; display: inline-block; height: 100%; padding: 0 10px 0 5px; }
 
 .dataMetricBlock            { border-bottom: #888 1px solid; }
-.dataMetricBlock .dataPoint { color: #4b9123; line-height: 1.1; }
+.dataMetricBlock .dataPoint { color: #4b9123; line-height: 1; padding-bottom: 3px; }
+.dataMetricBlock.g3 .dataPoint { width: 165px; }
+.dataMetricBlock.g6 .dataPoint { width: 417px; }
 .dataMetricBlock .dataPoint div { display: inline; }
-.dataMetricBlock .bv4 { position: absolute; text-align: right; top: 5px; right: 2px; width: 60px; }
-.dataMetricBlock .bv4.trendingUp:before { content: '\25B2'}
-.dataMetricBlock .bv4.trendingDown:before { content: '\25BC'}
+.dataMetricBlock .label     { position: absolute; bottom: 5px; left: 2px; }
+.dataMetricBlock .caption   { position: absolute; text-align: right; top: 5px; right: 2px; width: 67px; }
+.dataMetricBlock .caption.trendingUp:before { content: '\25B2'}
+.dataMetricBlock .caption.trendingDown:before { content: '\25BC'}
+.dataMetricBlock .caption.noTrend:before { content: '_'}
+
+.spBadgeBlock .label { padding-bottom: 5px; }
+.spBadgeBlock .description { padding-bottom: 5px; }
+.spBadgeBlock .spBadge { display: inline-block; margin-bottom: 5px; width: 100px; height: 80px; text-align: center; vertical-align: top;}
 
 .textBlock  { border-bottom: #888 1px solid; }
 .block .textBlock .bv1 { font-size: .8571em; }
@@ -144,6 +153,32 @@ body        { margin: 0 auto; width: 1004px; }
 .vTableBlock li                         { border-left: #000 2px solid; display: inline-block; width: 20%; vertical-align: bottom; }
 .vTableBlock li:first-child             { border-left: none; }
 .vTableBlock.nightBlock li              { border-left-color: #fff; }
+
+/* Social Performance badges */
+
+
+.spSprite { background: url(/img/2011/sp-sprite.png) no-repeat; margin: 0 auto; width: 37px; height: 37px;}
+
+.spSprite.antipoverty 	        { background-position: -43px -40px; }
+.spSprite.antipoverty:hover     { background-position: -363px -40px; }
+
+.spSprite.vulnerableGroup 	    { background-position: -43px -134px; }
+.spSprite.vulnerableGroup:hover	{ background-position: -363px -134px; }
+
+.spSprite.clientVoice           { background-position: -43px -232px; }
+.spSprite.clientVoice:hover     { background-position: -363px -232px; }
+
+.spSprite.empowerment 			{ background-position: -43px -330px; }
+.spSprite.empowerment:hover		{ background-position: -363px -330px; }
+
+.spSprite.entrepreneurial 		{ background-position: -43px -424px; }
+.spSprite.entrepreneurial:hover	{ background-position: -365px -424px; }
+
+.spSprite.facilitateSavings		    { background-position: -43px -512px; }
+.spSprite.facilitateSavings:hover	{ background-position: -363px -512px; }
+
+.spSprite.innovation 			{ background-position: -43px -600px; }
+.spSprite.innovation:hover		{ background-position: -363px -600px; }
 
 /* Custom blocks */
 .worldmapBlock { background: url(/img/frame.jpg) 0 0 no-repeat; background-size: 100%; }
