@@ -45,6 +45,8 @@
 	, imgUrl: ''                // Url to the image that appears in the background
 	, link: ''                  // Destination url when someone clicks on this block
 	, lightbox: ['', '', '']    // One or more url's to images that should appear on click
+	, lightbox: {isVideo: true, urls: []}   // Will automatically configure the lightbox for displaying a video
+	, lightbox: {options: {}, urls: []}     // To pass custom options settings to colorbox
 	, caption: ''
 	, subject: ''
 	, description: ''

@@ -70,41 +70,38 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 			name: viewData.name
 			, cssClass: viewData.cssClass
 			, link: viewData.link
-			, singIt: viewData.singIt
+			, singIt: viewData.singIt   // Displays music notes around description
+			, isVideo: viewData.lightbox && viewData.lightbox.isVideo     // Displays play button alongside the description
 			, bv0: viewData.imgUrl
 			, bv1: viewData.caption
 			, bv2: viewData.subject
 			, bv3: viewData.description
 		}
+		, defaultColorboxOptions = {
+			open: true
+			, width: 853
+			, height: 480
+			, iframe: newData.isVideo
+		}
+		, urls
 
-		, isLightbox
-		, isVideo
-		, isSlideshow;
+		newData.isClickable = viewData.lightbox || viewData.link;
 
-		// Is this block clickable?
-		if (viewData.lightbox || viewData.link) {
-			newData.isClickable = true;
+		if (viewData.lightbox) {
+			newData.colorboxOptions = viewData.lightbox.options
+				? _.extend({}, defaultColorboxOptions, viewData.lightbox.options)
+			    : defaultColorboxOptions;
 
-			if (viewData.lightbox) {
-				isVideo = viewData.lightbox[0].indexOf('youtube') > -1;
-				isSlideshow = viewData.lightbox.length > 1;
-				isLightbox = true;
-			}
+			urls = viewData.lightbox.urls
+				? viewData.lightbox.urls
+				: viewData.lightbox;
 
-			if (isSlideshow) {
-				newData.lightboxGroup = 'lbGroup_' + this.cid;
-			}
-
-			if (isVideo) {
-				newData.isIframe = true;
-				newData.isPlayable = true;
-			}
-
-			newData.isLightbox = isLightbox;
 			newData.lightbox = [];
-			_.each(viewData.lightbox, function (url) {
+			_.each(urls, function (url) {
 				newData.lightbox.push({href: url, title: viewData.label});
 			});
+
+			newData.isLightbox = true;
 		}
 
 		return newData;
@@ -184,13 +181,12 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 		}
 
 		, handleBlockClick: function () {
-			var viewData = this.viewData
+			var viewData = this.viewData;
 
 			if (viewData.link) {
 				window.open(viewData.link, '_blank');
 			} else if (viewData.isLightbox) {
-				// @todo make this more robust
-				this.$('.lightboxContent a').colorbox({open: true, iframe: viewData.isIframe, width: 853, height: 480});
+				this.$('.lightboxContent a').colorbox(viewData.colorboxOptions);
 			}
 		}
 

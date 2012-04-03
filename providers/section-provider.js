@@ -94,21 +94,21 @@ new SectionProvider().save(
 		        }
 		        , {
 		            name: 'dataMetric'
-		            , cssClass: 'g6 h1'
+		            , cssClass: 'g5 h1'
 		            , label: 'Money Borrowed'
 		            , caption: ':up: vs 2010 $71,096,550'
 		            , value: '$89,481,825'
 		        }
 		        , {
 		            name: 'dataMetric'
-		            , cssClass: 'g9 h1'
+		            , cssClass: 'g4 h1'
 		            , label: 'Loans funded'
 		            , caption: ':up: vs 2010 92,216'
 		            , value: '110,256'
 		        }
 		        , {
 		            name: 'highlight'
-		            , cssClass: 'g6 h4'
+		            , cssClass: 'g4 h4'
 		            , label: 'Borrower stories'
 		            , link: 'http://www.kiva.org/lend/320391'
 		            , imgUrl: '/img/2011/agneta.jpg'
@@ -377,15 +377,18 @@ new SectionProvider().save(
 		            }]
 		        }
 		        , {
-		            id: 'blah_01',
-		            name: 'highlight',
-		            cssClass: 'g3 h4',
-		            label: 'Borrower stories',
-		            'lightbox' : ['http://www.youtube.com/embed/_yfhJ0jH5EA?rel=0&amp;wmode=opaque&amp;autoplay=1'],
-		            imgUrl: '/img/2011/araksi-video-profile.jpg',
-		            caption: 'Video Profile',
-		            subject:  'Araksi',
-		            description: 'Talin, Armenia'
+		            id: 'blah_01'
+		            , name: 'highlight'
+		            , cssClass: 'g3 h4'
+		            , label: 'Borrower stories'
+		            , 'lightbox' : {
+			            isVideo: true
+			            , urls: ['http://www.youtube.com/embed/_yfhJ0jH5EA?rel=0&amp;wmode=opaque&amp;autoplay=1']
+		            }
+		            , imgUrl: '/img/2011/araksi-video-profile.jpg'
+		            , caption: 'Video Profile'
+		            , subject:  'Araksi'
+		            , description: 'Talin, Armenia'
 		        }
 		    ]
 	    }
@@ -498,7 +501,10 @@ new SectionProvider().save(
 		            name: 'highlight'
 		            , cssClass: 'g3 h4'
 		            , label: 'Project for awesome'
-		            , lightbox: ['http://www.youtube.com/embed/1jlNXRbsU2E?rel=0&amp;wmode=opaque&amp;autoplay=1']
+		            , lightbox: {
+						isVideo: true
+			            , urls: ['http://www.youtube.com/embed/1jlNXRbsU2E?rel=0&amp;wmode=opaque&amp;autoplay=1']
+			        }
 			        , singIt: true
 		            , imgUrl: '/img/2011/project-for-awsome.jpg'
 		            , caption: 'Paige l finch project for awesome'
@@ -508,9 +514,9 @@ new SectionProvider().save(
 	        ]
 	    }
 	    , partners: {
-	        id: 'partners',
-	        order: 4,
-	        blocks: [
+	        id: 'partners'
+	        , order: 4
+	        , blocks: [
 		        {
 		            name: 'sectionTitle',
 		            cssClass: 'g9 h1',
@@ -560,7 +566,7 @@ new SectionProvider().save(
 		        {
 		            name: 'custom',
 		            label: 'social performance',
-		            cssClass: 'g3 h5',
+		            cssClass: 'g3 h6',
 		            value: '<p>Social performance  Different organizations have different social performance strengths. in 2011 Kiva introduced seven Social Performance Badges to recognize partners with a demonstrated commitment to one or more of these areas.</p>'
 		        },
 		        {
@@ -570,58 +576,59 @@ new SectionProvider().save(
 		            value: '<p>THIS IS partnerships in new countries HTML BLOCK FTW!</p>'
 		        },
 		        {
-		            name: 'highlight',
-		            cssClass: 'g6 h4',
-		            label: 'First non traditional partner',
-		            link: 'http://www.kiva.org/updates/kiva/2011/10/18/please-join-us-in-welcoming-one-acre.html',
-		            imgUrl: 'http://s3-1.kiva.org/img/w100/857318.jpg',
-		            caption: 'Jun 29, 2011',
-		            subject:  'First non traditional partner',
-		            description: ''
-		        },
-		        {
-		            name: 'highlight',
-		            cssClass: 'g6 h4',
-		            label: 'Most loans posted by a partner',
-		            link: 'http://www.kiva.org/partners/128',
-		            imgUrl: 'http://s3-2.kiva.org/img/w100/272879.jpg',
-		            caption: 'Most loans posted by a partner',
-		            subject:  '4,686',
-		            description: 'Gitega, Burundi'
-		        },
-		        {
-		            name: 'map',
-		            label: 'Partners who achieved 6 of 7 badges',
-		            segments: [
+		            name: 'highlight'
+		            , cssClass: 'g3 h4'
+		            , label: 'First non traditional partner'
+		            , link: 'http://www.kiva.org/updates/kiva/2011/10/18/please-join-us-in-welcoming-one-acre.html'
+		            , imgUrl: 'http://s3-1.kiva.org/img/w100/857318.jpg'
+		            , caption: 'Jun 29, 2011'
+		            , subject:  'First non traditional partner'
+		            , description: ''
+		        }
+		        , {
+		            name: 'highlight'
+		            , cssClass: 'g3 h4'
+		            , label: 'Most loans posted by a partner'
+		            , link: 'http://www.kiva.org/partners/128'
+		            , imgUrl: 'http://s3-2.kiva.org/img/w100/272879.jpg'
+		            , caption: 'Most loans posted by a partner'
+		            , subject:  '4,686'
+		            , description: 'Gitega, Burundi'
+		        }
+		        , {
+		            name: 'map'
+			        , cssClass: 'g9 h8'
+		            , label: 'Partners who achieved 6 of 7 badges'
+		            , segments: [
 			            {
 			                position: {
-			                    top: 'x',
-			                    left: 'x'
-			                },
-			                dataset: [
+			                    top: 'x'
+			                    , left: 'x'
+			                }
+			                , dataset: [
 				                {
 				                    'img' : 'xxx'
-				                },
-				                {
-				                    sprite: {},
-				                    label: 'Paraguay'
-				                },
-				                {
-				                    label: 'Kiva loans 2011',
-				                    value: '$2,986,450'
-				                },
-				                {
-				                    label: 'avg loan size',
-				                    value: '$205'
-				                },
-				                {
-				                    sprite: {},
-				                    label: 'Community Empowerment xx',
-				                    description: 'Fundacion Paraguay offers a wide array of specialized products and services to meet social needs in the community. For this, they have earned Kiva\'s Family and Community Empowerment badge.'
+				                }
+				                , {
+				                    sprite: {}
+				                    , label: 'Paraguay'
+				                }
+				                , {
+				                    label: 'Kiva loans 2011'
+				                    , value: '$2,986,450'
+				                }
+				                , {
+				                    label: 'avg loan size'
+				                    , value: '$205'
+				                }
+				                , {
+				                    sprite: {}
+				                    , label: 'Community Empowerment xx'
+				                    , description: 'Fundacion Paraguay offers a wide array of specialized products and services to meet social needs in the community. For this, they have earned Kiva\'s Family and Community Empowerment badge.'
 				                }
 			                ]
-			            },
-			            {
+			            }
+			            , {
 			                position: {
 			                    top: 'x',
 			                    left: 'x'
@@ -730,60 +737,64 @@ new SectionProvider().save(
 		        {
 		            name: 'text',
 		            cssClass: 'g3 h5',
-		            value: [{
-		                'image' : '',
-		                text: 'Burkina Faso'
-		            },
-		            {
-		                'image' : '',
-		                text: 'Georgia'
-		            },
-		            {
-		                'image' : '',
-		                text: 'Turkey'
-		            },
-		            {
-		                'image' : '',
-		                text: 'Yemen'
-		            },
-		            {
-		                'image' : '',
-		                text: 'Zimbabwe'
-		            }],
-		            label: 'Partnerships in new countries (list of countries Kiva began lending in 2011)'
-		        },
-		        {
-		            name: 'dataGraph',
-		            cssClass: 'g3 h1',
-		            label: 'Percent of partners awarded social performance badges',
-		            dataset: [{
-		                label: 'Anti-poverty focus',
-		                value: '57%'
-		            },
-		            {
-		                label: 'Entrepreneurial support',
-		                value: '50%'
-		            },
-		            {
-		                label: 'Facilitation of savings',
-		                value: '44%'
-		            },
-		            {
-		                label: 'Innovation',
-		                value: '43%'
-		            },
-		            {
-		                label: 'Family & community empowerment',
-		                value: '41%'
-		            },
-		            {
-		                label: 'Vulnerable group focus',
-		                value: '28%'
-		            },
-		            {
-		                label: 'Client Voice',
-		                value: '26%'
-		            }]
+		            value: [
+			            {
+			                'image' : '',
+			                text: 'Burkina Faso'
+			            },
+			            {
+			                'image' : '',
+			                text: 'Georgia'
+			            },
+			            {
+			                'image' : '',
+			                text: 'Turkey'
+			            },
+			            {
+			                'image' : '',
+			                text: 'Yemen'
+			            },
+			            {
+			                'image' : '',
+			                text: 'Zimbabwe'
+			            }
+			        ]
+		            , label: 'Partnerships in new countries (list of countries Kiva began lending in 2011)'
+		        }
+		        , {
+		            name: 'dataGraph'
+		            , cssClass: 'g3 h1'
+		            , label: 'Percent of partners awarded social performance badges'
+		            , dataset: [
+			            {
+			                label: 'Anti-poverty focus',
+			                value: '57%'
+			            },
+			            {
+			                label: 'Entrepreneurial support',
+			                value: '50%'
+			            },
+			            {
+			                label: 'Facilitation of savings',
+			                value: '44%'
+			            },
+			            {
+			                label: 'Innovation',
+			                value: '43%'
+			            },
+			            {
+			                label: 'Family & community empowerment',
+			                value: '41%'
+			            },
+			            {
+			                label: 'Vulnerable group focus',
+			                value: '28%'
+			            },
+			            {
+			                label: 'Client Voice',
+			                value: '26%'
+			            }
+		            ]
 		        }
 	        ]
 	    }
@@ -909,7 +920,7 @@ new SectionProvider().save(
 		        }
 		        ,{
 		            name: 'dataMetric'
-		            , cssClass: 'g3 h2'
+		            , cssClass: 'g3 h1'
 		            , label: 'Code Commits by Kiva engineers to version control'
 		            , caption: ':up: vs. 2010 10,651 days'
 		            , value: '13,612'
@@ -1006,9 +1017,8 @@ new SectionProvider().save(
 		        }
 		        , {
 		            name: 'dataMetric'
-		            , cssClass: 'g4 h1'
+		            , cssClass: 'g3 h1'
 		            , label: 'Full time staff working in the field'
-		            , caption: ''
 		            , value: '12'
 		        }
 		        , {
@@ -1040,9 +1050,9 @@ new SectionProvider().save(
 				, {
 		            name: 'dataMetric'
 		            , cssClass: 'g6 h2'
-		            , label: 'hold advanced degrees (MA, MS, JD, or PHD)'
+		            , label: 'staff holding advanced degrees (MA, MS, JD, or PHD)'
 		            , caption: ''
-		            , value: '38% of staff'
+		            , value: '38%'
 		        }
 				, {
 		            name: 'highlight',
@@ -1077,7 +1087,7 @@ new SectionProvider().save(
       }
 , {
           name: 'highlight',
-          cssClass: 'g9 h3',
+          cssClass: 'g3 h3',
           label: 'Nepal',
           link: 'http://fellowsblog.kiva.org/2011/02/06/small-is-beautiful-microcredit-fair-in-nepal/',
           imgUrl: '/img/2011/photo-highlights.jpg',
@@ -1103,14 +1113,14 @@ new SectionProvider().save(
       }
 , {
           name: 'dataMetric'
-          , cssClass: 'g6 h2'
+          , cssClass: 'g3 h2'
           , label: 'By 81 fellows working with 68 different field partners'
           , caption: ''
           , value: '41,080 hrs spent working in the field'
       }
 , {
           name: 'highlight',
-          cssClass: 'g9 h3',
+          cssClass: 'g3 h3',
           label: 'going green',
           link: 'http://fellowsblog.kiva.org/2011/10/20/going-green-overcoming-cultural-barriers-to-promote-green-loans-part-1/',
           imgUrl: '/img/2011/going-green-nairobi.jpg',
@@ -1120,7 +1130,7 @@ new SectionProvider().save(
       }
 , {
           name: 'highlight',
-          cssClass: 'g9 h4',
+          cssClass: 'g3 h4',
           label: 'going green',
           link: 'http://fellowsblog.kiva.org/2011/12/30/60-tips-from-kiva-fellows/',
           imgUrl: '/img/2011/tips-from-a-fellow.jpg',
@@ -1199,9 +1209,12 @@ new SectionProvider().save(
 				}
 				, {
 					name: 'highlight'
-					, cssClass: 'g9 h3'
+					, cssClass: 'g3 h3'
 					, label: 'Why I Kiva'
-					, link: 'http://www.youtube.com/watch?v=LLRXbz0Jq6Y'
+					, link: {
+				        isVideo: true
+				        , urls : ['http://www.youtube.com/watch?v=LLRXbz0Jq6Y']
+			        }
 					, imgUrl: '/img/2011/why-i-kiva.jpg'
 					, caption: 'Sep 15, 2011'
 					, subject:  'Why I Kiva'
@@ -1219,7 +1232,7 @@ new SectionProvider().save(
 				}
 				, {
 					name: 'highlight'
-					, cssClass: 'g9 h3'
+					, cssClass: 'g3 h3'
 					, label: 'Free Trials'
 					, link: 'http://www.kiva.org/updates/kiva/2011/08/03/thank-you-for-helping-kiva-branch-out.html'
 					, imgUrl: '/img/2011/free-trials.jpg'
@@ -1229,7 +1242,7 @@ new SectionProvider().save(
 				}
 				, {
 					name: 'highlight'
-					, cssClass: 'g9 h3'
+					, cssClass: 'g3 h3'
 					, label: 'Kiva City'
 					, link: 'http://www.kiva.org/kivacity'
 					, imgUrl: '/img/2011/kiva-city.jpg'
@@ -1241,15 +1254,18 @@ new SectionProvider().save(
 					name: 'highlight'
 					, cssClass: 'g6 h3'
 					, label: 'Kiva ICBM'
-					, link: 'http://vimeo.com/28413747'
 					, imgUrl: '/img/2011/kiva-icbm.jpg'
+			        , lightbox: {
+				        isVideo: true
+				        , urls: ['http://player.vimeo.com/video/28413747?title=0&byline=0&portrait=0&color=4b9123&autoplay=1']
+			        }
 					, caption: 'Aug 31, 2011'
 					, subject:  'Intercontinental Ballistic Microfinance'
 					, description: ''
 				}
 				, {
 					name: 'highlight'
-					, cssClass: 'g9 h3'
+					, cssClass: 'g3 h3'
 					, label: 'most popular blog post'
 					, link: 'http://www.kiva.org/updates/kiva/2011/12/08/celebrations-of-world-through-eyes-of.html'
 					, imgUrl: '/img/2011/celebrations-though-eyes-of-borrowers.jpg'
