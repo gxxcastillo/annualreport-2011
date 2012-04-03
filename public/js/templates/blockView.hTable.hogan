@@ -1,9 +1,0 @@
-<ul>
-	{{#dataset}}
-		<li>
-			<div class="label">{{label}}</div>
-			<div class="datum">{{datum}}</div>
-		</li>
-	{{/dataset}}
-</ul>
-<div class="label">{{label}}</div>

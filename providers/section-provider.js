@@ -524,7 +524,7 @@ new SectionProvider().save(
 		        },
 		        {
 		            name: 'dataMetric',
-		            cssClass: 'g3 h1',
+		            cssClass: 'g6 h1',
 		            label: 'Countries with an MFI partner',
 		            caption: ':up: vs. 2010 54',
 		            value: '57'
@@ -545,35 +545,59 @@ new SectionProvider().save(
 		        },
 		        {
 		            name: 'dataMetric',
-		            cssClass: 'g3 h1',
-		            label: 'Percent of partners who provided loans to underserved populations',
+		            cssClass: 'g3 h2',
+		            label: 'provided loans to underserved populations through Kiva',
 		            caption: {
 		                text: 'Who are underserved populations?',
 		                'lightbox' : 'Underserved populations can be refugees, ethnic minorities, or other vulnerable and excluded peoples that have limited access to financial services. Kiva incentivizes partners to go the extra mile and provide these populations with access to much needed loans and non-financial services.'
 		            },
-		            value: '31%'
+		            value: '31% of partners'
 		        },
 		        {
 		            name: 'dataMetric',
-		            cssClass: 'g3 h1',
-		            label: 'Percent of partners who provided loans to underserved regions',
+		            cssClass: 'g3 h2',
+		            label: 'provided loans to underserved regions through Kiva',
 		            caption: {
 		                text: 'What are underserved regions?',
 		                'lightbox' : 'Underserved regions are areas that otherwise lack access to adequate financial services. These can be rural, isolated, or simply underdeveloped. Kiva incentivizes partners to go the extra mile and offer financial services to these underserved regions.'
 		            },
-		            value: '54%'
+		            value: '54% of partners'
 		        },
 		        {
-		            name: 'custom',
-		            label: 'social performance',
-		            cssClass: 'g3 h6',
-		            value: '<p>Social performance  Different organizations have different social performance strengths. in 2011 Kiva introduced seven Social Performance Badges to recognize partners with a demonstrated commitment to one or more of these areas.</p>'
-		        },
-		        {
-		            name: 'custom',
-		            label: 'partnerships in new countries',
-		            cssClass: 'g3 h5',
-		            value: '<p>THIS IS partnerships in new countries HTML BLOCK FTW!</p>'
+		            name: 'spBadge'
+		            , label: 'social performance'
+		            , cssClass: 'g4 h6'
+		            , description: 'Different organizations have different social performance strengths. in 2011 Kiva introduced seven Social Performance Badges to recognize partners with a demonstrated commitment to one or more of these areas.'
+			        , spBadges: [
+			            {
+				            id: 'antipoverty'
+				            , name: 'Anit-poverty focus'
+			            }
+				        , {
+	                        id: 'vulnerableGroup'
+	                        , name: 'Vulnerable group focus'
+	                    }
+				        , {
+	                        id: 'empowerment'
+	                        , name: 'Family and community empowerment'
+	                    }
+				        , {
+	                        id: 'facilitateSavings'
+	                        , name: 'Facilitation of savings'
+	                    }
+				        , {
+	                        id: 'innovation'
+	                        , name: 'Innovation'
+	                    }
+				        , {
+	                        id: 'entrepreneurial'
+	                        , name: 'Entrepreneurial Support'
+	                    }
+				        , {
+	                        id: 'clientVoice'
+	                        , name: 'Client voice'
+	                    }
+		            ]
 		        },
 		        {
 		            name: 'highlight'
@@ -689,25 +713,25 @@ new SectionProvider().save(
 		        }
 		        , {
 		            name: 'dataMetric'
-		            , cssClass: 'g3 h1'
+		            , cssClass: 'g3 h2'
 		            , label: 'Number of field partners that Kiva performed due diligence on'
 		            , caption: ':up: vs 2010 25'
 		            , value: '44'
 		        }
 		        , {
 		            name: 'dataMetric'
-		            , cssClass: 'g3 h1'
+		            , cssClass: 'g3 h2'
 		            , label: 'Different languages partners use to post loans'
 		            , caption: ':same: vs 2010 6'
 		            , value: '6'
 		        }
 		        , {
 		            name: 'dataMetric'
-		            , cssClass: 'g3 h1'
+		            , cssClass: 'g3 h2'
 		            , label: 'Number of disolved partnerships'
 		            , caption: {
 		                text : 'Why do partnerships end?'
-		                , lightbox : 'xxxxxxxx'
+		                , lightbox : '<p>xxxxxxxx</p>'
 		            }
 		            , value: '5'
 		        }
@@ -721,45 +745,47 @@ new SectionProvider().save(
 		            name: 'dataGraph',
 		            cssClass: 'g3 h1',
 		            label: 'Reasons for partnership dissolution (breakdown)',
-		            dataset: [{
-		                label: 'Credit problems',
-		                value: '3'
-		            },
-		            {
-		                label: 'MFI Choice',
-		                value: '2'
-		            },
-		            {
-		                label: 'Country instability',
-		                value: '1'
-		            }]
-		        },
-		        {
-		            name: 'text',
-		            cssClass: 'g3 h5',
-		            value: [
+		            dataset: [
 			            {
-			                'image' : '',
-			                text: 'Burkina Faso'
-			            },
+			                label: 'Credit problems',
+			                value: '3'
+			            }
+			            , {
+			                label: 'MFI Choice',
+			                value: '2'
+			            }
+			            , {
+			                label: 'Country instability',
+			                value: '1'
+			            }
+		            ]
+		        }
+		        , {
+		            name: 'text'
+		            , cssClass: 'g3 h5'
+			        , label: 'Partnerships in new countries (list of countries Kiva began lending in 2011)'
+		            , value: [
 			            {
-			                'image' : '',
-			                text: 'Georgia'
-			            },
-			            {
-			                'image' : '',
-			                text: 'Turkey'
-			            },
-			            {
-			                'image' : '',
-			                text: 'Yemen'
-			            },
-			            {
-			                'image' : '',
-			                text: 'Zimbabwe'
+			                'sprite': {name: 'f32', id: 'us'}
+				            , text: 'Burkina Faso'
+			            }
+			            , {
+			                'sprite' : {name: 'f32', id: 'us'}
+			                , text: 'Georgia'
+			            }
+			            , {
+			                'sprite' : {name: 'f32', id: 'us'}
+			                , text: 'Turkey'
+			            }
+			            , {
+			                'sprite' : {name: 'f32', id: 'us'}
+			                , text: 'Yemen'
+			            }
+			            , {
+			                'sprite' : {name: 'f32', id: 'us'}
+			                , text: 'Zimbabwe'
 			            }
 			        ]
-		            , label: 'Partnerships in new countries (list of countries Kiva began lending in 2011)'
 		        }
 		        , {
 		            name: 'dataGraph'
@@ -804,7 +830,7 @@ new SectionProvider().save(
 	        , blocks: [
 		        {
 		            name: 'sectionTitle'
-		            , cssClass: 'g3 h1'
+		            , cssClass: 'g9 h1'
 		            , title: 'Web site'
 		        }
 		        , {
@@ -823,7 +849,7 @@ new SectionProvider().save(
 		        }
 		        ,{
 		            name: 'dataMetric'
-		            , cssClass: 'g3 h2'
+		            , cssClass: 'g3 h3'
 		            , label: 'Most common question asked of customer service'
 		            , caption: {
 		                text: 'Well, can I?',
@@ -896,7 +922,7 @@ new SectionProvider().save(
 		        }
 		        ,{
 		            name: 'dataMetric'
-		            , cssClass: 'g3 h2'
+		            , cssClass: 'g6 h2'
 		            , label: 'Most Critical Bug'
 		            , caption: {
 		                text: 'Why’d it matter?',
@@ -920,7 +946,7 @@ new SectionProvider().save(
 		        }
 		        ,{
 		            name: 'dataMetric'
-		            , cssClass: 'g3 h1'
+		            , cssClass: 'g3 h3'
 		            , label: 'Code Commits by Kiva engineers to version control'
 		            , caption: ':up: vs. 2010 10,651 days'
 		            , value: '13,612'
@@ -933,7 +959,7 @@ new SectionProvider().save(
 	        , blocks: [
 		        {
 		            name: 'sectionTitle'
-		            , cssClass: 'g6 h1'
+		            , cssClass: 'g9 h1'
 		            , title: 'Kiva Ecosystem'
 		        }
 				, {
@@ -1023,7 +1049,7 @@ new SectionProvider().save(
 		        }
 		        , {
 		            name: 'text'
-		            , cssClass: 'g9 h4'
+		            , cssClass: 'g4 h4'
 		            , value: ['Bali, Indonesia', 'Lima, Peru', 'Minsk, Belarus', 'Nairobi, Kenya', 'Kigali, Rwanda', 'Dakar, Senegal', 'Beirut, Lebanon']
 		            , label: 'Locations of field staff'
 		        }
@@ -1049,7 +1075,7 @@ new SectionProvider().save(
 		        }
 				, {
 		            name: 'dataMetric'
-		            , cssClass: 'g6 h2'
+		            , cssClass: 'g6 h1'
 		            , label: 'staff holding advanced degrees (MA, MS, JD, or PHD)'
 		            , caption: ''
 		            , value: '38%'
@@ -1072,7 +1098,7 @@ new SectionProvider().save(
      , blocks: [
       {
           name: 'sectionTitle'
-          , cssClass: 'g8 h1'
+          , cssClass: 'g9 h1'
           , title: 'Stories from the field'
       }
 , {
@@ -1291,7 +1317,7 @@ new SectionProvider().save(
 			, blocks: [
 				{
 				   name: 'sectionTitle'
-				   , cssClass: 'g6 h1'
+				   , cssClass: 'g9 h1'
 				   , title: 'Financial Health'
 				}
 				, {

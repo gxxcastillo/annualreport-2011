@@ -1,5 +1,5 @@
-define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 'text!templates/blockView.sectionTitle.hogan', 'text!templates/blockView.text.hogan', 'text!templates/blockView.profile.hogan', 'text!templates/blockView.highlight.hogan', 'text!templates/blockView.dataGraph.hogan', 'text!templates/blockView.hover.hogan', 'text!templates/blockView.vTable.hogan', 'text!templates/blockView.hTable.hogan', 'text!templates/blockView.map.hogan', 'text!templates/blockView.wrapper.hogan']
-, function (Backbone, dv, hogan, dataMetricTpl, sectionTitleTpl, textTpl, profileTpl, highlightTpl, dataGraphTpl, hoverTpl, vTableTpl, hTableTpl, mapTpl, wrapperTpl) {
+define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 'text!templates/blockView.sectionTitle.hogan', 'text!templates/blockView.text.hogan', 'text!templates/blockView.profile.hogan', 'text!templates/blockView.highlight.hogan', 'text!templates/blockView.dataGraph.hogan', 'text!templates/blockView.hover.hogan', 'text!templates/blockView.map.hogan', 'text!templates/blockView.wrapper.hogan', 'text!templates/blockView.spBadge.hogan']
+, function (Backbone, dv, hogan, dataMetricTpl, sectionTitleTpl, textTpl, profileTpl, highlightTpl, dataGraphTpl, hoverTpl, mapTpl, wrapperTpl, spBadgeTpl) {
 
 	function getSectionTitleData(viewData) {
 		return {
@@ -11,13 +11,13 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 
 
 	function getDataMetricData(viewData) {
-		var trending;
+		var trending
 
 		if (viewData.caption) {
 			// @todo
 			if (viewData.caption.text) {
 				viewData.hasClickableCaption = true;
-				viewData.captionHref = viewData.caption.href;
+				viewData.lightboxContent = viewData.caption.lightbox;
 				viewData.caption = viewData.caption.text;
 			}
 
@@ -25,23 +25,33 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 				trending = 'trendingDown'
 			} else if (viewData.caption.indexOf(':up:') > -1) {
 				trending = 'trendingUp'
+			} else if (viewData.caption.indexOf(':same:') > -1) {
+				trending = 'noTrend'
 			}
+
 
 			// @todo need regex
 			viewData.caption = viewData.caption.replace(':down:', '');
 			viewData.caption = viewData.caption.replace(':up:', '');
+			viewData.caption = viewData.caption.replace(':same:', '');
 		}
 
 		return {
 			name: viewData.name
 			, cssClass: viewData.cssClass
 			, hasClickableCaption: viewData.hasClickableCaption
+			, trending: trending
+			, lightboxContent: viewData.lightboxContent
 			, bv1: viewData.value
 			, bv2: viewData.unit
 			, bv3: viewData.label
-			, bv4: viewData.caption
-			, trending: trending
+			, caption: viewData.caption
 		}
+	}
+
+
+	function getSpBadgeData(viewData) {
+		return viewData;
 	}
 
 
@@ -152,20 +162,31 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 		var newData = {
 			name: viewData.name
 			, cssClass: viewData.cssClass
-			, bv1: viewData.label
+			, label: viewData.label
 		};
 
-		if (_.isArray(viewData.value)) {
-			newData.valuelist = true;
+		if (_.isString(viewData.value)) {
+			newData.isList = false;
+			newData.value = value;
+		} else if (_.isArray(viewData.value)) {
+			newData.isList = true;
+			newData.valuelist = [];
+
+			_.each(viewData.value, function (item) {
+				if (item.sprite) {
+					newData.valuelist.push({sprite: item.sprite, text: item.text});
+				} else if (item.img) {
+					newData.valuelist.push({sprite: item.img, text: item.text});
+				}
+			});
+
+			console.log(newData);
 		}
-
-		newData.bv0 = viewData.value;
-
 		return newData;
 	}
 
 
-	function getWrapperData (viewInstance, viewData) {
+	function getWrapperData (viewData) {
 		return viewData;
 	}
 
@@ -178,7 +199,9 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 
 		, events: {
 			'click': 'handleBlockClick'
+			, 'click a.caption.lightbox': 'handleCaptionClick'
 		}
+
 
 		, handleBlockClick: function () {
 			var viewData = this.viewData;
@@ -188,6 +211,11 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 			} else if (viewData.isLightbox) {
 				this.$('.lightboxContent a').colorbox(viewData.colorboxOptions);
 			}
+		}
+
+
+		, handleCaptionClick: function (e) {
+			$(e.target).colorbox({html: this.viewData.lightboxContent, open: true, maxWidth: 400});
 		}
 
 
@@ -256,8 +284,13 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 					this.tpl = textTpl;
 					break;
 				case 'wrapper':
-					this.viewData = getWrapperData(this, viewData);
+					this.viewData = getWrapperData(viewData);
 					this.tpl = wrapperTpl;
+					break;
+				case 'spBadge':
+					this.viewData = getSpBadgeData(viewData);
+					this.tpl = spBadgeTpl;
+						console.log('in', this.viewData);
 					break;
 				/*
 				case 'profile':

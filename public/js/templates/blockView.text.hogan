@@ -1,14 +1,18 @@
-{{^valuelist}}
-	<div class="bv0">{{bv0}}</div>
-{{/valuelist}}
-{{#valuelist}}
+{{#isList}}
 	<ul class="valuelist">
-		{{#bv0}}
-			<li class="fS7">{{.}}</li>
-		{{/bv0}}
+		{{#valuelist}}
+			<li class="fS7">
+				{{#sprite}}<div class="{{id}} {{name}} sprite"></div>{{/sprite}}
+				{{#img}}<img src="{{img}}" />{{/img}}
+				{{text}}
+			</li>
+		{{/valuelist}}
 	</ul>
-{{/valuelist}}
+{{/isList}}
+{{^isList}}
+	<div class="value">{{value}}</div>
+{{/isList}}
 
-{{#bv1}}
-	<div class="bv1 tTU c1">{{bv1}}</div>
-{{/bv1}}
+{{#label}}
+	<div class="label tTU c1">{{label}}</div>
+{{/label}}
