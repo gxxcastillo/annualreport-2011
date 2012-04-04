@@ -1,18 +1,22 @@
+{{! @todo These should clearly be two different templates }}
 {{#isList}}
 	<ul class="valuelist">
 		{{#valuelist}}
-			<li class="fS7">
+			<li class="fS7 light">
 				{{#sprite}}<div class="{{id}} {{name}} sprite"></div>{{/sprite}}
 				{{#img}}<img src="{{img}}" />{{/img}}
 				{{text}}
 			</li>
 		{{/valuelist}}
 	</ul>
+	{{#label}}
+		<div class="label tTU c1">{{label}}</div>
+	{{/label}}
 {{/isList}}
 {{^isList}}
-	<div class="value">{{value}}</div>
-{{/isList}}
+	{{#label}}
+		<div class="label tTU c1">{{label}}</div>
+	{{/label}}
 
-{{#label}}
-	<div class="label tTU c1">{{label}}</div>
-{{/label}}
+	<div class="value">{{{value}}}</div>
+{{/isList}}
