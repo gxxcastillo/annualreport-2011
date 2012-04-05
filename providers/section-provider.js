@@ -1,52 +1,36 @@
 SectionProvider = function (){};
 SectionProvider.prototype.sectionData = {};
 
-SectionProvider.prototype.findAll = function (callback) {
-  callback( null, this.sectionData )
+
+SectionProvider.prototype.findAll = function () {
+  return this.sectionData;
 };
+
+
+SectionProvider.prototype.findByIds = function (ids) {
+	var result = [];
+
+	// @todo, crappy check for Array
+	if (ids.forEach) {
+		ids.forEach(function(id) {
+			result.push(this.findById(id));
+	    });
+	}
+
+	return result;
+};
+
 
 SectionProvider.prototype.findById = function (id) {
+	var result;
 
-    if (id.ty)
-    var result = this.sectionData[id];
-
-	if (!result) {
-		result = {
-			success: false
-			, message: 'Id not found: "' + id + '"'
-		};
-	} else {
-		// @todo, this is pretty lame but enough for now...
-		result.success = true;
+	if (typeof id == 'string') {
+		result = this.sectionData[id];
 	}
 
 	return result;
 };
 
-
-SectionProvider.prototype.findById = function (ids) {
-    var result;
-
-    if (typeof x == 'object') {
-        id.forEach(function(val){
-            result = this.sectionData[val];
-        });
-    } else {
-        result = this.sectionData[ids];
-    }
-
-	if (!result) {
-		result = {
-			success: false
-		};
-        console.log(ids)
-	} else {
-		// @todo, this is pretty lame but enough for now...
-		result.success = true;
-	}
-
-	return result;
-};
 
 SectionProvider.prototype.getList = function () {
 	var sectionList = []
@@ -59,7 +43,8 @@ SectionProvider.prototype.getList = function () {
     }
 
     return sectionList;
-}
+};
+
 
 SectionProvider.prototype.save = function (sectionItems, callback) {
 	var sectionCounter = 1
@@ -466,7 +451,7 @@ new SectionProvider().save(
 	        }
 			    , {
 			        name: 'wrapper'
-			        , cssClass: 'g9 h2'
+			        , cssClass: 'g9 h3'
 			        , label: 'Most used words within lender profiles'
 			        , blocks: [
 				        {
@@ -1478,14 +1463,12 @@ new SectionProvider().save(
 					name: 'dataMetric'
 					, cssClass: 'g4 h1'
 					, label: 'Total revenue & Support'
-					, caption: ''
 					, value: '$12,100,200'
 				   }
 				, {
 					name: 'dataMetric'
 					, cssClass: 'g4 h1'
 					, label: 'Total expenses'
-					, caption: ''
 					, value: '$8,000,000'
 				}
 				, {
@@ -1520,7 +1503,7 @@ new SectionProvider().save(
 		        }
 				, {
 					name: 'dataGraph'
-					, cssClass: 'g6 h1'
+					, cssClass: 'negative g6 h1'
 					, label: 'Expense breakdown'
 					, dataset: [
 						{
