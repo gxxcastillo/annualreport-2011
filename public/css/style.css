@@ -78,7 +78,12 @@ body        { margin: 0 auto; width: 1004px; }
 .bold   { font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; font-weight: 600; }
 
 /* Buttons */
-.button                 { background-color: #f1efed; border: #74b446 1px solid; color: #4b9123; display: inline-block; line-height: 1.6429em; padding-right: 1em; padding-left: 1em; vertical-align: bottom; width: 200px; text-align: center; }
+.button                 { background-color: #f1efed; border: #74b446 1px solid; color: #4b9123; display: inline-block; line-height: 1.6429em; padding-right: 1em; padding-left: 1em; vertical-align: bottom; width: 200px; text-align: center;
+	background-image: -moz-linear-gradient(top, #ffffff, #e1e1e1);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #ffffff),color-stop(1, #e1e1e1));
+	background-image: linear-gradient(top, #ffffff, #e1e1e1);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#e1e1e1');
+}
 .cssgradients .button   { -moz-border-radius: 2em; -webkit-border-radius: 2em; border-radius: 2em; /* We do not want rounded corners if there is no support for css gradients */ }
 .button:hover   { text-decoration: none;
 	background-image: -moz-linear-gradient(top, #ffffff, #d0e2c6);
