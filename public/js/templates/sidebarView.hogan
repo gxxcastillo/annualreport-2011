@@ -14,13 +14,14 @@
 	</ul>
 </nav>
 
-<div>
-	<div>
-		<a href="http://www.facebook.com/dialog/feed?app_id=348783781832034&link=http://developers.facebook.com/docs/reference/dialogs/&picture=http://fbrell.com/f8.jpg&name=Facebook%20Dialogs&caption=Reference%20Documentation&description=Using%20Dialogs%20to%20interact%20with%20users.&redirect_uri=annualreport-vm.kiva.org" class="button fbShare">Share this</a>
+<div class="sidebarMisc">
+	<a href="http://www.facebook.com/dialog/feed?app_id=348783781832034&link=http://developers.facebook.com/docs/reference/dialogs/&picture=http://fbrell.com/f8.jpg&name=Facebook%20Dialogs&caption=Reference%20Documentation&description=Using%20Dialogs%20to%20interact%20with%20users.&redirect_uri=annualreport-vm.kiva.org" class="button fbShare">Share this</a>
+
+	<div class="aboutKiva">
+		<p>Kiva is a non-profit organization.  We rely on support from people like you to keep the lights on.</p>
+		<p>Consider a donation</p>
 	</div>
-	<p>Kiva is a non-profit organization.  We rely on support from people like you to keep the lights on.</p>
-	<p>Consider a donation</p>
-	<div>
-		<a href="http://www.kiva.org/about/supportus" target="_blank" class="button c2a donate">Donate</a>
-	</div>
+
+	<a href="http://www.kiva.org/about/supportus" target="_blank" class="button c2a donate">Donate</a>
+
 </div>
