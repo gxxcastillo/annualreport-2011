@@ -19,7 +19,7 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
 
 body, html { height: 100%; }
-body { background-color: #f7f7f2; color: #333; font-size: .875em; line-height: 1.1; margin: 0 auto; overflow-y: scroll; }
+body { background-color: #f7f7f2; color: #333; font-size: .875em; line-height: 1; margin: 0 auto; overflow-y: scroll; }
 
 h1, h2, h3, p, ul, ol, pre, dl { margin-bottom: 1em; }
 
@@ -30,6 +30,7 @@ h1          { font-size: 32px; line-height: 1.1em; }
 h2          { font-size: 24px; line-height: 1.1em; }
 
 a       { color: #197099; text-decoration: none; }
+p       { margin-bottom: 1em; }
 ul, ol  { list-style: none; }
 em      { font-style: italic; }
 strong  { font-weight: bold; }
