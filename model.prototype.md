@@ -140,7 +140,26 @@
 }
 ```
 
-## custom
+## spBadge (@todo - abstracted out to be a generic blockView)
+```
+{
+	name: 'spBadge'
+	, cssClass: 'g1 h1'
+	, label: ''
+	, spBadges: [
+		{
+			id: ''      // Unique identifier for the badge and later gets used by css
+			, name: ''  // Name to display for the sp badge
+		}
+		, {
+			id: ''
+			, name: ''
+		}
+	]
+}
+```
+
+## custom (To be used on rare occasions, usually, just create a new blockView)
 ```
 {
 	name: 'custom'
