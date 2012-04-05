@@ -1,1 +1,6 @@
-<amit>Map block</amit>
+{{#imgUrl}}
+	<img class="img" src="{{imgUrl}}" />
+{{/imgUrl}}
+{{#label}}
+	<div class="label tTU c1">{{label}}</div>
+{{/label}}

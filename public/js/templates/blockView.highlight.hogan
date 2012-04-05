@@ -3,6 +3,9 @@
 	{{#bv1}}
 		<div class="bv1 tTU">{{bv1}}</div>
 	{{/bv1}}
+	{{#isVideo}}
+		<div class="play sprite"></div>
+	{{/isVideo}}
 	<div class="bv2 fS7">{{bv2}}</div>
 	<a class="bv3 {{#singIt}}singIt{{/singIt}}">{{bv3}}</a>
 </div>

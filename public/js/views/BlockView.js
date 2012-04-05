@@ -56,10 +56,7 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 
 
 	function getMapData(viewData) {
-		return {
-			name: viewData.name
-			, cssClass: viewData.cssClass
-		}
+		return viewData;
 	}
 
 
@@ -119,12 +116,9 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 
 
 	function getDataGraphData(viewData) {
-		return {
-			name: viewData.name
-			, cssClass: viewData.cssClass
-			, bv0: viewData.context
-		}
+		return viewData;
 	}
+
 
 	function getHoverData (viewData) {
 		return {
@@ -167,7 +161,7 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 
 		if (_.isString(viewData.value)) {
 			newData.isList = false;
-			newData.value = value;
+			newData.value = viewData.value;
 		} else if (_.isArray(viewData.value)) {
 			newData.isList = true;
 			newData.valuelist = [];
@@ -177,6 +171,8 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 					newData.valuelist.push({sprite: item.sprite, text: item.text});
 				} else if (item.img) {
 					newData.valuelist.push({sprite: item.img, text: item.text});
+				} else {
+					newData.valuelist.push({text: item});
 				}
 			});
 
@@ -233,7 +229,7 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 				className += ' clickable';
 			}
 
-			if (viewData.isPlayable) {
+			if (viewData.isVideo) {
 				className += ' playable';
 			}
 

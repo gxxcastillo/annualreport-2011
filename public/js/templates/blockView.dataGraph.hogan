@@ -1,3 +1,6 @@
-{{#bv0}}
-	<div class="bv0">{{bv0}}</div>
-{{/bv0}}
+{{#imgUrl}}
+	<img class="img" src="{{imgUrl}}" />
+{{/imgUrl}}
+{{#label}}
+	<div class="label tTU c1">{{label}}</div>
+{{/label}}
