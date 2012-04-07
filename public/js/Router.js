@@ -8,7 +8,9 @@
  * @todo Find a better home for the app controller (Most of the code in the Router's initialize() method)
  *
  */
-
+var waypointState = {
+	blockWaypointActivation: false
+};
 define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv) {
 
 	/**
@@ -32,7 +34,7 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 		 * @params {String} sectionId
 		 */
 		, showSection: function (sectionId) {
-			this.sections.setActiveById(sectionId, 'route');
+			this.sections.setActiveById('borrowers', 'route');
 		}
 
 
@@ -70,10 +72,9 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 			, sections = this.sections = options.annualReport.get('sections')
 
 			// Store a local reference to the views that need updating
-			, mainView  = this.mainView = options.layoutView.mainView
-			, sidebarView = this.sidebarView = options.layoutView.sidebarView
-
-			, enableWaypoints = true;
+			, layoutView = this.layoutView = options.layoutView
+			, mainView  = this.mainView = layoutView.mainView
+			, sidebarView = this.sidebarView = layoutView.sidebarView;
 
 
 			// Set the default Section
@@ -85,31 +86,38 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 				mainView.appendSection(sectionModel);
 			});
 
-
 			sections.on('change:isRendered', function (sectionModel, value) {
-				var $sectionTitleBlocks = $('#main > section .sectionTitleBlock');
+				var $sectionTitleBlocks;
 
-				// Remove any existing waypoints that are attached to the sectionTitles
-//				$sectionTitleBlocks.waypoint('remove');
+				// Scroll to the section that was just added
+				if (sectionModel.isActive()) {
+					$sectionTitleBlocks = $('#main > section .sectionTitleBlock');
 
-				// Bind new waypoints
-				$sectionTitleBlocks.waypoint(function (event, direction) {
-					return;
+					mainView.scrollTo(sectionModel.id, waypointState);
 
-					var sectionId = event.target.parentNode.id;
+					// Remove any existing waypoints that are attached to the sectionTitles
+					$sectionTitleBlocks.waypoint('remove');
 
-					if (direction === 'down') {
-						sections.setActiveById(sectionId, 'waypoint');
-					} else {
-						// If scrolling up, we want to activate the "previous" element instead
-						sectionId = sections.prev(sections.get(sectionId));
-						if (sectionId) {
-							sections.setActiveById(sectionId, 'waypoint');
+					// Bind the waypoints
+					$sectionTitleBlocks.waypoint(function (event, direction) {
+
+						if (waypointState.blockWaypointActivation) {
+							return;
 						}
-					}
 
-				}, {offset: '50%'});
+						var sectionId = event.target.parentNode.id;
 
+						if (direction === 'down') {
+							sections.setActiveById(sectionId, 'waypoint');
+						} else {
+							// If scrolling up, we want to activate the "previous" element instead
+							sectionId = sections.prev(sections.get(sectionId));
+							if (sectionId) {
+								sections.setActiveById(sectionId, 'waypoint');
+							}
+						}
+					}, {offset: '50%'});
+				}
 			});
 
 
@@ -119,16 +127,19 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 
 				// We only care about the element that is being set active
 				if (value === true) {
+
 					// Change the url
 					router.navigate(sectionModel.id);
+
+					layoutView.update();
 
 					// Update the sidebar
 					sidebarView.update(sectionModel);
 
 					// Scroll to the section (But only the section's already "rendered", otherwise we want to wait for the section to be rendered)
 					// We don't want to scroll if the change was triggered by waypoints (the user is already scrolling)
-					if (sectionModel.get('isRendered') && lastAlteredBy !== 'waypoint') {
-						mainView.scrollTo(sectionModel.id);
+					if (sectionModel.isRendered() && lastAlteredBy !== 'waypoint') {
+						mainView.scrollTo(sectionModel.id, waypointState);
 					}
 				}
 			});

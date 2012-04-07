@@ -14,7 +14,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView']
 		, appendSection: function (sectionModel) {
 
 			// Create the new section view, pass it the model
-			var newSection = new SectionView({model: sectionModel})
+			var newSection = new SectionView({model: sectionModel});
 
 			// Append the new section
 			this.$el.append(newSection.el);
@@ -26,10 +26,6 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView']
 
 			// Update the model's "isRendered" state
 			sectionModel.set('isRendered', true);
-
-			// Scroll to the section that was just added
-			// @todo Add check here when a section is appended by inifite scroll
-			this.scrollTo(sectionModel.id);
 		}
 
 
@@ -58,10 +54,17 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView']
 		 *
 		 * @params {String} sectionId
 		 */
-		, scrollTo: function (sectionId) {
+		, scrollTo: function (sectionId, obj) {
+			obj.blockWaypointActivation = true;
 			// We have to use the top position of the sectionTitle
 			// because section position values are not reliable when using jquery.isotope.
-			$('html body').stop().animate({scrollTop: $('#' + sectionId + ' .sectionTitleBlock').offset().top - 10});
+			$('html body').stop().animate({scrollTop: $('#' + sectionId + ' .sectionTitleBlock').offset().top - 10}, function() {
+				// Add a slight delay before un-blocking the waypoints
+				window.setTimeout(function () {
+					obj.blockWaypointActivation = false;
+				}, 100)
+
+			} );
 		}
 
 
@@ -86,8 +89,8 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView']
 
 					, layoutMode: 'masonry'
 					, masonry: {
-					    columnWidth: 256
-					  }
+					    columnWidth: 84
+					}
 				});
 			}
 
