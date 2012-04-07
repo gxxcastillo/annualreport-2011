@@ -25,6 +25,20 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Block'], function ($, _, Back
 		}
 
 
+		, isLoaded: function () {
+			return this.get('isLoaded');
+		}
+
+		, isRendered: function () {
+			return this.get('isRendered');
+		}
+
+
+		, isActive: function () {
+			return this.get('isActive');
+		}
+
+
 		, initialize: function (sectionData) {
 			var blocksArray = sectionData.blocks
 			, blocks = [];
