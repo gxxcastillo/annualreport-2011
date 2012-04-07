@@ -12,30 +12,51 @@ define(['underscore', 'backbone', 'Section']
 		, url: '/'
 
 		// @todo This can probably be done with a built in Backbone method
-		, getFromServer: function (requestModel, activeSection) {
+		, request: function (sectionId) {
+			return $.get(sectionId, {raw: 1});
+		}
+
+
+		, load: function (requestModel) {
 			var collection = this
+			, activeSection = this.getActive()
 			, requestIndex = this.indexOf(requestModel)
 			, activeIndex
-			, sectionsToRequest;
+			, sectionsToRequest
+			, requestedSections = [];
 
 			if (!activeSection) {
 				sectionsToRequest = [this.at(requestIndex)];
 			} else {
+				// Get all sections between the active section and the requested section
 				activeIndex = this.indexOf(activeSection);
 				sectionsToRequest = activeIndex < requestIndex
 					? this.toArray().slice(activeIndex + 1, requestIndex + 1)
 			        : this.toArray().slice(requestIndex, activeIndex);
 			}
 
-			// @todo, rather than requesting one at a time, I should request all at once.
-			// Otherwise, it gets tricky making sure sections don't get appended to the DOM out of order (b/c http request is async)
-			_.each(sectionsToRequest, function (sectionModel) {
-				$.get(sectionModel.id, {raw: 1}, function (response) {
-					collection
-						.get(response.id)
-						.set('blocks', response.blocks);
+			if (sectionsToRequest.length > 1) {
+				// Build an array of requested sections
+				_.each(sectionsToRequest, function (section, i) {
+					requestedSections[i] = collection.request(section.id)
 				});
-			});
+
+				// Using apply() means each of our response arguments will be in the form "response, responseText, jqXHR"
+				// Using done() allows us to wait for all section requests to return, we can then load them in order.
+				$.when.apply($, requestedSections).done(function () {
+					// Iterate over each response argument and "load" the blocks into their corresponding Model
+					_.each(arguments, function (args) {
+						var response = args[0];
+						collection.get(response.id).set('blocks', response.blocks);
+					});
+				});
+			} else if (sectionsToRequest.length == 1){
+				collection.request(sectionsToRequest[0].id).done(function (response) {
+					collection.get(response.id).set('blocks', response.blocks);
+				});
+			} else {
+				// @todo
+			}
 		}
 
 
@@ -58,7 +79,7 @@ define(['underscore', 'backbone', 'Section']
 			// Has this section already been already loaded?
 			// No blocks == Not loaded
 			if (!sectionModel.has('blocks')) {
-				this.getFromServer(sectionModel, activeSection);
+				this.load(sectionModel);
 			}
 
 			if (activeSection) {
