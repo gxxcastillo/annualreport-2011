@@ -29,6 +29,7 @@
 		</script>
 	</head>
 	<body>
+		<noscript>This site requires javascript to be enabled</noscript>
 		{{>sidebar}}
 		{{>body}}
 		<footer class="siteFooter g9">
