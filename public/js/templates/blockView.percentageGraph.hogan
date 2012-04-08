@@ -1,0 +1,10 @@
+{{#dataset}}
+	<div class="datapoint" style="width: {{value}}">
+		<div class="label">{{label}}</div>
+		<div class="value">{{value}}</div>
+	</div>
+{{/dataset}}
+
+{{#label}}
+	<div class="label tTU c1">{{label}}</div>
+{{/label}}

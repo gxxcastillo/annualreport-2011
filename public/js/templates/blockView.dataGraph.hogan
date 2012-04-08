@@ -1,6 +1,14 @@
 {{#imgUrl}}
 	<img class="img" src="{{imgUrl}}" />
 {{/imgUrl}}
+{{^imgUrl}}
+	{{#dataset}}
+		<div class="datapoint" style="width: {{value}}">
+			<div class="label">{{label}}</div>
+			<div class="value">{{value}}</div>
+		</div>
+	{{/dataset}}
+{{/imgUrl}}
 {{#label}}
 	<div class="label tTU c1">{{label}}</div>
 {{/label}}

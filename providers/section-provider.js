@@ -130,8 +130,9 @@ new SectionProvider().save(
 		        }
 		        , {
 		            name: 'dataGraph'
-		            , cssClass: 'g3 h3'
+		            , cssClass: 'g9 h2'
 		            , label: 'Dollars raised per hour (avg by activity)'
+				    , imgUrl: '/img/2011/borrowers/fundraising-by-activity.jpg'
 		            , dataset: [
 			            {
 			                label: 'retail'
@@ -146,27 +147,6 @@ new SectionProvider().save(
 			                , value: '$1565.96'
 			            }
 		            ]
-		            , caption: 'most'
-		        }
-		        , {
-		            name: 'dataGraph'
-		            , cssClass: 'g3 h3'
-		            , label: ''
-		            , dataset: [
-			            {
-			                label: 'xxx'
-			                , value: '$2045.35'
-			            }
-			            , {
-			                label: 'xxx'
-			                , value: '$1900.19'
-			            }
-			            , {
-			                label: 'xxxx'
-			                , value: '$1565.96'
-			            }
-		            ]
-		            , caption: 'least'
 		        }
 		        , {
 		            name: 'map'
@@ -317,7 +297,7 @@ new SectionProvider().save(
 		            caption: ':up: vs. 2010 1.08%'
 		        }
 			    , {
-		           name: 'dataGraph',
+		           name: 'percentageGraph',
 		           cssClass: 'g6 h1',
 		           label: 'expired loans by activity',
 		           dataset: [
@@ -419,7 +399,7 @@ new SectionProvider().save(
 					name: 'dataGraph'
 					, cssClass: 'g6 h3'
 					, label: 'popular ways to invite friends to kiva'
-					, imgUrl: '/img/2011/lenders/team-lending-activity.jpg'
+					, imgUrl: '/img/2011/lenders/team-lending-activity.png'
 		            , dataset: [
 		                {
 						   label: 'Email'
@@ -478,7 +458,7 @@ new SectionProvider().save(
 			        name: 'dataGraph'
 			        , cssClass: 'g9 h7'
 			        , label: 'Top lending by city (per capita)'
-			        , imgUrl: '/img/2011/lenders/lending-by-city.jpg'
+			        , imgUrl: '/img/2011/lenders/lending-by-city.png'
 		        }
 		        , {
 		            name: 'highlight',
@@ -532,86 +512,79 @@ new SectionProvider().save(
 	        id: 'partners'
 	        , order: 4
 	        , blocks: [
-		        {
-		            name: 'sectionTitle',
-		            cssClass: 'g9 h1',
-		            title: 'Field Partners'
-		        }
-
-		    , {
-          name: 'dataMetric',
-          cssClass: 'g4 h1',
-          label: 'Dollar amount posted by partners',
-          caption: ':up: vs. 2010 $74,236,575',
-          value: '$94,134,925'
-      }
-      , {
-          name: 'dataMetric',
-          cssClass: 'g2 h1',
-          label: 'New field partners',
-          caption: ':down: vs. 2010 27',
-          value: '26'
-      }
-
-
-		        , {
-		            name: 'dataMetric',
-		            cssClass: 'g3 h1',
-		            label: 'Countries with an MFI partner',
-		            caption: ':up: vs. 2010 54',
-		            value: '57'
-		        }
-
-		    , {
-          name: 'dataMetric'
-          , cssClass: 'g6 h1'
-          , label: 'Field Partners that Kiva performed due diligence on'
-          , caption: ':up: vs 2010 25'
-          , value: '44'
-      }
-
-
-
+				{
+				    name: 'sectionTitle',
+				    cssClass: 'g9 h1',
+				    title: 'Field Partners'
+				}
 				, {
-			          name: 'highlight'
-			          , cssClass: 'g3 h3'
-			          , label: 'Most loans posted by a partner'
-			          , link: 'http://www.kiva.org/partners/128'
-			          , imgUrl: 'http://s3-2.kiva.org/img/w100/272879.jpg'
-			          , caption: 'Most loans posted by a partner'
-			          , subject:  '4,686'
-			          , description: 'Hagdan sa Pag-uswag Foundation, Philipines'
-			     }
-		        , {
-		            name: 'dataMetric'
-		            , cssClass: 'g3 h2'
-		            , label: 'provided loans to underserved populations through Kiva'
-		            , caption: {
-		                text: 'What are underserved populations?'
-		                , lightbox : 'Underserved populations can be refugees, ethnic minorities, or other vulnerable and excluded peoples that have limited access to financial services. Kiva incentivizes partners to go the extra mile and provide these populations with access to much needed loans and non-financial services.'
-		            }
-		            , value: '31% of partners'
-		        }
-		        , {
-		            name: 'dataMetric'
-		            , cssClass: 'g3 h2'
-		            , label: 'provided loans to underserved regions through Kiva'
-		            , caption: {
-		                text: 'What are underserved regions?'
-		                , lightbox : 'Underserved regions are areas that otherwise lack access to adequate financial services. These can be rural, isolated, or simply underdeveloped. Kiva incentivizes partners to go the extra mile and offer financial services to these underserved regions.'
-		            }
-		            , value: '54% of partners'
-		        }
+					name: 'dataMetric',
+					cssClass: 'g4 h1',
+					label: 'Dollar amount posted by partners',
+					caption: ':up: vs. 2010 $74,236,575',
+					value: '$94,134,925'
+				}
+				, {
+					name: 'dataMetric',
+					cssClass: 'g2 h1',
+					label: 'New field partners',
+					caption: ':down: vs. 2010 27',
+					value: '26'
+				}
+				, {
+				    name: 'dataMetric',
+				    cssClass: 'g3 h1',
+				    label: 'Countries with an MFI partner',
+				    caption: ':up: vs. 2010 54',
+				    value: '57'
+				}
+				, {
+					name: 'dataMetric'
+					, cssClass: 'g6 h1'
+					, label: 'Field Partners that Kiva performed due diligence on'
+					, caption: ':up: vs 2010 25'
+					, value: '44'
+				}
+				, {
+				      name: 'highlight'
+				      , cssClass: 'g3 h3'
+				      , label: 'Most loans posted by a partner'
+				      , link: 'http://www.kiva.org/partners/128'
+				      , imgUrl: 'http://s3-2.kiva.org/img/w100/272879.jpg'
+				      , caption: 'Most loans posted by a partner'
+				      , subject:  '4,686'
+				      , description: 'Hagdan sa Pag-uswag Foundation, Philipines'
+				 }
+				, {
+				    name: 'dataMetric'
+				    , cssClass: 'g3 h2'
+				    , label: 'provided loans to underserved populations through Kiva'
+				    , caption: {
+				        text: 'What are underserved populations?'
+				        , lightbox : 'Underserved populations can be refugees, ethnic minorities, or other vulnerable and excluded peoples that have limited access to financial services. Kiva incentivizes partners to go the extra mile and provide these populations with access to much needed loans and non-financial services.'
+				    }
+				    , value: '31% of partners'
+				}
+				, {
+				    name: 'dataMetric'
+				    , cssClass: 'g3 h2'
+				    , label: 'provided loans to underserved regions through Kiva'
+				    , caption: {
+				        text: 'What are underserved regions?'
+				        , lightbox : 'Underserved regions are areas that otherwise lack access to adequate financial services. These can be rural, isolated, or simply underdeveloped. Kiva incentivizes partners to go the extra mile and offer financial services to these underserved regions.'
+				    }
+				    , value: '54% of partners'
+				}
 		        , {
 		            name: 'spBadge'
 		            , label: 'social performance'
 		            , cssClass: 'g6 h3'
 		            , description: 'Different organizations have different social performance strengths. in 2011 Kiva introduced seven Social Performance Badges to recognize partners with a demonstrated commitment to one or more of these areas.'
 			        , spBadges: [
-			            {
-				            id: 'antipoverty'
-				            , name: 'Anit-poverty focus'
-			            }
+				        {
+		                    id: 'entrepreneurial'
+							, name: 'Entrepreneurial Support'
+						}
 				        , {
 	                        id: 'vulnerableGroup'
 	                        , name: 'Vulnerable group focus'
@@ -629,32 +602,24 @@ new SectionProvider().save(
 	                        , name: 'Innovation'
 	                    }
 				        , {
-	                        id: 'entrepreneurial'
-	                        , name: 'Entrepreneurial Support'
-	                    }
-				        , {
 	                        id: 'clientVoice'
 	                        , name: 'Client voice'
 	                    }
+					    , {
+							id: 'antipoverty'
+							, name: 'Anti-poverty focus'
+				        }
 		            ]
 		        }
-
-
-
-		    , {
-				          name: 'highlight'
-				          , cssClass: 'g3 h3'
-				          , label: 'First non traditional partner'
-				          , link: 'http://www.kiva.org/updates/kiva/2011/10/18/please-join-us-in-welcoming-one-acre.html'
-				          , imgUrl: 'http://s3-1.kiva.org/img/w100/857318.jpg'
-				          , caption: 'Jun 29, 2011'
-				          , subject:  'First non traditional partner'
-				      }
-
-
-
-
-
+		        , {
+					name: 'highlight'
+					, cssClass: 'g3 h3'
+					, label: 'First non traditional partner'
+					, link: 'http://www.kiva.org/updates/kiva/2011/10/18/please-join-us-in-welcoming-one-acre.html'
+					, imgUrl: 'http://s3-1.kiva.org/img/w100/857318.jpg'
+					, caption: 'Jun 29, 2011'
+					, subject:  'First non traditional partner'
+				}
 		        , {
 		            name: 'map'
 			        , cssClass: 'g9 h7'
@@ -749,15 +714,15 @@ new SectionProvider().save(
 		            ]
 		        }
 			    , {
-			          name: 'highlight',
-			          cssClass: 'g3 h3',
-			          label: 'Borrower stories',
-			          link: '#',
-			          imgUrl: ['/img/2011/green-loans.jpg'],
-			          caption: 'March 1, 2011',
-			          subject:  'Green Loans',
-			          description: 'Mark Omondi Siaya, Kenya'
-			      }
+					name: 'highlight'
+					, cssClass: 'g3 h3'
+					, label: 'Borrower stories'
+					, link: '#'
+					, imgUrl: ['/img/2011/green-loans.jpg']
+					, caption: 'March 1, 2011'
+					, subject:  'Green Loans'
+					, description: 'Mark Omondi Siaya, Kenya'
+				}
 		        , {
 		            name: 'dataMetric'
 		            , cssClass: 'g6 h1'
@@ -765,17 +730,16 @@ new SectionProvider().save(
 		            , caption: ':same: vs 2010 6'
 		            , value: '6'
 		        }
-
-		    , {
-          name: 'dataMetric'
-          , cssClass: 'g3 h1'
-          , label: 'disolved partnerships'
-          , caption: {
-              text : 'Why do partnerships end?'
-              , lightbox : '<p>xxxxxxxx</p>'
-          }
-          , value: '5'
-      }
+			    , {
+					name: 'dataMetric'
+					, cssClass: 'g3 h1'
+					, label: 'disolved partnerships'
+					, caption: {
+						text : 'Why do partnerships end?'
+						, lightbox : '<p>xxxxxxxx</p>'
+					}
+					, value: '5'
+	            }
 		        , {
 		            name: 'text'
 		            , cssClass: 'g4 h4'
@@ -783,21 +747,21 @@ new SectionProvider().save(
 		            , label: 'Languages loans are posted in'
 		        }
 		        , {
-		            name: 'dataGraph',
-		            cssClass: 'g4 h1',
-		            label: 'Reasons for partnership dissolution (breakdown)',
-		            dataset: [
+		            name: 'dataGraph'
+		            , cssClass: 'g4 h1'
+		            , label: 'Reasons for partnership dissolution (breakdown)'
+		            , dataset: [
 			            {
-			                label: 'Credit problems',
-			                value: '3'
+			                label: 'Credit problems'
+			                , value: '3'
 			            }
 			            , {
-			                label: 'MFI Choice',
-			                value: '2'
+			                label: 'MFI Choice'
+			                , value: '2'
 			            }
 			            , {
-			                label: 'Country instability',
-			                value: '1'
+			                label: 'Country instability'
+			                , value: '1'
 			            }
 		            ]
 		        }
@@ -900,14 +864,14 @@ new SectionProvider().save(
 		            , value: 'Can I get a loan for my own business?'
 		        }
 		        , {
-		            name: 'highlight',
-		            cssClass: 'g3 h4',
-		            label: 'Website redesign',
-		            link: 'http://www.kiva.org/updates/kiva/2011/03/08/new-kivaorg-is-here.html',
-		            imgUrl: '/img/2011/website-redesign.jpg',
-		            caption: 'mar 8, 2011',
-		            subject:  'Redesign',
-		            description: 'The result of thousands of hours of consultation with lenders, meetings with designers, drafts with employees, and feedback from the Kiva community.'
+		            name: 'highlight'
+		            , cssClass: 'g3 h4'
+		            , label: 'Website redesign'
+		            , link: 'http://www.kiva.org/updates/kiva/2011/03/08/new-kivaorg-is-here.html'
+		            , imgUrl: '/img/2011/website-redesign.jpg'
+		            , caption: 'mar 8, 2011'
+		            , subject:  'Redesign'
+		            , description: 'The result of thousands of hours of consultation with lenders, meetings with designers, drafts with employees, and feedback from the Kiva community.'
 		        }
 		        , {
 		            name: 'highlight',
@@ -975,9 +939,9 @@ new SectionProvider().save(
 		        ,{
 		            name: 'dataMetric'
 		            , cssClass: 'g3 h2'
-		            , label: 'Day of the month with highest avg loan volume'
+		            , label: 'Day of the month with the highest avg loan volume'
 		            , caption: 'Repayments posting to lenders accounts'
-		            , value: '15th each month'
+		            , value: 'The 15th'
 		        }
 		        ,{
 		            name: 'dataMetric'
@@ -1032,7 +996,7 @@ new SectionProvider().save(
 		            , value: '83'
 		        }
 		        , {
-		            name: 'dataGraph'
+		            name: 'percentageGraph'
 		            , cssClass: 'g6 h1'
 		            , label: 'Functions of full time staff'
 		            , dataset: [
@@ -1325,9 +1289,10 @@ new SectionProvider().save(
 					}
 					, {
 					  name: 'dataMetric'
-					  , cssClass: 'g6 h2'
-					  , label: 'Avergage cost, paid for by out of each fellows own pocket, for a four month Kiva fellowship'
-					  , value: '$5,000'
+					  , cssClass: 'g3 h2'
+					  , label: 'Avg cost for a Kiva fellowship'
+				      , caption: 'The cost is covered by each Kiva Fellow'
+					  , value: '$5,000 for 4 months'
 					}
 					, {
 					  name: 'highlight',
@@ -1502,7 +1467,7 @@ new SectionProvider().save(
 			        ]
 		        }
 				, {
-					name: 'dataGraph'
+					name: 'percentageGraph'
 					, cssClass: 'negative g6 h1'
 					, label: 'Expense breakdown'
 					, dataset: [
@@ -1609,7 +1574,7 @@ new SectionProvider().save(
 			        ]
 		        }
 				, {
-					name: 'dataGraph'
+					name: 'percentageGraph'
 					, cssClass: 'g6 h1'
 					, label: 'Expense by department'
 					, dataset: [

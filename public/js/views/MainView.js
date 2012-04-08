@@ -58,7 +58,6 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SectionView']
 			var model = this.model;
 
 			model.set('blockWaypointActivation', true);
-			console.log(this.model);
 
 			// We have to use the top position of the sectionTitle
 			// because section position values are not reliable when using jquery.isotope.

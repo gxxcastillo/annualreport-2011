@@ -1,6 +1,0 @@
-{{#dataset}}
-	<div class="row {{classname}}">
-		<div class="dv1">{{dv1}}</div>
-		<div class="dv2">{{dv2}}</div>
-	</div>
-{{/dataset}}

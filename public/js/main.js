@@ -33,8 +33,8 @@ require.config({
 	}
 });
 
-require(['underscore', 'backbone', 'dv', 'Router', 'AppModel', 'AppView', 'order!jquery', 'order!jquery.isotope', 'order!jquery.waypoints', 'order!jquery.colorbox', 'SectionsCollection']
-, function (_, Backbone, dv, Router, AppModel, AppView, SectionsCollection) {
+require(['order!jquery', 'underscore', 'backbone', 'dv', 'Router', 'AppModel', 'AppView', 'order!jquery.isotope', 'order!jquery.waypoints', 'order!jquery.colorbox']
+, function ($, _, Backbone, dv, Router, AppModel, AppView) {
 
 	var
 	// Model

@@ -1,5 +1,5 @@
-define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 'text!templates/blockView.sectionTitle.hogan', 'text!templates/blockView.text.hogan', 'text!templates/blockView.profile.hogan', 'text!templates/blockView.highlight.hogan', 'text!templates/blockView.dataGraph.hogan', 'text!templates/blockView.hover.hogan', 'text!templates/blockView.map.hogan', 'text!templates/blockView.wrapper.hogan', 'text!templates/blockView.spBadge.hogan', 'text!templates/blockView.relative.hogan']
-, function (Backbone, dv, hogan, dataMetricTpl, sectionTitleTpl, textTpl, profileTpl, highlightTpl, dataGraphTpl, hoverTpl, mapTpl, wrapperTpl, spBadgeTpl, relativeTpl) {
+define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 'text!templates/blockView.sectionTitle.hogan', 'text!templates/blockView.text.hogan', 'text!templates/blockView.profile.hogan', 'text!templates/blockView.highlight.hogan', 'text!templates/blockView.dataGraph.hogan', 'text!templates/blockView.percentageGraph.hogan', 'text!templates/blockView.map.hogan', 'text!templates/blockView.wrapper.hogan', 'text!templates/blockView.spBadge.hogan']
+, function (Backbone, dv, hogan, dataMetricTpl, sectionTitleTpl, textTpl, profileTpl, highlightTpl, dataGraphTpl, percentageGraphTpl, mapTpl, wrapperTpl, spBadgeTpl) {
 
 	function getSectionTitleData(viewData) {
 		return {
@@ -120,35 +120,8 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 	}
 
 
-	function getHoverData(viewData) {
-		return {
-			name: viewData.name
-			, cssClass: 'g1 h3'
-			, img: 'http://flagurl.jpg'
-			, bv0: 'Nicaragua'
-			, dataset: [
-				{
-					bv1: 'Some label'
-					, bv2: 'Some value'
-				}
-				, {
-					bv1: 'Some label'
-					, bv2: 'Some value'
-				}
-				, {
-					bv1: 'Some label'
-					, bv2: 'Some value'
-					, cssClass: 'someClass'
-				}
-				, {
-					bv1: 'Some stuff'
-					, cssClass: 'someClass'
-				}
-				, {
-					bv2: 'Blah Blah'
-				}
-			]
-		}
+	function getPercentageGraphData(viewData) {
+		return viewData;
 	}
 
 
@@ -274,6 +247,10 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 					this.viewData = getDataGraphData(viewData);
 					this.tpl = dataGraphTpl;
 					break;
+				case 'percentageGraph':
+					this.viewData = getPercentageGraphData(viewData);
+					this.tpl = percentageGraphTpl;
+					break;
 				case 'map':
 					this.viewData = getMapData(viewData);
 					this.tpl = mapTpl;
@@ -289,10 +266,6 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 				case 'spBadge':
 					this.viewData = getSpBadgeData(viewData);
 					this.tpl = spBadgeTpl;
-					break;
-				case 'relative':
-					this.viewData = getRelativeGraphData(viewData);
-					this.tpl = relativeTpl;
 					break;
 				/*
 				case 'profile':

@@ -3,7 +3,7 @@
  * http://documentcloud.github.com/backbone/#Router
  *
  * Does the role of Router as well as Controller.
- * In Backbone, the views are the "controllers".  Here, we are delegating the job of app controller to the router.
+ * In Backbone, the views are the "controllers".
  *
  * @todo Find a better home for the app controller (Most of the code in the Router's initialize() method)
  *
@@ -85,13 +85,14 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 				mainView.appendSection(sectionModel);
 			});
 
+
 			sections.on('change:isRendered', function (sectionModel, value) {
 				var $sectionTitleBlocks;
 
-				// Scroll to the section that was just added
 				if (sectionModel.isActive()) {
 					$sectionTitleBlocks = $('#main > section .sectionTitleBlock');
 
+					// Scroll to the section that was just added
 					mainView.scrollTo(sectionModel.id);
 
 					// Remove any existing waypoints that are attached to the sectionTitles
@@ -148,11 +149,12 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 			// Bind the key events to allow for browsing via the keyboard
 			$(document).keydown(function (e) {
 
-				// Return if not up or down arrow keys
+				// Return if not left or right arrow keys
 				if (_.indexOf([37, 39], e.keyCode) < 0) {
 					return;
 				}
 
+				// Make sure to prevent default AFTER confirming the correct keys were pressed
 				e.preventDefault();
 
 				// Get the next/prev tab
