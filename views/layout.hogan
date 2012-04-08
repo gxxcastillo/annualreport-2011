@@ -11,8 +11,8 @@
 
 		<title>{{title}}</title>
 
-		<script src="/js/lib/modernizr.full.js"></script>
-		<script src="/js/lib/require.js" data-main="/js/main.js"></script>
+		<script src="/js/lib/modernizr.custom.min.js"></script>
+		<script src="/js/lib/require.min.js" data-main="/js/main.js"></script>
 		<script>
 			var dv = {
 				sectionList: [
