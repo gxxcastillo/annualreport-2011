@@ -1,3 +1,8 @@
+/**
+ * Backbone Model
+ * http://documentcloud.github.com/backbone/#Model
+ */
+
 define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv) {
 
 	return Backbone.Model.extend({

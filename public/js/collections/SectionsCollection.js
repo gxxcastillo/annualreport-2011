@@ -3,11 +3,11 @@
  * http://documentcloud.github.com/backbone/#Collection
  *
  */
-define(['underscore', 'backbone', 'Section']
-, function (_, Backbone, Section, undefined) {
+define(['jquery', 'underscore', 'backbone', 'SectionModel']
+, function ($, _, Backbone, SectionModel, undefined) {
 	return Backbone.Collection.extend({
 
-		model: Section
+		model: SectionModel
 
 		, url: '/'
 

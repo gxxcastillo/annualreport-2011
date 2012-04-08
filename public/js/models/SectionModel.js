@@ -6,7 +6,7 @@
  * It holds the data to be used in the view and it keeps track of its state
  */
 
-define(['jquery', 'underscore', 'backbone', 'dv', 'Block'], function ($, _, Backbone, dv, Block) {
+define(['jquery', 'underscore', 'backbone', 'dv', 'BlockModel'], function ($, _, Backbone, dv, BlockModel) {
 
 	return Backbone.Model.extend({
 

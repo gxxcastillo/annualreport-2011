@@ -17,16 +17,15 @@ require.config({
 		// The Annual Report App
 
 		// Models
-		, 'AnnualReport': 'models/AnnualReport'
-		, 'Section': 'models/Section'
-		, 'Block': 'models/Block'
-		, 'NavItem': 'models/NavItem'
+		, 'AppModel': 'models/AppModel'
+		, 'SectionModel': 'models/SectionModel'
+		, 'BlockModel': 'models/BlockModel'
 
 		// Collections
-		, 'Sections': 'collections/Sections'
+		, 'SectionsCollection': 'collections/SectionsCollection'
 
 		// Views
-		, 'LayoutView': 'views/LayoutView'
+		, 'AppView': 'views/AppView'
 		, 'SidebarView': 'views/SidebarView'
 		, 'MainView': 'views/MainView'
 		, 'SectionView': 'views/SectionView'
@@ -34,18 +33,18 @@ require.config({
 	}
 });
 
-require(['underscore', 'backbone', 'dv', 'Router', 'AnnualReport', 'LayoutView', 'order!jquery', 'order!jquery.isotope', 'order!jquery.waypoints', 'order!jquery.colorbox']
-, function (_, Backbone, dv, Router, AnnualReport, LayoutView) {
+require(['underscore', 'backbone', 'dv', 'Router', 'AppModel', 'AppView', 'order!jquery', 'order!jquery.isotope', 'order!jquery.waypoints', 'order!jquery.colorbox', 'SectionsCollection']
+, function (_, Backbone, dv, Router, AppModel, AppView, SectionsCollection) {
 
 	var
 	// Model
-	annualReport = new AnnualReport
+	appModel = new AppModel
 
 	// View
-	, layoutView = new LayoutView({model: annualReport})
+	, appView = new AppView({model: appModel})
 
 	// Controller
-	, router = new Router({annualReport: annualReport, layoutView: layoutView});
+	, router = new Router({appModel: appModel, appView: appView});
 
 	/*
 	// For testing only

@@ -1,4 +1,4 @@
-define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavItem, Section, Sections) {
+define(['backbone', 'SectionModel', 'SectionsCollection'], function (Backbone, SectionModel, SectionsCollection) {
 
 	var annualReportData = {
 		title: 'Kiva Annual Report 2011'
@@ -27,12 +27,16 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 	// Return the AnnualReport model
 	return Backbone.Model.extend({
 
-		initialize: function () {
+		defaults: {
+			blockWaypointActivation: false
+		}
+
+		, initialize: function () {
 			var sections = [];
 
 			// Create the section Models and append to array
 			_.each(dv.sectionList, function (sectionData, index) {
-				sections[index] = new Section(sectionData);
+				sections[index] = new SectionModel(sectionData);
 			});
 
 			// Add attributes to the AnnualReport Model
@@ -46,7 +50,7 @@ define(['backbone', 'NavItem', 'Section', 'Sections'], function (Backbone, NavIt
 				, defaultSection: annualReportData.defaultSection
 
 				// Create the collection from the section models
-				, sections: new Sections(sections, {
+				, sections: new SectionsCollection(sections, {
 						// Make sure the sections are in order
 						comparator: function (section) {
 							return section.get('order');

@@ -1,5 +1,5 @@
-define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView']
-, function ($, _ ,Backbone, dv, Sections, SectionView, undefined) {
+define(['jquery', 'underscore', 'backbone', 'dv', 'SectionView']
+, function ($, _ ,Backbone, dv, SectionView, undefined) {
 
 
 	return Backbone.View.extend({
@@ -55,13 +55,17 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'Sections', 'SectionView']
 		 * @params {String} sectionId
 		 */
 		, scrollTo: function (sectionId, obj) {
-			obj.blockWaypointActivation = true;
+			var model = this.model;
+
+			model.set('blockWaypointActivation', true);
+			console.log(this.model);
+
 			// We have to use the top position of the sectionTitle
 			// because section position values are not reliable when using jquery.isotope.
 			$('html body').stop().animate({scrollTop: $('#' + sectionId + ' .sectionTitleBlock').offset().top - 10}, function() {
 				// Add a slight delay before un-blocking the waypoints
 				window.setTimeout(function () {
-					obj.blockWaypointActivation = false;
+					model.set('blockWaypointActivation', false);
 				}, 100)
 
 			} );

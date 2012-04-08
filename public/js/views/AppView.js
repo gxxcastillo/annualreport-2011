@@ -6,14 +6,34 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarView', 'MainView']
 		offset: '80%'
 	};
 
-	// @todo Initialize Facebook
-	//FB.init({appId: "YOUR_APP_ID", status: true, cookie: true});
-
 	return Backbone.View.extend({
 		el: 'body'
 
+		, events:  {
+			'click footer .nav-next': 'nextClickHandler'
+		}
+
+		, nextClickHandler: function () {
+			event.preventDefault();
+			this.model.get('sections').setActiveById(event.target.getAttribute('href'), 'click');
+		}
+
+		, update: function () {
+			var nextSection = this.model.get('sections').next();
+			if (nextSection) {
+				this.$nextLink.attr('href', nextSection.id);
+			} else {
+				this.$nextLink.hide();
+			}
+		}
+
 		, initialize: function (options) {
 			var annualReport = this.model;
+
+			this.$nextLink = this.$('footer .nav-next');
+
+			// Update default colorbox settings
+			$.colorbox.settings.opacity = '.8';
 
 			// Set styling specific to dynamicRendering (i.e. using jquery.isotope for rendering)
 			if (!annualReport.get('renderAll')) {
@@ -26,11 +46,10 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarView', 'MainView']
 			// Instantiate our MainView and save a reference to it
 			this.mainView = new MainView({model: annualReport});
 
+			/** Disable infinite scroll.
+
 			// Infinite Scroll
 			$footer.waypoint(function () {
-				// @todo disable for now
-				return;
-
 				// Remove the binding
 				$footer.waypoint('remove');
 
@@ -39,6 +58,8 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarView', 'MainView']
 				// Now add it back
 				$footer.waypoint(waypointsOpts);
 			}, waypointsOpts);
+
+			**/
 		}
 	});
 });

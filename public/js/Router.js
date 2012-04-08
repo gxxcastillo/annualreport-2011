@@ -8,9 +8,6 @@
  * @todo Find a better home for the app controller (Most of the code in the Router's initialize() method)
  *
  */
-var waypointState = {
-	blockWaypointActivation: false
-};
 define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv) {
 
 	/**
@@ -68,17 +65,19 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 
 			var router = this
 
+			, appModel = options.appModel
+
 			// Store a local reference to the sections collection
-			, sections = this.sections = options.annualReport.get('sections')
+			, sections = this.sections = appModel.get('sections')
 
 			// Store a local reference to the views that need updating
-			, layoutView = this.layoutView = options.layoutView
-			, mainView  = this.mainView = layoutView.mainView
-			, sidebarView = this.sidebarView = layoutView.sidebarView;
+			, appView = this.appView = options.appView
+			, mainView  = this.mainView = appView.mainView
+			, sidebarView = this.sidebarView = appView.sidebarView;
 
 
 			// Set the default Section
-			this.defaultSection = options.annualReport.get('defaultSection');
+			this.defaultSection = appModel.get('defaultSection');
 
 
 			// Bind to the sections "isLoaded" event, once loaded we can tell the view to append it.
@@ -93,7 +92,7 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 				if (sectionModel.isActive()) {
 					$sectionTitleBlocks = $('#main > section .sectionTitleBlock');
 
-					mainView.scrollTo(sectionModel.id, waypointState);
+					mainView.scrollTo(sectionModel.id);
 
 					// Remove any existing waypoints that are attached to the sectionTitles
 					$sectionTitleBlocks.waypoint('remove');
@@ -101,7 +100,7 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 					// Bind the waypoints
 					$sectionTitleBlocks.waypoint(function (event, direction) {
 
-						if (waypointState.blockWaypointActivation) {
+						if (appModel.get('blockWaypointActivation')) {
 							return;
 						}
 
@@ -131,15 +130,16 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 					// Change the url
 					router.navigate(sectionModel.id);
 
-					layoutView.update();
+					// Update the view
+					appView.update();
 
 					// Update the sidebar
 					sidebarView.update(sectionModel);
 
-					// Scroll to the section (But only the section's already "rendered", otherwise we want to wait for the section to be rendered)
+					// Scroll to the section (But only the section's already "rendered")
 					// We don't want to scroll if the change was triggered by waypoints (the user is already scrolling)
 					if (sectionModel.isRendered() && lastAlteredBy !== 'waypoint') {
-						mainView.scrollTo(sectionModel.id, waypointState);
+						mainView.scrollTo(sectionModel.id);
 					}
 				}
 			});
@@ -149,16 +149,16 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 			$(document).keydown(function (e) {
 
 				// Return if not up or down arrow keys
-				if (_.indexOf([38, 40], e.keyCode) < 0) {
+				if (_.indexOf([37, 39], e.keyCode) < 0) {
 					return;
 				}
 
 				e.preventDefault();
 
 				// Get the next/prev tab
-				if (e.keyCode == 38) {
+				if (e.keyCode == 37) {
 					sections.setPrevActive('keydown');
-				} else if (e.keyCode == 40) {
+				} else if (e.keyCode == 39) {
 					sections.setNextActive('keydown');
 				}
 
