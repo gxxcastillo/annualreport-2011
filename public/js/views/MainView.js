@@ -54,7 +54,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SectionView']
 		 *
 		 * @params {String} sectionId
 		 */
-		, scrollTo: function (sectionId, obj) {
+		, scrollTo: function (sectionId) {
 			var model = this.model
 			, $sectionTitleBlock = $('#' + sectionId + ' .sectionTitleBlock')
 			, scrollTop = $sectionTitleBlock.offset().top - 10;
