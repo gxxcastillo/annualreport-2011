@@ -55,18 +55,26 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SectionView']
 		 * @params {String} sectionId
 		 */
 		, scrollTo: function (sectionId, obj) {
-			var model = this.model;
+			var model = this.model
+			, $sectionTitleBlock = $('#' + sectionId + ' .sectionTitleBlock')
+			, scrollTop = $sectionTitleBlock.offset().top - 10;
 
 			model.set('blockWaypointActivation', true);
 
 			// We have to use the top position of the sectionTitle
-			// because section position values are not reliable when using jquery.isotope.
-			$('html body').stop().animate({scrollTop: $('#' + sectionId + ' .sectionTitleBlock').offset().top - 10}, function() {
-				// Add a slight delay before un-blocking the waypoints
-				window.setTimeout(function () {
-					model.set('blockWaypointActivation', false);
-				}, 100)
+			// because section position values are not reliable when using jquery.isotope (sections have no height).
+			$('html body').stop().animate({scrollTop: scrollTop}, function() {
 
+				// Add a slight delay, then re-adjust the scrollTop and un-blocking the waypoints
+				// We re-scroll in cases where the initial scroll position has changed since the initial render (due to animations)
+				// Immediately unblocking the waypoints seems to be too early and results in collisions with other navigation events
+				window.setTimeout(function () {
+					if (scrollTop != $sectionTitleBlock.offset().top - 10) {
+						$('html body').stop().animate({scrollTop: $sectionTitleBlock.offset().top - 10});
+					}
+
+					model.set('blockWaypointActivation', false);
+				}, 100);
 			} );
 		}
 
