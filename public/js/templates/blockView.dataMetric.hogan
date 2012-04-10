@@ -5,7 +5,7 @@
 <div class="label c1 tTU">{{bv3}}</div>
 
 {{#hasClickableCaption}}
-	<a href="#" class="caption lightbox c1 fS1 {{trending}}">{{caption}}</a>
+	<a href="#" class="caption lightbox fS1 {{trending}}">{{caption}}</a>
 {{/hasClickableCaption}}
 {{^hasClickableCaption}}
 	<div class="caption c1 fS1 {{trending}}">{{caption}}</div>
