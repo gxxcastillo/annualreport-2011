@@ -879,7 +879,7 @@ new SectionProvider().save(
           imgUrl: '/img/2011/kiva-zip.jpg',
           caption: 'Nov 1, 2011',
           subject:  'Kiva Zip',
-          description: 'A pilot to explore new approaches to P-to-P lending including electronic & mobile payments.'
+          description: 'A pilot, exploring new approaches in P-to-P lending, including electronic & mobile payments.'
       }
 
 
@@ -907,8 +907,24 @@ new SectionProvider().save(
 			}
 
 
+
 		    , {
-          name: 'dataGraph'
+					        name: 'dataGraph'
+					        , cssClass: 'g6 h4'
+					        , label: 'Web v Mobile v API (avg visits)'
+					        , imgUrl: '/img/2011/website/web-mobile-api-traffic.jpg'
+				        }
+
+		    ,{
+          name: 'dataMetric'
+          , cssClass: 'g3 h2'
+          , label: 'Day with the highest avg loan volume'
+       , value: '15th of each month'
+          , caption: 'Repayments posting to lenders accounts'
+      }
+
+		    , {
+          name: 'percentageGraph'
           , cssClass: 'g6 h1'
           , label: 'Mobile device traffic'
           , dataset: [
@@ -934,23 +950,6 @@ new SectionProvider().save(
            }
           ]
       }
-
-		    , {
-					        name: 'dataGraph'
-					        , cssClass: 'g6 h4'
-					        , label: 'Web v Mobile v API (avg visits)'
-					        , imgUrl: '/img/2011/website/web-mobile-api-traffic.jpg'
-				        }
-
-		    ,{
-          name: 'dataMetric'
-          , cssClass: 'g3 h2'
-          , label: 'Day with the highest avg loan volume'
-       , value: '15th of each month'
-          , caption: 'Repayments posting to lenders accounts'
-      }
-
-
 
 			    , {
 			        name: 'dataGraph'
@@ -979,7 +978,13 @@ new SectionProvider().save(
           , value: '3.93 days'
       }
 
-
+		    ,{
+          name: 'dataMetric'
+          , cssClass: 'g6 h1'
+          , label: 'Code Commits by Kiva engineers to version control'
+          , caption: ':up: vs. 2010 10,651 days'
+          , value: '13,612'
+      }
 		    ,{
           name: 'dataMetric'
           , cssClass: 'g4 h2'
@@ -989,14 +994,6 @@ new SectionProvider().save(
               text: 'Why’d it matter?',
               'lightbox' : 'During a brief period on August 23rd and 24th, Kiva experienced a system-wide issue that caused some information relating to your loan(s) to be inaccurately displayed. More specifically, statistics relating to your loan\'s Field Partner did not properly appear on the site, including default, delinquency and currency loss rates. we want to make sure that you are fully aware of the issue, as it is very important to us that our lenders be able to make informed lending decisions. Due to the system-wide error, you did not have access to all of the information we normally provide our lenders. We truly regret any inconvenience this may have caused you. '
           }
-      }
-
-		    ,{
-          name: 'dataMetric'
-          , cssClass: 'g3 h2'
-          , label: 'Code Commits by Kiva engineers to version control'
-          , caption: ':up: vs. 2010 10,651 days'
-          , value: '13,612'
       }
 
 
@@ -1270,7 +1267,7 @@ new SectionProvider().save(
 						name: 'text'
 						, label: 'Kiva Fellows'
 						, cssClass: 'g3 h3'
-						, value: 'Kiva\'s Fellows programs places individuals in different countries around the globe. Fellows become the eyes and ears on the ground working directly with Kiva’s field partners. The program is an unpaid, volunteer position designed to increase Kiva\'s impact and to offer participants a unique insider experience. <a href="#">Learn more</a>'
+						, value: '<p>Kiva\'s Fellows program places individuals in different countries around the globe.</p><p>Fellows become the eyes and ears on the ground working directly with Kiva’s field partners. The program is an unpaid, volunteer position designed to increase Kiva\'s impact and to offer participants a unique insider experience. <a href="#">Learn more</a></p>'
 					}
 					, {
 					  name: 'dataMetric'
