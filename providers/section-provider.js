@@ -152,7 +152,7 @@ new SectionProvider().save(
 		            name: 'map'
 		            , cssClass: 'g9 h8'
 		            , label: 'Number of borrowers by countries (Top 5)'
-				    , imgUrl: '/img/2011/borrowers/most-borrowing-by-country.jpg'
+				    , imgUrl: '/img/2011/borrowers/most-borrowing-by-country.png'
 		            , segments: [
 			            {
 			                position: {
@@ -266,11 +266,11 @@ new SectionProvider().save(
 		           name: 'highlight',
 		           cssClass: 'g3 h4',
 		           label: 'Borrower stories',
-		           link: '#',
-		           imgUrl: ['/img/2011/green-loans.jpg'],
-		           caption: 'March 1, 2011',
-		           subject:  'TODO borrower',
-		           description: 'Mark Omondi Siaya, Kenya'
+		           link: 'http://www.kiva.org/lend/386067',
+		           imgUrl: ['/img/2011/water-to-live.jpg'],
+		           caption: 'Asociación Intercomunitaria Agua Para Vivir Group',
+		           subject:  'Water to live',
+		           description: 'Masaya, Nicaragua'
 		       }
 		        , {
 		            name: 'highlight',
@@ -462,7 +462,7 @@ new SectionProvider().save(
 		        }
 		        , {
 		            name: 'highlight',
-		            cssClass: 'g3 h4',
+		            cssClass: 'g4 h3',
 		            label: 'Invites',
 		            link: 'http://www.kiva.org/lender/johngreen',
 		            imgUrl: '/img/2011/john-green-most-succesful-invites.jpg',
@@ -476,6 +476,22 @@ new SectionProvider().save(
 				    , label: 'Most Dollars lent per GDP'
 				    , value: 'OUNTRYNAME-'
 				}
+
+		    , {
+          name: 'highlight'
+          , cssClass: 'g4 h3'
+          , label: 'Project for awesome'
+          , lightbox: {
+		isVideo: true
+           , urls: ['http://www.youtube.com/embed/1jlNXRbsU2E?rel=0&amp;wmode=opaque&amp;autoplay=1']
+       }
+       , singIt: true
+          , imgUrl: '/img/2011/project-for-awsome.jpg'
+          , caption: 'Paige l finch project for awesome'
+          , subject:  ''
+          , description: 'Your just a girl living in the USA how can you finance someone down in Paraguay?'
+      }
+
 		        , {
 		            name: 'highlight',
 		            cssClass: 'g2 h3',
@@ -486,20 +502,9 @@ new SectionProvider().save(
 		            subject:  '$98,150',
 		            description: 'Leeds United Fans'
 		        }
-		        , {
-		            name: 'highlight'
-		            , cssClass: 'g4 h3'
-		            , label: 'Project for awesome'
-		            , lightbox: {
-						isVideo: true
-			            , urls: ['http://www.youtube.com/embed/1jlNXRbsU2E?rel=0&amp;wmode=opaque&amp;autoplay=1']
-			        }
-			        , singIt: true
-		            , imgUrl: '/img/2011/project-for-awsome.jpg'
-		            , caption: 'Paige l finch project for awesome'
-		            , subject:  ''
-		            , description: 'Your just a girl living in the USA how can you finance someone down in Paraguay?'
-		        }
+
+
+
 			    , {
 			        name: 'text'
 			        , cssClass: 'g5 h2'
@@ -550,7 +555,7 @@ new SectionProvider().save(
 				      , cssClass: 'g3 h3'
 				      , label: 'Most loans posted by a partner'
 				      , link: 'http://www.kiva.org/partners/128'
-				      , imgUrl: 'http://s3-2.kiva.org/img/w100/272879.jpg'
+				      , imgUrl: '/img/2011/hagdan-sa-pag-uswag-foundation.jpg'
 				      , caption: 'Most loans posted by a partner'
 				      , subject:  '4,686'
 				      , description: 'Hagdan sa Pag-uswag Foundation, Philipines'
@@ -616,7 +621,7 @@ new SectionProvider().save(
 					, cssClass: 'g3 h3'
 					, label: 'First non traditional partner'
 					, link: 'http://www.kiva.org/updates/kiva/2011/10/18/please-join-us-in-welcoming-one-acre.html'
-					, imgUrl: 'http://s3-1.kiva.org/img/w100/857318.jpg'
+					, imgUrl: '/img/2011/one-acre-fund-first-non-traditional-partner.jpg'
 					, caption: 'Jun 29, 2011'
 					, subject:  'First non traditional partner'
 				}
@@ -624,7 +629,7 @@ new SectionProvider().save(
 		            name: 'map'
 			        , cssClass: 'g9 h7'
 		            , label: 'Partners who achieved 6 of 7 badges'
-			        , imgUrl: '/img/2011/partners/top-partners-SP.jpg'
+			        , imgUrl: '/img/2011/partners/top-partners-SP.png'
 		            , segments: [
 			            {
 			                position: {
@@ -713,16 +718,6 @@ new SectionProvider().save(
 			            }
 		            ]
 		        }
-			    , {
-					name: 'highlight'
-					, cssClass: 'g3 h3'
-					, label: 'Borrower stories'
-					, link: '#'
-					, imgUrl: ['/img/2011/green-loans.jpg']
-					, caption: 'March 1, 2011'
-					, subject:  'Green Loans'
-					, description: 'Mark Omondi Siaya, Kenya'
-				}
 		        , {
 		            name: 'dataMetric'
 		            , cssClass: 'g6 h1'
@@ -747,27 +742,8 @@ new SectionProvider().save(
 		            , label: 'Languages loans are posted in'
 		        }
 		        , {
-		            name: 'dataGraph'
-		            , cssClass: 'g4 h1'
-		            , label: 'Reasons for partnership dissolution (breakdown)'
-		            , dataset: [
-			            {
-			                label: 'Credit problems'
-			                , value: '3'
-			            }
-			            , {
-			                label: 'MFI Choice'
-			                , value: '2'
-			            }
-			            , {
-			                label: 'Country instability'
-			                , value: '1'
-			            }
-		            ]
-		        }
-		        , {
 		            name: 'text'
-		            , cssClass: 'g4 h3'
+		            , cssClass: 'g5 h3'
 			        , label: 'Partnerships in new countries (list of countries Kiva began lending in 2011)'
 		            , value: [
 			            {
@@ -792,11 +768,30 @@ new SectionProvider().save(
 			            }
 			        ]
 		        }
+		    , {
+          name: 'percentageGraph'
+          , cssClass: 'g5 h1'
+          , label: 'Reasons for partnership dissolution (breakdown)'
+          , dataset: [
+           {
+               label: 'Credit problems'
+               , value: '3'
+           }
+           , {
+               label: 'MFI Choice'
+               , value: '2'
+           }
+           , {
+               label: 'Country instability'
+               , value: '1'
+           }
+          ]
+      }
 		        , {
 		            name: 'dataGraph'
-		            , cssClass: 'g6 h3'
+		            , cssClass: 'g9 h4'
 		            , label: 'Percent of partners awarded social performance badges'
-			        , imgUrl: '/img/2011/partners/partners-awarded-badges.jpg'
+			        , imgUrl: '/img/2011/partners/partners-awarded-badges.png'
 		            , dataset: [
 			            {
 			                label: 'Anti-poverty focus',
@@ -853,110 +848,158 @@ new SectionProvider().save(
 		            , caption: ':up: vs. 2010 2:35:00'
 		            , value: '3:42:00'
 		        }
-		        ,{
-		            name: 'dataMetric'
-		            , cssClass: 'g3 h3'
-		            , label: 'Most common question asked of customer service'
-		            , caption: {
-		                text: 'Well, can I?',
-		                'lightbox' : 'Kiva does not process loan applications, but if you would like to apply for a loan, you can contact the Kiva Field Partner (microfinance institution) in your local area. A list of Kiva\'s Field Partners can be found on the Field Partners page.'
-		            }
-		            , value: 'Can I get a loan for my own business?'
+			    ,{
+			          name: 'dataMetric'
+			          , cssClass: 'g3 h1'
+			          , label: 'PLACEHOLDER'
+			          , caption: ':up: vs. 2010 2:35:00'
+			          , value: '3:42:00'
+			      }
+
+		    , {
+          name: 'text'
+          , cssClass: 'g3 h4'
+          , value: ['New York', 'San Francisco', 'Sydney', 'Los Angeles', 'London', 'Melbourne', 'Beijing']
+          , label: 'Most visits by city'
+      }
+
+			    , {
+			        name: 'dataGraph'
+			        , cssClass: 'g6 h4'
+			        , label: 'Web traffic on Kiva.org (USA visits)'
+			        , imgUrl: '/img/2011/website/web-traffic.jpg'
+			        //, value: {}
 		        }
-		        , {
-		            name: 'highlight'
-		            , cssClass: 'g3 h4'
-		            , label: 'Website redesign'
-		            , link: 'http://www.kiva.org/updates/kiva/2011/03/08/new-kivaorg-is-here.html'
-		            , imgUrl: '/img/2011/website-redesign.jpg'
-		            , caption: 'mar 8, 2011'
-		            , subject:  'Redesign'
-		            , description: 'The result of thousands of hours of consultation with lenders, meetings with designers, drafts with employees, and feedback from the Kiva community.'
+
+		    , {
+          name: 'highlight',
+          cssClass: 'g3 h4',
+          label: 'Kiva Zip',
+          link: 'https://zip.kiva.org/learn',
+          imgUrl: '/img/2011/kiva-zip.jpg',
+          caption: 'Nov 1, 2011',
+          subject:  'Kiva Zip',
+          description: 'A pilot to explore new approaches to P-to-P lending including electronic & mobile payments.'
+      }
+
+
+		    , {
+          name: 'highlight'
+          , cssClass: 'g6 h4'
+          , label: 'Website redesign'
+          , link: 'http://www.kiva.org/updates/kiva/2011/03/08/new-kivaorg-is-here.html'
+          , imgUrl: '/img/2011/website-redesign.jpg'
+          , caption: 'mar 8, 2011'
+          , subject:  'Redesign'
+          , description: 'After more than 5 years, Kiva launches its first redesign'
+      }
+
+
+		    , {
+				name: 'highlight'
+				, cssClass: 'g3 h3'
+				, label: 'Borrower stories'
+				, link: '#'
+				, imgUrl: ['/img/2011/green-loans.jpg']
+				, caption: 'March 1, 2011'
+				, subject:  'Green Loans'
+				, description: 'Mark Omondi Siaya, Kenya'
+			}
+
+
+		    , {
+          name: 'dataGraph'
+          , cssClass: 'g6 h1'
+          , label: 'Mobile device traffic'
+          , dataset: [
+              {
+               label: 'Android'
+               , value: '32'
+           }
+           , {
+               label: 'iPhone'
+               , value: '31'
+           }
+           , {
+               label: 'iPad'
+               , value: '20'
+           }
+           , {
+               label: 'iPod'
+               , value: '6'
+           }
+           , {
+               label: 'Other'
+               , value: '9'
+           }
+          ]
+      }
+
+		    , {
+					        name: 'dataGraph'
+					        , cssClass: 'g6 h4'
+					        , label: 'Web v Mobile v API (avg visits)'
+					        , imgUrl: '/img/2011/website/web-mobile-api-traffic.jpg'
+				        }
+
+		    ,{
+          name: 'dataMetric'
+          , cssClass: 'g3 h2'
+          , label: 'Day with the highest avg loan volume'
+       , value: '15th of each month'
+          , caption: 'Repayments posting to lenders accounts'
+      }
+
+
+
+			    , {
+			        name: 'dataGraph'
+			        , cssClass: 'g3 h3'
+			        , label: 'Browser usage'
+			        , imgUrl: '/img/2011/website/browsers.png'
 		        }
-		        , {
-		            name: 'highlight',
-		            cssClass: 'g3 h4',
-		            label: 'Kiva Zip',
-		            link: 'https://zip.kiva.org/learn',
-		            imgUrl: '/img/2011/kiva-zip.jpg',
-		            caption: 'Nov 1, 2011',
-		            subject:  'Kiva Zip',
-		            description: 'A pilot to explore new approaches to P-to-P lending including electronic & mobile payments.'
-		        }
-				, {
-		            name: 'highlight',
-		            cssClass: 'g3 h4',
-		            label: 'Relisting',
-		            link: '',
-		            imgUrl: '/img/2011/kiva-zip.jpg',
-		            caption: 'Jun 29, 2011',
-		            subject:  'Relisting',
-		            description: 'Field partners are able to quickly post new loans for borrowers'
-		        }
-		        , {
-		            name: 'text'
-		            , cssClass: 'g3 h4'
-		            , value: ['New York', 'San Francisco', 'Sydney', 'Los Angeles', 'London', 'Melbourne']
-		            , label: 'Most visits by city'
-		        }
-		        , {
-		            name: 'dataGraph'
-		            , cssClass: 'g9 h3'
-		            , label: 'Mobile device traffic'
-		            , dataset: [
-		                {
-			                label: 'Android'
-			                , value: '32'
-			            }
-			            , {
-			                label: 'iPhone'
-			                , value: '31'
-			            }
-			            , {
-			                label: 'iPad'
-			                , value: '20'
-			            }
-			            , {
-			                label: 'iPod'
-			                , value: '6'
-			            }
-			            , {
-			                label: 'Other'
-			                , value: '9'
-			            }
-		            ]
-		        }
-		        ,{
-		            name: 'dataMetric'
-		            , cssClass: 'g6 h2'
-		            , label: 'Most Critical Bug'
-		            , caption: {
-		                text: 'Why’d it matter?',
-		                'lightbox' : 'During a brief period on August 23rd and 24th, Kiva experienced a system-wide issue that caused some information relating to your loan(s) to be inaccurately displayed. More specifically, statistics relating to your loan\'s Field Partner did not properly appear on the site, including default, delinquency and currency loss rates. we want to make sure that you are fully aware of the issue, as it is very important to us that our lenders be able to make informed lending decisions. Due to the system-wide error, you did not have access to all of the information we normally provide our lenders. We truly regret any inconvenience this may have caused you. '
-		            }
-		            , value: 'Partner data missing from borrower page'
-		        }
-		        ,{
-		            name: 'dataMetric'
-		            , cssClass: 'g3 h2'
-		            , label: 'Day of the month with the highest avg loan volume'
-		            , caption: 'Repayments posting to lenders accounts'
-		            , value: 'The 15th'
-		        }
-		        ,{
-		            name: 'dataMetric'
-		            , cssClass: 'g3 h2'
-		            , label: 'Avg time for volunteers to review, translate and approve a loan for posting'
-		            , caption: ':down: vs. 2010 2.16 days'
-		            , value: '3.93 days'
-		        }
-		        ,{
-		            name: 'dataMetric'
-		            , cssClass: 'g3 h3'
-		            , label: 'Code Commits by Kiva engineers to version control'
-		            , caption: ':up: vs. 2010 10,651 days'
-		            , value: '13,612'
-		        }
+
+		    ,{
+				name: 'dataMetric'
+				, cssClass: 'g4 h2'
+				, label: 'Most common question asked of customer service'
+				, value: 'Can I get a loan for my business?'
+				, caption: {
+					text: 'Well, can I?'
+					, 'lightbox' : 'Kiva does not process loan applications, but if you would like to apply for a loan, you can contact the Kiva Field Partner (microfinance institution) in your local area. A list of Kiva\'s Field Partners can be found on the Field Partners page.'
+                }
+            }
+
+
+		    ,{
+          name: 'dataMetric'
+          , cssClass: 'g2 h2'
+          , label: 'Avg time for volunteers to review & translate a loan for posting'
+          , caption: ':down: vs. 2010 2.16 days'
+          , value: '3.93 days'
+      }
+
+
+		    ,{
+          name: 'dataMetric'
+          , cssClass: 'g4 h2'
+          , label: 'Most Critical Bug'
+       , value: 'Partner data missing from loan page'
+          , caption: {
+              text: 'Why’d it matter?',
+              'lightbox' : 'During a brief period on August 23rd and 24th, Kiva experienced a system-wide issue that caused some information relating to your loan(s) to be inaccurately displayed. More specifically, statistics relating to your loan\'s Field Partner did not properly appear on the site, including default, delinquency and currency loss rates. we want to make sure that you are fully aware of the issue, as it is very important to us that our lenders be able to make informed lending decisions. Due to the system-wide error, you did not have access to all of the information we normally provide our lenders. We truly regret any inconvenience this may have caused you. '
+          }
+      }
+
+		    ,{
+          name: 'dataMetric'
+          , cssClass: 'g3 h2'
+          , label: 'Code Commits by Kiva engineers to version control'
+          , caption: ':up: vs. 2010 10,651 days'
+          , value: '13,612'
+      }
+
+
 	        ]
 	    }
 	    , ecosystem: {
@@ -1376,7 +1419,7 @@ new SectionProvider().save(
 				}
 			    , {
 			        name: 'dataGraph'
-			        , cssClass: 'g6 h2'
+			        , cssClass: 'g6 h3'
 			        , label: 'Social engagement'
 			        , imgUrl: '/img/2011/press/social-engagement.jpg'
 		        }
