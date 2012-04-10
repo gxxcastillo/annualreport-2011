@@ -132,7 +132,7 @@ new SectionProvider().save(
 		            name: 'dataGraph'
 		            , cssClass: 'g9 h2'
 		            , label: 'Dollars raised per hour (avg by activity)'
-				    , imgUrl: '/img/2011/borrowers/fundraising-by-activity.jpg'
+				    , imgUrl: '/img/2011/borrowers/fundraising-by-activity.png'
 		            , dataset: [
 			            {
 			                label: 'retail'
@@ -470,12 +470,6 @@ new SectionProvider().save(
 		            subject:  '953',
 		            description: 'John Green, Indianapolis, IN'
 		        }
-				, {
-				    name: 'dataMetric'
-				    , cssClass: 'g4 h1'
-				    , label: 'Most Dollars lent per GDP'
-				    , value: 'OUNTRYNAME-'
-				}
 
 		    , {
           name: 'highlight'
@@ -867,7 +861,7 @@ new SectionProvider().save(
 			        name: 'dataGraph'
 			        , cssClass: 'g6 h4'
 			        , label: 'Web traffic on Kiva.org (USA visits)'
-			        , imgUrl: '/img/2011/website/web-traffic.jpg'
+			        , imgUrl: '/img/2011/website/web-traffic.png'
 			        //, value: {}
 		        }
 
@@ -897,7 +891,7 @@ new SectionProvider().save(
 
 		    , {
 				name: 'highlight'
-				, cssClass: 'g3 h3'
+				, cssClass: 'g3 h4'
 				, label: 'Borrower stories'
 				, link: '#'
 				, imgUrl: ['/img/2011/green-loans.jpg']
@@ -905,24 +899,6 @@ new SectionProvider().save(
 				, subject:  'Green Loans'
 				, description: 'Mark Omondi Siaya, Kenya'
 			}
-
-
-
-		    , {
-					        name: 'dataGraph'
-					        , cssClass: 'g6 h4'
-					        , label: 'Web v Mobile v API (avg visits)'
-					        , imgUrl: '/img/2011/website/web-mobile-api-traffic.jpg'
-				        }
-
-		    ,{
-          name: 'dataMetric'
-          , cssClass: 'g3 h2'
-          , label: 'Day with the highest avg loan volume'
-       , value: '15th of each month'
-          , caption: 'Repayments posting to lenders accounts'
-      }
-
 		    , {
           name: 'percentageGraph'
           , cssClass: 'g6 h1'
@@ -951,12 +927,21 @@ new SectionProvider().save(
           ]
       }
 
-			    , {
-			        name: 'dataGraph'
-			        , cssClass: 'g3 h3'
-			        , label: 'Browser usage'
-			        , imgUrl: '/img/2011/website/browsers.png'
-		        }
+
+, {
+	    	name: 'dataGraph'
+	    	, cssClass: 'g6 h3'
+	    	, label: 'Most commonly translated languages'
+	    	, imgUrl: '/img/2011/website/translation-activity.png'
+	     }
+
+		    ,{
+          name: 'dataMetric'
+          , cssClass: 'g3 h2'
+          , label: 'Day with the highest avg loan volume'
+       , value: '15th of each month'
+          , caption: 'Repayments posting to lenders accounts'
+      }
 
 		    ,{
 				name: 'dataMetric'
@@ -968,6 +953,14 @@ new SectionProvider().save(
 					, 'lightbox' : 'Kiva does not process loan applications, but if you would like to apply for a loan, you can contact the Kiva Field Partner (microfinance institution) in your local area. A list of Kiva\'s Field Partners can be found on the Field Partners page.'
                 }
             }
+
+			    , {
+			        name: 'dataGraph'
+			        , cssClass: 'g3 h3'
+			        , label: 'Browser usage'
+			        , imgUrl: '/img/2011/website/browsers.png'
+		        }
+
 
 
 		    ,{
@@ -1010,7 +1003,7 @@ new SectionProvider().save(
 		        }
 				, {
 		            name: 'highlight'
-		            , cssClass: 'g3 h4'
+		            , cssClass: 'g3 h3'
 		            , label: 'Board Trip'
 		            , link: 'http://www.kiva.org/updates/kiva/2011/11/15/kiva-board-visits-lima-peru.html'
 		            , imgUrl: '/img/2011/board-trip.jpg'
@@ -1035,6 +1028,31 @@ new SectionProvider().save(
 		            , caption: ':up: vs. 2010 55'
 		            , value: '83'
 		        }
+
+
+		    , {
+          name: 'dataMetric'
+          , cssClass: 'g3 h1'
+          , label: 'Avg Employee Age'
+          , caption: ':up: vs. 2010 32.3'
+          , value: '32.7'
+      }
+
+  , {
+      name: 'dataMetric'
+      , cssClass: 'g3 h1'
+      , label: 'Full time staff in the field'
+      , value: '12'
+  }
+
+		    , {
+		    	name: 'map'
+		    	, cssClass: 'g9 h5'
+		    	, label: 'Typical commutes by Kiva staff'
+		    	, imgUrl: '/img/2011/ecosystem/commute-map.jpg'
+		    }
+
+
 		        , {
 		            name: 'percentageGraph'
 		            , cssClass: 'g6 h1'
@@ -1066,6 +1084,9 @@ new SectionProvider().save(
 			            }
 		            ]
 		        }
+
+
+
 		        , {
 		            name: 'dataMetric'
 		            , cssClass: 'g6 h1'
@@ -1073,26 +1094,48 @@ new SectionProvider().save(
 		            , caption: 'Software engineer in 2010'
 		            , value: 'Software engineer'
 		        }
-		        , {
-		            name: 'dataMetric'
-		            , cssClass: 'g3 h1'
-		            , label: 'Dogs allowed in office at one time'
-		            , caption: 'Unlimited in previous years'
-		            , value: '3'
-		        }
-		        , {
-		            name: 'dataMetric'
-		            , cssClass: 'g3 h1'
-		            , label: 'Avg Employee Age'
-		            , caption: ':up: vs. 2010 32.3'
-		            , value: '32.7'
-		        }
-		        , {
-		            name: 'dataMetric'
-		            , cssClass: 'g3 h1'
-		            , label: 'Full time staff working in the field'
-		            , value: '12'
-		        }
+
+
+
+
+
+
+
+
+		    , {
+    name: 'dataGraph'
+	, cssClass: 'g3 h3'
+	, label: 'Employee foreign travel'
+       , imgUrl: '/img/2011/ecosystem/employee-visited-foreign-countries.png'
+	, dataset: [
+		{
+			label: 'Ten or more countries visited'
+			, value: '5%'
+		}
+		, {
+			label: 'Visited at least one foreign country'
+			, value: '97%'
+		}
+	]
+      }
+
+		    , {
+          name: 'dataMetric'
+          , cssClass: 'g4 h1'
+          , label: 'Dogs allowed in office at one time'
+          , caption: 'Unlimited in previous years'
+          , value: '3'
+      }
+
+
+		    , {
+          name: 'dataMetric'
+          , cssClass: 'g2 h1'
+          , label: 'volunteers'
+          , caption: ''
+          , value: '500'
+      }
+
 			    , {
 					name: 'dataGraph'
 					, cssClass: 'g6 h3'
@@ -1113,60 +1156,82 @@ new SectionProvider().save(
 						}
 					]
 				}
-		        , {
-				    name: 'dataGraph'
-					, cssClass: 'g3 h3'
-					, label: 'Employee foreign travel'
-			        , imgUrl: '/img/2011/ecosystem/employees-visited-foreign-countries.jpg'
-					, dataset: [
-						{
-							label: 'Ten or more countries visited'
-							, value: '5%'
-						}
-						, {
-							label: 'Visited at least one foreign country'
-							, value: '97%'
-						}
-					]
-		        }
-		        , {
-		            name: 'text'
-		            , cssClass: 'g4 h4'
-		            , value: ['Bali, Indonesia', 'Lima, Peru', 'Minsk, Belarus', 'Nairobi, Kenya', 'Kigali, Rwanda', 'Dakar, Senegal', 'Beirut, Lebanon']
-		            , label: 'Locations of field staff'
-		        }
-		        , {
-		            name: 'dataMetric'
-		            , cssClass: 'g3 h1'
-		            , label: 'Avg number of interns'
-		            , caption: ''
-		            , value: '40'
-		        }
-		        , {
-		            name: 'dataMetric'
-		            , cssClass: 'g3 h1'
-		            , label: 'volunteers'
-		            , caption: ''
-		            , value: '500'
-		        }
-		        , {
-		            name: 'text',
-		            label: 'Interested in joining Kiva?',
-		            cssClass: 'g3 h5',
-		            value: '<p>Kiva is organized around the ability to engage the talent of exceptional, passionate people. You can work with Kiva in a number of ways: <a href="http://www.kiva.org/jobs" target="_blank">As an employee</a> or <a href="http://www.kiva.org/volunteer#localOpp" target="_blank">volunteer in San Francisco</a> or <a href="http://www.kiva.org/volunteer#remoteOpp" target="_blank">from home</a>, or as a <a href="http://www.kiva.org/fellows" target="_blank">fellow in the field</a>.</p>'
-		        }
-				, {
-		            name: 'dataMetric'
-		            , cssClass: 'g6 h1'
-		            , label: 'staff holding advanced degrees (MA, MS, JD, or PHD)'
-		            , caption: ''
-		            , value: '38%'
-		        }
+
+		    , {
+          name: 'text',
+			cssClass: 'g3 h2',
+          label: 'Interested in joining Kiva?',
+          value: '<p>Kiva is organized around the ability to engage the talent of exceptional, passionate people. You can work with Kiva in a number of ways: <a href="http://www.kiva.org/jobs" target="_blank">As an employee</a> or <a href="http://www.kiva.org/volunteer#localOpp" target="_blank">volunteer in San Francisco</a> or <a href="http://www.kiva.org/volunteer#remoteOpp" target="_blank">from home</a>, or as a <a href="http://www.kiva.org/fellows" target="_blank">fellow in the field</a>.</p>'
+      }
+
+		    , {
+          name: 'dataMetric'
+          , cssClass: 'g3 h1'
+          , label: 'Avg number of interns'
+          , caption: ''
+          , value: '40'
+      }
+		    , {
+          name: 'text'
+          , cssClass: 'g4 h4'
+          , value: ['Bali, Indonesia', 'Lima, Peru', 'Minsk, Belarus', 'Nairobi, Kenya', 'Kigali, Rwanda', 'Dakar, Senegal', 'Beirut, Lebanon']
+          , label: 'Locations of field staff'
+      }
+
+		    , {
+				            name: 'dataMetric'
+				            , cssClass: 'g5 h1'
+				            , label: 'staff holding advanced degrees (MA, MS, JD, or PHD)'
+				            , value: '38%'
+				        }
+
+
+
+		    , {
+				            name: 'highlight',
+				            cssClass: 'g5 h3',
+				            label: 'Volunteer Activity',
+				            imgUrl: '/img/2011/tree-planting.jpg',
+				            caption: 'Volunteer Activity, October 11, 2011',
+				            subject:  'Tree planting',
+				            description: 'Volunteer gardening to beautify Golden Gate Park in honor of Kiva\'s 6th Birthday.'
+				        }
+
+
+
+
+
+		    , {
+		        name: 'dataGraph'
+		        , cssClass: 'g4 h3'
+		        , label: 'Volunteer hours by Kiva staff at outside organizations'
+		        , imgUrl: '/img/2011/ecosystem/employee-volunteer-hours.png'
+		        , dataset: [
+			        {
+				        label: '4'
+				        , value: '45%'
+			        }
+					, {
+				        label: '40'
+				        , value: '18%'
+			        }
+				    , {
+				        label: '80'
+				        , value: '16%'
+			        }
+				    , {
+				        label: '160 +'
+				        , value: '6%'
+			        }
+		        ]
+	        }
+
+
 			    , {
 			        name: 'dataGraph'
 			        , cssClass: 'g3 h3'
 			        , label: 'Number of languages spoken'
-			        , imgUrl: '/img/2011/ecosystem/employees-foreign-languages-spoken.jpg'
+			        , imgUrl: '/img/2011/ecosystem/employee-foreign-languages-spoken.png'
 			        , dataset: [
 				        {
 					        label: 'one'
@@ -1190,40 +1255,6 @@ new SectionProvider().save(
 				        }
 			        ]
 		        }
-			    , {
-			        name: 'dataGraph'
-			        , cssClass: 'g4 h5'
-			        , label: 'Volunteer hours by Kiva staff at outside organizations'
-			        , imgUrl: '/img/2011/ecosystem/employee-volunteer-hours.jpg'
-			        , dataset: [
-				        {
-					        label: '4'
-					        , value: '45%'
-				        }
-						, {
-					        label: '40'
-					        , value: '18%'
-				        }
-					    , {
-					        label: '80'
-					        , value: '16%'
-				        }
-					    , {
-					        label: '160 +'
-					        , value: '6%'
-				        }
-			        ]
-		        }
-				, {
-		            name: 'highlight',
-		            cssClass: 'g5 h3',
-		            label: 'Volunteer Activity',
-		            link: '',
-		            imgUrl: '/img/2011/tree-planting.jpg',
-		            caption: 'Volunteer Activity, October 11, 2011',
-		            subject:  'Tree planting in GG Park',
-		            description: 'Kiva is committed to doing good in the world and the environment we live in: Volunteer gardening to beautify Golden Gate Park in honor of Kiva\'s 6th Birthday.'
-		        }
 	        ]
 	    }
     	, stories: {
@@ -1246,14 +1277,26 @@ new SectionProvider().save(
 					}
 					, {
 					  name: 'highlight'
-					  , cssClass: 'g3 h3'
+					  , cssClass: 'g3 h4'
 					  , label: 'Nepal'
 					  , link: 'http://fellowsblog.kiva.org/2011/02/06/small-is-beautiful-microcredit-fair-in-nepal/'
-					  , imgUrl: '/img/2011/photo-highlights.jpg'
-					  , caption: ''
+					  , imgUrl: '/img/2011/microcredit-fair-nepal.jpg'
 					  , subject:  'Microcredit fair in Nepal'
-					  , description: ''
 					}
+
+
+				    , {
+								  name: 'highlight',
+								  cssClass: 'g3 h3',
+								  label: 'going green',
+								  link: 'http://fellowsblog.kiva.org/2011/10/20/going-green-overcoming-cultural-barriers-to-promote-green-loans-part-1/',
+								  imgUrl: '/img/2011/going-green-nairobi.jpg',
+								  caption: 'Traffic in Nairobi, Kenya',
+								  subject:  'Going green',
+								  description: 'Overcoming Cultural Barriers to Promote Green Loans'
+								}
+
+
 					, {
 						name: 'highlight'
 						, cssClass: 'g6 h3'
@@ -1263,29 +1306,79 @@ new SectionProvider().save(
 						, caption: 'Rwanda Rice Paddies'
 						, subject:  'What Makes Agriculture Different?'
 					}
-					, {
-						name: 'text'
-						, label: 'Kiva Fellows'
-						, cssClass: 'g3 h3'
-						, value: '<p>Kiva\'s Fellows program places individuals in different countries around the globe.</p><p>Fellows become the eyes and ears on the ground working directly with Kiva’s field partners. The program is an unpaid, volunteer position designed to increase Kiva\'s impact and to offer participants a unique insider experience. <a href="#">Learn more</a></p>'
-					}
-					, {
-					  name: 'dataMetric'
-					  , cssClass: 'g3 h3'
-					  , label: 'By 81 fellows working with 68 different field partners'
-					  , caption: ''
-					  , value: '41,080 hrs spent working in the field'
-					}
-					, {
-					  name: 'highlight',
-					  cssClass: 'g3 h3',
-					  label: 'going green',
-					  link: 'http://fellowsblog.kiva.org/2011/10/20/going-green-overcoming-cultural-barriers-to-promote-green-loans-part-1/',
-					  imgUrl: '/img/2011/going-green-nairobi.jpg',
-					  caption: 'Traffic in Nairobi, Kenya',
-					  subject:  'Going Green?',
-					  description: 'Overcoming Cultural Barriers to Promote Green Loans'
-					}
+
+
+				    , {
+									name: 'text'
+									, label: 'Kiva Fellows'
+									, cssClass: 'g4 h2'
+									, value: '<p>Kiva\'s Fellows program places individuals in different countries around the globe.</p><p>Fellows become the eyes and ears on the ground working directly with Kiva’s field partners. The program is an unpaid, volunteer position designed to increase Kiva\'s impact and to offer participants a unique insider experience. <a href="#">Learn more</a></p>'
+								}
+
+
+				    , {
+								  name: 'highlight',
+								  cssClass: 'g5 h4',
+								  label: 'Haiti',
+								  link: 'http://fellowsblog.kiva.org/2011/01/24/loans-in-the-time-of-cholera-in-haiti/',
+								  imgUrl: '/img/2011/loans-in-cholera-haitit.jpg',
+								  caption: 'Haitian loan officer interviewing a Kiva borrower',
+								  subject:  'Loans In The Time Of Cholera',
+								  description: 'As international news stations broadcast Haiti’s misery, my own picture will be one of a fun-loving, joyous nation'
+								}
+
+				    , {
+			            name: 'dataMetric'
+			            , cssClass: 'g4 h1'
+			            , label: 'Number of Kiva Fellows'
+			            , value: '81'
+		    }
+
+
+				    , {
+									  name: 'dataMetric'
+									  , cssClass: 'g4 h1'
+									  , label: 'Time Kiva Fellows worked in the field'
+									  , value: '41,080 hrs'
+									}
+
+
+				    , {
+								  name: 'dataMetric'
+								  , cssClass: 'g6 h1'
+								  , label: 'Avg cost for a Kiva fellowship'
+							      , caption: 'The cost is covered by each Kiva Fellow'
+								  , value: '$5,000 for 4 months'
+								}
+
+
+
+				    , {
+								  name: 'dataMetric'
+								  , cssClass: 'g3 h1'
+								  , label: 'Kiva Fellows\' blog posts'
+								  , value: '397'
+								}
+
+				    , {
+								  name: 'dataMetric'
+								  , cssClass: 'g3 h1'
+								  , label: 'Countries visited by fellows'
+								  , value: '41'
+								}
+
+				    , {
+								  name: 'dataMetric'
+								  , cssClass: 'g6 h1'
+								  , label: 'Worst injury suffered by a fellow in the field'
+								  , caption: 'Suffered while playing soccer'
+								  , value: 'Two broken wrists'
+								}
+
+
+
+
+
 					, {
 					  name: 'highlight',
 					  cssClass: 'g3 h4',
@@ -1296,53 +1389,17 @@ new SectionProvider().save(
 					  subject:  'Tips from a fellow',
 					  description: 'Sit in a park/plaza by yourself…someone will sit next to you.'
 					}
-					, {
-					  name: 'dataMetric'
-					  , cssClass: 'g3 h1'
-					  , label: 'Countries Visited by fellows'
-					  , caption: ''
-					  , value: '41'
-					}
-					, {
-					  name: 'dataMetric'
-					  , cssClass: 'g3 h1'
-					  , label: 'Blog posts from Kiva fellows'
-					  , caption: ''
-					  , value: '397'
-					}
-					, {
-					  name: 'dataMetric'
-					  , cssClass: 'g6 h1'
-					  , label: 'Worst injury suffered by a fellow in the field'
-					  , caption: 'Suffered while playing soccer'
-					  , value: 'Two broken wrists'
-					}
+
+
 					, {
 					  name: 'highlight',
 					  cssClass: 'g6 h4',
-					  label: 'Haiti',
-					  link: 'http://fellowsblog.kiva.org/2011/01/24/loans-in-the-time-of-cholera-in-haiti/',
-					  imgUrl: '/img/2011/loans-in-cholera-haitit.jpg',
-					  caption: 'Haitian loan officer interviewing a Kiva borrower',
-					  subject:  'Loans In The Time Of Cholera',
-					  description: 'As international news stations broadcast Haiti’s misery, my own picture will be one of a fun-loving, joyous nation'
-					}
-					, {
-					  name: 'dataMetric'
-					  , cssClass: 'g3 h2'
-					  , label: 'Avg cost for a Kiva fellowship'
-				      , caption: 'The cost is covered by each Kiva Fellow'
-					  , value: '$5,000 for 4 months'
-					}
-					, {
-					  name: 'highlight',
-					  cssClass: 'g9 h5',
 					  label: 'Costa Rica',
 					  link: 'http://fellowsblog.kiva.org/2011/11/18/village-banks-by-farmers-for-farmers-a-micro-credit-labor-of-love/',
 					  imgUrl: '/img/2011/microcredit-labor-of-love.jpg',
 					  caption: 'Costa Rica',
 					  subject:  'A Microcredit Labor of Love',
-					  description: 'When visiting borrowers and the lands they cultivate, Chief Loan Officer Geiner Gonzáles Marín, often leads the trek into plunging valleys or up steep mountains, with unceasing enthusiasm.'
+					  description: 'Chief Loan Officer Geiner Gonzáles Marín, often leads the trek into plunging valleys or up steep mountains, with unceasing enthusiasm.'
 					}
 			]
     	}
@@ -1365,12 +1422,7 @@ new SectionProvider().save(
 					, subject:  '2011 Innovation Award'
 					, description: 'The Economist` Honors Kiva CEO and Co-Founders with "No Boundaries" Innovation Award!'
 				}
-			    , {
-			        name: 'dataGraph'
-			        , cssClass: 'g6 h3'
-			        , label: 'Facebook comments vs twitter mentions'
-			        , imgUrl: '/img/2011/press/likes-vs-tweets.jpg'
-		        }
+
 				, {
 					name: 'highlight'
 					, cssClass: 'g3 h3'
@@ -1384,6 +1436,22 @@ new SectionProvider().save(
 					, subject:  'Why I Kiva'
 					, description: 'Kiva users tell us why they lend'
 				}
+
+		    , {
+							name: 'highlight'
+							, cssClass: 'g6 h4'
+							, label: 'Kiva ICBM'
+							, imgUrl: '/img/2011/kiva-icbm.jpg'
+					        , lightbox: {
+						        isVideo: true
+						        , urls: ['http://player.vimeo.com/video/28413747?title=0&byline=0&portrait=0&color=4b9123&autoplay=1']
+					        }
+							, caption: 'Aug 31, 2011'
+							, subject:  'Intercontinental Ballistic Microfinance'
+							, description: ''
+						}
+
+
 				, {
 					name: 'highlight'
 					, cssClass: 'g6 h3'
@@ -1414,25 +1482,18 @@ new SectionProvider().save(
 					, subject:  'Kiva City'
 					, description: ''
 				}
-			    , {
-			        name: 'dataGraph'
-			        , cssClass: 'g6 h3'
-			        , label: 'Social engagement'
-			        , imgUrl: '/img/2011/press/social-engagement.jpg'
-		        }
-				, {
-					name: 'highlight'
-					, cssClass: 'g6 h3'
-					, label: 'Kiva ICBM'
-					, imgUrl: '/img/2011/kiva-icbm.jpg'
-			        , lightbox: {
-				        isVideo: true
-				        , urls: ['http://player.vimeo.com/video/28413747?title=0&byline=0&portrait=0&color=4b9123&autoplay=1']
-			        }
-					, caption: 'Aug 31, 2011'
-					, subject:  'Intercontinental Ballistic Microfinance'
-					, description: ''
-				}
+
+
+
+		    , {
+		        name: 'dataGraph'
+		        , cssClass: 'g6 h3'
+		        , label: 'Facebook comments vs twitter mentions'
+		        , imgUrl: '/img/2011/press/likes-vs-tweets.jpg'
+	        }
+
+
+
 				, {
 					name: 'highlight'
 					, cssClass: 'g3 h3'
@@ -1453,6 +1514,14 @@ new SectionProvider().save(
 					, subject:  '10 Parties | 10 Cities'
 					, description: 'From Pittsburgh to Paris Kiva Lender got together to meet each other and celebrate Kiva’s 6th birthday with parties in ten cities.'
 				}
+
+		    , {
+		        name: 'dataGraph'
+		        , cssClass: 'g6 h3'
+		        , label: 'Social engagement'
+		        , imgUrl: '/img/2011/press/social-engagement.jpg'
+	        }
+
 			]
         }
     	, finances: {

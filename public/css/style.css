@@ -25,8 +25,8 @@ body        { margin: 0 auto; width: 1004px; }
 
 noscript   { border: red 2px solid; font-size: 1.2857em; font-weight: bold; text-align: center; padding: 5px; z-index: 100; }
 
-.sidebar    { background-color: #74b446; box-shadow: inset 2px 0 7px #888; height: 100%; margin-left: 768px; min-width: 256px; position: fixed; top: 0; width: 100%;}
-.sidebar li   { margin-bottom: 10px; }
+.sidebar    { background-color: #74b446; box-shadow: inset 2px 0 7px #888; color: #fff; height: 100%; margin-left: 768px; min-width: 256px; position: fixed; top: 0; width: 100%;}
+.sidebar li { margin-bottom: 10px; }
 
 .siteHeader { padding: 0 20px; }
 .siteFooter { background-color: #f7f7f2; height: 20px; text-align: center; }
@@ -36,7 +36,7 @@ noscript   { border: red 2px solid; font-size: 1.2857em; font-weight: bold; text
 .primaryNav .nav-prev
 , .primaryNav .nav-next { position: absolute; top: 0; right: 0; }
 .primaryNav ul          { margin-left: 2px; }
-.primaryNav li a        { color: #333; display: block; padding-left: 20px; }
+.primaryNav li a        { color: #25582b; display: block; padding-left: 20px; }
 .primaryNav li a:active { background-color: transparent; color: #fff; }
 .primaryNav li a:hover  { background-color: transparent; color: #fff; }
 .primaryNav li.active a { border-left: #fff 5px solid; color: #fff; padding-left: 15px; }
@@ -68,8 +68,8 @@ noscript   { border: red 2px solid; font-size: 1.2857em; font-weight: bold; text
 .fMS.bold { font-family: 'Museo Slab 500', Rockwell, Georgia, serif; font-weight: 500; }
 
 /* @todo temporary overrides */
-.fMS {font-family: Rockwell, Georgia, serif; font-weight: 300; }
-.fMS.bold { font-family: Rockwell, Georgia, serif; font-weight: 500; }
+.fMS {font-family: Helvetica, Georgia, serif; font-weight: 300; }
+.fMS.bold { font-family: Helvetica, Georgia, serif; font-weight: 500; }
 
 /* Styles */
 .light  { font-family: 'Proxima Nova Light', 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size-adjust: 0.488; font-weight: 200; }
