@@ -147,23 +147,19 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 
 
 			// Bind the key events to allow for browsing via the keyboard
-			$(document).keydown(function (e) {
-
-				// Return if not left or right arrow keys
-				if (_.indexOf([37, 39], e.keyCode) < 0) {
+			$(document).keypress(function (e) {
+				if (_.indexOf([74, 106, 37], e.keyCode) > -1) {
+					// Capture the 'J', 'j', and the up arrow
+					sections.setPrevActive('keydown');
+				} else if (_.indexOf([75, 107, 39], e.keyCode) > -1) {
+					// Capture 'K', 'k', and the down arrow
+					sections.setNextActive('keydown');
+				} else {
 					return;
 				}
 
-				// Make sure to prevent default AFTER confirming the correct keys were pressed
+				// Make sure to prevent default AFTER confirming the corresponding keys were pressed
 				e.preventDefault();
-
-				// Get the next/prev tab
-				if (e.keyCode == 37) {
-					sections.setPrevActive('keydown');
-				} else if (e.keyCode == 39) {
-					sections.setNextActive('keydown');
-				}
-
 			});
 
 			// Instantiate backbone's routes + the history "pollyfill"
