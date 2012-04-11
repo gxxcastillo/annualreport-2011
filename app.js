@@ -32,4 +32,4 @@ app.configure('production', function () {
 });
 
 app.listen(80);
-console.log("dataviz app started");
+console.log('annualreport app started');
