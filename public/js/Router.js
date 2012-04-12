@@ -147,13 +147,30 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 
 
 			// Bind the key events to allow for browsing via the keyboard
+			// Capture the j, J, k, or K keys
+			$(document).keyup(function (e) {
+				if (e.keyCode == 37) {
+					// Capture the left arrow key
+					sections.setPrevActive('key');
+				} else if (e.keyCode == 39) {
+					// Capture the right arrow key
+					sections.setNextActive('key');
+				} else {
+					return;
+				}
+
+				// Make sure to prevent default AFTER confirming the corresponding keys were pressed
+				e.preventDefault();
+			});
+
+			// Capture the left/right key presses
 			$(document).keypress(function (e) {
-				if (_.indexOf([74, 106, 37], e.keyCode) > -1) {
-					// Capture the 'J', 'j', and the up arrow
-					sections.setPrevActive('keydown');
-				} else if (_.indexOf([75, 107, 39], e.keyCode) > -1) {
-					// Capture 'K', 'k', and the down arrow
-					sections.setNextActive('keydown');
+				if (_.indexOf([74, 106], e.keyCode) > -1) {
+					// Capture the 'J', 'j', and the left arrow key
+					sections.setPrevActive('key');
+				} else if (_.indexOf([75, 107], e.keyCode) > -1) {
+					// Capture 'K', 'k', and the right arrow key
+					sections.setNextActive('key');
 				} else {
 					return;
 				}
