@@ -22,11 +22,11 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 			}
 
 			if (viewData.caption.indexOf(':down:') > -1) {
-				trending = 'trendingDown'
+				trending = 'trendingDown';
 			} else if (viewData.caption.indexOf(':up:') > -1) {
-				trending = 'trendingUp'
+				trending = 'trendingUp';
 			} else if (viewData.caption.indexOf(':same:') > -1) {
-				trending = 'noTrend'
+				trending = 'noTrend';
 			}
 
 
@@ -105,7 +105,7 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 
 			newData.lightbox = [];
 			_.each(urls, function (url) {
-				newData.lightbox.push({href: url, title: viewData.label});
+				newData.lightbox.push({href: url, title: viewData.label, lightboxGroup: 'lbGroup_' + this.id});
 			});
 
 			newData.isLightbox = true;
@@ -240,6 +240,7 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 					this.tpl = dataMetricTpl;
 					break;
 				case 'highlight':
+					viewData.id = this.cid;
 					this.viewData = getHighlightData(viewData);
 					this.tpl = highlightTpl;
 					break;
@@ -290,7 +291,7 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 			}
 
 			if (!this.tpl) {
-				return
+				return;
 			}
 			this.render();
 		}

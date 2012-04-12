@@ -473,7 +473,7 @@ new SectionProvider().save(
 
 		    , {
           name: 'highlight'
-          , cssClass: 'g4 h3'
+          , cssClass: 'g5 h3'
           , label: 'Project for awesome'
           , lightbox: {
 		isVideo: true
@@ -845,9 +845,9 @@ new SectionProvider().save(
 			    ,{
 			          name: 'dataMetric'
 			          , cssClass: 'g3 h1'
-			          , label: 'PLACEHOLDER'
-			          , caption: ':up: vs. 2010 2:35:00'
-			          , value: '3:42:00'
+			          , label: 'Avg monthly transactions'
+			          , caption: ':up: vs. 2010 124,161'
+			          , value: '159,839'
 			      }
 
 		    , {
@@ -1272,6 +1272,22 @@ new SectionProvider().save(
 						, cssClass: 'g6 h4'
 						, label: 'Photo Hightlights'
 						, imgUrl: '/img/2011/photo-highlights.jpg'
+				        , lightbox: [
+					        '/img/2011/photo-highlights/137025_AdamCohn_1of3.jpg'
+					        , '/img/2011/photo-highlights/200679_AbhinabBasnyat_2of4.jpg'
+						    , '/img/2011/photo-highlights/223090_TaraCapsuto5of5.jpg'
+						    , '/img/2011/photo-highlights/224803_MagalisMaria_MaturanaMuñoz_JohnGwillim_1of3.jpg'
+						    , '/img/2011/photo-highlights/285572_Kathrin-Gerner_1_of_4.jpg'
+						    , '/img/2011/photo-highlights/286167_JulieKerr_7of9.jpg'
+						    , '/img/2011/photo-highlights/288330_JóseArriagada_2of2_FE_LoEspejo_Chile_JohnGwillim.jpg'
+						    , '/img/2011/photo-highlights/301779_Kathrin-Gerner_4_of_4.jpg'
+						    , '/img/2011/photo-highlights/302498_AbhinabBasnyat_5of5.jpg'
+						    , '/img/2011/photo-highlights/328241_TejalDesai_4of4.jpg'
+						    , '/img/2011/photo-highlights/341223_RebeccaCorey_5of5.jpg'
+						    , '/img/2011/photo-highlights/AdamCohn_VFC-Sewing-Cooperative_2of3.jpg'
+						    , '/img/2011/photo-highlights/GabeFrancis_1679.jpg'
+						    , '/img/2011/photo-highlights/GabeFrancis_1697.jpg'
+				        ]
 						, subject:  'Photo Hightlights'
 						, description: 'Best Kiva photos from 2011'
 					}
@@ -1412,6 +1428,9 @@ new SectionProvider().save(
 				  , cssClass: 'g9 h1'
 				  , title: 'Press & Promotions'
 				}
+
+
+
 				, {
 					name: 'highlight'
 					, cssClass: 'g6  h3'
@@ -1422,20 +1441,44 @@ new SectionProvider().save(
 					, subject:  '2011 Innovation Award'
 					, description: 'The Economist` Honors Kiva CEO and Co-Founders with "No Boundaries" Innovation Award!'
 				}
+		    , {
+							name: 'highlight'
+							, cssClass: 'g3 h3'
+							, label: 'Why I Kiva'
+							, link: {
+						        isVideo: true
+						        , urls : ['http://www.youtube.com/watch?v=LLRXbz0Jq6Y']
+					        }
+							, imgUrl: '/img/2011/why-i-kiva.jpg'
+							, caption: 'Sep 15, 2011'
+							, subject:  'Why I Kiva'
+							, description: 'Kiva users tell us why they lend'
+						}
 
-				, {
-					name: 'highlight'
-					, cssClass: 'g3 h3'
-					, label: 'Why I Kiva'
-					, link: {
-				        isVideo: true
-				        , urls : ['http://www.youtube.com/watch?v=LLRXbz0Jq6Y']
-			        }
-					, imgUrl: '/img/2011/why-i-kiva.jpg'
-					, caption: 'Sep 15, 2011'
-					, subject:  'Why I Kiva'
-					, description: 'Kiva users tell us why they lend'
-				}
+
+
+		    , {
+							name: 'highlight'
+							, cssClass: 'g3 h3'
+							, label: 'Kiva City'
+							, link: 'http://www.kiva.org/kivacity'
+							, imgUrl: '/img/2011/kiva-city.jpg'
+							, caption: 'Jun 29, 2011'
+							, subject:  'Kiva City'
+							, description: ''
+						}
+
+		    , {
+							name: 'highlight'
+							, cssClass: 'g6 h3'
+							, label: 'Clinton Global Initiatives'
+							, link: ''
+							, imgUrl: '/img/2011/clinton-global-initiatives.jpg'
+							, caption: 'Oct 6, 2011'
+							, subject:  'Clinton Global Initiatives'
+							, description: 'Kiva President, Premal Shah, speaks at the 2011 Clinton Global Initiative Annual Meeting!'
+						}
+
 
 		    , {
 							name: 'highlight'
@@ -1452,16 +1495,7 @@ new SectionProvider().save(
 						}
 
 
-				, {
-					name: 'highlight'
-					, cssClass: 'g6 h3'
-					, label: 'Clinton Global Initiatives'
-					, link: ''
-					, imgUrl: '/img/2011/clinton-global-initiatives.jpg'
-					, caption: 'Oct 6, 2011'
-					, subject:  'Clinton Global Initiatives'
-					, description: 'Kiva President, Premal Shah, speaks at the 2011 Clinton Global Initiative Annual Meeting!'
-				}
+
 				, {
 					name: 'highlight'
 					, cssClass: 'g3 h3'
@@ -1472,16 +1506,7 @@ new SectionProvider().save(
 					, subject:  'Free Trials'
 					, description: 'It took less than 26 hours for 8k new lenders to claim their free trial loans.'
 				}
-				, {
-					name: 'highlight'
-					, cssClass: 'g3 h3'
-					, label: 'Kiva City'
-					, link: 'http://www.kiva.org/kivacity'
-					, imgUrl: '/img/2011/kiva-city.jpg'
-					, caption: 'Jun 29, 2011'
-					, subject:  'Kiva City'
-					, description: ''
-				}
+
 
 
 
@@ -1524,7 +1549,7 @@ new SectionProvider().save(
 
 			]
         }
-    	, finances: {
+		, finances: {
 			id: 'finances'
 			, order: 9
 			, blocks: [
@@ -1538,19 +1563,26 @@ new SectionProvider().save(
 					, cssClass: 'g4 h1'
 					, label: 'Total revenue & Support'
 					, value: '$12,100,200'
-				   }
-				, {
-					name: 'dataMetric'
-					, cssClass: 'g4 h1'
-					, label: 'Total expenses'
-					, value: '$8,000,000'
 				}
-				, {
-					name: 'custom',
-					label: 'Donating to Kiva',
-					cssClass: 'g6 h2',
-					value: '<p>Given that 100% of the loans made on kiva.org go directly to the entrepreneurs we feature, it is necessary to fundraise tax-deductible donations to cover our operations. Make a donation  ></p>'
-				}
+
+
+		    , {
+		        name: 'text'
+		        , cssClass: 'g2 h2'
+		        , label: 'Donating to Kiva'
+		        , value: '100% of loans on kiva.org go directly to the entrepreneurs we feature, it is necessary to fundraise tax-deductible donations to cover our operations. <a href="#">Make a donation &rang;</a>'
+	        }
+
+
+
+		    , {
+							name: 'dataMetric'
+							, cssClass: 'g4 h1'
+							, label: 'Total expenses'
+							, value: '$8,000,000'
+						}
+
+
 			    , {
 					name: 'dataGraph'
 			        , cssClass: 'g3 h3'
@@ -1594,6 +1626,46 @@ new SectionProvider().save(
 						}
 		            ]
 				}
+
+						, {
+							name: 'dataMetric'
+							, cssClass: 'g3 h1'
+							, label: 'Loans made with a donation'
+							, value: '42.6%'
+			                , caption: ':down: vs 2010 43.3%'
+						}
+
+			    , {
+			        name: 'dataMetric'
+			        , cssClass: 'g3 h1'
+			        , label: 'Number of individual donors'
+			        , value: '312,248'
+			        , caption: ':up: vs 2010 256,651'
+		        }
+
+			    , {
+			        name: 'dataMetric'
+			        , cssClass: 'g3 h1'
+			        , label: 'Fundraising efficiency'
+			        , value: '.02'
+			        , caption: ':same: vs 2010 .02'
+		        }
+
+			    , {
+			        name: 'dataMetric'
+			        , cssClass: 'g6 h1'
+			        , label: 'Kiva\'s online revinue/total expenses'
+			        , value: '68% Self sufficiency'
+		        }
+
+			    , {
+					name: 'dataMetric'
+			        , cssClass: 'g3 h1'
+			        , label: '1st time lenders who donated'
+			        , value: '50%'
+			        , caption: ':down: vs. 2010 51.2%'
+		        }
+
 				, {
 		           name: 'highlight',
 		           cssClass: 'g6 h3',
@@ -1604,34 +1676,50 @@ new SectionProvider().save(
 		           subject:  'Kiva.org Receives Top Rating from Charity Navigator',
 		           description: 'Based on Sound Fiscal Management, Exceeding Industry Standards'
 				}
+
+			    , {
+			        name: 'dataMetric'
+			        , cssClass: 'g3 h1'
+			        , label: 'Avg donation at checkout'
+			        , value: 'XX'
+		        }
+
+		    , {
+		        name: 'text'
+		        , cssClass: 'g3 h4'
+		        , value: ['This is placeholder text for when we get the quote :P']
+		        , label: 'John D\'oh tells us why he contributes'
+	        }
+
+
 				, {
 					name: 'highlight',
-					cssClass: 'g6 h2',
+					cssClass: 'g2 h3',
 					label: 'Largest individual donor',
 					link: '',
-					imgUrl: '/img/2011/leeds-lending-team.jpg',
+					imgUrl: '/img/2011/anonymous-donor.jpg',
 					caption: 'Largest individual donor',
 					subject:  '250k',
 					description: 'Annoyomous'
 				}
 				, {
 					name: 'highlight',
-					cssClass: 'g6 h2',
+					cssClass: 'g2 h3',
 					label: 'Largest Institutional donor',
-					link: '',
-					imgUrl: '/img/2011/leeds-lending-team.jpg',
+					link: 'http://www.kiva.org/about/supportus/supporters/institutions',
+					imgUrl: '/img/2011/omidyar-network.jpg',
 					caption: 'Largest Institutional donor',
-					subject:  '$1 million',
+					subject:  '$1M',
 					description: 'Omidyar Network'
 				}
 				, {
 					name: 'highlight',
-					cssClass: 'g6 h2',
+					cssClass: 'g2 h3',
 					label: 'Largest Corporate donor',
-					link: '',
-					imgUrl: '/img/2011/leeds-lending-team.jpg',
+					link: 'http://www.kiva.org/about/supportus/supporters',
+					imgUrl: '/img/2011/visa.jpg',
 					caption: 'Largest Corporate donor',
-					subject:  '$1 million',
+					subject:  '$1M',
 					description: 'Visa'
 				}
 			    , {
@@ -1639,80 +1727,54 @@ new SectionProvider().save(
 			        , cssClass: ''
 			        , label: 'Avg donation during deposit'
 			        , imgUrl: '/img/2011/finances/donations-by-lend-amount.jpg'
-			        , dataset: [
-				        {
-					        label: ''
-					        , value: ''
-				        }
-					    , {
-					        label: ''
-					        , value: ''
-				        }
-					    , {
-					        label: ''
-					        , value: ''
-				        }
-					    , {
-					        label: ''
-					        , value: ''
-				        }
-					    , {
-					        label: ''
-					        , value: ''
-				        }
-			        ]
 		        }
 			    , {
 					name: 'dataGraph'
-			        , cssClass: 'g6 h3'
+			        , cssClass: 'g6 h2'
 			        , label: 'Valuable services donated to Kiva'
 			        , imgUrl: '/img/2011/finances/in-kind-services-donated.jpg'
-			        , dataset: [
-				        {
-					        label: ''
-					        , value: ''
-				        }
-					    , {
-					        label: ''
-					        , value: ''
-				        }
-					    , {
-							label: ''
-					        , value: ''
-				        }
-			        ]
 		        }
 				, {
 					name: 'percentageGraph'
 					, cssClass: 'g6 h1'
-					, label: 'Expense by department'
+					, label: 'Expenses by department'
 					, dataset: [
 						{
-							label: 'Engineering'
-							, value: '33%'
+						    label: 'Engineering'
+						    , value: '25%'
 						}
 						, {
-							label: 'Partner Investments'
-							, value: '29%'
+						    label: 'Portfolio Team'
+						    , value: '18%'
 						}
 						, {
-							label: 'Operations'
-							, value: '18%'
+						    label: 'Marketing'
+						    , value: '10%'
 						}
 						, {
-							label: 'Product'
-							, value: '10%'
+						    label: 'Product'
+						    , value: '8%'
 						}
 						, {
-							label: 'Partner Ops'
-							, value: '10%'
+							label: 'Other'
+						    , value: '39%'
 						}
-						, {
-							label: 'Marketing'
-							, value: '7%'
-						}
-				   ]
+					]
 				}
+
+			    , {
+			        name: 'dataGraph'
+			        , cssClass: 'g6 h2'
+			        , label: 'Avg donation when lending'
+			        , imgUrl: '/img/2011/finances/donations-by-lend-amount.jpg'
+		        }
+
+
+		        , {
+			        name: 'dataGraph'
+			        , cssClass: 'g9 h4'
+			        , imgUrl: '/img/2011/finances/balance-sheet.png'
+		        }
 			]
         }
     }
