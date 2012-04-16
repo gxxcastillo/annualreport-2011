@@ -70,7 +70,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SectionView']
 				// Immediately unblocking the waypoints seems to be too early and results in collisions with other navigation events
 				window.setTimeout(function () {
 					if (scrollTop != $sectionTitleBlock.data('isotope-item-position').y) {
-						$('html body').stop().animate({scrollTop: $sectionTitleBlock.data('isotope-item-position').y});
+						$('html, body').stop().animate({scrollTop: $sectionTitleBlock.data('isotope-item-position').y});
 					}
 
 					model.set('blockWaypointActivation', false);
