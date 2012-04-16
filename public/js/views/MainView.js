@@ -57,20 +57,20 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SectionView']
 		, scrollTo: function (sectionId) {
 			var model = this.model
 			, $sectionTitleBlock = $('#' + sectionId + ' .sectionTitleBlock')
-			, scrollTop = $sectionTitleBlock.offset().top - 10;
+			, scrollTop = $sectionTitleBlock.data('isotope-item-position').y;
 
 			model.set('blockWaypointActivation', true);
 
 			// We have to use the top position of the sectionTitle
 			// because section position values are not reliable when using jquery.isotope (sections have no height).
-			$('html body').stop().animate({scrollTop: scrollTop}, function() {
+			$('html, body').stop().animate({scrollTop: scrollTop}, function() {
 
 				// Add a slight delay, then re-adjust the scrollTop and un-blocking the waypoints
 				// We re-scroll in cases where the initial scroll position has changed since the initial render (due to animations)
 				// Immediately unblocking the waypoints seems to be too early and results in collisions with other navigation events
 				window.setTimeout(function () {
-					if (scrollTop != $sectionTitleBlock.offset().top - 10) {
-						$('html body').stop().animate({scrollTop: $sectionTitleBlock.offset().top - 10});
+					if (scrollTop != $sectionTitleBlock.data('isotope-item-position').y) {
+						$('html body').stop().animate({scrollTop: $sectionTitleBlock.data('isotope-item-position').y});
 					}
 
 					model.set('blockWaypointActivation', false);
@@ -94,6 +94,9 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SectionView']
 
 					// Only animate elements that match this selector
 					itemSelector: '.block:not(.block .block, .hoverBlock)'
+
+					// Needed to accurately get positioning of the blocks (http://isotope.metafizzy.co/docs/options.html#itempositiondataenabled)
+					, itemPositionDataEnabled: true
 
 					// We only want animations for browsers that support css transforms
 					, animationEngine: 'css'
