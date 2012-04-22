@@ -1,5 +1,5 @@
-define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 'text!templates/blockView.sectionTitle.hogan', 'text!templates/blockView.text.hogan', 'text!templates/blockView.profile.hogan', 'text!templates/blockView.highlight.hogan', 'text!templates/blockView.dataGraph.hogan', 'text!templates/blockView.percentageGraph.hogan', 'text!templates/blockView.map.hogan', 'text!templates/blockView.wrapper.hogan', 'text!templates/blockView.spBadge.hogan']
-, function (Backbone, dv, hogan, dataMetricTpl, sectionTitleTpl, textTpl, profileTpl, highlightTpl, dataGraphTpl, percentageGraphTpl, mapTpl, wrapperTpl, spBadgeTpl) {
+define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 'text!templates/blockView.sectionTitle.hogan', 'text!templates/blockView.text.hogan', 'text!templates/blockView.profile.hogan', 'text!templates/blockView.highlight.hogan', 'text!templates/blockView.dataGraph.hogan', 'text!templates/blockView.percentageGraph.hogan', 'text!templates/blockView.map.hogan', 'text!templates/blockView.wrapper.hogan', 'text!templates/blockView.spBadge.hogan']
+, function ($, _, Backbone, dv, hogan, dataMetricTpl, sectionTitleTpl, textTpl, profileTpl, highlightTpl, dataGraphTpl, percentageGraphTpl, mapTpl, wrapperTpl, spBadgeTpl) {
 
 	function getSectionTitleData(viewData) {
 		return {
@@ -46,7 +46,7 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 			, bv2: viewData.unit
 			, bv3: viewData.label
 			, caption: viewData.caption
-		}
+		};
 	}
 
 
@@ -121,6 +121,22 @@ define(['backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 
 
 
 	function getPercentageGraphData(viewData) {
+		var total = 0;
+		if (viewData.dataset[0].value.indexOf('%') < 0) {
+			_.each(viewData.dataset, function (data) {
+				total += parseInt(data.value, 10);
+			});
+
+			_.each(viewData.dataset, function (data, i) {
+				viewData.dataset[i].width = Math.floor((data.value / total) * 100) + '%';
+				console.log(data.value, total, viewData.dataset[i].width);
+			});
+		} else {
+			_.each(viewData.dataset, function (data, i) {
+				viewData.dataset[i].width = viewData.dataset[i].value;
+			});
+		}
+
 		return viewData;
 	}
 
