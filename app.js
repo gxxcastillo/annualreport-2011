@@ -8,9 +8,6 @@ var express = require('express')
 
 	, logFile;
 
-// Now that we have an app, we can call our router
-require('./routes/router');
-
 // Configure the server
 app.configure(function () {
 	app.set('basedir', __dirname);
@@ -21,12 +18,15 @@ app.configure(function () {
 
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
-	app.use(app.router);
 	app.use(express.static(__dirname + '/public'));
+	app.use(express.favicon());
 
 	// Use the 'hoganAdapter' for rendering '.hogan' files
 	app.register('hogan', require('./lib/hoganAdapter.js'));
 });
+
+// Instatiate the routes (after express.favicon() to avoid routing conflicts)
+require('./routes/router');
 
 app.configure('development', function () {
 	logFile = fs.createWriteStream('/var/log/express/annualreport.log', {flags: 'a'});
