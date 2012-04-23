@@ -1,7 +1,12 @@
 // Use express
 var express = require('express')
+
+	, fs = require('fs')
+
     // Instantiate our app/server
-    , app = module.exports = express.createServer();
+    , app = module.exports = express.createServer()
+
+	, logFile;
 
 // Now that we have an app, we can call our router
 require('./routes/router');
@@ -24,11 +29,15 @@ app.configure(function () {
 });
 
 app.configure('development', function () {
-  app.use(express.errorHandler({dumpExceptions: true, showStack: true}));
+	logFile = fs.createWriteStream('/var/log/express/annualreport.log', {flags: 'a'});
+	app.use(express.logger({stream: logFile}));
+	app.use(express.errorHandler({dumpExceptions: true, showStack: true}));
 });
 
 app.configure('production', function () {
-  app.use(express.errorHandler());
+	logFile = fs.createWriteStream('/var/log/express/annualreport.log', {flags: 'a'});
+	app.use(express.logger({stream: logFile}));
+    app.use(express.errorHandler());
 });
 
 app.listen(80);
