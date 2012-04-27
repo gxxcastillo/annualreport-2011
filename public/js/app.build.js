@@ -1,5 +1,14 @@
-require.config({
-    baseUrl: '/js'
+/**
+ * To build:
+ * r.js -o path/to/app.build.js
+ *
+ * See an example here:
+ * https://github.com/jrburke/r.js/blob/master/build/example.build.js
+ */
+({
+	appDir: '../'
+    , baseUrl: 'js'
+	, mainConfigFile: 'main.js'
 	, paths: {
 		// 3rd party dependancies
 		'order': 'lib/order'                        // For manually specifying loading order.  http://requirejs.org/docs/api.html#order
@@ -31,27 +40,19 @@ require.config({
 		, 'SectionView': 'views/SectionView'
 		, 'BlockView': 'views/BlockView'
 	}
-});
 
-require(['order!jquery', 'underscore', 'backbone', 'dv', 'Router', 'AppModel', 'AppView', 'order!jquery.isotope', 'order!jquery.waypoints', 'order!jquery.colorbox']
-, function ($, _, Backbone, dv, Router, AppModel, AppView) {
+	, dir: '../../public_build'
 
-	var
-	// Model
-	appModel = new AppModel
+	// This is the default, just making it explicit
+	, optimize: 'uglify'
+	, inlineText: true
+	, useStrict: true
 
-	// View
-	, appView = new AppView({model: appModel})
-
-	// Controller
-	, router = new Router({appModel: appModel, appView: appView});
-
-	/*
-	// For testing only
-	window.dvTesting = {
-		annualReport: annualReport
-		, router: router
-		, layoutView: layoutView
-	};
-	*/
-});
+	// Should we namespace?
+	//, namespace: 'kv'
+	, modules: [
+		{
+			name: 'main'
+		}
+    ]
+})
