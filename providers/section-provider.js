@@ -1361,7 +1361,7 @@ new SectionProvider().save(
 				}
 				, {
 					name: 'highlight'
-					, cssClass: 'g3 h3'
+					, cssClass: 'g3 h4'
 					, label: 'Free Trials'
 					, link: 'http://www.kiva.org/updates/kiva/2011/08/03/thank-you-for-helping-kiva-branch-out.html'
 					, imgUrl: '/img/2011/free-trials.jpg'
