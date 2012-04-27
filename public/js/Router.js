@@ -31,7 +31,7 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 		 * @params {String} sectionId
 		 */
 		, showSection: function (sectionId) {
-			this.sections.setActiveById('borrowers', 'route');
+			this.sections.setActiveById('letter', 'route');
 		}
 
 
