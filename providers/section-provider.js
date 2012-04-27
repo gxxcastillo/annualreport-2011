@@ -68,9 +68,25 @@ SectionProvider.prototype.save = function (sectionItems, callback) {
 
 new SectionProvider().save(
     {
-	    borrowers : {
+	    letter: {
+		    id: 'letter'
+		    , order: 1
+		    , blocks: [
+			    {
+				    name: 'sectionTitle'
+					, cssClass: 'g9 h1'
+					, title: 'Letter'
+			    }
+				, {
+				    name: 'text'
+				    , cssClass: 'g9 h6'
+				    , value: 'aldjfalkdflakjdsflkaj'
+			    }
+		    ]
+	    }
+	    , borrowers : {
 	        id: 'borrowers'
-	        , order: 1
+	        , order: 2
 	        , blocks: [
 				{
 		            name: 'sectionTitle'
@@ -344,7 +360,7 @@ new SectionProvider().save(
 	    }
 		, lenders: {
 	        id: 'lenders'
-	        , order: 2
+	        , order: 3
 	        , blocks: [
 		        {
 		            name: 'sectionTitle'
