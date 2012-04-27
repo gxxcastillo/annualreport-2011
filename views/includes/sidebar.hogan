@@ -1,6 +1,6 @@
 <div id="sidebar" class="sidebar">
 	<hgroup class="siteHeader">
-		<h1 class="kivaLogo"><a href="#">Kiva 2011</a></h1>
+		<h1 class="kivaLogo"><a href="#"><img src="/img/kiva-logo.png" /></a></h1>
 		<h2 class="documentTitle">Annual Report</h2>
 	</hgroup>
 
@@ -10,7 +10,7 @@
 
 		<ul>
 			{{#sectionList}}
-				<li class="{{classname}}"><a href="{{id}}" class="nav-{{id}} c6 fMS fS6">{{title}}</a></li>
+				<li class="{{classname}}"><a href="{{id}}" class="nav-{{id}} c6 fMS">{{title}}</a></li>
 			{{/sectionList}}
 		</ul>
 	</nav>
@@ -22,6 +22,6 @@
 			<p>Consider a donation</p>
 		</div>
 		{{! @todo use Kiva's public API to build a donation lightbox }}
-		<a href="http://www.kiva.org/about/supportus/individual#topleft" target="_blank" class="button c2a donate">Donate</a>
+		<a href="http://www.kiva.org/about/supportus/individual#topleft" target="_blank" class="button c2a donate">Please Donate Now</a>
 	</div>
 </div>

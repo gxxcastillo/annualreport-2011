@@ -80,7 +80,7 @@ new SectionProvider().save(
 		        , {
 		            name: 'dataMetric'
 		            , cssClass: 'g4 h1'
-		            , label: 'Money Borrowed'
+		            , label: 'Total Borrowed'
 		            , caption: ':up: vs 2010 $71,096,550'
 		            , value: '$89,481,825'
 		        }
@@ -89,7 +89,7 @@ new SectionProvider().save(
 		           cssClass: 'g2 h1',
 		           value: '$399',
 		           label: 'avg loan size',
-		           caption: ':up: vs. 2010 $350'
+		           caption: ':up: vs 2010 $350'
 		       }
 		        , {
 		            name: 'dataMetric'
@@ -106,7 +106,7 @@ new SectionProvider().save(
 		            , imgUrl: '/img/2011/agneta.jpg'
 		            , caption: 'The Butterfly Hunter'
 		            , subject:  'Agneta'
-		            , description: ''
+		            , description: 'Tiribe, Kenya'
 		        }
 		        , {
 		            name: 'dataGraph'
@@ -285,34 +285,38 @@ new SectionProvider().save(
 			    , {
 		           name: 'dataMetric',
 		           cssClass: 'g3 h1',
-		           value: '1638',
+		           value: '1,504',
 		           label: 'Total defaults',
-		           caption: ':down: vs. 2010 3342'
+		           caption: ':up: vs 2010 957'
 		       }
 		        , {
 		            name: 'dataMetric',
 		            cssClass: 'g3 h1',
 		            value: '1.09%',
-		            label: 'Avg default rate',
-		            caption: ':up: vs. 2010 1.08%'
+		            label: 'Cumulative default rate',
+		            caption: ':up: vs 2010 1.08%'
 		        }
 			    , {
 		           name: 'percentageGraph',
 		           cssClass: 'g6 h1',
-		           label: 'expired loans by activity',
+		           label: 'expired loans by sector',
 		           dataset: [
-		               {
-		                label: 'Retail',
-		                value: '36'
-		            },
-		            {
-		                label: 'Housing',
-		                value: '25'
-		            },
-		            {
-		                label: 'Services',
-		                value: '12'
-		            }
+						{
+							label: 'Food'
+							, value: '10'
+						},
+						{
+							label: 'Retail'
+							, value: '8'
+						},
+						{
+							label: 'Clothing'
+							, value: '5'
+						}
+			            , {
+							label: 'Other'
+							, value: '3'
+						}
 		           ]
 		       }
 
@@ -351,25 +355,21 @@ new SectionProvider().save(
 		            name: 'dataMetric'
 		            , cssClass: 'g3 h1'
 		            , label: 'Active Lenders'
-		            , caption: ':up: vs. 2010 370,837'
+		            , caption: ':up: vs 2010 370,837'
 		            , value: '457,739'
+		        }
+			    , {
+			        name: 'dataMetric'
+			        , cssClass: 'g3 h1'
+			        , label: 'Lent per minute'
+			        , value: '$171'
 		        }
 		        , {
 		            name: 'dataMetric',
 		            cssClass: 'g3 h1',
 		            label: 'Lending Teams',
-		            caption: ':up: vs. 2010 10,578',
+		            caption: ':up: vs 2010 10,578',
 		            value: '12,783'
-		        }
-		        , {
-		            name: 'highlight'
-		            , cssClass: 'g3 h3'
-		            , label: 'Most dollars lent'
-		            , link: 'http://www.kiva.org/lender/gooddogg1'
-		            , imgUrl: '/img/2011/good-dogg.jpg'
-			        , caption: 'Most prolific lender'
-		            , description: 'Lending since June 2007'
-		            , subject:  'Good Dogg'
 		        }
 		        , {
 					name: 'dataGraph'
@@ -399,12 +399,16 @@ new SectionProvider().save(
 						}
 			          ]
 			      }
-		    , {
-		        name: 'dataMetric'
-		        , cssClass: 'g3 h1'
-		        , label: 'Lent per minute'
-		        , value: '$169'
-	        }
+			    , {
+					name: 'highlight'
+					, cssClass: 'g3 h3'
+					, label: 'Most dollars lent'
+					, link: 'http://www.kiva.org/lender/gooddogg1'
+					, imgUrl: '/img/2011/good-dogg.jpg'
+					, caption: 'Top lender'
+					, description: 'Lending since June 2007'
+					, subject:  'Good Dogg'
+				}
 			    , {
 			        name: 'wrapper'
 			        , cssClass: 'g9 h3'
@@ -431,9 +435,9 @@ new SectionProvider().save(
 			        ]
 			    }
 			    , {
-			        name: 'dataGraph'
+			        name: 'map'
 			        , cssClass: 'g9 h7'
-			        , label: 'Top lending by city (per capita)'
+			        , label: 'Top lending by city'
 			        , imgUrl: '/img/2011/lenders/lending-by-city.png'
 		        }
 		        , {
@@ -456,33 +460,14 @@ new SectionProvider().save(
 						}
 			        , singIt: true
 					, imgUrl: '/img/2011/project-for-awsome.jpg'
-					, caption: 'Paige l finch project for awesome'
-					, subject:  ''
-					, description: 'Your just a girl living in the USA how can you finance someone down in Paraguay?'
+					, caption: 'Paige L. Finch project for awesome'
+					, description: 'You\'re just a girl living in the USA, how can you finance someone down in Paraguay?'
 				}
 				, {
 					name: 'dataGraph'
 					, cssClass: 'g6 h3'
 					, label: 'Losses incurred by Lenders by Country'
 					, imgUrl: '/img/2011/lenders/amount-of-losses-experienced-by-lenders.png'
-					, dataset: [
-						{
-						   label: 'farming'
-						   , value: '0'
-						}
-						, {
-						   label: 'transportation'
-						   , value: '0'
-						}
-						, {
-						   label: 'mexxxx'
-						   , value: '0'
-						}
-						, {
-						   label: 'texxxx'
-						   , value: '0'
-						}
-					]
 				}
 				, {
 				    name: 'highlight',
@@ -509,27 +494,27 @@ new SectionProvider().save(
 					name: 'dataMetric',
 					cssClass: 'g4 h1',
 					label: 'Dollar amount posted by partners',
-					caption: ':up: vs. 2010 $74,236,575',
+					caption: ':up: vs 2010 $74,236,575',
 					value: '$94,134,925'
 				}
 				, {
 					name: 'dataMetric',
 					cssClass: 'g2 h1',
 					label: 'New field partners',
-					caption: ':down: vs. 2010 27',
+					caption: ':down: vs 2010 27',
 					value: '26'
 				}
 				, {
 				    name: 'dataMetric',
 				    cssClass: 'g3 h1',
 				    label: 'Countries with an MFI partner',
-				    caption: ':up: vs. 2010 54',
+				    caption: ':up: vs 2010 54',
 				    value: '57'
 				}
 				, {
 					name: 'dataMetric'
 					, cssClass: 'g6 h1'
-					, label: 'Field Partners that Kiva performed due diligence on'
+					, label: 'Field Partners that received Kiva due diligence.'
 					, caption: ':up: vs 2010 25'
 					, value: '44'
 				}
@@ -567,7 +552,7 @@ new SectionProvider().save(
 		            name: 'spBadge'
 		            , label: 'social performance'
 		            , cssClass: 'g6 h3'
-		            , description: 'Different organizations have different social performance strengths. in 2011 Kiva introduced seven <a href="http://www.kiva.org/about/socialperformance" target="_blank">Social Performance Badges</a> to recognize partners with a demonstrated commitment to one or more of these areas.'
+		            , description: 'Some Field Partners support clients with social services beyond loans. In 2011, Kiva introduced seven Social Peformance badges to identify partners that deliver services in one or more of these areas:'
 			        , spBadges: [
 				        {
 		                    id: 'entrepreneurial'
@@ -575,15 +560,15 @@ new SectionProvider().save(
 						}
 				        , {
 	                        id: 'vulnerableGroup'
-	                        , name: 'Vulnerable group focus'
+	                        , name: 'Vulnerable Group Focus'
 	                    }
 				        , {
 	                        id: 'empowerment'
-	                        , name: 'Family and community empowerment'
+	                        , name: 'Family and Community Empowerment'
 	                    }
 				        , {
 	                        id: 'facilitateSavings'
-	                        , name: 'Facilitation of savings'
+	                        , name: 'Facilitation of Savings'
 	                    }
 				        , {
 	                        id: 'innovation'
@@ -591,11 +576,11 @@ new SectionProvider().save(
 	                    }
 				        , {
 	                        id: 'clientVoice'
-	                        , name: 'Client voice'
+	                        , name: 'Client Voice'
 	                    }
 					    , {
 							id: 'antipoverty'
-							, name: 'Anti-poverty focus'
+							, name: 'Anti-poverty Focus'
 				        }
 		            ]
 		        }
@@ -605,7 +590,7 @@ new SectionProvider().save(
 					, link: 'http://www.kiva.org/updates/kiva/2011/10/18/please-join-us-in-welcoming-one-acre.html'
 					, imgUrl: '/img/2011/one-acre-fund-first-non-traditional-partner.jpg'
 					, caption: 'Jun 29, 2011'
-					, subject:  'First non-traditional partner'
+					, subject:  'First non-MFI partner'
 			        , description: 'Learn more'
 				}
 		        , {
@@ -704,30 +689,30 @@ new SectionProvider().save(
 		        , {
 		            name: 'dataMetric'
 		            , cssClass: 'g6 h1'
-		            , label: 'Different languages partners used to post loans'
+		            , label: 'Languages partners used to post loans'
 		            , caption: ':same: vs 2010 6'
 		            , value: '6'
 		        }
 			    , {
 					name: 'dataMetric'
 					, cssClass: 'g3 h1'
-					, label: 'disolved partnerships'
+					, label: 'Dissolved Partnerships'
 					, caption: {
 						text : 'Why do partnerships end?'
-						, lightbox : 'Partnerships at Kiva dissolve for a variety of reasons. In some cases, Kiva discovers an issue with the field partners, either financial or operational that force us to have to wind down the partnership in an attempt to protect lenders from funding organizations in precarious situations. In other cases, the partner chooses to end its relationship with Kiva. This can happen for a variety of reasons: the partner may have found other sources of capital that better fit their needs, or they find the operational work with Kiva too onerous for their organization. In some cases, factors outside of both Kiva and the partner cause a partnership dissolution, such as an issue in a given country, for example a regulatory change, that prevents capital from flowing freely between Kiva and the organization.'
+						, lightbox : 'Partnerships at Kiva dissolve for a variety of reasons. In some cases, Kiva discovers an issue with a partner, either financial or operational, and needs to protect lenders from increased risk or default. In other cases, a partner may choose to end its relationship with Kiva. For example, this happens when partners find other sources of capital that better fit their needs. External factors can also lead to partnership dissolution, including local conflicts or changes to financial regulations.'
 					}
 					, value: '5'
 	            }
 		        , {
 		            name: 'text'
 		            , cssClass: 'g4 h4'
-		            , value: ['English', 'Spanish', 'French', 'Russian', 'Portugues', 'Arabic']
-		            , label: 'Languages loans are posted in'
+		            , value: ['English', 'Spanish', 'French', 'Russian', 'Portuguese', 'Arabic']
+		            , label: 'Languages of posted loans'
 		        }
 			    , {
 					name: 'percentageGraph'
 					, cssClass: 'g5 h1'
-					, label: 'Reasons for partnership dissolution (breakdown)'
+					, label: 'Reasons for partnership dissolution'
 					, dataset: [
 						{
 						   label: 'Credit problems'
@@ -746,7 +731,7 @@ new SectionProvider().save(
 		        , {
 		            name: 'text'
 		            , cssClass: 'g5 h3'
-			        , label: 'Partnerships in new countries (where Kiva began lending in 2011)'
+			        , label: 'Partnerships in new countries (added in 2011)'
 		            , value: [
 			            {
 			                'sprite': {name: 'f32', id: 'bf'}
@@ -815,28 +800,28 @@ new SectionProvider().save(
 		        {
 		            name: 'sectionTitle'
 		            , cssClass: 'g9 h1'
-		            , title: 'Web site'
+		            , title: 'Website'
 		        }
 		        , {
 		            name: 'dataMetric'
 		            , cssClass: 'g3 h1'
 		            , label: 'Avg Daily Visits'
-		            , caption: ':down: vs. 2010 56,452'
+		            , caption: ':down: vs 2010 56,452'
 		            , value: '49,572'
 		        }
 		        ,{
 		            name: 'dataMetric'
 		            , cssClass: 'g3 h1'
-		            , label: 'Avg Time on Site'
-		            , caption: ':up: vs. 2010 2:35:00'
+		            , label: 'Avg time spent on site'
+		            , caption: ':up: vs 2010 2:35:00'
 		            , value: '3:42:00'
 		        }
 			    ,{
 			          name: 'dataMetric'
 			          , cssClass: 'g3 h1'
 			          , label: 'Avg monthly transactions'
-			          , caption: ':up: vs. 2010 124,161'
-			          , value: '159,839'
+			          , caption: ':up: vs 2010 124,431'
+			          , value: '160,341'
 			      }
 				, {
 					name: 'text'
@@ -851,14 +836,14 @@ new SectionProvider().save(
 			        , imgUrl: '/img/2011/website/web-traffic.png'
 		        }
 				, {
-					name: 'highlight',
-					cssClass: 'g3 h4',
-					label: 'Kiva Zip',
-					link: 'https://zip.kiva.org/learn',
-					imgUrl: '/img/2011/kiva-zip.jpg',
-					caption: 'Nov 1, 2011',
-					subject:  'Kiva Zip',
-					description: 'A pilot, exploring new approaches in P-to-P lending, including electronic & mobile payments.'
+					name: 'highlight'
+					, cssClass: 'g3 h4'
+					, label: 'Kiva Zip'
+					, link: 'https://zip.kiva.org/learn'
+					, imgUrl: '/img/2011/kiva-zip.jpg'
+					, caption: 'Nov 1, 2011'
+					, subject:  'Kiva Zip'
+					, description: 'Pilot project exploring approaches to P2P lending, including electronic & mobile payments.'
 				}
 				, {
 					name: 'highlight'
@@ -868,7 +853,7 @@ new SectionProvider().save(
 					, imgUrl: '/img/2011/website-redesign.jpg'
 					, caption: 'mar 8, 2011'
 					, subject:  'Redesign'
-					, description: 'After more than 5 years, Kiva launches its first redesign'
+					, description: 'After more than 5 years, Kiva launches its first redesign.'
 				}
 				, {
 					name: 'highlight'
@@ -876,7 +861,7 @@ new SectionProvider().save(
 					, label: 'Borrower stories'
 					, link: '#'
 					, imgUrl: ['/img/2011/green-loans.jpg']
-					, caption: 'March 1, 2011'
+					, caption: 'Mar 1, 2011'
 					, subject:  'Green Loans'
 					, description: 'Mark Omondi Siaya, Kenya'
 				}
@@ -918,7 +903,7 @@ new SectionProvider().save(
 					, cssClass: 'g3 h2'
 					, label: 'Day with the highest avg loan volume'
 					, value: '15th of each month'
-					, caption: 'Repayments posting to lenders accounts'
+					, caption: 'Because repayments post to lenders accounts'
 				}
 				,{
 					name: 'dataMetric'
@@ -927,7 +912,7 @@ new SectionProvider().save(
 					, value: 'Can I get a loan for my business?'
 					, caption: {
 						text: 'Well, can I?'
-						, 'lightbox' : 'Kiva does not process loan applications, but if you would like to apply for a loan, you can contact the Kiva Field Partner (microfinance institution) in your local area. A list of Kiva\'s Field Partners can be found on the Field Partners page.'
+						, 'lightbox' : 'Kiva does not process loan applications. If you would like to apply for a loan, you can contact the Kiva Field Partner in your local area. A list of Field Partners can be found here. If you are not located near a partner, try the Mix Market [link], which lists more microfinance institutions.'
 				    }
 				}
 				, {
@@ -941,14 +926,14 @@ new SectionProvider().save(
 					name: 'dataMetric'
 					, cssClass: 'g2 h2'
 					, label: 'Avg time for volunteers to review & translate a loan for posting'
-					, caption: ':down: vs. 2010 2.16 days'
-					, value: '3.93 days'
+					, caption: ':down: vs 2010 2.16 days'
+					, value: '3.9 days'
 				}
 				,{
 					name: 'dataMetric'
 					, cssClass: 'g6 h1'
 					, label: 'Code Commits by Kiva engineers to version control'
-					, caption: ':up: vs. 2010 10,651'
+					, caption: ':up: vs 2010 10,651'
 					, value: '13,612'
 				}
 				, {
@@ -964,7 +949,7 @@ new SectionProvider().save(
 					, value: 'Partner data missing from loan page'
 					, caption: {
 						text: 'Why’d it matter?'
-						, lightbox: 'During a brief period on August 23rd and 24th, Kiva experienced a system-wide issue that caused some information relating to your loan(s) to be inaccurately displayed. More specifically, statistics relating to your loan\'s Field Partner did not properly appear on the site, including default, delinquency and currency loss rates. we want to make sure that you are fully aware of the issue, as it is very important to us that our lenders be able to make informed lending decisions. Due to the system-wide error, you did not have access to all of the information we normally provide our lenders. We truly regret any inconvenience this may have caused you. '
+						, lightbox: 'Last year, Kiva had a bug that removed information about Field Partners from loan pages. Affected loans were refunded, and CEO Matt Flannery sent the following letter to impacted lenders explaining why partner info is so critical to the Kiva lending process:" Then delete "Dear Ian," and just start with the first line of the letter.'
 					}
 				}
 	        ]
@@ -986,13 +971,12 @@ new SectionProvider().save(
 		            , imgUrl: '/img/2011/board-trip.jpg'
 		            , caption: 'Lima, Peru'
 		            , subject:  'Board Trip'
-		            , description: 'Field visit for Kiva’s board give a first hand, on-the-ground perspective to the work.'
+		            , description: 'Field visit gave Kiva\'s board a first-hand, on-the-ground perspective on microfinance.'
 		        }
 				, {
 		            name: 'highlight'
 		            , cssClass: 'g3 h3'
-		            , label: 'New office'
-		            , link: ''
+		            , label: 'New Office'
 		            , imgUrl: '/img/2011/new-office.jpg'
 		            , caption: 'Kiva Headquarters'
 		            , subject:  'New office'
@@ -1002,14 +986,14 @@ new SectionProvider().save(
 		            name: 'dataMetric'
 		            , cssClass: 'g3 h1'
 		            , label: 'Full time employees'
-		            , caption: ':up: vs. 2010 55'
+		            , caption: ':up: vs 2010 55'
 		            , value: '83'
 		        }
 			    , {
 					name: 'dataMetric'
 					, cssClass: 'g3 h1'
 					, label: 'Avg Employee Age'
-					, caption: ':up: vs. 2010 32.3'
+					, caption: ':up: vs 2010 32.3'
 					, value: '32.7'
 				}
 				, {
@@ -1030,7 +1014,7 @@ new SectionProvider().save(
 		            , label: 'Functions of full time staff'
 		            , dataset: [
 		                {
-			                label: 'engineering'
+			                label: 'Engineering'
 			                , value: '31%'
 			            }
 			            , {
@@ -1059,7 +1043,6 @@ new SectionProvider().save(
 		            name: 'dataMetric'
 		            , cssClass: 'g6 h1'
 		            , label: 'Most common job title of new hires'
-		            , caption: 'Software engineer in 2010'
 		            , value: 'Software engineer'
 		        }
 				, {
@@ -1081,8 +1064,7 @@ new SectionProvider().save(
 				, {
 					name: 'dataMetric'
 					, cssClass: 'g4 h1'
-					, label: 'Dogs allowed in office at one time'
-					, caption: 'Unlimited in previous years'
+					, label: 'Dogs in office at any one time'
 					, value: '3'
 				}
 				, {
@@ -1110,18 +1092,18 @@ new SectionProvider().save(
 					name: 'text',
 					cssClass: 'g3 h2',
 					label: 'Interested in joining Kiva?',
-					value: 'Kiva is organized around the ability to engage the talent of exceptional, passionate people. You can work with Kiva in a number of ways: <a href="http://www.kiva.org/jobs" target="_blank">As an employee</a> or <a href="http://www.kiva.org/volunteer#localOpp" target="_blank">volunteer in San Francisco</a> or <a href="http://www.kiva.org/volunteer#remoteOpp" target="_blank">from home</a>, or as a <a href="http://www.kiva.org/fellows" target="_blank">fellow in the field</a>'
+					value: 'Kiva is organized around the ability to engage the talent of exceptional, passionate people. You can work with Kiva in a number of ways: <a href="http://www.kiva.org/jobs" target="_blank">As an employee</a> or <a href="http://www.kiva.org/volunteer#localOpp" target="_blank">volunteer in San Francisco</a> or <a href="http://www.kiva.org/volunteer#remoteOpp" target="_blank">from home</a>, or as a <a href="http://www.kiva.org/fellows" target="_blank">fellow in the field</a>.'
 	            }
 				, {
 				    name: 'dataMetric'
 				    , cssClass: 'g6 h1'
 				    , label: 'staff holding advanced degrees (MA, MS, JD, or PHD)'
-				    , value: '38%'
+				    , value: '39%'
 				}
 				, {
 					name: 'dataMetric'
 					, cssClass: 'g3 h1'
-					, label: 'Avg. number of interns'
+					, label: 'Avg number of interns'
 					, value: '~40'
 				}
 
@@ -1130,9 +1112,9 @@ new SectionProvider().save(
 						    cssClass: 'g5 h3',
 						    label: 'Volunteer Activity',
 						    imgUrl: '/img/2011/tree-planting.jpg',
-						    caption: 'Volunteer Activity, October 11, 2011',
-						    subject:  'Tree planting',
-						    description: 'Volunteer gardening to beautify Golden Gate Park in honor of Kiva\'s 6th Birthday.'
+						    caption: 'Volunteer Activity, Oct 11, 2011',
+						    subject:  'Tree Planting',
+						    description: 'Volunteer gardening to beautify Golden Gate Park in honor of Kiva\'s 6th birthday.'
 						}
 		    , {
 		        name: 'dataGraph'
@@ -1164,27 +1146,9 @@ new SectionProvider().save(
 	        }
 		    , {
 			    name: 'dataGraph'
-			    , cssClass: 'g4 h3'
+			    , cssClass: 'g3 h3'
 			    , label: 'Volunteer hours by Kiva staff at outside organizations'
 			    , imgUrl: '/img/2011/ecosystem/employee-volunteer-hours.png'
-			    , dataset: [
-			        {
-				        label: '4'
-				        , value: '45%'
-			        }
-					, {
-				        label: '40'
-				        , value: '18%'
-			        }
-				    , {
-				        label: '80'
-				        , value: '16%'
-			        }
-				    , {
-				        label: '160 +'
-				        , value: '6%'
-			        }
-			    ]
 			}
 		    , {
 							name: 'text'
@@ -1237,14 +1201,14 @@ new SectionProvider().save(
 					  , subject:  'Microcredit fair in Nepal'
 					}
 				    , {
-						name: 'highlight',
-						cssClass: 'g3 h3',
-						label: 'going green',
-						link: 'http://fellowsblog.kiva.org/2011/10/20/going-green-overcoming-cultural-barriers-to-promote-green-loans-part-1/',
-						imgUrl: '/img/2011/going-green-nairobi.jpg',
-						caption: 'Traffic in Nairobi, Kenya',
-						subject:  'Going green',
-						description: 'Overcoming Cultural Barriers to Promote Green Loans'
+						name: 'highlight'
+						, cssClass: 'g3 h3'
+						, label: 'going green'
+						, link: 'http://fellowsblog.kiva.org/2011/10/20/going-green-overcoming-cultural-barriers-to-promote-green-loans-part-1/'
+						, imgUrl: '/img/2011/going-green-nairobi.jpg'
+						, caption: 'Traffic in Nairobi, Kenya'
+						, subject:  'Going Green'
+						, description: 'Overcoming cultural barriers to promote green loans.'
 					}
 					, {
 						name: 'highlight'
@@ -1259,19 +1223,18 @@ new SectionProvider().save(
 						name: 'text'
 						, label: 'Kiva Fellows'
 						, cssClass: 'g4 h2'
-						, value: '<p>Kiva\'s Fellows program places individuals in different countries around the globe.</p><p>Fellows become the eyes and ears on the ground working directly with Kiva’s field partners. The program is an unpaid, volunteer position designed to increase Kiva\'s impact and to offer participants a unique insider experience. <a href="#">Learn more</a></p>'
+				        , value: '<p>The Kiva Fellows program places talented individuals with our Field Partners around the globe.</p><p>Fellows volunteer to work closely with our partners, maximizing efficiency and impact. <a href="http://www.kiva.org/fellows">Learn more</a>.</p>'
 					}
 				    , {
-						name: 'highlight',
-						cssClass: 'g5 h4',
-						label: 'Haiti',
-						link: 'http://fellowsblog.kiva.org/2011/01/24/loans-in-the-time-of-cholera-in-haiti/',
-						imgUrl: '/img/2011/loans-in-cholera-haitit.jpg',
-						caption: 'Haitian loan officer interviewing a Kiva borrower',
-						subject:  'Loans In The Time Of Cholera',
-						description: 'As international news stations broadcast Haiti’s misery, my own picture will be one of a fun-loving, joyous nation'
+						name: 'highlight'
+						, cssClass: 'g5 h4'
+						, label: 'Haiti'
+						, link: 'http://fellowsblog.kiva.org/2011/01/24/loans-in-the-time-of-cholera-in-haiti/'
+						, imgUrl: '/img/2011/loans-in-cholera-haitit.jpg'
+						, caption: 'Haitian loan officer interviewing a Kiva borrower'
+						, subject:  'Loans In The Time Of Cholera'
+						, description: '"As international news stations broadcast Haiti’s misery, my own picture will be one of a fun-loving, joyous nation."'
 					}
-
 				    , {
 			            name: 'dataMetric'
 			            , cssClass: 'g4 h1'
@@ -1294,7 +1257,7 @@ new SectionProvider().save(
 				    , {
 						name: 'dataMetric'
 						, cssClass: 'g3 h1'
-						, label: 'Kiva Fellows\' blog posts'
+						, label: 'Kiva Fellows blog posts'
 						, value: '397'
 					}
 				    , {
@@ -1311,23 +1274,23 @@ new SectionProvider().save(
 						, value: 'Two broken wrists'
 					}
 					, {
-						name: 'highlight',
-						cssClass: 'g3 h4',
-						label: 'going green',
-						link: 'http://fellowsblog.kiva.org/2011/12/30/60-tips-from-kiva-fellows/',
-						imgUrl: '/img/2011/tips-from-a-fellow.jpg',
-						subject:  'Tips from a fellow',
-						description: 'Sit in a park/plaza by yourself…someone will sit next to you.'
+						name: 'highlight'
+						, cssClass: 'g3 h4'
+						, label: 'going green'
+						, link: 'http://fellowsblog.kiva.org/2011/12/30/60-tips-from-kiva-fellows/'
+						, imgUrl: '/img/2011/tips-from-a-fellow.jpg'
+						, subject:  'Tips from a Fellow'
+						, description: 'Sit in a park/plaza by yourself…someone will sit next to you.'
 					}
 					, {
-						name: 'highlight',
-						cssClass: 'g6 h4',
-						label: 'Costa Rica',
-						link: 'http://fellowsblog.kiva.org/2011/11/18/village-banks-by-farmers-for-farmers-a-micro-credit-labor-of-love/',
-						imgUrl: '/img/2011/microcredit-labor-of-love.jpg',
-						caption: 'Costa Rica',
-						subject:  'A Microcredit Labor of Love',
-						description: 'Chief Loan Officer Geiner Gonzáles Marín, often leads the trek into plunging valleys or up steep mountains, with unceasing enthusiasm.'
+						name: 'highlight'
+						, cssClass: 'g6 h4'
+						, label: 'Costa Rica'
+						, link: 'http://fellowsblog.kiva.org/2011/11/18/village-banks-by-farmers-for-farmers-a-micro-credit-labor-of-love/'
+						, imgUrl: '/img/2011/microcredit-labor-of-love.jpg'
+						, caption: 'Costa Rica'
+						, subject:  'A Microcredit Labor of Love'
+						, description: 'Chief Loan Officer Geiner Gonzáles Marín often leads the trek into plunging valleys or up steep mountains with unceasing enthusiasm.'
 					}
 			]
 		}
@@ -1340,9 +1303,6 @@ new SectionProvider().save(
 				  , cssClass: 'g9 h1'
 				  , title: 'Press & Promotions'
 				}
-
-
-
 				, {
 					name: 'highlight'
 					, cssClass: 'g6  h3'
@@ -1351,63 +1311,54 @@ new SectionProvider().save(
 					, imgUrl: '/img/2011/the-economist-innovation-award.jpg'
 					, caption: ''
 					, subject:  '2011 Innovation Award'
-					, description: 'The Economist` Honors Kiva CEO and Co-Founders with "No Boundaries" Innovation Award!'
+					, description: 'The Economist` honors Kiva CEO and co-founders with "No Boundaries" Innovation Award!'
 				}
-		    , {
-							name: 'highlight'
-							, cssClass: 'g3 h3'
-							, label: 'Why I Kiva'
-							, link: {
-						        isVideo: true
-						        , urls : ['http://www.youtube.com/watch?v=LLRXbz0Jq6Y']
-					        }
-							, imgUrl: '/img/2011/why-i-kiva.jpg'
-							, caption: 'Sep 15, 2011'
-							, subject:  'Why I Kiva'
-							, description: 'Kiva users tell us why they lend'
-						}
-
-
-
-		    , {
-							name: 'highlight'
-							, cssClass: 'g3 h3'
-							, label: 'Kiva City'
-							, link: 'http://www.kiva.org/kivacity'
-							, imgUrl: '/img/2011/kiva-city.jpg'
-							, caption: 'Jun 29, 2011'
-							, subject:  'Kiva City'
-							, description: ''
-						}
-
-		    , {
-							name: 'highlight'
-							, cssClass: 'g6 h3'
-							, label: 'Clinton Global Initiatives'
-							, link: 'http://www.kiva.org/updates/kiva/2011/10/21/economist-honors-kiva-ceo-and-co.html'
-							, imgUrl: '/img/2011/clinton-global-initiatives.jpg'
-							, caption: 'Oct 6, 2011'
-							, subject:  'Clinton Global Initiatives'
-							, description: 'Kiva President, Premal Shah, speaks at the 2011 Clinton Global Initiative Annual Meeting!'
-						}
-
-
-		    , {
-							name: 'highlight'
-							, cssClass: 'g6 h4'
-							, label: 'Kiva ICBM'
-							, imgUrl: '/img/2011/kiva-icbm.jpg'
-					        , lightbox: {
-						        isVideo: true
-						        , urls: ['http://player.vimeo.com/video/28413747?title=0&byline=0&portrait=0&color=4b9123&autoplay=1']
-					        }
-							, caption: 'Aug 31, 2011'
-							, subject:  'Intercontinental Ballistic Microfinance'
-							, description: ''
-						}
-
-
-
+		        , {
+					name: 'highlight'
+					, cssClass: 'g3 h3'
+					, label: 'Why I Kiva'
+					, link: {
+				        isVideo: true
+				        , urls : ['http://www.youtube.com/watch?v=LLRXbz0Jq6Y']
+			        }
+					, imgUrl: '/img/2011/why-i-kiva.jpg'
+					, caption: 'Sep 15, 2011'
+					, subject:  'Why I Kiva'
+					, description: 'Kiva users tell us why they lend.'
+				}
+		        , {
+					name: 'highlight'
+					, cssClass: 'g3 h3'
+					, label: 'Kiva City'
+					, link: 'http://www.kiva.org/kivacity'
+					, imgUrl: '/img/2011/kiva-city.jpg'
+					, caption: 'Jun 29, 2011'
+					, subject:  'Kiva City'
+					, description: ''
+				}
+		        , {
+					name: 'highlight'
+					, cssClass: 'g6 h3'
+					, label: 'Clinton Global Initiatives'
+					, link: 'http://www.kiva.org/updates/kiva/2011/10/21/economist-honors-kiva-ceo-and-co.html'
+					, imgUrl: '/img/2011/clinton-global-initiatives.jpg'
+					, caption: 'Oct 6, 2011'
+					, subject:  'Clinton Global Initiatives'
+					, description: 'Kiva President, Premal Shah, speaks at the 2011 Clinton Global Initiative Annual Meeting!'
+				}
+				, {
+					name: 'highlight'
+					, cssClass: 'g6 h4'
+					, label: 'Kiva ICBM'
+					, imgUrl: '/img/2011/kiva-icbm.jpg'
+			        , lightbox: {
+				        isVideo: true
+				        , urls: ['http://player.vimeo.com/video/28413747?title=0&byline=0&portrait=0&color=4b9123&autoplay=1']
+			        }
+					, caption: 'Aug 31, 2011'
+					, subject:  'Intercontinental Ballistic Microfinance'
+					, description: ''
+				}
 				, {
 					name: 'highlight'
 					, cssClass: 'g3 h3'
@@ -1418,19 +1369,6 @@ new SectionProvider().save(
 					, subject:  'Free Trials'
 					, description: 'It took less than 26 hours for 8k new lenders to claim their free trial loans.'
 				}
-
-
-
-
-		    , {
-		        name: 'dataGraph'
-		        , cssClass: 'g6 h3'
-		        , label: 'Facebook comments vs twitter mentions'
-		        , imgUrl: '/img/2011/press/likes-vs-tweets.jpg'
-	        }
-
-
-
 				, {
 					name: 'highlight'
 					, cssClass: 'g3 h3'
@@ -1449,23 +1387,27 @@ new SectionProvider().save(
 					, imgUrl: '/img/2011/10-cities-10-parties.jpg'
 					, caption: 'Oct 9, 2011'
 					, subject:  '10 Parties | 10 Cities'
-					, description: 'From Pittsburgh to Paris Kiva Lender got together to meet each other and celebrate Kiva’s 6th birthday with parties in ten cities.'
+					, description: 'From Pittsburgh to Paris, Kiva lenders gathered to meet each other and celebrate Kiva\'s 6th birthday with parties in 10 cities.'
 				}
 
 			    , {
 			        name: 'text'
-			        , cssClass: 'g3 h6'
+			        , cssClass: 'g6 h3'
 			        , value: ['"See what happens when 620k lenders fund 615k entrepreneurs, students & other microfinance borrowers around the world!" <a href="http://ow.ly/6ieV5" target="_blank">ow.ly/6ieV5</a>']
 			        , label: 'Most popular tweet'
 		        }
-
-		    , {
-		        name: 'dataGraph'
-		        , cssClass: 'g6 h3'
-		        , label: 'Social engagement'
-		        , imgUrl: '/img/2011/press/social-engagement.jpg'
-	        }
-
+			    , {
+			        name: 'dataMetric'
+			        , cssClass: 'g3 h1'
+			        , value: '147,811'
+			        , label: 'Facebook Likes on Dec 31, 2011'
+		        }
+			    , {
+			        name: 'dataMetric'
+			        , cssClass: 'g3 h1'
+			        , value: '~110,000'
+			        , label: 'New Twitter followers'
+		        }
 			]
         }
 		, finances: {
@@ -1482,13 +1424,14 @@ new SectionProvider().save(
 					, cssClass: 'g4 h1'
 					, label: 'Total revenue & Support'
 					, value: '$13,665,463'
-			        , comment: ':up: vs 2010 $12,554,793'
+			        //, caption: ':up: vs 2010 $12,554,793'
+			        , caption: 'Including gifts in kind'
 				}
 			    , {
 			        name: 'text'
 			        , cssClass: 'g2 h2'
 			        , label: 'Donating to Kiva'
-			        , value: '100% of loans on kiva.org go directly to the entrepreneurs we feature, it is necessary to fundraise tax-deductible donations to cover our operations. <a href="#">Make a donation &rang;</a>'
+			        , value: '100% of loans on Kiva go directly to entrepreneurs, making it necessary to raise tax-deductible donations for operation costs. <a href="http://www.kiva.org/about/supportus/individual#topleft">Make a donation</a>.'
 		        }
 			    , {
 					name: 'dataMetric'
@@ -1521,76 +1464,26 @@ new SectionProvider().save(
 					    }
 			        ]
 		        }
+			    , {
+			        name: 'dataMetric'
+			        , cssClass: 'g3 h1'
+			        , label: 'Program Expense Ratio'
+			        , value: '84%'
+		        }
 				, {
-					name: 'percentageGraph'
-					, cssClass: 'negative g6 h1'
-					, label: 'Expense breakdown'
-					, dataset: [
-						{
-							label: 'Program Expenses'
-							, value: '80%'
-						}
-						, {
-							label: 'Fundraising'
-							, value: '10%'
-						}
-						, {
-							label: 'Operations'
-							, value: '10%'
-						}
-		            ]
+					name: 'dataMetric'
+					, cssClass: 'g3 h1'
+					, label: 'Loans made with a donation'
+					, value: '42.6%'
+	                , caption: ':down: vs 2010 43.3%'
 				}
-
-						, {
-							name: 'dataMetric'
-							, cssClass: 'g3 h1'
-							, label: 'Loans made with a donation'
-							, value: '42.6%'
-			                , caption: ':down: vs 2010 43.3%'
-						}
-
-			    , {
-			        name: 'dataMetric'
-			        , cssClass: 'g3 h1'
-			        , label: 'Number of individual donors'
-			        , value: '312,248'
-			        , caption: ':up: vs 2010 256,651'
-		        }
-
-			    , {
-			        name: 'dataMetric'
-			        , cssClass: 'g3 h1'
-			        , label: 'Fundraising efficiency'
-			        , value: '.02'
-			        , caption: ':same: vs 2010 .02'
-		        }
-
-			    , {
-			        name: 'dataMetric'
-			        , cssClass: 'g6 h1'
-			        , label: 'Kiva\'s online revinue/total expenses'
-			        , value: '68% Self sufficiency'
-		        }
-
 			    , {
 					name: 'dataMetric'
 			        , cssClass: 'g3 h1'
 			        , label: '1st time lenders who donated'
 			        , value: '50%'
-			        , caption: ':down: vs. 2010 51.2%'
+			        , caption: ':down: vs 2010 51.2%'
 		        }
-
-				, {
-		           name: 'highlight',
-		           cssClass: 'g6 h3',
-		           label: '10 parties',
-		           link: 'http://www.kiva.org/press/releases/release_20110209',
-		           imgUrl: '/img/2011/charity-navigator.jpg',
-		           caption: 'Feb 9, 2011',
-		           subject:  'Kiva.org Receives Top Rating from Charity Navigator',
-		           description: 'Based on Sound Fiscal Management, Exceeding Industry Standards'
-				}
-
 			    , {
 			        name: 'dataMetric'
 			        , cssClass: 'g3 h1'
@@ -1599,30 +1492,61 @@ new SectionProvider().save(
 			        , caption: ':down: vs 2010 $7.82'
 		        }
 			    , {
-			        name: 'text'
-			        , cssClass: 'g3 h4'
-			        , value: ['This is placeholder text for when we get the quote :P']
-			        , label: 'John D\'oh tells us why he contributes'
+			        name: 'dataMetric'
+			        , cssClass: 'g3 h1'
+			        , label: 'Number of online Donors'
+			        , value: '312,248'
+			        , caption: ':up: vs 2010 256,651'
+		        }
+
+			    , {
+			        name: 'dataMetric'
+			        , cssClass: 'g3 h1'
+			        , label: 'Fundraising efficiency'
+			        , value: '$.04'
+			        , caption: ':up: vs 2010 $.02'
+		        }
+
+			    , {
+			        name: 'dataMetric'
+			        , cssClass: 'g6 h1'
+			        , label: 'Kiva\'s online revinue/total expenses'
+			        , value: '68% Self-sufficiency'
 		        }
 				, {
-					name: 'highlight',
-					cssClass: 'g2 h3',
-					label: 'Largest individual donor',
-					link: '',
-					imgUrl: '/img/2011/anonymous-donor.jpg',
-					caption: 'Largest individual donor',
-					subject:  '250k',
-					description: 'Annoyomous'
+		           name: 'highlight',
+		           cssClass: 'g6 h3',
+		           link: 'http://www.kiva.org/press/releases/release_20110209',
+		           imgUrl: '/img/2011/charity-navigator.jpg',
+		           caption: 'Feb 9, 2011',
+		           subject:  'Kiva Receives Top Rating from Charity Navigator',
+		           description: 'Based on sound fiscal management, exceeding industry standards'
+				}
+			    , {
+			        name: 'text'
+			        , cssClass: 'g3 h3'
+			        , value: 'A disruptive innovator poised to address some of the world\'s most pressing issues, Kiva is a star in our portfolio of Skoll Awards for Social Entrepreneurship - made brighter by its ability to mobilize even greater resources to drive large-scale change.'
+			        , label: 'Sally Osberg, President and CEO, Skoll Foundation, major Kiva funder'
+		        }
+				, {
+					name: 'highlight'
+					, cssClass: 'g2 h3'
+					, label: 'Largest individual donor'
+					, link: ''
+					, imgUrl: '/img/2011/anonymous-donor.jpg'
+					, caption: 'Largest individual donor'
+					, subject:  '250k'
+					, description: 'Annoyomous'
 				}
 				, {
-					name: 'highlight',
-					cssClass: 'g2 h3',
-					label: 'Largest Institutional donor',
-					link: 'http://www.kiva.org/about/supportus/supporters/institutions',
-					imgUrl: '/img/2011/omidyar-network.jpg',
-					caption: 'Largest Institutional donor',
-					subject:  '$1M',
-					description: 'Omidyar Network'
+					name: 'highlight'
+					, cssClass: 'g2 h3'
+					, label: 'Largest Institutional donor'
+					, link: 'http://www.kiva.org/about/supportus/supporters/institutions'
+					, imgUrl: '/img/2011/omidyar-network.jpg'
+					, caption: 'Largest Institutional donor'
+					, subject:  '$1.9M'
+					, description: 'Omidyar Network'
 				}
 				, {
 					name: 'highlight',
@@ -1631,7 +1555,7 @@ new SectionProvider().save(
 					link: 'http://www.kiva.org/about/supportus/supporters',
 					imgUrl: '/img/2011/visa.jpg',
 					caption: 'Largest Corporate donor',
-					subject:  '$1M',
+					subject:  '$525K',
 					description: 'Visa'
 				}
 			    , {
@@ -1639,12 +1563,6 @@ new SectionProvider().save(
 			        , cssClass: 'g6 h2'
 			        , label: 'Avg donation when lending'
 			        , imgUrl: '/img/2011/finances/donations-by-lend-amount.png'
-		        }
-			    , {
-					name: 'dataGraph'
-			        , cssClass: 'g6 h2'
-			        , label: 'Valuable services donated to Kiva'
-			        , imgUrl: '/img/2011/finances/in-kind-services-donated.jpg'
 		        }
 				, {
 					name: 'percentageGraph'

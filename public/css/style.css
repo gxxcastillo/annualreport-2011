@@ -25,17 +25,21 @@ body        { margin: 0 auto; width: 1004px; }
 
 noscript   { border: red 2px solid; font-size: 1.2857em; font-weight: bold; text-align: center; padding: 5px; z-index: 100; }
 
-.sidebar    { background-color: #74b446; box-shadow: inset 2px 0 7px #888; color: #fff; height: 100%; margin-left: 768px; min-width: 256px; position: fixed; top: 0; width: 100%;}
-.sidebar li { margin-bottom: 10px; }
+.sidebar    { background-color: #74b446; box-shadow: -2px 0 7px #888; color: #fff; height: 100%; margin-left: 768px; min-width: 256px; position: fixed; top: 0; width: 100%;}
 
-.siteHeader { padding: 0 20px; }
-.siteFooter { background-color: #f7f7f2; height: 20px; text-align: center; }
-.siteFooter a       { display: block; width: 100%; height: 100%; }
+.siteHeader { padding: 10px 0; text-align: center; width: 236px; }
+.siteHeader .kivaLogo a { display: inline-block; width: 103px; height: 60px; overflow: hidden; }
+.siteHeader .kivaLogo a img { min-width: 100%; min-height: 100%; }
+.siteHeader .kivaLogo,
+.siteHeader h2  { font-weight: normal; margin-bottom: 10px; }
+.siteFooter     { background-color: #f7f7f2; height: 20px; text-align: center; }
+.siteFooter a   { display: block; width: 100%; height: 100%; }
 
-.primaryNav { border-top: #fff 3px solid; border-bottom: #fff 3px solid; box-shadow: 0 1px 5px #888, inset 0 1px 5px #888; margin-bottom: 20px; padding: 10px 0; position: relative; }
+.primaryNav { border-top: #fff 3px solid; border-bottom: #fff 3px solid; margin-bottom: 20px; padding: 10px 0; position: relative; }
 .primaryNav .nav-prev
 , .primaryNav .nav-next { position: absolute; top: 0; right: 0; }
 .primaryNav ul          { margin-left: 2px; }
+.primaryNav li          { font-size: 1.7142em; margin-bottom: 10px; }
 .primaryNav li a        { color: #25582b; display: block; padding-left: 20px; }
 .primaryNav li a:active { background-color: transparent; color: #fff; }
 .primaryNav li a:hover  { background-color: transparent; color: #fff; }
@@ -180,11 +184,17 @@ section:first-child .sectionTitleBlock { margin-top: 10px; }
 
 .textBlock  { border-bottom: #888 1px solid; }
 .textBlock .label       { position: absolute; left: 0; bottom: 5px;}
+.textBlock .valuelist .f32  { margin-top: 2px; margin-right: 10px; }
 .block .textBlock .bv1 { font-size: .8571em; }
 
 .highlightBlock .img    { width: 100%; position: absolute; top: 0; left: 0; }
-.highlightBlock .veil   { background-color: rgba(255, 255, 255, .7); box-shadow: inset 0 -1px 3px #ccc; position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px; }
-.highlightBlock.clickable:hover .veil { background-color: rgba(255, 255, 255, .8); }
+.highlightBlock .veil   { background-color: rgba(255, 255, 255, .7); box-shadow: inset 0 -1px 3px #ccc; position: absolute; bottom: 0; left: 0; width: 100%; padding: 10px;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#80ffffff,endColorstr=#80ffffff); /* IE6–IE9 */
+	zoom: 1
+}
+.highlightBlock.clickable:hover .veil { background-color: rgba(255, 255, 255, .8);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#90ffffff,endColorstr=#90ffffff); /* IE6–IE9 */
+}
 
 .percentageGraphBlock               { background-color: #333; border: #fff 1px; border-style: solid solid none solid}
 .percentageGraphBlock > .datapoint  { border-left: 2px solid #ccc; color: #f7f7f2; float: left; height: 100%; padding-left: 2px; }
@@ -202,15 +212,18 @@ section:first-child .sectionTitleBlock { margin-top: 10px; }
 
 .playable.block .sprite.play    { background: url(/img/play.png) no-repeat 0 0; float: right; margin-left: 5px; width: 40px; height: 40px; }
 
+/* Lightbox */
+#cboxLoadedContent { font-size: 1.1428em; }
+
 /* Social Performance badges */
 .spSprite { background: url(/img/2011/sp-sprite.png) no-repeat; margin: 0 auto; width: 37px; height: 37px;}
-.spSprite.antipoverty 	        { background-position: -43px -40px; }
-.spSprite.vulnerableGroup 	    { background-position: -43px -134px; }
-.spSprite.clientVoice           { background-position: -43px -232px; }
-.spSprite.empowerment 			{ background-position: -43px -330px; }
-.spSprite.entrepreneurial 		{ background-position: -43px -424px; }
-.spSprite.facilitateSavings		    { background-position: -43px -512px; }
-.spSprite.innovation 			{ background-position: -43px -600px; }
+.spSprite.antipoverty 	    { background-position: -43px -40px; }
+.spSprite.vulnerableGroup 	{ background-position: -43px -134px; }
+.spSprite.clientVoice       { background-position: -43px -232px; }
+.spSprite.empowerment 	    { background-position: -43px -330px; }
+.spSprite.entrepreneurial   { background-position: -43px -424px; }
+.spSprite.facilitateSavings { background-position: -43px -512px; }
+.spSprite.innovation 	    { background-position: -43px -600px; }
 
 /* Media Queries */
 @media only screen and (max-width: 936px) {
@@ -222,4 +235,10 @@ section:first-child .sectionTitleBlock { margin-top: 10px; }
 
 @media only screen and (max-width: 600px) {
 	/* How do we want to handle mobile devices? */
+}
+
+@media only screen and (max-height: 650px) {
+	.siteHeader     { font-size: 1.2857em; }
+	.siteHeader .kivaLogo a { display: inline-block; width: 50px; height: 30px; overflow: hidden; }
+	.primaryNav li  { font-size: 1.2857em; margin-bottom: 5px; }
 }

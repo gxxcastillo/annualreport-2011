@@ -12,5 +12,4 @@ var app = require('../app');
 
 // Explicit routing
 app.get('/', require('./index'));
-app.get('/sections', require('./sectionlist'));
 app.get('/:section', require('./section'));

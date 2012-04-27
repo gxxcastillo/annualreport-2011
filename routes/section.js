@@ -10,9 +10,8 @@ var LayoutProvider = require('../providers/layout-provider.js')
 
 module.exports =  function (req, res) {
     var layoutData = layoutProvider.getLayoutData()
-    , sectionList = sectionProvider.getList();
-
-    var sectionName = req.params.section;
+    , sectionList = sectionProvider.getList()
+    , sectionName = req.params.section;
 
     if (sectionName) {
 

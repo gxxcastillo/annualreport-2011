@@ -5,7 +5,7 @@
 			<li class="fS7 light">
 				{{#sprite}}<div class="{{id}} {{name}} sprite"></div>{{/sprite}}
 				{{#img}}<img src="{{img}}" />{{/img}}
-				{{text}}
+				{{{text}}}
 			</li>
 		{{/valuelist}}
 	</ul>

@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
+		<meta property="og:title" content="Kiva's Annual Report" />
+		<meta property="og:site_name" content="Kiva" />
+		<meta property="og:description" content="" />
+		<meta property="og:image" content="/img/kiva-logo.png" />
+
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
 		<link rel="stylesheet" href="/css/base.css" />

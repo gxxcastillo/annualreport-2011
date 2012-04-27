@@ -1,5 +1,5 @@
 {{#dataset}}
-	<div class="datapoint" style="width: {{value}}">
+	<div class="datapoint" style="width: {{width}}">
 		<div class="label">{{label}}</div>
 		<div class="value">{{value}}</div>
 	</div>

@@ -1,5 +1,5 @@
 <div class="label tTU c1">{{label}}</div>
-<p class="description c1">{{description}}</p>
+<p class="description c1">{{{description}}}</p>
 {{#spBadges}}
 	<div class="spBadge"><div class="{{id}} spSprite sprite"></div>{{name}}</div>
 {{/spBadges}}

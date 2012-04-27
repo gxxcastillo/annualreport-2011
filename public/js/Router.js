@@ -85,7 +85,6 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 				mainView.appendSection(sectionModel);
 			});
 
-
 			sections.on('change:isRendered', function (sectionModel, value) {
 				var $sectionTitleBlocks;
 
