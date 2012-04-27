@@ -1,1 +1,37 @@
-// @todo
+/* TEAM */
+                       
+Engineering: Gabriel Castillo
+Google+: uglymunky.com/+
+Site: http://seemunkygo.com/
+I lend because: Creo que, dada la oportunidad, todos tenemos la capacidad de construir un futuro mejor
+
+Engineering: Amit Pansare
+Site: http://brainbugged.com
+I lend because: Why would one not when it all just makes sense? Every 25 dollars I put in travels across the world, helps people for bettering their lives and returns back to help someone else. ROI - 100% of good karma. So much better than rotting in some savings account for few extra cents.
+
+Data: Greg Allen
+LinkedIn: http://www.linkedin.com/in/gregoryjallen
+I lend because: I believe in financial inclusion to build communities.
+
+Design: Abraham Wallin
+Twitter: @abewallin
+Site: http://2outofthree.com
+I lend because: Those who have, should help those in need. People helping people, it's a beautiful thing.
+
+
+/* THANKS */
+
+Camille Ricketts - For editing every bit of text in this report.
+Jackie Bernstein - For stepping in with a bit of Product Management.
+Kiva Employees, Volunteers, Staff - For the incredibility dedication to your work in 2011.
+
+
+/* WHY */
+
+"Talent is universal, opportunity is not"
+
+
+/* SITE */
+Last update: 2012/05/01
+Components: Modernizr, jQuery, Underscore, Backbone, Hogan, Require, jQuery.isotope, jQuery.colorbox
+Tools: phpStorm, github
