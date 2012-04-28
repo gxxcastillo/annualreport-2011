@@ -1,6 +1,5 @@
 require.config({
-    baseUrl: '/js'
-	, paths: {
+	paths: {
 		// 3rd party dependancies
 		'order': 'lib/order'                        // For manually specifying loading order.  http://requirejs.org/docs/api.html#order
 		, 'text': 'lib/text'                        // For loading text files. http://requirejs.org/docs/api.html#text
