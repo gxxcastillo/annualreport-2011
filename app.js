@@ -6,9 +6,7 @@ var express = require('express')
 	, requirejs = require('requirejs')
 
     // Instantiate our app/server
-    , app = module.exports = express.createServer()
-
-	, logFile;
+    , app = module.exports = express.createServer();
 
 
 // General server configuration
@@ -28,6 +26,8 @@ app.configure(function () {
 
 
 app.configure('development', function () {
+	var logFile;
+
 	console.log('** Development **');
 
 	app.use(express.static(__dirname + '/public'));
@@ -42,6 +42,8 @@ app.configure('development', function () {
 
 
 app.configure('production', function () {
+	var logFile;
+
 	console.log('** Production **');
 
 	// Use minified static files
