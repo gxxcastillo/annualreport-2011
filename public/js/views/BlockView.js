@@ -129,7 +129,6 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!templates/block
 
 			_.each(viewData.dataset, function (data, i) {
 				viewData.dataset[i].width = Math.floor((data.value / total) * 100) + '%';
-				console.log(data.value, total, viewData.dataset[i].width);
 			});
 		} else {
 			_.each(viewData.dataset, function (data, i) {
