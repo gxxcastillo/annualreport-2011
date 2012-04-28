@@ -21,21 +21,19 @@ app.configure(function () {
 
 	app.use(express.bodyParser());
 	app.use(express.methodOverride());
-	app.use(express.favicon());
 
 	// Use the 'hoganAdapter' for rendering '.hogan' files
 	app.register('hogan', require('./lib/hoganAdapter.js'));
 });
 
 
-// Instatiate the routes (must be done after express.favicon() to avoid routing conflicts)
-require('./routes/router');
-
-
 app.configure('development', function () {
 	console.log('** Development **');
 
 	app.use(express.static(__dirname + '/public'));
+
+	// express.favicon() needs to be called after setting the "static" folder
+	app.use(express.favicon());
 
 	logFile = fs.createWriteStream('/var/log/express/annualreport.log', {flags: 'a'});
 	app.use(express.logger({stream: logFile}));
@@ -49,10 +47,17 @@ app.configure('production', function () {
 	// Use minified static files
 	app.use(express.static(__dirname + '/public_build'));
 
+	// express.favicon() needs to be called after setting the "static" folder
+	app.use(express.favicon());
+
 	logFile = fs.createWriteStream('/var/log/express/annualreport.log', {flags: 'a'});
 	app.use(express.logger({stream: logFile}));
     app.use(express.errorHandler());
 });
+
+
+// Instatiate the routes (must be done after express.favicon() to avoid routing conflicts)
+require('./routes/router');
 
 
 app.listen(80);
