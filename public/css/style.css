@@ -162,7 +162,7 @@ noscript   { border: red 2px solid; font-size: 1.2857em; font-weight: bold; text
 .singIt:before  { content: '\266B'; float: left; padding-right: 5px; }
 .singIt:after   { content: '\266A'; padding-left: 10px; }
 
-.sectionTitleBlock      { margin-top: 40px;}
+.sectionTitleBlock      { margin-top: 10px;}
 section:first-child .sectionTitleBlock { margin-top: 10px; }
 .sectionTitleBlock h2   { background-color: #74b446; color: #fff; font-size: 48px; display: inline-block; height: 100%; padding: 0 10px 0 5px; }
 
