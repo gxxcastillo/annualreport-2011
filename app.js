@@ -28,8 +28,13 @@ app.configure(function () {
 });
 
 
+// Instatiate the routes (must be done after express.favicon() to avoid routing conflicts)
+require('./routes/router');
+
+
 app.configure('development', function () {
-	console.log('dev');
+	console.log('** Development **');
+
 	app.use(express.static(__dirname + '/public'));
 
 	logFile = fs.createWriteStream('/var/log/express/annualreport.log', {flags: 'a'});
@@ -37,9 +42,11 @@ app.configure('development', function () {
 	app.use(express.errorHandler({dumpExceptions: true, showStack: true}));
 });
 
+
 app.configure('production', function () {
+	console.log('** Production **');
+
 	// Use minified static files
-	console.log('prod');
 	app.use(express.static(__dirname + '/public_build'));
 
 	logFile = fs.createWriteStream('/var/log/express/annualreport.log', {flags: 'a'});
@@ -47,8 +54,6 @@ app.configure('production', function () {
     app.use(express.errorHandler());
 });
 
-// Instatiate the routes (must be done after express.favicon() to avoid routing conflicts)
-require('./routes/router');
 
 app.listen(80);
 console.log('annualreport app started');
