@@ -73,7 +73,7 @@
 `@todo` Some options could be Should.js, Sinon.js, Mustard.js.  Also, Node comes with its own standard "assert" module, which is a good place to start
 
 ## Filing bugs
-Please file bugs in redmine, under the ["Annual Report 2011" project](https://bugs.kiva.org/issues/21348)
+Please file bugs in redmine, under the ["Annual Report 2011"](https://bugs.kiva.org/issues/21348) project.
 
 ## More documentation
 * @todo link to annualreport page on the wiki page
