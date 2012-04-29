@@ -14,6 +14,8 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'BlockView']
 
 		/**
 		 * Render the section
+		 *
+		 * @todo This structure of this app falls apart when it comes down to the BlockViews & BlockModels. Need to rethink it.
 		 */
 		, render: function () {
 			var viewData = this.model.toJSON()
