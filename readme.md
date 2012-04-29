@@ -8,7 +8,7 @@
 ## Local development
 
 * Start the annualreport by running `sudo node /kiva-nodejs/annualreport/app.js`
-* Browse to [annualreprot-vm.kiva.org](http://annualreprot-vm.kiva.org)
+* Browse to [annualreport-vm.kiva.org](http://annualreport-vm.kiva.org)
 
 ### Start coding
 
