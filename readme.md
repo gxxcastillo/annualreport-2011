@@ -35,7 +35,7 @@
 
 ### Script Loading / Client-side dependancy management
 
-[RequireJs](http://requirejs.org/) We run this on the client, as well as on the server.
+[RequireJs](http://requirejs.org/) syntax wraps all of our client side modules, including third party scripts.  Be sure to wrap any scripts when updating them.
 
 ### Server-side module loading
 
