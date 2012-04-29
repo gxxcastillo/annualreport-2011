@@ -1,4 +1,6 @@
 /**
+ * This is our app's build-configuration file.  It's used by r.js.
+ *
  * To build:
  * > r.js -o path/to/app.build.js
  *
