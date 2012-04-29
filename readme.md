@@ -23,9 +23,9 @@
 
 ## Deployment
 
-* log into boss-01
-* go to /release-scripts
-* run ./kv-annualreport
+1. log into boss-01
+2. go to /release-scripts
+3. run ./kv-annualreport
 
 ## The stack
 
@@ -40,6 +40,7 @@
 ### Server-side module loading
 
 [r.js](https://github.com/jrburke/r.js/) runs RequireJs in Node.  It allows us to do two really cool things:
+
 1. Use [AMD](https://github.com/amdjs/amdjs-api/wiki/AMD) on the server.
 2. Use [RequireJs Optimizer](http://requirejs.org/docs/optimization.html#download) to minify and concatenate our js & css.
 
@@ -49,7 +50,7 @@
 
 ### Client-side Feature detection
 
-[Modernizr](http://modernizr.com) We use a very minimal subset of the full libary.
+[Modernizr](http://modernizr.com); We use a very minimal subset of the full libary.
 
 ### Templating
 
@@ -60,7 +61,7 @@
 [mongoDB](http://www.mongodb.org/) `@todo`
 
 ## Filing bugs
-Please file bugs in redmine, under the ["annual report 2011" project](https://bugs.kiva.org/issues/21348)
+Please file bugs in redmine, under the ["Annual Report 2011" project](https://bugs.kiva.org/issues/21348)
 
 ## More documentation
 * @todo link to annualreport page on the wiki page
