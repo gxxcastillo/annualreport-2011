@@ -54,11 +54,23 @@
 
 ### Templating
 
-[Hogan](http://twitter.github.com/hogan.js/) is logic-less templating language.  Think of it as Mustache + pre-rendering. We use it on the server & the client.
+[Hogan](http://twitter.github.com/hogan.js/) a is logic-less templating language.  Think of it as [Mustache](https://github.com/janl/mustache.js/) + pre-rendering. We use it on the server & the client.
 
 ### Data storage
 
 [mongoDB](http://www.mongodb.org/) `@todo`
+
+### Event logging
+
+[Winston](https://github.com/flatiron/winston) is used to log events & errors
+
+### Profiling
+
+'@todo' Some options could be dtrace or ulimit.
+
+### Integration / Unit Testing
+
+`@todo` Some options could be Should.js, Sinon.js, Mustard.js.  Also, Node comes with its own standard "assert" module, which is a good place to start
 
 ## Filing bugs
 Please file bugs in redmine, under the ["Annual Report 2011" project](https://bugs.kiva.org/issues/21348)
