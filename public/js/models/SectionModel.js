@@ -46,7 +46,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'BlockModel'], function ($, _,
 			// Only initialze the "blocks" attribute if we have blocks to initialize it with
 			// (Currently, not being used.  Used only when we load all block data on initial page load instead of via an xhr request)
 			// @todo should be using a collection instead of a plane js array
-			if (blocksArray.length) {
+			if (blocksArray && blocksArray.length) {
 				blocks = [];
 
 				// Build an array of all the blocks for this section
