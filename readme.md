@@ -17,9 +17,9 @@
 
 ## Local testing of the production environment
 
-* Build a local production environment using [r.js](https://github.com/jrburke/r.js): `sudo r.js -o /kiva-nodejs/annualreport/app.build.js`.  This will create a new folder, `public_build`, which contains all minified javascript and a copy of the `/public` foler.
+* Build a local production environment using [r.js](https://github.com/jrburke/r.js): `sudo r.js -o app.build.js`.  This will create a new folder, `/public_build`, which contains all minified javascript and a copy of the `/public` foler.
 * Run the annual report app in "production" mode: `sudo env NODE_ENV=production node app.js`
-* Alternatively, use the [forever](https://github.com/nodejitsu/forever) module, `sudo forever start /kiva-nodejs/annualreport/app.js`
+* Alternatively, use the [forever](https://github.com/nodejitsu/forever) module, `sudo forever start app.js`
 
 ## Deployment
 
