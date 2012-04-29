@@ -168,6 +168,7 @@ section:first-child .sectionTitleBlock { margin-top: 10px; }
 
 .dataMetricBlock            { border-bottom: #888 1px solid; }
 .dataMetricBlock .dataPoint { color: #4b9123; line-height: .9; padding-bottom: 3px; }
+.dataMetricBlock.g2 .dataPoint { width: 115px; }
 .dataMetricBlock.g3 .dataPoint { width: 165px; }
 .dataMetricBlock.g4 .dataPoint { width: 249px; }
 .dataMetricBlock.g6 .dataPoint { width: 417px; }
