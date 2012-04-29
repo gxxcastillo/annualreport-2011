@@ -39,13 +39,19 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'BlockModel'], function ($, _,
 		}
 
 
+		/**
+		 * @todo Here, we're storing the model for each "block" as an array.
+		 * Two points:
+		 * 1) I don't think its actually used anywhere
+		 * 2) It should be a "collection"
+		 */
 		, initialize: function (sectionData) {
 			var blocksArray = sectionData.blocks
 			, blocks = [];
 
 			// Build an array of all the blocks for this section
 			_.each(blocksArray, function (blockData, index) {
-				blocks[index] = new Block(blockData);
+				blocks[index] = new BlockModel(blockData);
 			});
 
 			// Only initialze the "blocks" attribute if we have blocks to initialize it with
