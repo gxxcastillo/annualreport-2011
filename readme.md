@@ -14,7 +14,7 @@
 ### Start coding
 
 * `/app.js` is what kicks everything off on the server end.
-* `/public/js/main.js` is our client-side "bootstrap" and where you will find references to all our client side libraries.
+* `/public/js/main.js` is our client-side "bootstrap" and where you will find references to all our client-side libraries.
 
 ## Local testing of the production environment
 
@@ -32,11 +32,11 @@
 
 [Backbone](http://documentcloud.github.com/backbone/) is a light mvc framework; more than enough to suit our needs.
 
-## Script Loading / Client side dependancy management
+## Script Loading / Client-side dependancy management
 
 [RequireJs](http://requirejs.org/) We run this on the client, as well as on the server.
 
-## Client side Feature detection
+## Client-side Feature detection
 
 [Modernizr](http://modernizr.com) We use a very minimal subset of the full libary.
 
@@ -49,7 +49,7 @@
 
 ## More documentation
 // link to page on using backbone on the wiki
-// link to client side coding page on the wiki (should have phpStorm validation settings)
+// link to client-side coding page on the wiki (should have phpStorm validation settings)
 // link to annualreport page on the wiki page
 
 
