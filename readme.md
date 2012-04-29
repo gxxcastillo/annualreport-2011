@@ -9,12 +9,18 @@
 ## Local development
 
 * Start the annualreport by running `sudo node /kiva-nodejs/annualreport/app.js`
+* Browse to [annualreprot-vm.kiva.org](http://annualreprot-vm.kiva.org)
+
+### Start coding
+
+* `/app.js` is what kicks everything off on the server end.
+* `/public/js/main.js` is our client-side "bootstrap" and where you will find references to all our client side libraries.
 
 ## Local testing of the production environment
 
 * Build a local production environment using [r.js](https://github.com/jrburke/r.js): `sudo r.js -o /kiva-nodejs/annualreport/app.build.js `
 * Run the annual report app in "production" mode: sudo env NODE_ENV=production node app.js
-* Alternatively, use the [forever](https://github.com/nodejitsu/forever) module, `sudo forever start /kiva-nodejs/annualreport/app.js'
+* Alternatively, use the [forever](https://github.com/nodejitsu/forever) module, `sudo forever start /kiva-nodejs/annualreport/app.js`
 
 ## Deployment
 
@@ -36,11 +42,10 @@
 
 ## Templating
 
-[Hogan](http://twitter.github.com/hogan.js/) Hogan is logic-less templating language.  Think of it as Mustache + pre-rendering. We use it on the server & the client.
+[Hogan](http://twitter.github.com/hogan.js/) is logic-less templating language.  Think of it as Mustache + pre-rendering. We use it on the server & the client.
 
-## Client side
-
-A good place to start is by looking at "/public/js/main.js".  This is our client side "bootstrap" and where you will find references to our client side libraries.
+## Filing bugs
+* Please file bugs in redmine, under the ["annual report 2011" project](https://bugs.kiva.org/issues/21348)
 
 ## More documentation
 // link to page on using backbone on the wiki
