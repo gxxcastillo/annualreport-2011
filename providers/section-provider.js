@@ -888,23 +888,23 @@ new SectionProvider().save(
 					, dataset: [
 						{
 							label: 'Android'
-							, value: '32'
+							, value: '32%'
 						}
 						, {
 							label: 'iPhone'
-							, value: '31'
+							, value: '31%'
 						}
 						, {
 							label: 'iPad'
-							, value: '20'
+							, value: '20%'
 						}
 						, {
 							label: 'iPod'
-							, value: '6'
+							, value: '6%'
 						}
 						, {
 							label: 'Other'
-							, value: '9'
+							, value: '9%'
 						}
 					]
 				}
