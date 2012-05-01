@@ -149,7 +149,8 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!templates/block
 
 	function getTextData(viewData) {
 		var newData = {
-			name: viewData.name
+			id: viewData.id
+			, name: viewData.name
 			, cssClass: viewData.cssClass
 			, label: viewData.label
 		};
@@ -220,7 +221,11 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!templates/block
 
 		, render: function() {
 			var viewData = this.viewData
-			, className = viewData.name + 'Block ' + viewData.cssClass;
+			, blockName = viewData.name + 'Block'
+			, blockId = viewData.id
+				? viewData.id + '-block'
+			    : ''
+			, className = blockId + ' ' + blockName + ' ' + viewData.cssClass;
 
 			// Is this block "clickable"?
 			if (viewData.isClickable) {

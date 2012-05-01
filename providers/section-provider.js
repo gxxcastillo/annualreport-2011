@@ -79,8 +79,8 @@ new SectionProvider().save(
 			    }
 				, {
 				    name: 'text'
-				    , cssClass: 'g9 h4'
-				    , value: '<p>In 2005, Kiva was founded with a mission to connect people, through lending, to alleviate poverty. Six years later, we are just beginning.</p><p>In 2011 we made significant strides, and as a result have many meaningful firsts, milestones achieved and inspiring statistics to share. We are excited to bring these to life through our first-ever Annual Report!</p><p>Kiva is a place full of entrepreneurs and their stories. As an entrepreneurial organization, we are sharing our story here. It\'s a story that includes the guidance of our board, the commitment of our staff, the contributions of volunteers and the unbridled generosity of our lenders.</p><p>Kiva\'s highest value is transparency. This means that we communicate works in progress -- both successes and failures -- along the way. So accept us in that light -- a work in progress. With your help, we can make great, great progress in the years to come.</p><br /><br /><p>On behalf of our borrowers, and the entire Kiva team, thank you.</p><p>Matt Flannery, Co-Founder and CEO Premal Shah, President</p>'
+				    , cssClass: 'g9 h5'
+				    , value: '<p>In 2005, Kiva was founded with a mission to connect people, through lending, to alleviate poverty. Six years later, we are just beginning.</p><p>In 2011 we made significant strides, and as a result have many meaningful firsts, milestones achieved and inspiring statistics to share. We are excited to bring these to life through our first-ever Annual Report!</p><p>Kiva is a place full of entrepreneurs and their stories. As an entrepreneurial organization, we are sharing our story here. It\'s a story that includes the guidance of our board, the commitment of our staff, the contributions of volunteers and the unbridled generosity of our lenders.</p><p>Kiva\'s highest value is transparency. This means that we communicate works in progress -- both successes and failures -- along the way. So accept us in that light -- a work in progress. With your help, we can make great, great progress in the years to come.</p><p>On behalf of our borrowers, and the entire Kiva team, thank you.</p><p>Matt Flannery, Co-Founder and CEO Premal Shah, President</p>'
 			    }
 		    ]
 	    }
@@ -335,6 +335,15 @@ new SectionProvider().save(
 						}
 		           ]
 		       }
+			    , {
+			        name: 'highlight'
+			        , cssClass: 'g6 h3'
+			        , imgUrl: '/img/2011/juan-flowers.jpg'
+			        , url: 'http://www.kiva.org/lend/352245'
+				    , subject: 'Juan'
+				    , caption: 'Barranquilla, Colombia'
+				    , description:  'A loan of $550 helped buy bulk flowers'
+			    }
 
 		        , {
 		            id: 'blah_01'
@@ -350,12 +359,6 @@ new SectionProvider().save(
 		            , subject:  'Araksi'
 		            , description: 'Talin, Armenia'
 		        }
-				, {
-				    url: 'http://www.kiva.org/lend/352245'
-				    , subject: 'Juan'
-				    , caption: 'Barranquilla, Colombia'
-				    , comment:  'A loan of $550 helped buy bulk flowers'
-			    }
 		    ]
 	    }
 		, lenders: {
@@ -426,7 +429,8 @@ new SectionProvider().save(
 					, subject:  'Good Dogg'
 				}
 			    , {
-			        name: 'wrapper'
+			        id: 'most-used-words-within-lender-profiles'
+			        , name: 'wrapper'
 			        , cssClass: 'g9 h3'
 			        , label: 'Most used words within lender profiles'
 			        , blocks: [
@@ -482,6 +486,7 @@ new SectionProvider().save(
 				, {
 					name: 'dataGraph'
 					, cssClass: 'g6 h3'
+			        , link: '####'
 					, label: 'Losses incurred by Lenders by Country'
 					, imgUrl: '/img/2011/lenders/amount-of-losses-experienced-by-lenders.png'
 				}
@@ -568,7 +573,7 @@ new SectionProvider().save(
 		            name: 'spBadge'
 		            , label: 'social performance'
 		            , cssClass: 'g6 h3'
-		            , description: 'Some Field Partners support clients with social services beyond loans. In 2011, Kiva introduced seven Social Peformance badges to identify partners that deliver services in one or more of these areas:'
+		            , description: 'In 2011, Kiva introduced seven <a href="http://www.kiva.org/about/socialperformance" target="_blank">Social Peformance</a> badges to identify partners that deliver services in one or more of these areas:'
 			        , spBadges: [
 				        {
 		                    id: 'entrepreneurial'
@@ -715,12 +720,13 @@ new SectionProvider().save(
 					, label: 'Dissolved Partnerships'
 					, caption: {
 						text : 'Why do partnerships end?'
-						, lightbox : 'Partnerships at Kiva dissolve for a variety of reasons. In some cases, Kiva discovers an issue with a partner, either financial or operational, and needs to protect lenders from increased risk or default. In other cases, a partner may choose to end its relationship with Kiva. For example, this happens when partners find other sources of capital that better fit their needs. External factors can also lead to partnership dissolution, including local conflicts or changes to financial regulations.'
+						, lightbox : '<p>Partnerships at Kiva dissolve for a variety of reasons. In some cases, Kiva discovers an issue with a partner, either financial or operational, and needs to protect lenders from increased risk or default. In other cases, a partner may choose to end its relationship with Kiva.</p><p>For example, this happens when partners find other sources of capital that better fit their needs. External factors can also lead to partnership dissolution, including local conflicts or changes to financial regulations.</p>'
 					}
 					, value: '5'
 	            }
 		        , {
-		            name: 'text'
+			        id: 'languages-of-posted-loans'
+		            , name: 'text'
 		            , cssClass: 'g4 h4'
 		            , value: ['English', 'Spanish', 'French', 'Russian', 'Portuguese', 'Arabic']
 		            , label: 'Languages of posted loans'
@@ -840,7 +846,8 @@ new SectionProvider().save(
 			          , value: '160,341'
 			      }
 				, {
-					name: 'text'
+			        id: 'hehe'
+					, name: 'text'
 					, cssClass: 'g3 h4'
 					, value: ['New York', 'San Francisco', 'Sydney', 'Los Angeles', 'London', 'Melbourne', 'Beijing']
 					, label: 'Most visits by city'
@@ -875,7 +882,7 @@ new SectionProvider().save(
 					name: 'highlight'
 					, cssClass: 'g3 h4'
 					, label: 'Borrower stories'
-					, link: '#'
+					, link: 'http://www.kiva.org/green'
 					, imgUrl: ['/img/2011/green-loans.jpg']
 					, caption: 'Mar 1, 2011'
 					, subject:  'Green Loans'
@@ -928,7 +935,7 @@ new SectionProvider().save(
 					, value: 'Can I get a loan for my business?'
 					, caption: {
 						text: 'Well, can I?'
-						, 'lightbox' : 'Kiva does not process loan applications. If you would like to apply for a loan, you can contact the Kiva Field Partner in your local area. A list of Field Partners can be found here. If you are not located near a partner, try the Mix Market [link], which lists more microfinance institutions.'
+						, 'lightbox' : 'Kiva does not process loan applications. If you would like to apply for a loan, you can contact the Kiva Field Partner in your local area. A list of <a href="http://www.kiva.org/partners" target="_blank">Field Partners</a> can be found here. If you are not located near a partner, try the <a href="http://mixmarket.org" target="_blank">Mix Market</a>, which lists more microfinance institutions.'
 				    }
 				}
 				, {
@@ -965,7 +972,7 @@ new SectionProvider().save(
 					, value: 'Partner data missing from loan page'
 					, caption: {
 						text: 'Why’d it matter?'
-						, lightbox: 'Last year, Kiva had a bug that removed information about Field Partners from loan pages. Affected loans were refunded, and CEO Matt Flannery sent the following letter to impacted lenders explaining why partner info is so critical to the Kiva lending process:" Then delete "Dear Ian," and just start with the first line of the letter.'
+						, lightbox: 'Last year, Kiva had a bug that removed information about Field Partners from loan pages. Affected loans were refunded, and CEO Matt Flannery sent the following letter to impacted lenders explaining why partner info is so critical to the Kiva lending process:" '
 					}
 				}
 	        ]
@@ -1160,18 +1167,19 @@ new SectionProvider().save(
 			        }
 		        ]
 	        }
-		    , {
-			    name: 'dataGraph'
-			    , cssClass: 'g3 h3'
-			    , label: 'Volunteer hours by Kiva staff at outside organizations'
-			    , imgUrl: '/img/2011/ecosystem/employee-volunteer-hours.png'
-			}
-		    , {
-							name: 'text'
-							, cssClass: 'g4 h4'
-							, value: ['Bali, Indonesia', 'Lima, Peru', 'Minsk, Belarus', 'Nairobi, Kenya', 'Dakar, Senegal', 'Beirut, Lebanon']
-							, label: 'Locations of field staff'
-						}
+			    , {
+				    name: 'dataGraph'
+				    , cssClass: 'g4 h3'
+				    , label: 'Volunteer hours by Kiva staff at outside organizations'
+				    , imgUrl: '/img/2011/ecosystem/employee-volunteer-hours.png'
+				}
+			    , {
+			        id: 'locations-of-field-staff'
+					, name: 'text'
+					, cssClass: 'g4 h4'
+					, value: ['Bali, Indonesia', 'Lima, Peru', 'Minsk, Belarus', 'Nairobi, Kenya', 'Dakar, Senegal', 'Beirut, Lebanon']
+					, label: 'Locations of field staff'
+				}
 	        ]
 	    }
 		, stories: {
@@ -1239,7 +1247,7 @@ new SectionProvider().save(
 						name: 'text'
 						, label: 'Kiva Fellows'
 						, cssClass: 'g4 h2'
-				        , value: '<p>The Kiva Fellows program places talented individuals with our Field Partners around the globe.</p><p>Fellows volunteer to work closely with our partners, maximizing efficiency and impact. <a href="http://www.kiva.org/fellows">Learn more</a>.</p>'
+				        , value: '<p>The Kiva Fellows program places talented individuals with our Field Partners around the globe.</p><p>Fellows volunteer to work closely with our partners, maximizing efficiency and impact. <a href="http://www.kiva.org/fellows" target="_blank">Learn more</a>.</p>'
 					}
 				    , {
 						name: 'highlight'
@@ -1323,7 +1331,9 @@ new SectionProvider().save(
 					name: 'highlight'
 					, cssClass: 'g6  h3'
 					, label: 'Economist innovation award'
-					, link: 'http://www.kiva.org/updates/kiva/2011/10/21/economist-honors-kiva-ceo-and-co.html'
+			        , link: 'http://kivanews.blogspot.com/2011/10/economist-honors-kiva-ceo-and-co.html'
+			        // @todo switch to the kiva.org/updates url when it gets fixed
+					//, link: 'http://www.kiva.org/updates/kiva/2011/10/21/economist-honors-kiva-ceo-and-co.html'
 					, imgUrl: '/img/2011/the-economist-innovation-award.jpg'
 					, caption: ''
 					, subject:  '2011 Innovation Award'
@@ -1333,9 +1343,9 @@ new SectionProvider().save(
 					name: 'highlight'
 					, cssClass: 'g3 h3'
 					, label: 'Why I Kiva'
-					, link: {
+					, lightbox: {
 				        isVideo: true
-				        , urls : ['http://www.youtube.com/watch?v=LLRXbz0Jq6Y']
+				        , urls : ['http://www.youtube.com/embed/LLRXbz0Jq6Y?rel=0&amp;wmode=opaque&amp;autoplay=1']
 			        }
 					, imgUrl: '/img/2011/why-i-kiva.jpg'
 					, caption: 'Sep 15, 2011'
@@ -1356,7 +1366,9 @@ new SectionProvider().save(
 					name: 'highlight'
 					, cssClass: 'g6 h3'
 					, label: 'Clinton Global Initiatives'
-					, link: 'http://www.kiva.org/updates/kiva/2011/10/21/economist-honors-kiva-ceo-and-co.html'
+			        , link: 'http://kivanews.blogspot.com/2011/10/economist-honors-kiva-ceo-and-co.html'
+					// @todo switch to the kiva.org/updates url when it gets fixed
+					//, link: 'http://www.kiva.org/updates/kiva/2011/10/21/economist-honors-kiva-ceo-and-co.html'
 					, imgUrl: '/img/2011/clinton-global-initiatives.jpg'
 					, caption: 'Oct 6, 2011'
 					, subject:  'Clinton Global Initiatives'
@@ -1447,7 +1459,7 @@ new SectionProvider().save(
 			        name: 'text'
 			        , cssClass: 'g2 h2'
 			        , label: 'Donating to Kiva'
-			        , value: '100% of loans on Kiva go directly to entrepreneurs, making it necessary to raise tax-deductible donations for operation costs. <a href="http://www.kiva.org/about/supportus/individual#topleft">Make a donation</a>.'
+			        , value: '100% of loans on Kiva go directly to entrepreneurs, making it necessary to raise tax-deductible donations for operation costs. <a href="http://www.kiva.org/about/supportus/individual#topleft" target="_blank">Make a donation</a>.'
 		        }
 			    , {
 					name: 'dataMetric'
@@ -1539,16 +1551,16 @@ new SectionProvider().save(
 		           description: 'Based on sound fiscal management, exceeding industry standards'
 				}
 			    , {
-			        name: 'text'
-			        , cssClass: 'g3 h3'
-			        , value: 'A disruptive innovator poised to address some of the world\'s most pressing issues, Kiva is a star in our portfolio of Skoll Awards for Social Entrepreneurship - made brighter by its ability to mobilize even greater resources to drive large-scale change.'
+			        id: 'osberg-tweet'
+			        , name: 'text'
+			        , cssClass: 'g3 h8'
+			        , value: ['A disruptive innovator poised to address some of the world\'s most pressing issues, Kiva is a star in our portfolio of Skoll Awards for Social Entrepreneurship - made brighter by its ability to mobilize even greater resources to drive large-scale change.']
 			        , label: 'Sally Osberg, President and CEO, Skoll Foundation, major Kiva funder'
 		        }
 				, {
 					name: 'highlight'
 					, cssClass: 'g2 h3'
 					, label: 'Largest individual donor'
-					, link: ''
 					, imgUrl: '/img/2011/anonymous-donor.jpg'
 					, caption: 'Largest individual donor'
 					, subject:  '250k'
@@ -1610,6 +1622,7 @@ new SectionProvider().save(
 		        , {
 			        name: 'dataGraph'
 			        , cssClass: 'g9 h4'
+			        , link: '######'
 			        , imgUrl: '/img/2011/finances/balance-sheet.png'
 		        }
 			]

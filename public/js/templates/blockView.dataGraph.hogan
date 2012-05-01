@@ -1,5 +1,5 @@
 {{#imgUrl}}
-	<img class="img" src="{{imgUrl}}" />
+	{{#link}}<a href="{{link}}" target="_blank">{{/link}}<img class="img" src="{{imgUrl}}" />{{#link}}</a>{{/link}}
 {{/imgUrl}}
 {{^imgUrl}}
 	{{#dataset}}

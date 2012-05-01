@@ -2,7 +2,7 @@
 {{#isList}}
 	<ul class="valuelist">
 		{{#valuelist}}
-			<li class="fS7 light">
+			<li class="light">
 				{{#sprite}}<div class="{{id}} {{name}} sprite"></div>{{/sprite}}
 				{{#img}}<img src="{{img}}" />{{/img}}
 				{{{text}}}

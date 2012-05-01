@@ -152,6 +152,8 @@ noscript   { border: red 2px solid; font-size: 1.2857em; font-weight: bold; text
 .h8 { height: 620px; }
 
 /* Block */
+#letter .textBlock { font-size: 18px; }
+
 .block  { display: inline-block; margin: 10px; overflow: hidden; position: relative; vertical-align: top; }
 .block.clickable            { cursor: pointer; }
 .block.clickable:hover      { box-shadow: 1px 1px 5px #888, -1px 0 5px #888; top: 1px; }
@@ -185,6 +187,7 @@ section:first-child .sectionTitleBlock { margin-top: 10px; }
 
 .textBlock  { border-bottom: #888 1px solid; }
 .textBlock .label       { position: absolute; left: 0; bottom: 5px;}
+.textBlock .valuelist li    { font-size: 2.5714em;}
 .textBlock .valuelist .f32  { margin-top: 2px; margin-right: 10px; }
 .block .textBlock .bv1 { font-size: .8571em; }
 
@@ -199,6 +202,7 @@ section:first-child .sectionTitleBlock { margin-top: 10px; }
 
 .percentageGraphBlock               { background-color: #333; border: #fff 1px; border-style: solid solid none solid}
 .percentageGraphBlock > .datapoint  { border-left: 2px solid #ccc; color: #f7f7f2; float: left; height: 100%; padding-left: 2px; }
+.percentageGraphBlock > .datapoint .label { font-size: .7143em; }
 .percentageGraphBlock > .datapoint:first-child    { border-left: none; }
 .percentageGraphBlock > .label      { background-color: #f7f7f2; position: absolute; bottom: 0; left: 0; padding-top: 1px; width: 100%; }
 
@@ -225,6 +229,11 @@ section:first-child .sectionTitleBlock { margin-top: 10px; }
 .spSprite.entrepreneurial   { background-position: -43px -424px; }
 .spSprite.facilitateSavings { background-position: -43px -512px; }
 .spSprite.innovation 	    { background-position: -43px -600px; }
+
+/* Custom block tweaks */
+.osberg-tweet-block.textBlock .valuelist li { font-size: 2.2858em; line-height: .98em; }
+.locations-of-field-staff-block.textBlock .valuelist li { line-height: 1.2;}
+.languages-of-posted-loans-block.textBlock { line-height: 1.2; }
 
 /* Media Queries */
 @media only screen and (max-width: 936px) {
