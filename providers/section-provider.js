@@ -972,7 +972,7 @@ new SectionProvider().save(
 					, value: 'Partner data missing from loan page'
 					, caption: {
 						text: 'Why’d it matter?'
-						, lightbox: 'Last year, Kiva had a bug that removed information about Field Partners from loan pages. Affected loans were refunded, and CEO Matt Flannery sent the following letter to impacted lenders explaining why partner info is so critical to the Kiva lending process:" '
+						, lightbox: '<p>On Aug. 23-24, Kiva experienced a technical issue that erased data about our Field Partners from individual loan pages, including default, delinquency and currency loss rates. While the issue was swiftly corrected, hundreds of lenders did make loans during this time period.</p><p>Kiva CEO Matt Flannery took quick action, sending out a message to all affected lenders explaining the problem and emphasizing Kiva\'s commitment to providing as much information as we can to help lenders make informed decisions.</p>'
 					}
 				}
 	        ]
