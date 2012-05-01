@@ -148,6 +148,12 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 			// Bind the key events to allow for browsing via the keyboard
 			// Capture the j, J, k, or K keys
 			$(document).keyup(function (e) {
+				// Avoid collision with lightbox left/right key events
+				if (appModel.get('lightboxIsOpen')) {
+					console.log('open');
+					return;
+				}
+
 				if (e.keyCode == 37) {
 					// Capture the left arrow key
 					sections.setPrevActive('key');
@@ -165,10 +171,10 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 			// Capture the left/right key presses
 			$(document).keypress(function (e) {
 				if (_.indexOf([74, 106], e.keyCode) > -1) {
-					// Capture the 'J', 'j', and the left arrow key
+					// Capture the 'J' and 'j', keys
 					sections.setPrevActive('key');
 				} else if (_.indexOf([75, 107], e.keyCode) > -1) {
-					// Capture 'K', 'k', and the right arrow key
+					// Capture 'K' and 'k' keys
 					sections.setNextActive('key');
 				} else {
 					return;

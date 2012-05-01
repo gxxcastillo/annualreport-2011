@@ -34,6 +34,12 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarView', 'MainView']
 
 			// Update default colorbox settings
 			$.colorbox.settings.opacity = '.8';
+			$.colorbox.settings.onOpen = function () {
+				annualReport.set('lightboxIsOpen', true);
+			};
+			$.colorbox.settings.onClosed = function () {
+				annualReport.set('lightboxIsOpen', false);
+			};
 
 			// Set styling specific to dynamicRendering (i.e. using jquery.isotope for rendering)
 			if (!annualReport.get('renderAll')) {
