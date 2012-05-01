@@ -23,9 +23,17 @@
 
 ## Deployment
 
-1. log into boss-01
-2. go to /release-scripts
-3. run ./kv-annualreport
+1. log into boss-01.kiva.org
+2. go to ~/release-scripts
+3. run ./kv-deploy-annualreport.sh
+
+## Logs
+
+* /var/log/express
+* /var/log/annualreport
+* /var/run/annualreport/sock
+* /var/run/annualreport/pids
+
 
 ## The stack
 
