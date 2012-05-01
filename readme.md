@@ -62,7 +62,7 @@
 
 ### Templating
 
-[Hogan](http://twitter.github.com/hogan.js/) a is logic-less templating language.  Think of it as [Mustache](https://github.com/janl/mustache.js/) + pre-rendering. We use it on the server & the client.
+[Hogan](http://twitter.github.com/hogan.js/) a is logic-less templating language.  Think of it as [Mustache](https://github.com/janl/mustache.js/) but with the ability to pre-render. We use it on the server & the client.
 
 ### Data storage
 

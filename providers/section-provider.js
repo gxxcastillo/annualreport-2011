@@ -486,7 +486,7 @@ new SectionProvider().save(
 				, {
 					name: 'dataGraph'
 					, cssClass: 'g6 h3'
-			        , link: '####'
+			        , link: 'http://www.kiva.org/partners/22'
 					, label: 'Losses incurred by Lenders by Country'
 					, imgUrl: '/img/2011/lenders/amount-of-losses-experienced-by-lenders.png'
 				}
