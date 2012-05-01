@@ -339,7 +339,7 @@ new SectionProvider().save(
 			        name: 'highlight'
 			        , cssClass: 'g6 h3'
 			        , imgUrl: '/img/2011/juan-flowers.jpg'
-			        , url: 'http://www.kiva.org/lend/352245'
+			        , link: 'http://www.kiva.org/lend/352245'
 				    , subject: 'Juan'
 				    , caption: 'Barranquilla, Colombia'
 				    , description:  'A loan of $550 helped buy bulk flowers'
