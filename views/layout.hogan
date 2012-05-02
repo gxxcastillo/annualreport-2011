@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 	<head>
-		<meta property="og:title" content="Kiva's Annual Report" />
+		<meta property="og:title" content="Kiva's 2011 Annual Report" />
 		<meta property="og:site_name" content="Kiva" />
-		<meta property="og:image" content="" />
+		<meta property="og:image" content="/img/2011/fb-image.png" />
 		<meta property="og:description" content="Kiva's 2011 Annual Report has landed. One year, $89M, 110K loans funded. Get an inside look at how, where and why Kiva worked in 2011, and how you can help!" />
 		<meta property="og:image" content="/img/kiva-logo.png" />
 
@@ -36,6 +36,7 @@
 						}
 					{{/sectionList}}
 				]
+				, fbShareUrl: "{{fbShareUrl}}"
 			};
 		</script>
 	</head>
@@ -46,5 +47,23 @@
 		<footer class="siteFooter g9">
 				<a href="#next" class="nav-next">next</a>
 		</footer>
+		<script type="text/javascript">
+			{{! OG Tracking}}
+			setTimeout(function(){var a=document.createElement("script");
+ 			var b=document.getElementsByTagName('script')[0];
+			a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0012/7917.js?"+Math.floor(new Date().getTime()/3600000);
+			a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+
+			{{! GA Tracking}}
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-175897-17']);
+			_gaq.push(['_trackPageview']);
+
+			(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+		</script>
 	</body>
 </html>
