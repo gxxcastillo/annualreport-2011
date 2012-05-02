@@ -955,7 +955,7 @@ new SectionProvider().save(
 				,{
 					name: 'dataMetric'
 					, cssClass: 'g6 h1'
-					, label: 'Code Commits by Kiva engineers to version control'
+					, label: 'Programming changes made to the website'
 					, caption: ':up: vs 2010 10,651'
 					, value: '13,612'
 				}
@@ -1000,6 +1000,7 @@ new SectionProvider().save(
 		            name: 'highlight'
 		            , cssClass: 'g3 h3'
 		            , label: 'New Office'
+			        , link: 'http://www.interiordesign.net/article/549288-Lend_a_Hand.php'
 		            , imgUrl: '/img/2011/new-office.jpg'
 		            , caption: 'Kiva Headquarters'
 		            , subject:  'New office'
@@ -1428,7 +1429,7 @@ new SectionProvider().save(
 			        name: 'dataMetric'
 			        , cssClass: 'g3 h1'
 			        , value: '147,811'
-			        , label: 'Facebook Likes on Dec 31, 2011'
+			        , label: 'Facebook Likes as of Dec 31, 2011'
 		        }
 			    , {
 			        name: 'dataMetric'
@@ -1459,7 +1460,7 @@ new SectionProvider().save(
 			        name: 'text'
 			        , cssClass: 'g2 h2'
 			        , label: 'Donating to Kiva'
-			        , value: '100% of loans on Kiva go directly to entrepreneurs, making it necessary to raise tax-deductible donations for operation costs. <a href="http://www.kiva.org/about/supportus/individual#topleft" target="_blank">Make a donation</a>.'
+			        , value: '100% of every dollar you lend on Kiva goes directly toward funding loans, making it necessary to raise tax-deductible donations for operation costs. <a href="http://www.kiva.org/about/supportus/individual#topleft" target="_blank">Make a donation</a>.'
 		        }
 			    , {
 					name: 'dataMetric'
@@ -1622,7 +1623,7 @@ new SectionProvider().save(
 		        , {
 			        name: 'dataGraph'
 			        , cssClass: 'g9 h4'
-			        , link: '######'
+			        , link: 'http://www.kiva.org/about/finances'
 			        , imgUrl: '/img/2011/finances/balance-sheet.png'
 		        }
 			]
