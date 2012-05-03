@@ -7,6 +7,13 @@
 		<meta property="og:image" content="http://annualreport.kiva.org/img/2011/kiva-fb-share.png" />
 		<meta property="og:description" content="Kiva's 2011 Annual Report has landed. One year, $89M, 110K loans funded. Get an inside look at how, where and why Kiva worked in 2011, and how you can help!" />
 
+		<meta name="keywords" content="kiva, financial report, transparency, microfinance, microcredit, microloan, microlending, loan, africa, business, philanthropy, international development, projects, corporate giving, corporate philanthropy, donors, donating, donation, charity, social development, economic development, grassroots development, employee giving, poverty alleviation, economic investments, social investment, entrepreneur, entrepreneurs, social entrepreneurship, innovation"
+		<meta name="description" content="Kiva's 2011 Annual Report has landed. One year, $89M, 110K loans funded. Get an inside look at how, where and why Kiva worked in 2011, and how you can help!" />
+
+		{{! @todo this is temporary to avoid robots indexing this page once it's live but still not 100% ready }}
+		<meta name="robots" content="noindex, nofollow">
+
+
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
 		<link rel="stylesheet" href="/css/base.css" />
@@ -16,9 +23,6 @@
 		<link rel="stylesheet" href="/css/jquery.colorbox.css" />
 		<link rel="stylesheet" href="/css/flags16.css" />
 		<link rel="stylesheet" href="/css/flags32.css" />
-
-		{{! @todo this is temporary to avoid robots indexing this page once it's live but still not 100% ready }}
-		<meta name="robots" content="noindex, nofollow">
 
 		<title>{{title}}</title>
 
