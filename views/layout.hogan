@@ -4,7 +4,7 @@
 		<meta property="og:title" content="Kiva's 2011 Annual Report" />
 		<meta property="og:site_name" content="Kiva" />
 		<meta property="og:url" content="http://annualreport.kiva.org" />
-		<meta property="og:image" content="/img/2011/kiva-fb-share.png" />
+		<meta property="og:image" content="http://annualreport.kiva.org/img/2011/kiva-fb-share.png" />
 		<meta property="og:description" content="Kiva's 2011 Annual Report has landed. One year, $89M, 110K loans funded. Get an inside look at how, where and why Kiva worked in 2011, and how you can help!" />
 
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
