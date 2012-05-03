@@ -22,7 +22,7 @@ module.exports =  function (req, res) {
 	    if (process.env.NODE_ENV == 'production') {
 		    layoutData.fbShareUrl = 'http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fannualreport.kiva.org%3Futm_source%3Dfacebook.com%26utm_campaign%3Dfacebook-share%26utm_medium%3Dshare-button&t=Kiva%27s+2011+Annual+Report';
 		} else {
-			layoutData.fbShareUrl = 'http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fannualreport.kiva.org%3Futm_source%3Dfacebook.com%26utm_campaign%3Dfacebook-share%26utm_medium%3Dshare-button&t=Kiva%27s+2011+Annual+Report';
+			layoutData.fbShareUrl = 'http://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fannualreport-vm.kiva.org%3Futm_source%3Dfacebook.com%26utm_campaign%3Dfacebook-share%26utm_medium%3Dshare-button&t=Kiva%27s+2011+Annual+Report';
 		}
 
         if (req.query['raw'] == 1) {
