@@ -1428,7 +1428,7 @@ new SectionProvider().save(
 			        name: 'dataMetric'
 			        , cssClass: 'g3 h1'
 			        , value: '147,811'
-			        , label: 'Facebook Likes as of Dec 31, 2011'
+			        , label: 'Facebook Likes as of 12/31/2011'
 		        }
 			    , {
 			        name: 'dataMetric'
