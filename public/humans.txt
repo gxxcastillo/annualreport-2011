@@ -1,5 +1,5 @@
 /* TEAM */
-                       
+
 Engineering: Gabriel Castillo
 Google+: uglymunky.com/+
 Site: http://seemunkygo.com/
@@ -32,6 +32,6 @@ Kiva Employees, Volunteers, Staff - For the incredibility dedication to your wor
 
 
 /* SITE */
+
 Last update: 2012/05/01
-Components: Modernizr, jQuery, Underscore, Backbone, Hogan, Require, jQuery.isotope, jQuery.colorbox
-Tools: phpStorm, github
+Special thanks to these great open source libraries: Modernizr, jQuery, Underscore, Backbone, Hogan, Require, jQuery.isotope, jQuery.colorbox
