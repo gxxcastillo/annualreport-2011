@@ -179,7 +179,6 @@ section:first-child .sectionTitleBlock { margin-top: 10px; }
 .dataMetricBlock .caption   { position: absolute; text-align: right; top: 5px; right: 2px; width: 67px; }
 .dataMetricBlock .caption.trendingUp:before { content: '\25B2'}
 .dataMetricBlock .caption.trendingDown:before { content: '\25BC'}
-.dataMetricBlock .caption.noTrend:before { content: '_'}
 
 .spBadgeBlock .label { padding-bottom: 5px; }
 .spBadgeBlock .description { padding-bottom: 5px; }

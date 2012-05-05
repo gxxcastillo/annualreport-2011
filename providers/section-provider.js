@@ -75,12 +75,12 @@ new SectionProvider().save(
 			    {
 				    name: 'sectionTitle'
 					, cssClass: 'g9 h1'
-					, title: 'Letter from Matt and Premal'
+					, title: 'Letter from Matt & Premal'
 			    }
 				, {
 				    name: 'text'
 				    , cssClass: 'g9 h5'
-				    , value: '<p>In 2005, Kiva was founded with a mission to connect people, through lending, to alleviate poverty. Six years later, we are just beginning.</p><p>In 2011 we made significant strides, and as a result have many meaningful firsts, milestones achieved and inspiring statistics to share. We are excited to bring these to life through our first-ever Annual Report!</p><p>Kiva is a place full of entrepreneurs and their stories. As an entrepreneurial organization, we are sharing our story here. It\'s a story that includes the guidance of our board, the commitment of our staff, the contributions of volunteers and the unbridled generosity of our lenders.</p><p>Kiva\'s highest value is transparency. This means that we communicate works in progress -- both successes and failures -- along the way. So accept us in that light -- a work in progress. With your help, we can make great, great progress in the years to come.</p><p>On behalf of our borrowers, and the entire Kiva team, thank you.</p><p>Matt Flannery, Co-Founder and CEO Premal Shah, President</p>'
+				    , value: '<p>In 2005, Kiva was founded with a mission to connect people, through lending, to alleviate poverty. Six years later, we are just beginning.</p><p>In 2011, we made significant strides, and as a result have many meaningful firsts, milestones achieved and inspiring statistics to share. We are excited to bring these to life through our first-ever Annual Report!</p><p>Kiva is a place full of entrepreneurs and their stories. As an entrepreneurial organization, we are sharing our story here. It\'s a story that includes the guidance of our board, the commitment of our staff, the contributions of volunteers and the unbridled generosity of our lenders.</p><p>Kiva\'s highest value is transparency. This means that we communicate works in progress -- both successes and failures -- along the way. So accept us in that light -- a work in progress. With your help, we can make great, great progress in the years to come.</p><p>On behalf of our borrowers and the entire Kiva team, thank you.</p><p>Matt Flannery, Co-Founder and CEO<br />Premal Shah, President</p>'
 			    }
 		    ]
 	    }
@@ -1128,7 +1128,7 @@ new SectionProvider().save(
 					name: 'dataMetric'
 					, cssClass: 'g3 h1'
 					, label: 'Avg number of interns'
-					, value: '~40'
+					, value: '40'
 				}
 
 		    , {
@@ -1371,9 +1371,9 @@ new SectionProvider().save(
 					// @todo switch to the kiva.org/updates url when it gets fixed
 					//, link: 'http://www.kiva.org/updates/kiva/2011/10/21/economist-honors-kiva-ceo-and-co.html'
 					, imgUrl: '/img/2011/clinton-global-initiatives.jpg'
-					, caption: 'Oct 6, 2011'
-					, subject:  'Clinton Global Initiatives'
-					, description: 'Kiva President, Premal Shah, speaks at the 2011 Clinton Global Initiative Annual Meeting!'
+					, caption: 'June 29, 2011'
+					, subject:  'Clinton Global Initiative'
+					, description: 'Kiva, Visa and Accion USA announce a partnership to expand microfinance across the U.S. at CGI America'
 				}
 				, {
 					name: 'highlight'
