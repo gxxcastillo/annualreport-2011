@@ -8,7 +8,8 @@
 ## Local development
 
 * Start the annualreport by running `sudo node /kiva-nodejs/annualreport/app.js`
-* Browse to [annualreport-vm.kiva.org](http://annualreport-vm.kiva.org)
+* Alternatively, you can also run the annualreport with `forever .......`
+* Once the annualreport app is running, browse to [annualreport-vm.kiva.org](http://annualreport-vm.kiva.org)
 
 ### Start coding
 
@@ -21,7 +22,7 @@
 * Run the annual report app in "production" mode: `sudo env NODE_ENV=production node app.js`
 * Alternatively, use the [forever](https://github.com/nodejitsu/forever) module, `sudo forever start app.js`
 
-## Deployment
+## Deployment [@todo currently only works when logged in as "gabriel"]
 
 1. log into boss-01.kiva.org
 2. go to ~/release-scripts
@@ -37,7 +38,7 @@
 
 ## The stack
 
-### Javascript MVP / MVC Framework
+### Javascript MV* Framework
 
 [Backbone](http://documentcloud.github.com/backbone/) is a light mvc framework; more than enough to suit our needs.
 
@@ -70,7 +71,7 @@
 
 ### Event logging
 
-[Winston](https://github.com/flatiron/winston) is used to log events & errors
+[Winston](https://github.com/flatiron/winston) (together with "forever") is used to log events & errors
 
 ### Profiling
 
