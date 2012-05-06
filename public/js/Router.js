@@ -31,7 +31,8 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 		 * @params {String} sectionId
 		 */
 		, showSection: function (sectionId) {
-			this.sections.setActiveById(sectionId, 'route');
+			// @todo - We don't support navigating directly to a section, would be nice to add that in the future
+			this.sections.setActiveById(this.defaultSection, 'route');
 		}
 
 
