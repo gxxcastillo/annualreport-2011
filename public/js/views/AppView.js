@@ -10,10 +10,10 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarView', 'MainView']
 		el: 'body'
 
 		, events:  {
-			'click footer .nav-next': 'nextClickHandler'
+			'click #siteFooter .nav-next': 'nextClickHandler'
 		}
 
-		, nextClickHandler: function () {
+		, nextClickHandler: function (event) {
 			event.preventDefault();
 			this.model.get('sections').setActiveById(event.target.getAttribute('href'), 'click');
 		}
