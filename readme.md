@@ -22,7 +22,7 @@ Import default validation settings:
 
 1. Go to PhpStorm > preferences > inspections
 2. Click "import"
-3. Browse to `annualreport/kv_nodejs_validation_settings.xml`
+3. browse to `annualreport/kv_nodejs_validation_settings.xml`
 
 ## Local testing of the production environment
 
@@ -42,7 +42,6 @@ Import default validation settings:
 * /var/log/annualreport
 * /var/run/annualreport/sock
 * /var/run/annualreport/pids
-
 
 ## The stack
 
