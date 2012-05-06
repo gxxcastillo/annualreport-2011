@@ -926,7 +926,7 @@ new SectionProvider().save(
 					, cssClass: 'g3 h2'
 					, label: 'Day with the highest avg loan volume'
 					, value: '15th of each month'
-					, caption: 'Because repayments post to lenders accounts'
+					, caption: 'The day repayments post to lender accounts'
 				}
 				,{
 					name: 'dataMetric'
