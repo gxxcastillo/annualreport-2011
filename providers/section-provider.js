@@ -846,8 +846,7 @@ new SectionProvider().save(
 			          , value: '160,341'
 			      }
 				, {
-			        id: 'hehe'
-					, name: 'text'
+					name: 'text'
 					, cssClass: 'g3 h4'
 					, value: ['New York', 'San Francisco', 'Sydney', 'Los Angeles', 'London', 'Melbourne', 'Beijing']
 					, label: 'Most visits by city'
