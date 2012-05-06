@@ -7,9 +7,10 @@ module.exports =  function (req, res) {
     var layoutProvider = new LayoutProvider('defaultLayout')
 
     // Create an instance of the sectionProvider
-    , sectionProvider = new SectionProvider();
+    , sectionProvider = new SectionProvider()
 
-    var layoutData = layoutProvider.getLayoutData()
+    , layoutData = layoutProvider.getLayoutData()
+
     , sectionList = sectionProvider.getList();
 
     // Identify the first element
