@@ -16,12 +16,14 @@
 	</nav>
 
 	<div class="sidebarMisc">
-		<a href="{{fbShareUrl}}" class="button fbShare">Share on Facebook</a>
+		{{! @todo use Kiva's public API to build a donation lightbox }}
+		<a href="http://www.kiva.org/about/supportus/individual#topleft" target="_blank" class="button c2a donate">Please Donate Now</a>
+
 		<div class="aboutKiva">
 			<p>Kiva relies on support from people like you to keep innovating and reaching more borrowers across the globe.</p>
 			<p>Please consider a tax-deductible donation today.</p>
 		</div>
-		{{! @todo use Kiva's public API to build a donation lightbox }}
-		<a href="http://www.kiva.org/about/supportus/individual#topleft" target="_blank" class="button c2a donate">Please Donate Now</a>
+
+		<a href="{{fbShareUrl}}" class="button fbShare">Share on Facebook</a>
 	</div>
 </div>

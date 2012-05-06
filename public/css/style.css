@@ -24,18 +24,15 @@ noscript   { border: red 2px solid; font-size: 1.2857em; font-weight: bold; text
 
 .sidebar    { background-color: #74b446; box-shadow: -2px 0 7px #888; color: #fff; height: 100%; margin-left: 768px; min-width: 256px; position: fixed; top: 0; width: 100%;}
 
-.siteHeader
-, .primaryNav { font-family: 'Museo Slab 300', Rockwell, Georgia, serif; font-weight: 300; }
-
 .siteHeader { padding: 10px 0; text-align: center; width: 236px; }
-.siteHeader .kivaLogo a { display: inline-block; width: 103px; height: 102px; overflow: hidden; }
-.siteHeader .kivaLogo a img { min-width: 100%; min-height: 100%; }
 .siteHeader .kivaLogo,
-.siteHeader h2  { font-weight: normal; margin-bottom: 10px; }
+.siteHeader h2          { font-family: 'Museo Slab 300', Rockwell, Georgia, serif; font-weight: 300; margin-bottom: 5px; }
+.siteHeader .kivaLogo a { display: inline-block; width: 103px; height: 102px; overflow: hidden; }
+.siteHeader .kivaLogo a img { max-width: 100%; max-height: 100%; }
 .siteFooter     { background-color: #f7f7f2; height: 20px; text-align: center; }
 .siteFooter .nav-next { margin-top: 20px; width: 90%; }
 
-.primaryNav { border-top: #fff 3px solid; border-bottom: #fff 3px solid; margin-bottom: 20px; padding: 10px 0; position: relative; }
+.primaryNav { border-top: #fff 3px solid; border-bottom: #fff 3px solid; font-family: 'Museo Slab 300', Rockwell, Georgia, serif; font-weight: 300; margin-bottom: 20px; padding: 10px 0; position: relative; }
 .primaryNav .nav-prev
 , .primaryNav .nav-next { position: absolute; top: 0; right: 0; }
 .primaryNav ul          { margin-left: 2px; }
@@ -239,7 +236,9 @@ section:first-child .sectionTitleBlock { margin-top: 10px; }
 }
 
 @media only screen and (max-height: 650px) {
-	.siteHeader     { font-size: 1.2857em; }
-	.siteHeader .kivaLogo a { display: inline-block; width: 50px; height: 30px; overflow: hidden; }
+	.siteHeader     { width: 200px; }
+	.siteHeader h2  { font-size: 1.2857em; }
+	.siteHeader .kivaLogo   { margin-bottom: 0; }
+	.siteHeader .kivaLogo a { height: 51px; }
 	.primaryNav li  { font-size: 1.2857em; margin-bottom: 5px; }
 }
