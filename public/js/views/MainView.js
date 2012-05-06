@@ -89,7 +89,11 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SectionView']
 		 * @params {Object} options
 		 */
 		, initialize: function () {
-			var model = this.model;
+			var model = this.model
+
+			// %hack% See http://isotope.metafizzy.co/docs/options.html#transformsenabled & http://isotope.metafizzy.co/docs/help.html#css-transforms
+			, transformsEnabled = $.browser.mozilla ? false : undefined;
+
 			this.sections = model.get('sections');
 			this.renderAll = model.get('renderAll');
 			this.animate = model.get('animate');
@@ -109,6 +113,8 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SectionView']
 
 					// Needed to accurately get positioning of the blocks (http://isotope.metafizzy.co/docs/options.html#itempositiondataenabled)
 					, itemPositionDataEnabled: true
+
+					, transformsEnabled: transformsEnabled
 
 					// We only want animations for browsers that support css transforms
 					, animationEngine: 'css'
