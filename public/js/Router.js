@@ -115,7 +115,7 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 								sections.setActiveById(sectionId, 'waypoint');
 							}
 						}
-					}, {offset: '70%'});
+					}, {offset: '60%'});
 				}
 			});
 
