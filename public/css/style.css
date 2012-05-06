@@ -222,6 +222,8 @@ section:first-child .sectionTitleBlock { margin-top: 10px; }
 .osberg-tweet-block.textBlock .valuelist li { font-size: 2.2858em; line-height: .98em; }
 .locations-of-field-staff-block.textBlock .valuelist li { line-height: 1.2;}
 .languages-of-posted-loans-block.textBlock { line-height: 1.2; }
+.most-used-words-within-lender-profiles-block { line-height: 1.2; }
+.most-used-words-within-lender-profiles-block .subBlocks .block { height: 204px; }
 
 /* Media Queries */
 @media only screen and (max-width: 936px) {
@@ -236,9 +238,12 @@ section:first-child .sectionTitleBlock { margin-top: 10px; }
 }
 
 @media only screen and (max-height: 650px) {
+	.sidebar            { font-size: .8571em; }
 	.siteHeader     { width: 200px; }
 	.siteHeader h2  { font-size: 1.2857em; }
 	.siteHeader .kivaLogo   { margin-bottom: 0; }
 	.siteHeader .kivaLogo a { height: 51px; }
+	.primaryNav     { margin-bottom: 10px; padding: 5px 0; }
+	.primaryNav ul  { margin-bottom: 0; }
 	.primaryNav li  { font-size: 1.2857em; margin-bottom: 5px; }
 }
