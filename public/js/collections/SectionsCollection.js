@@ -88,6 +88,11 @@ define(['jquery', 'underscore', 'backbone', 'SectionModel']
 		, setActive: function (sectionModel, eventName) {
 			var activeSection = this.getActive();
 
+			// @todo better error handling
+			if (!sectionModel) {
+				throw 'Invalid section';
+			}
+
 			// Has this section already been loaded?
 			// No blocks == Not loaded
 			if (!sectionModel.has('blocks')) {

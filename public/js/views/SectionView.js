@@ -19,7 +19,9 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'BlockView']
 		 */
 		, render: function () {
 			var viewData = this.model.toJSON()
-			, $section = this.$el.attr('id', viewData.id)
+
+			// @todo in addition, use the data attribute to store the section name instead of relying soly on the elements id attribute
+			, $section = this.$el.attr('id', viewData.id + 'Section')
 			, blocks = [];
 
 			// Each section has multiple "blocks"

@@ -104,7 +104,7 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 							return;
 						}
 
-						var sectionId = event.target.parentNode.id;
+						var sectionId = event.target.parentNode.id.replace('Section', '');
 
 						if (direction === 'down') {
 							sections.setActiveById(sectionId, 'waypoint');

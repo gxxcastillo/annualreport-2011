@@ -64,7 +64,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SectionView']
 			// Since sections have no height, 'isotope' is the most reliable way to find the 'scrollTop'
 			// However, getting this value is slow and requires caching for smooth interaction
 			if (scrollTop === undefined) {
-				scrollTop = this.scrollTopCache[sectionId] = $('#' + sectionId + ' .sectionTitleBlock').data('isotope-item-position').y;
+				scrollTop = this.scrollTopCache[sectionId] = $('#' + sectionId + 'Section .sectionTitleBlock').data('isotope-item-position').y;
 			}
 
 			model.set('blockWaypointActivation', true);
