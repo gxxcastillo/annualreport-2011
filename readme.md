@@ -16,6 +16,14 @@
 * `/app.js` is what kicks everything off on the server end.
 * `/public/js/main.js` is our client-side "bootstrap" and where you will find references to all our client-side libraries.
 
+### phpStorm
+
+Import default validation settings:
+
+1. Go to PhpStorm > preferences > inspections
+2. Click "import"
+3. Browse to `annualreport/kv_nodejs_validation_settings.xml`
+
 ## Local testing of the production environment
 
 * Build a local production environment using [r.js](https://github.com/jrburke/r.js): `sudo r.js -o app.build.js`.  This will create a new folder, `/public_build`, which contains all minified javascript and a copy of the `/public` foler.
