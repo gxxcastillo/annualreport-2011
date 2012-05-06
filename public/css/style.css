@@ -141,7 +141,7 @@ noscript   { border: red 2px solid; font-size: 1.2857em; font-weight: bold; text
 .h8 { height: 620px; }
 
 /* Block */
-#letter .textBlock { font-size: 18px; }
+#letterSection .textBlock { font-size: 1.2857em; }
 
 .block  { display: inline-block; margin: 10px; overflow: hidden; position: relative; vertical-align: top; }
 .block.clickable            { cursor: pointer; }
@@ -238,7 +238,7 @@ section:first-child .sectionTitleBlock { margin-top: 10px; }
 }
 
 @media only screen and (max-height: 650px) {
-	.sidebar            { font-size: .8571em; }
+	.sidebar        { font-size: .8571em; }
 	.siteHeader     { width: 200px; }
 	.siteHeader h2  { font-size: 1.2857em; }
 	.siteHeader .kivaLogo   { margin-bottom: 0; }
