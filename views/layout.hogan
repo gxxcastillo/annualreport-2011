@@ -3,9 +3,8 @@
 	<head>
 		<meta property="og:title" content="Kiva's 2011 Annual Report" />
 		<meta property="og:site_name" content="Kiva" />
-		<meta property="og:image" content="/img/2011/fb-image.png" />
+		<meta property="og:image" content="/img/2011/kiva-fb-share.png" />
 		<meta property="og:description" content="Kiva's 2011 Annual Report has landed. One year, $89M, 110K loans funded. Get an inside look at how, where and why Kiva worked in 2011, and how you can help!" />
-		<meta property="og:image" content="/img/kiva-logo.png" />
 
 		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 
@@ -44,8 +43,8 @@
 		<noscript>This site requires javascript to be enabled</noscript>
 		{{>sidebar}}
 		{{>body}}
-		<footer class="siteFooter g9">
-				<a href="#next" class="nav-next">next</a>
+		<footer id="siteFooter" class="siteFooter g9">
+				<a href="#next" class="nav-next button">next</a>
 		</footer>
 		<script type="text/javascript">
 			{{! OG Tracking}}

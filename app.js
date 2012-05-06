@@ -1,12 +1,11 @@
 // Use express
 var express = require('express')
 
-	, fs = require('fs')
+// For file i/o
+, fs = require('fs')
 
-	, requirejs = require('requirejs')
-
-    // Instantiate our app/server
-    , app = module.exports = express.createServer();
+// Instantiate our app/server
+, app = module.exports = express.createServer();
 
 
 // General server configuration
