@@ -21,7 +21,7 @@ define(['backbone', 'SectionModel', 'SectionsCollection'], function (Backbone, S
 				, content: 'blah blah blah'
 			}
 		]
-		, defaultSection: 'borrowers'
+		, defaultSection: 'letter'
 	};
 
 	// Return the AnnualReport model
