@@ -1,6 +1,6 @@
 define(['jquery', 'underscore', 'backbone', 'dv', 'SectionView']
 , function ($, _ ,Backbone, dv, SectionView, undefined) {
-
+	'use strict';
 
 	return Backbone.View.extend({
 
@@ -89,9 +89,10 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SectionView']
 		 * @params {Object} options
 		 */
 		, initialize: function () {
-			this.sections = this.model.get('sections');
-			this.renderAll = this.model.get('renderAll');
-			this.animate = this.model.get('animate');
+			var model = this.model;
+			this.sections = model.get('sections');
+			this.renderAll = model.get('renderAll');
+			this.animate = model.get('animate');
 
 			this.scrollTopCache = [];
 
@@ -99,7 +100,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SectionView']
 			this.$htmlBody = $('html, body');
 			this.$document = $(document);
 
-			// Enable jquery.masonry?
+			// Enable jquery.isotope?
 			if (this.animate) {
 				this.$el.isotope({
 

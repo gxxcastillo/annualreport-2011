@@ -1,9 +1,9 @@
 define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarView', 'MainView']
 , function ($, _, Backbone, dv, SidebarView, MainView) {
+	'use strict';
 
-	var $footer = $('footer')
-	, waypointsOpts = {
-		offset: '80%'
+	var infiniteScrollOpts = {
+		offset: 'bottom-in-view'
 	};
 
 	return Backbone.View.extend({
@@ -21,16 +21,17 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarView', 'MainView']
 		, update: function () {
 			var nextSection = this.model.get('sections').next();
 			if (nextSection) {
-				this.$nextLink.attr('href', nextSection.id);
+				this.$nextLink.attr('href', nextSection.id).text('Next up: ' + nextSection.get('title'));
 			} else {
 				this.$nextLink.hide();
 			}
 		}
 
 		, initialize: function (options) {
-			var annualReport = this.model;
+			var annualReport = this.model
+			, $footer = this.$('#siteFooter');
 
-			this.$nextLink = this.$('footer .nav-next');
+			this.$nextLink = $('#siteFooter .nav-next');
 
 			// Update default colorbox settings
 			$.colorbox.settings.opacity = '.8';
@@ -47,25 +48,24 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SidebarView', 'MainView']
 			}
 
 			// Instantiate our SidebarView and save a reference to it
-			this.sidebarView = new SidebarView({collection: annualReport.get('sections')});
+			this.sidebarView = new SidebarView({collection: annualReport.get('sections'), fbShareUrl: annualReport.get('fbShareUrl')});
 
 			// Instantiate our MainView and save a reference to it
 			this.mainView = new MainView({model: annualReport});
 
-			/** Disable infinite scroll.
+			// @todo add programitcal toggle
+			if (false) {
+				// Infinite Scroll
+				$footer.waypoint(function () {
+					// Remove the binding
+					$footer.waypoint('remove');
 
-			// Infinite Scroll
-			$footer.waypoint(function () {
-				// Remove the binding
-				$footer.waypoint('remove');
+					annualReport.get('sections').setNextActive('waypoint');
 
-				annualReport.get('sections').setNextActive('waypoint');
-
-				// Now add it back
-				$footer.waypoint(waypointsOpts);
-			}, waypointsOpts);
-
-			**/
+					// Now add it back
+					$footer.waypoint(infiniteScrollOpts);
+				}, infiniteScrollOpts);
+			}
 		}
 	});
 });

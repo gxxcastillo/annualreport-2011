@@ -18,7 +18,7 @@ font-family: 'Museo Slab 500', Rockwell, Georgia, serif; font-weight: 500;
 
 /* Outer frame */
 body        { margin: 0 auto; width: 1004px; }
-.main       { font-family: 'Proxima Nova Regular', 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size-adjust: 0.488; font-weight: 400; min-height: 100%; }
+.main       { font-family: 'Proxima Nova Regular', 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size-adjust: 0.488; font-weight: 400; }
 
 /* @todo temporary overrides */
 /* .main       { font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif; font-size-adjust: 0.488; font-weight: 400; min-height: 100%; } */
@@ -33,7 +33,7 @@ noscript   { border: red 2px solid; font-size: 1.2857em; font-weight: bold; text
 .siteHeader .kivaLogo,
 .siteHeader h2  { font-weight: normal; margin-bottom: 10px; }
 .siteFooter     { background-color: #f7f7f2; height: 20px; text-align: center; }
-.siteFooter a   { display: block; width: 100%; height: 100%; }
+.siteFooter .nav-next { margin-top: 20px; width: 100%; }
 
 .primaryNav { border-top: #fff 3px solid; border-bottom: #fff 3px solid; margin-bottom: 20px; padding: 10px 0; position: relative; }
 .primaryNav .nav-prev

@@ -47,6 +47,7 @@ define(['backbone', 'SectionModel', 'SectionsCollection'], function (Backbone, S
 				, renderAll: annualReportData.renderAll
 				, renderer: annualReportData.renderer
 				, animate: annualReportData.animate
+				, fbShareUrl: dv.fbShareUrl
 				, defaultSection: annualReportData.defaultSection
 
 				// Create the collection from the section models

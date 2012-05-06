@@ -13,7 +13,7 @@ require.config({
 		, 'jquery.colorbox': 'lib/jquery.colorbox'  // Lightboxes. http://www.jacklmoore.com/colorbox
 		, 'jquery.waypoints': 'lib/jquery.waypoints'// Trigger scrolling events. http://imakewebthings.com/jquery-waypoints/
 
-		// The Annual Report App
+		/* The Annual Report App */
 
 		// Models
 		, 'AppModel': 'models/AppModel'
@@ -34,10 +34,11 @@ require.config({
 
 require(['order!jquery', 'underscore', 'backbone', 'dv', 'Router', 'AppModel', 'AppView', 'order!jquery.isotope', 'order!jquery.waypoints', 'order!jquery.colorbox']
 , function ($, _, Backbone, dv, Router, AppModel, AppView) {
+	'use strict';
 
 	var
 	// Model
-	appModel = new AppModel
+	appModel = new AppModel()
 
 	// View
 	, appView = new AppView({model: appModel})

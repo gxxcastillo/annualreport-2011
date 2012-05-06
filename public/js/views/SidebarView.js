@@ -87,7 +87,8 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!templates/sideb
 
 			// Insert the new content into our view's DOM
 			this.$el.html(this.template({
-				prevId: prevNextUrls.prev
+				fbShareUrl: dv.fbShareUrl // @todo %HACK%
+				, prevId: prevNextUrls.prev
 				, nextId: prevNextUrls.next
 				, navItems: navListData
 			}));
