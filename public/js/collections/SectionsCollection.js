@@ -5,6 +5,8 @@
  */
 define(['jquery', 'underscore', 'backbone', 'SectionModel']
 , function ($, _, Backbone, SectionModel, undefined) {
+	'use strict';
+
 	return Backbone.Collection.extend({
 
 		model: SectionModel
@@ -17,6 +19,10 @@ define(['jquery', 'underscore', 'backbone', 'SectionModel']
 		}
 
 
+		/**
+		 *
+		 * @params {Backbone.Model} requestModel
+		 */
 		, load: function (requestModel) {
 			var collection = this
 			, activeSection = this.getActive()
@@ -27,18 +33,21 @@ define(['jquery', 'underscore', 'backbone', 'SectionModel']
 
 			if (!activeSection) {
 				sectionsToRequest = [this.at(requestIndex)];
-			} else {
-				// Get all sections between the active section and the requested section
+			}
+			// Get all sections between the active section and the requested section
+			else {
 				activeIndex = this.indexOf(activeSection);
 				sectionsToRequest = activeIndex < requestIndex
 					? this.toArray().slice(activeIndex + 1, requestIndex + 1)
 			        : this.toArray().slice(requestIndex, activeIndex);
 			}
 
+			// We have to get fancy if we are requesting more than one section at a time
+			// @todo abstract this implementation so that the same logic could be used for sectionToRequest > 1 && sectionToRequest == 1
 			if (sectionsToRequest.length > 1) {
 				// Build an array of requested sections
 				_.each(sectionsToRequest, function (section, i) {
-					requestedSections[i] = collection.request(section.id)
+					requestedSections[i] = collection.request(section.id);
 				});
 
 				// Using apply() means each of our response arguments will be in the form "response, responseText, jqXHR"
@@ -50,11 +59,14 @@ define(['jquery', 'underscore', 'backbone', 'SectionModel']
 						collection.get(response.id).set('blocks', response.blocks);
 					});
 				});
-			} else if (sectionsToRequest.length == 1){
+			}
+			else if (sectionsToRequest.length == 1){
 				collection.request(sectionsToRequest[0].id).done(function (response) {
 					collection.get(response.id).set('blocks', response.blocks);
 				});
-			} else {
+			}
+
+			else {
 				// @todo
 			}
 		}
@@ -74,18 +86,20 @@ define(['jquery', 'underscore', 'backbone', 'SectionModel']
 		 * @returns {Backbone.Model}
 		 */
 		, setActive: function (sectionModel, eventName) {
-			var activeSection = this.getActive()
+			var activeSection = this.getActive();
 
-			// Has this section already been already loaded?
+			// Has this section already been loaded?
 			// No blocks == Not loaded
 			if (!sectionModel.has('blocks')) {
 				this.load(sectionModel);
 			}
 
+			// First, deactivate the already active section
 			if (activeSection) {
 				activeSection.set({isActive: false, lastAlteredBy: eventName});
 			}
 
+			// Now, set the new section as "active"
 			this.active = sectionModel.id;
 			sectionModel.set({isActive: true, lastAlteredBy: eventName});
 
