@@ -1,0 +1,35 @@
+{
+	"name": "kiva_annualreport"
+	, "description": "Kiva\'s Annual Report"
+	, "version": "0.4.0"
+	, "author": {
+		"name": "Gabriel Castillo"
+		, "email": "gabriel@kiva.org"
+	}
+	, "contributors": [
+		{
+			"name": "Amit Pansare"
+			, "email": "amit@kiva.org"
+		}
+		, {
+			"name": "Sid Khoshoo"
+			, "email": "sid@kiva.org"
+		}
+	]
+	, "repository": {
+		"type": "git"
+		, "url": "git://github.com/kiva/annualreport.git"
+    }
+	, "engines": {
+        "node": "0.6.14"
+    }
+	, "dependencies": {
+		"forever": "0.9.1"
+		, "requirejs": "1.0.8"
+	}
+	, "bundleDependencies": {
+		"express": "2.5.9"
+		, "hogan.js": "2.0.0"
+		, "requirejs": "1.0.8"
+	}
+}
