@@ -1,0 +1,83 @@
+/*
+ * Web Fonts from fontspring.com
+ *
+ * All OpenType features and all extended glyphs have been removed.
+ * Fully installable fonts can be purchased at http://www.fontspring.com
+ *
+ * The fonts included in this stylesheet are subject to the End User License you purchased
+ * from Fontspring. The fonts are protected under domestic and international trademark and
+ * copyright law. You are prohibited from modifying, reverse engineering, duplicating, or
+ * distributing this font software.
+ *
+ * (c) 2010-2011 Fontspring
+ *
+ *
+ *
+ *
+ * The fonts included are copyrighted by the vendor listed below.
+ *
+ * Vendor:      exljbris
+ * License URL: http://www.fontspring.com/fflicense/exljbris
+ *
+ *
+ */
+
+@font-face {
+    font-family: 'Museo Slab 300';
+    src: url('http://l3-1.kiva.org/r1104151/fonts/Museo_Slab_300.eot');
+    src: url('http://l3-1.kiva.org/r1104151/fonts/Museo_Slab_300.eot?iefix') format('eot')
+         ,url('http://l3-1.kiva.org/r1104151/fonts/Museo_Slab_300.woff') format('woff')
+         ,url('http://l3-1.kiva.org/r1104151/fonts/Museo_Slab_300.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Museo Slab 500';
+    src: url('http://l3-2.kiva.org/r1104151/fonts/Museo_Slab_500.eot');
+    src: url('http://l3-2.kiva.org/r1104151/fonts/Museo_Slab_500.eot?iefix') format('eot')
+         ,url('http://l3-2.kiva.org/r1104151/fonts/Museo_Slab_500.woff') format('woff')
+         ,url('http://l3-2.kiva.org/r1104151/fonts/Museo_Slab_500.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+/*
+ *
+ * The fonts included are copyrighted by the vendor listed below.
+ *
+ * Vendor:      Mark Simonson Studio
+ * License URL: http://www.fontspring.com/fflicense/mark-simonson-studio
+ *
+ *
+ */
+
+@font-face {
+    font-family: 'Proxima Nova Light';
+    src: url('http://l3-1.kiva.org/r1104151/fonts/ProximaNova-Light.eot');
+    src: url('http://l3-1.kiva.org/r1104151/fonts/ProximaNova-Light.eot?iefix') format('eot')
+         ,url('http://l3-1.kiva.org/r1104151/fonts/ProximaNova-Light.woff') format('woff')
+         ,url('http://l3-1.kiva.org/r1104151/fonts/ProximaNova-Light.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Proxima Nova Regular';
+    src: url('http://l3-2.kiva.org/r1104151/fonts/ProximaNova-Reg.eot');
+    src: url('http://l3-2.kiva.org/r1104151/fonts/ProximaNova-Reg.eot?iefix') format('eot')
+         ,url('http://l3-2.kiva.org/r1104151/fonts/ProximaNova-Reg.woff') format('woff')
+         ,url('http://l3-2.kiva.org/r1104151/fonts/ProximaNova-Reg.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Proxima Nova Semibold';
+    src: url('http://l3-1.kiva.org/r1104151/fonts/ProximaNova-Sbold.eot');
+    src: url('http://l3-1.kiva.org/r1104151/fonts/ProximaNova-Sbold.eot?iefix') format('eot')
+         ,url('http://l3-1.kiva.org/r1104151/fonts/ProximaNova-Sbold.woff') format('woff')
+         ,url('http://l3-1.kiva.org/r1104151/fonts/ProximaNova-Sbold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}

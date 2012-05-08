@@ -45,6 +45,7 @@ LayoutProvider.prototype = {
 		, animate: true
 		, renderAll: false
 		, renderer: 'client'
+		, isProdEnv: process.env.NODE_ENV == 'production'
 		, meta: {
 
 		}
