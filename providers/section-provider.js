@@ -1538,7 +1538,7 @@ new SectionProvider().save(
 			    , {
 			        name: 'dataMetric'
 			        , cssClass: 'g6 h1'
-			        , label: 'Kiva\'s online revinue/total expenses'
+			        , label: 'Kiva\'s online revenue/total expenses'
 			        , value: '68% Self-sufficiency'
 		        }
 				, {
@@ -1564,7 +1564,7 @@ new SectionProvider().save(
 					, imgUrl: '/img/2011/anonymous-donor.jpg'
 					, caption: 'Largest individual donor'
 					, subject:  '250k'
-					, description: 'Annoyomous'
+					, description: 'Anonymous'
 				}
 				, {
 					name: 'highlight'
