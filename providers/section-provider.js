@@ -1598,11 +1598,15 @@ new SectionProvider().save(
 					, label: 'Expenses by department'
 					, dataset: [
 						{
-						    label: 'Engineering'
-						    , value: '25%'
+						    label: 'Product & Engineering'
+						    , value: '38%'
 						}
 						, {
-						    label: 'Portfolio Team'
+						    label: 'Partnerships'
+						    , value: '26%'
+						}
+						, {
+						    label: 'Operations'
 						    , value: '18%'
 						}
 						, {
@@ -1610,12 +1614,8 @@ new SectionProvider().save(
 						    , value: '10%'
 						}
 						, {
-						    label: 'Product'
-						    , value: '8%'
-						}
-						, {
 							label: 'Other'
-						    , value: '39%'
+						    , value: '8%'
 						}
 					]
 				}
