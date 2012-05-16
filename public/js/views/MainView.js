@@ -114,6 +114,7 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'SectionView']
 					// Needed to accurately get positioning of the blocks (http://isotope.metafizzy.co/docs/options.html#itempositiondataenabled)
 					, itemPositionDataEnabled: true
 
+					// Transforms can cause problems, use this to toggle them on/off (http://isotope.metafizzy.co/docs/help.html#css-transforms)
 					, transformsEnabled: transformsEnabled
 
 					// We only want animations for browsers that support css transforms
