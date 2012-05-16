@@ -1195,7 +1195,6 @@ new SectionProvider().save(
 					, {
 						name: 'highlight'
 						, cssClass: 'g6 h4'
-						, label: 'Photo Hightlights'
 						, imgUrl: '/img/2011/photo-highlights.jpg'
 				        , lightbox: [
 					        '/img/2011/photo-highlights/137025_AdamCohn_1of3.jpg'
@@ -1213,7 +1212,7 @@ new SectionProvider().save(
 						    , '/img/2011/photo-highlights/GabeFrancis_1679.jpg'
 						    , '/img/2011/photo-highlights/GabeFrancis_1697.jpg'
 				        ]
-						, subject:  'Photo Hightlights'
+						, subject:  'Photo Highlights'
 						, description: 'Best Kiva photos from 2011'
 					}
 					, {
