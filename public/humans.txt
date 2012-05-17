@@ -33,5 +33,17 @@ Kiva Employees, Volunteers, Staff - For the incredibility dedication to your wor
 
 /* SITE */
 
-Last update: 2012/05/01
-Special thanks to these great open source libraries: Modernizr, jQuery, Underscore, Backbone, Hogan, Require, jQuery.isotope, jQuery.colorbox
+Special thanks to these great projects:
+NodeJs
+Express
+Forever
+Modernizr
+jQuery
+Underscore
+Backbone
+Hogan
+Require
+jQuery.isotope
+jQuery.colorbox
+
+Last update: 2012/05/17
