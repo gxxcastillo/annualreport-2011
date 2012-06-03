@@ -9,6 +9,7 @@
  *
  */
 define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv) {
+	'use strict';
 
 	/**
 	 * Backbone.Router provides methods for routing client-side pages, and connecting them to actions and events.
@@ -22,6 +23,20 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 			, '/': 'home'
 			, ':section': 'showSection'
 			, '*action': 'defaultAction'
+		}
+
+
+		/**
+		 * Override default Backbone.Router.prototype.navigate().
+		 */
+		, navigate: function (fragment, options) {
+
+			// No need to display the path when we are "navigating" to the defaultSection
+			if (fragment == this.defaultSection) {
+				fragment = '';
+			}
+
+			Backbone.history.navigate(fragment, options);
 		}
 
 
@@ -133,11 +148,7 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 				if (value === true) {
 
 					// Update the url
-					if (sectionModel.id == router.defaultSection) {
-						router.navigate('');
-					} else {
-						router.navigate(sectionModel.id);
-					}
+					router.navigate(sectionModel.id);
 
 					// Update the view
 					appView.update();
