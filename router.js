@@ -8,8 +8,8 @@
  *
  */
 
-var app = require('../app');
-
-// Explicit routing
-app.get('/', require('./index'));
-app.get('/:section', require('./section'));
+module.exports = function (app) {
+	// Explicit routing
+	app.get('/', require('./routes/index'));
+	app.get('/:section', require('./routes/section'));
+};

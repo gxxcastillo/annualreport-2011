@@ -58,7 +58,7 @@ app.configure('production', function () {
 
 
 // Instatiate the routes (must be done after express.favicon() to avoid routing conflicts)
-require('./routes/router');
+require('./router')(app);
 
 
 app.listen(80);
