@@ -31,11 +31,9 @@ module.exports =  function (req, res) {
 
             res.send(sectionProvider.findById(sectionName));
 	        return;
-        } else {
-            // @todo, this is temporary until we figure out how to serve the ":section" view from the server
-            res.render('index', layoutData);
         }
     }
 
+	// Render "index" as the default when sectionName is not provided OR raw != 1
     res.render('index', layoutData);
 };
