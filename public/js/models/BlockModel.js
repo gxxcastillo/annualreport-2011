@@ -3,7 +3,7 @@
  * http://documentcloud.github.com/backbone/#Model
  */
 
-define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv) {
+define(['jquery', 'underscore', 'backbone'], function ($, _, Backbone) {
 
 	return Backbone.Model.extend({
 		initialize: function (blockData) {
