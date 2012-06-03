@@ -18,11 +18,18 @@
 
 ### phpStorm
 
-Import default validation settings:
+#### Import default validation settings:
 
 1. Go to PhpStorm > preferences > inspections
 2. Click "import"
 3. browse to `annualreport/kv_nodejs_validation_settings.xml`
+
+#### Install phpStorm - handlebars plugin
+
+This plugin makes it so phpStorm knows how to recognize and parse "mustache" style templates
+
+1. IDE Settings -> Plugins -> Browse repositories -> Search for "handlebars"
+2. Install & Restart phpStorm
 
 ## Local testing of the production environment
 
