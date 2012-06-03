@@ -33,6 +33,10 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 		, showSection: function (sectionId) {
 			// @todo - We don't support navigating directly to a section, would be nice to add that in the future
 			this.sections.setActiveById(this.defaultSection, 'route');
+
+			// @todo - %hack% load the very next section by default (doing this in the absence of autoscrolling when content does not fill the page)
+			// This is buggy as it doesn't update the "next" button
+			//this.sections.load(this.sections.next());
 		}
 
 
@@ -128,8 +132,12 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 				// We only care about the element that is being set active
 				if (value === true) {
 
-					// Change the url
-					router.navigate(sectionModel.id);
+					// Update the url
+					if (sectionModel.id == router.defaultSection) {
+						router.navigate('');
+					} else {
+						router.navigate(sectionModel.id);
+					}
 
 					// Update the view
 					appView.update();
@@ -151,7 +159,6 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 			$(document).keyup(function (e) {
 				// Avoid collision with lightbox left/right key events
 				if (appModel.get('lightboxIsOpen')) {
-					console.log('open');
 					return;
 				}
 
