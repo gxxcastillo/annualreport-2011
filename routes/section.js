@@ -15,7 +15,7 @@ module.exports =  function (req, res) {
 
     if (sectionName) {
 
-        // Identify the last element
+        // Identify the first element
         sectionList[0].first = true;
         layoutData.sectionList = sectionList;
 
