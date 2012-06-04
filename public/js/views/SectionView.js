@@ -6,6 +6,7 @@
  */
 define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'BlockView']
 , function ($, _ , Backbone, dv, Hogan, BlockView) {
+	'use strict';
 
 	return Backbone.View.extend({
 
