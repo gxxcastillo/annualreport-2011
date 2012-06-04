@@ -22,6 +22,7 @@ require.config({
 
 		// Collections
 		, 'SectionsCollection': 'collections/SectionsCollection'
+		, 'BlocksCollection': 'collections/BlocksCollection'
 
 		// Views
 		, 'AppView': 'views/AppView'

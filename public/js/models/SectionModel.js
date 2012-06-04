@@ -6,7 +6,8 @@
  * It holds the data to be used in the view and it keeps track of its state
  */
 
-define(['jquery', 'underscore', 'backbone', 'dv', 'BlockModel'], function ($, _, Backbone, dv, BlockModel) {
+define(['jquery', 'underscore', 'backbone', 'dv', 'BlockModel', 'BlocksCollection'], function ($, _, Backbone, dv, BlockModel, BlocksCollection) {
+	'use strict';
 
 	return Backbone.Model.extend({
 
@@ -39,22 +40,31 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'BlockModel'], function ($, _,
 		}
 
 
+		/**
+		 * Sets the "blocks" collection on the sectionModel
+		 *
+		 * @params {Array} blocksArray
+		 */
+		, setBlocks: function (blocksArray) {
+			var blocks = [];
+
+			// Build an array of Block models for all the blocks in this section
+			_.each(blocksArray, function (blockData, index) {
+				blocks[index] = new BlockModel(blockData);
+			});
+
+			// Create the collection and store it
+			this.set('blocks', new BlocksCollection(blocks));
+		}
+
+
 		, initialize: function (sectionData) {
-			var blocksArray = sectionData.blocks
-			, blocks;
+			var blocksArray = sectionData.blocks;
 
 			// Only initialze the "blocks" attribute if we have blocks to initialize it with
 			// (Currently, not being used.  Used only when we load all block data on initial page load instead of via an xhr request)
-			// @todo should be using a collection instead of a plane js array
 			if (blocksArray && blocksArray.length) {
-				blocks = [];
-
-				// Build an array of all the blocks for this section
-				_.each(blocksArray, function (blockData, index) {
-					blocks[index] = new BlockModel(blockData);
-				});
-
-				this.set('blocks', blocks);
+				this.setBlocks(blocksArray);
 			}
 
 
