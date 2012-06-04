@@ -56,13 +56,13 @@ define(['jquery', 'underscore', 'backbone', 'SectionModel']
 					// Iterate over each response argument and "load" the blocks into their corresponding Model
 					_.each(arguments, function (args) {
 						var response = args[0];
-						collection.get(response.id).set('blocks', response.blocks);
+						collection.get(response.id).setBlocks(response.blocks);
 					});
 				});
 			}
 			else if (sectionsToRequest.length == 1){
 				collection.request(sectionsToRequest[0].id).done(function (response) {
-					collection.get(response.id).set('blocks', response.blocks);
+					collection.get(response.id).setBlocks(response.blocks);
 				});
 			}
 
@@ -83,6 +83,7 @@ define(['jquery', 'underscore', 'backbone', 'SectionModel']
 
 		/**
 		 * @params {Backbone.Model} sectionModel
+		 * @params {String} eventName
 		 * @returns {Backbone.Model}
 		 */
 		, setActive: function (sectionModel, eventName) {
@@ -114,6 +115,7 @@ define(['jquery', 'underscore', 'backbone', 'SectionModel']
 
 		/**
 		 * @params {String} sectionId
+		 * @params {String} eventName
 		 * @returns {Backbone.Model}
 		 */
 		, setActiveById: function (sectionId, eventName) {

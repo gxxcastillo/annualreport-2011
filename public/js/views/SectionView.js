@@ -18,16 +18,13 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'BlockView']
 		 * @todo This structure of this app falls apart when it comes down to the BlockViews & BlockModels. Need to rethink it.
 		 */
 		, render: function () {
-			var viewData = this.model.toJSON()
-
-			// @todo in addition, use the data attribute to store the section name instead of relying soly on the elements id attribute
-			, $section = this.$el.attr('id', viewData.id + 'Section')
+			// @todo in addition, use the data attribute to store the section name instead of relying solely on the elements id attribute
+			var $section = this.$el.attr('id', this.model.get('id') + 'Section')
 			, blocks = [];
 
-			// Each section has multiple "blocks"
-			_.each(viewData.blocks, function (block) {
+			_.each(this.model.get('blocks').models, function (blockModel, i) {
 				// Instantiate the new block view and add it to our array of blocks
-				blocks.push((new BlockView(block)).el);
+				blocks.push((new BlockView({model: blockModel})).el);
 			});
 
 			// Append the array of blocks to the section's DOM

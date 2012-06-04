@@ -1,6 +1,6 @@
 // @todo Split the BlockView module into a bunch of smaller modules that inherit from BlockView.
-define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!templates/blockView.dataMetric.hogan', 'text!templates/blockView.sectionTitle.hogan', 'text!templates/blockView.text.hogan', 'text!templates/blockView.profile.hogan', 'text!templates/blockView.highlight.hogan', 'text!templates/blockView.dataGraph.hogan', 'text!templates/blockView.percentageGraph.hogan', 'text!templates/blockView.map.hogan', 'text!templates/blockView.wrapper.hogan', 'text!templates/blockView.spBadge.hogan']
-, function ($, _, Backbone, dv, hogan, dataMetricTpl, sectionTitleTpl, textTpl, profileTpl, highlightTpl, dataGraphTpl, percentageGraphTpl, mapTpl, wrapperTpl, spBadgeTpl) {
+define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'BlockModel', 'text!templates/blockView.dataMetric.hogan', 'text!templates/blockView.sectionTitle.hogan', 'text!templates/blockView.text.hogan', 'text!templates/blockView.profile.hogan', 'text!templates/blockView.highlight.hogan', 'text!templates/blockView.dataGraph.hogan', 'text!templates/blockView.percentageGraph.hogan', 'text!templates/blockView.map.hogan', 'text!templates/blockView.wrapper.hogan', 'text!templates/blockView.spBadge.hogan']
+, function ($, _, Backbone, dv, hogan, BlockModel, dataMetricTpl, sectionTitleTpl, textTpl, profileTpl, highlightTpl, dataGraphTpl, percentageGraphTpl, mapTpl, wrapperTpl, spBadgeTpl) {
 
 	function getSectionTitleData(viewData) {
 		return {
@@ -248,14 +248,15 @@ define(['jquery', 'underscore', 'backbone', 'dv', 'hogan', 'text!templates/block
 			if (viewData.blocks) {
 				var blocks = [];
 
-				_.each(viewData.blocks, function (block) {
-					blocks.push((new BlockView(block)).el);
+				_.each(viewData.blocks, function (blockData) {
+					blocks.push((new BlockView({model: new BlockModel(blockData)})).el);
 				});
 				this.$el.find('.subBlocks').append(blocks);
 			}
 		}
 
-		, initialize: function (viewData) {
+		, initialize: function () {
+			var viewData = this.model.toJSON();
 
 			switch (viewData.name) {
 				case 'sectionTitle':
