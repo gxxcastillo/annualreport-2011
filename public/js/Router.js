@@ -41,13 +41,19 @@ define(['jquery', 'underscore', 'backbone', 'dv'], function ($, _, Backbone, dv)
 
 
 		/**
-		 * Tells the sections collection to update.  In turn, the controller will set appropriate section as "active"
+		 * Handle initial page request
 		 *
 		 * @params {String} sectionId
 		 */
 		, showSection: function (sectionId) {
-			// @todo - We don't support navigating directly to a section, would be nice to add that in the future
+
+			// First we load the default section
 			this.sections.setActiveById(this.defaultSection, 'route');
+
+			// Then, we go to the section that was actually requested
+			if (this.defaultSection != sectionId) {
+				this.sections.setActiveById(sectionId, 'route');
+			}
 
 			// @todo - %hack% load the very next section by default (doing this in the absence of autoscrolling when content does not fill the page)
 			// This is buggy as it doesn't update the "next" button
