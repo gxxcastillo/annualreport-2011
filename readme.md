@@ -2,7 +2,7 @@
 
 ## Installation
 
-* Make sure you have an updated copy of Kiva's VirtualBox-NodeJs-Ubuntu client.
+* ~~Make sure you have an updated copy of Kiva's VirtualBox-NodeJs-Ubuntu client.~~ Talk to Gabriel about getting a copy of his local development environment.
 * Clone the [annualreport app](https://github.com/kiva/annualreport) into `/kiva-nodejs/annualreport`
 
 ## Local development
