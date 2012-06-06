@@ -46,4 +46,4 @@ Require
 jQuery.isotope
 jQuery.colorbox
 
-Last update: 2012/05/17
+Last update: 2012/06/06
